@@ -3,7 +3,7 @@ module testbench_majority #(parameter m = 8);
 reg [m - 1:0] stim_x;
 wire mon_y;
 
-majority tb_majority(
+majority testbench(
 	.x(stim_x),
 	.y(mon_y)
 );
