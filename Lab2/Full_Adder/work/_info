@@ -1,0 +1,118 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 dC:/questasim64_10.2c/examples
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+T_opt
+Z1 VlXeEKU4<9V7c7>I@TX4<W3
+Z2 04 10 4 work Full_Adder fast 0
+Z3 =1-586c2533cfc0-65f91fcc-318-68a4
+Z4 o-quiet -auto_acc_if_foreign -work work
+Z5 n@_opt
+Z6 OL;O;10.2c;57
+Z7 dC:/questasim64_10.2c/examples
+Z8 !s110 1710825421
+T_opt1
+Z9 Vf?RWKf[8MM`>Z<5aVF2H22
+Z10 04 20 4 work testbench_full_adder fast 0
+Z11 =1-586c2533cfc0-65f9310a-1ad-5ca0
+Z12 o-quiet -auto_acc_if_foreign -work work +acc
+Z13 n@_opt1
+R6
+R7
+Z14 !s110 1710829834
+T_opt2
+Z15 VoZJ1J>eRcig?zzEReXz9@1
+Z16 04 10 4 work full_adder fast 0
+Z17 =1-586c2533cfc0-65f926f9-16d-55a0
+R4
+Z18 n@_opt2
+R6
+R7
+Z19 !s110 1710827257
+vfull_adder
+Z20 IKEh9>0EnL<>C;9H3h>Ykc2
+Z21 V`JN@9S9cnhjKRR_L]QIcM3
+Z22 dD:/Verilog project/Lab2/Full_Adder
+Z23 w1710825535
+Z24 8D:/Verilog project/Lab2/Full_Adder/full_adder.v
+Z25 FD:/Verilog project/Lab2/Full_Adder/full_adder.v
+L0 1
+Z26 OL;L;10.2c;57
+r1
+31
+Z27 !s90 -reportprogress|300|-work|work|D:/Verilog project/Lab2/Full_Adder/full_adder.v|
+Z28 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z29 !s107 D:/Verilog project/Lab2/Full_Adder/full_adder.v|
+Z30 !s100 O7GV4e7O<TPB7O]aazU=V3
+Z31 !s110 1710826040
+Z32 !s108 1710826040.172000
+!i10b 1
+!s85 0
+!i111 0
+vFull_Adder
+Z33 !s100 mjO745:0oa@3jSA:mPzAT2
+Z34 IcT_>G5M;7_Y54;ii>oT5:0
+R21
+R22
+Z35 w1710829203
+R24
+R25
+L0 1
+R26
+r1
+31
+R27
+R28
+Z36 n@full_@adder
+Z37 !s110 1710830616
+!i10b 1
+!s85 0
+Z38 !s108 1710830616.830000
+R29
+!i111 0
+vfull_dder
+Z39 IGifCE27`27S@jPE2I3=jh3
+R21
+R22
+Z40 w1710826244
+R24
+R25
+L0 1
+R26
+r1
+31
+R27
+R28
+R29
+Z41 !s100 ]k=zS>baleTa;ln6MCB;42
+Z42 !s110 1710828794
+Z43 !s108 1710828794.706000
+!i10b 1
+!s85 0
+!i111 0
+vtestbench_full_adder
+!s110 1710830621
+!i10b 1
+Z44 !s100 ?LU9ElaYPSWLiUZRemDgK1
+Z45 IH[]9nXRA]MYa?_7k5<_IK2
+R21
+R22
+Z46 w1710829828
+Z47 8D:/Verilog project/Lab2/Full_Adder/testbench_full_adder.v
+Z48 FD:/Verilog project/Lab2/Full_Adder/testbench_full_adder.v
+L0 1
+R26
+r1
+!s85 0
+31
+!s108 1710830621.971000
+!s107 D:/Verilog project/Lab2/Full_Adder/testbench_full_adder.v|
+Z49 !s90 -reportprogress|300|-work|work|D:/Verilog project/Lab2/Full_Adder/testbench_full_adder.v|
+!i111 0
+R28

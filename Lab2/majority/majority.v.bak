@@ -1,0 +1,17 @@
+module majority #(parameter n = 8)(
+    input [n-1:0] x,
+    output reg y // 'y' ???c khai báo là 'reg' vì giá tr? c?a nó ???c gán trong 'always @ (posedge clk)'
+);
+
+reg [$clog2(n)-1:0] i;
+reg [n-1:0] cnt; // C?n ?? bit ?? ??m ??n 'n'
+
+always @ (x) begin
+    cnt = 0; // Kh?i t?o 'cnt' m?i khi 'x' thay ??i
+    for(i = 0; i < n; i = i + 1) begin
+        if(x[i]) cnt = cnt + 1;
+    end
+    y = (cnt > n/2) ? 1'b1 : 1'b0; // Gán giá tr? cho 'y' d?a trên s? l??ng bit '1'
+end
+
+endmodule
