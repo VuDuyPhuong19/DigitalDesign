@@ -1,0 +1,26 @@
+|majority
+x[0] => Add0.IN2
+x[0] => cnt.DATAA
+x[1] => cnt.OUTPUTSELECT
+x[1] => cnt.OUTPUTSELECT
+x[2] => cnt.OUTPUTSELECT
+x[2] => cnt.OUTPUTSELECT
+x[2] => cnt.OUTPUTSELECT
+x[3] => cnt.OUTPUTSELECT
+x[3] => cnt.OUTPUTSELECT
+x[3] => cnt.OUTPUTSELECT
+x[4] => cnt.OUTPUTSELECT
+x[4] => cnt.OUTPUTSELECT
+x[4] => cnt.OUTPUTSELECT
+x[5] => cnt.OUTPUTSELECT
+x[5] => cnt.OUTPUTSELECT
+x[5] => cnt.OUTPUTSELECT
+x[6] => cnt.OUTPUTSELECT
+x[6] => cnt.OUTPUTSELECT
+x[6] => cnt.OUTPUTSELECT
+x[7] => cnt[2].OUTPUTSELECT
+x[7] => cnt[1].OUTPUTSELECT
+x[7] => cnt[0].OUTPUTSELECT
+y <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
