@@ -1,0 +1,177 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 dC:/TKS/LAB2
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+T_opt
+!s110 1711016439
+VCh8bJ<ofTfRaKd^[_Ed3X0
+04 19 4 work test_bench_mojority fast 0
+=1-c025a509b21c-65fc09f7-23-2704
+Z1 o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+Z2 OL;O;10.2c;57
+T_opt1
+VecemiiZ6L]1od4;G>mi9k1
+04 16 4 work test_bench_add_4 fast 0
+=1-c025a509b21c-65faf296-359-740
+R1
+n@_opt1
+R2
+Z3 dC:/TKS/LAB2
+!s110 1710944918
+T_opt2
+V7Y66E3<odoEBOVP]3Fi]62
+04 10 4 work Full_Adder fast 0
+=1-c025a509b21c-65faf110-2db-30e0
+R1
+n@_opt2
+R2
+R3
+!s110 1710944528
+vadd_4_bit
+Z4 !s110 1710944910
+IcXLUXHR[`=>zbW=C6l?Oc3
+Z5 V`JN@9S9cnhjKRR_L]QIcM3
+R3
+Z6 w1710944910
+Z7 8C:/TKS/LAB2/Full_Adder.v
+Z8 FC:/TKS/LAB2/Full_Adder.v
+L0 10
+Z9 OL;L;10.2c;57
+r1
+31
+Z10 !s108 1710944910.695000
+Z11 !s107 C:/TKS/LAB2/Full_Adder.v|
+Z12 !s90 -reportprogress|300|-work|work|C:/TKS/LAB2/Full_Adder.v|
+Z13 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s100 hh?>0W=Oa93FF5MPRYIm:0
+!i10b 1
+!s85 0
+!i111 0
+vadder
+Z14 !s110 1710925657
+IfL04Z=V?YNeU63dn0003A3
+R5
+R3
+Z15 w1710925657
+Z16 8C:/TKS/LAB2/Adder.v
+Z17 FC:/TKS/LAB2/Adder.v
+L0 1
+R9
+r1
+31
+Z18 !s108 1710925657.202000
+Z19 !s107 C:/TKS/LAB2/Adder.v|
+Z20 !s90 -reportprogress|300|-work|work|C:/TKS/LAB2/Adder.v|
+R13
+!s100 2^=AIz2ThV7iV[`GMkK`O2
+!i10b 1
+!s85 0
+!i111 0
+vFull_Adder
+R4
+IB1QZhC[fcXH`VD5g[mMgc0
+R5
+R3
+R6
+R7
+R8
+L0 1
+R9
+r1
+31
+R10
+R11
+R12
+R13
+n@full_@adder
+!s100 JWMP:>578_F9fdegoz8df3
+!i10b 1
+!s85 0
+!i111 0
+vmajority
+Z21 !s110 1711016434
+IKCbPaBTl>blDXhLWDOY^J2
+R5
+R3
+Z22 w1711016432
+Z23 8C:/TKS/LAB2/majority.v
+Z24 FC:/TKS/LAB2/majority.v
+L0 1
+R9
+r1
+31
+Z25 !s108 1711016434.683000
+Z26 !s107 C:/TKS/LAB2/majority.v|
+Z27 !s90 -reportprogress|300|-work|work|C:/TKS/LAB2/majority.v|
+R13
+!s100 >UcSe68XFJ1nHW>hmBODR1
+!i10b 1
+!s85 0
+!i111 0
+vtest_bench_add_4
+R4
+I]SZb6^_4Ylk3FcoPd:UY73
+R5
+R3
+R6
+R7
+R8
+L0 39
+R9
+r1
+31
+R10
+R11
+R12
+R13
+!s100 RXJiJ6I3H7Cb7]LUkNRYl2
+!i10b 1
+!s85 0
+!i111 0
+vtest_bench_mojority
+R21
+IoWZY5Ta<0cU>?KYK7kFA53
+R5
+R3
+R22
+R23
+R24
+L0 20
+R9
+r1
+31
+R25
+R26
+R27
+R13
+!s100 6^@`@c0>NW2Le2G_EF[aX0
+!i10b 1
+!s85 0
+!i111 0
+vtestbench_adder
+R14
+I[l>bcV5AAGGUnc?iFL>j02
+R5
+R3
+R15
+R16
+R17
+L0 8
+R9
+r1
+31
+R18
+R19
+R20
+R13
+!s100 aG0XRRSPa@V09h3:HVZeV0
+!i10b 1
+!s85 0
+!i111 0

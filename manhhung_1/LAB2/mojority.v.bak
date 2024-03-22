@@ -1,0 +1,16 @@
+module majority(
+	input[7:0] a,
+	output b
+);
+#parameter(n=8);
+reg i,cnt;
+always @(x)
+begin
+	for(i=0;i<n;i++)
+		begin
+			if(a[i]) cnt=cnt+1;
+			else cnt=cnt;
+		end
+end
+assign y=(cnt>=n/2)?1:0;
+endmoudle

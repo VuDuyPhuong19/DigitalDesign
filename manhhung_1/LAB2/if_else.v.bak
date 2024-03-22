@@ -1,0 +1,16 @@
+module if_else(
+	input [7,0] a,b,
+	input s1,s2,
+	output reg [7,0] y
+);
+always@(a or b or s1 or s2)
+begin 
+	if({s1,s2}==2'b00) begin
+		y=a*b;
+	end 
+	else begin
+	y=a-b;
+	end
+end
+	
+	

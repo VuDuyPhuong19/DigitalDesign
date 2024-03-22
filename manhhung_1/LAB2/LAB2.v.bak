@@ -1,0 +1,5 @@
+module ALU(
+	input [7:0] a,b;
+	input s1,s2;
+	output [7:0] y;
+always@(a or b or s1 or s2)

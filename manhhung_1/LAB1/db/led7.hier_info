@@ -1,0 +1,103 @@
+|top_module
+in_switch[0] => in_switch[0].IN1
+in_switch[1] => in_switch[1].IN1
+in_switch[2] => in_switch[2].IN1
+in_switch[3] => in_switch[3].IN1
+in_switch[4] => in_switch[4].IN1
+in_switch[5] => in_switch[5].IN1
+in_switch[6] => in_switch[6].IN1
+in_switch[7] => in_switch[7].IN1
+in_switch[8] => in_switch[8].IN1
+in_switch[9] => in_switch[9].IN1
+in_switch[10] => in_switch[10].IN1
+in_switch[11] => in_switch[11].IN1
+in_switch[12] => in_switch[12].IN1
+in_switch[13] => in_switch[13].IN1
+in_switch[14] => in_switch[14].IN1
+in_switch[15] => in_switch[15].IN1
+out_led[0] << led7:led_1.port1
+out_led[1] << led7:led_1.port1
+out_led[2] << led7:led_1.port1
+out_led[3] << led7:led_1.port1
+out_led[4] << led7:led_1.port1
+out_led[5] << led7:led_1.port1
+out_led[6] << led7:led_1.port1
+out_led[7] << led7:led_2.port1
+out_led[8] << led7:led_2.port1
+out_led[9] << led7:led_2.port1
+out_led[10] << led7:led_2.port1
+out_led[11] << led7:led_2.port1
+out_led[12] << led7:led_2.port1
+out_led[13] << led7:led_2.port1
+out_led[14] << led7:led_3.port1
+out_led[15] << led7:led_3.port1
+out_led[16] << led7:led_3.port1
+out_led[17] << led7:led_3.port1
+out_led[18] << led7:led_3.port1
+out_led[19] << led7:led_3.port1
+out_led[20] << led7:led_3.port1
+out_led[21] << led7:led_4.port1
+out_led[22] << led7:led_4.port1
+out_led[23] << led7:led_4.port1
+out_led[24] << led7:led_4.port1
+out_led[25] << led7:led_4.port1
+out_led[26] << led7:led_4.port1
+out_led[27] << led7:led_4.port1
+
+
+|top_module|led7:led_1
+in_switch[0] => Decoder0.IN3
+in_switch[1] => Decoder0.IN2
+in_switch[2] => Decoder0.IN1
+in_switch[3] => Decoder0.IN0
+out_led[0] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+out_led[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+out_led[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+out_led[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+out_led[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out_led[5] <= out_led.DB_MAX_OUTPUT_PORT_TYPE
+out_led[6] <= out_led.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top_module|led7:led_2
+in_switch[0] => Decoder0.IN3
+in_switch[1] => Decoder0.IN2
+in_switch[2] => Decoder0.IN1
+in_switch[3] => Decoder0.IN0
+out_led[0] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+out_led[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+out_led[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+out_led[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+out_led[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out_led[5] <= out_led.DB_MAX_OUTPUT_PORT_TYPE
+out_led[6] <= out_led.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top_module|led7:led_3
+in_switch[0] => Decoder0.IN3
+in_switch[1] => Decoder0.IN2
+in_switch[2] => Decoder0.IN1
+in_switch[3] => Decoder0.IN0
+out_led[0] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+out_led[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+out_led[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+out_led[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+out_led[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out_led[5] <= out_led.DB_MAX_OUTPUT_PORT_TYPE
+out_led[6] <= out_led.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top_module|led7:led_4
+in_switch[0] => Decoder0.IN3
+in_switch[1] => Decoder0.IN2
+in_switch[2] => Decoder0.IN1
+in_switch[3] => Decoder0.IN0
+out_led[0] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+out_led[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+out_led[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+out_led[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+out_led[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out_led[5] <= out_led.DB_MAX_OUTPUT_PORT_TYPE
+out_led[6] <= out_led.DB_MAX_OUTPUT_PORT_TYPE
+
+
