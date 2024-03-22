@@ -16,7 +16,7 @@ begin
 		b=(cnt>=n/2)?1:0;
 end
 endmodule
-`timescale 1ns/1ps;
+`timescale 1ns/1ps
 module test_bench_mojority();
 reg [7:0]a_t;
 wire b_t;

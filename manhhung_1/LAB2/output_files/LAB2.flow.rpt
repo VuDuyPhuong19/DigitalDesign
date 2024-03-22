@@ -1,5 +1,5 @@
 Flow report for LAB2
-Thu Mar 21 12:33:10 2024
+Fri Mar 22 16:49:15 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -41,19 +41,19 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Thu Mar 21 12:33:10 2024          ;
+; Flow Status                        ; Successful - Fri Mar 22 16:49:15 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; LAB2                                           ;
-; Top-level Entity Name              ; majority                                       ;
+; Top-level Entity Name              ; if_else                                        ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 0 / 6,272 ( 0 % )                              ;
-;     Total combinational functions  ; 0 / 6,272 ( 0 % )                              ;
+; Total logic elements               ; 33 / 6,272 ( < 1 % )                           ;
+;     Total combinational functions  ; 33 / 6,272 ( < 1 % )                           ;
 ;     Dedicated logic registers      ; 0 / 6,272 ( 0 % )                              ;
 ; Total registers                    ; 0                                              ;
-; Total pins                         ; 9 / 92 ( 10 % )                                ;
+; Total pins                         ; 26 / 92 ( 28 % )                               ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 276,480 ( 0 % )                            ;
-; Embedded Multiplier 9-bit elements ; 0 / 30 ( 0 % )                                 ;
+; Embedded Multiplier 9-bit elements ; 1 / 30 ( 3 % )                                 ;
 ; Total PLLs                         ; 0 / 2 ( 0 % )                                  ;
 ; Device                             ; EP4CE6E22C6                                    ;
 ; Timing Models                      ; Final                                          ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/21/2024 12:32:52 ;
+; Start date & time ; 03/22/2024 16:48:57 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; LAB2                ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 2543814995277.171099917214768          ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 2543814995277.171110093717052          ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -84,11 +84,11 @@ https://fpgasoftware.intel.com/eula.
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --          ; eda_simulation                    ;
 ; EDA_SIMULATION_TOOL                 ; Questa Intel FPGA (Verilog)            ; <None>        ; --          ; --                                ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation                    ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; majority    ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; majority    ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; majority    ; Top                               ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; if_else     ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; if_else     ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; if_else     ; Top                               ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --                                ;
-; TOP_LEVEL_ENTITY                    ; majority                               ; LAB2          ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                    ; if_else                                ; LAB2          ; --          ; --                                ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 
 
@@ -97,12 +97,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4735 MB             ; 00:00:08                           ;
-; Fitter               ; 00:00:04     ; 1.0                     ; 5470 MB             ; 00:00:02                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4689 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4779 MB             ; 00:00:01                           ;
+; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4761 MB             ; 00:00:09                           ;
+; Fitter               ; 00:00:03     ; 1.0                     ; 5478 MB             ; 00:00:02                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4698 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4778 MB             ; 00:00:01                           ;
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4644 MB             ; 00:00:01                           ;
-; Total                ; 00:00:16     ; --                      ; --                  ; 00:00:13                           ;
+; Total                ; 00:00:17     ; --                      ; --                  ; 00:00:14                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
