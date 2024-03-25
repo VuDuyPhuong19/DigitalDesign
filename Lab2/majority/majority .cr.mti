@@ -1,8 +1,0 @@
-{D:/Verilog project/Lab2/majority/testbench_majority.v} {1 {vlog -work work -vopt {D:/Verilog project/Lab2/majority/testbench_majority.v}
-QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
--- Compiling module testbench_majority
-
-Top level modules:
-	testbench_majority
-
-} {} {}}

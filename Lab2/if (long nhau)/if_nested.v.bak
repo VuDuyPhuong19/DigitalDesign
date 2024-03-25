@@ -1,3 +1,0 @@
-module if_nested(
-	input [3:0] 
-);
