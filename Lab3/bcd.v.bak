@@ -1,0 +1,12 @@
+module bcd #(parameter n = 6)(
+	input [n-1:0] value,
+	output [3:0] tens,
+	output [3:0] ones
+);
+
+always @ (value) begin
+	tens = value / 10;
+	tens = value % 10;
+end
+
+endmodule

@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk_50MHz'
+Slack : -2.759
+TNS   : -49.234
+
+Type  : Slow 1200mV 85C Model Setup 'one_second_pulse:one_second_pulse|pulse'
+Slack : -1.594
+TNS   : -15.345
+
+Type  : Slow 1200mV 85C Model Hold 'one_second_pulse:one_second_pulse|pulse'
+Slack : 0.387
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk_50MHz'
+Slack : 0.640
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_50MHz'
+Slack : -3.000
+TNS   : -37.695
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'one_second_pulse:one_second_pulse|pulse'
+Slack : -1.285
+TNS   : -15.420
+
+Type  : Slow 1200mV 0C Model Setup 'clk_50MHz'
+Slack : -2.368
+TNS   : -41.316
+
+Type  : Slow 1200mV 0C Model Setup 'one_second_pulse:one_second_pulse|pulse'
+Slack : -1.345
+TNS   : -12.669
+
+Type  : Slow 1200mV 0C Model Hold 'one_second_pulse:one_second_pulse|pulse'
+Slack : 0.340
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk_50MHz'
+Slack : 0.585
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_50MHz'
+Slack : -3.000
+TNS   : -37.695
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'one_second_pulse:one_second_pulse|pulse'
+Slack : -1.285
+TNS   : -15.420
+
+Type  : Fast 1200mV 0C Model Setup 'clk_50MHz'
+Slack : -0.853
+TNS   : -11.333
+
+Type  : Fast 1200mV 0C Model Setup 'one_second_pulse:one_second_pulse|pulse'
+Slack : -0.268
+TNS   : -1.908
+
+Type  : Fast 1200mV 0C Model Hold 'one_second_pulse:one_second_pulse|pulse'
+Slack : 0.175
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk_50MHz'
+Slack : 0.292
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_50MHz'
+Slack : -3.000
+TNS   : -31.734
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'one_second_pulse:one_second_pulse|pulse'
+Slack : -1.000
+TNS   : -12.000
+
+------------------------------------------------------------

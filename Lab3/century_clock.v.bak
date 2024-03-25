@@ -1,0 +1,9 @@
+module century_clock(
+	input clk_50MHz,
+	input rst_n,
+	output [13:0] two_led
+);
+
+
+
+endmodule

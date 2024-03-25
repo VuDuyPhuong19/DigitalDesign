@@ -1,0 +1,9 @@
+module count_60s(
+	input clk,
+	input rst_n,
+	output reg [13:0] two_led
+);
+
+
+
+endmodule 

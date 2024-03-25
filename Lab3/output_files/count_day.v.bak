@@ -1,0 +1,5 @@
+module count_day(
+	input clk_1Hz,
+	input rst_n,
+	output 
+);
