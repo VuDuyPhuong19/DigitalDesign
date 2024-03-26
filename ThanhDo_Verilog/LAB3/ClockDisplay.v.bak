@@ -1,0 +1,23 @@
+module ClockDisplay(
+    input clk,    // Clock input from the FPGA
+    input reset,  // Reset input
+    output [6:0] seg // Output to 7-segment LED
+);
+
+// Declare wire to connect modules
+wire [5:0] seconds; // We'll only use the lower 4 bits for display
+
+// Instance of SecondCounter
+SecondCounter sc(
+    .clk(clk),
+    .reset(reset),
+    .second(seconds)
+);
+
+// Instance of LEDDisplay
+LEDDisplay ld(
+    .value(seconds[3:0]), // Only pass the lower 4 bits
+    .seg(seg)
+);
+
+endmodule

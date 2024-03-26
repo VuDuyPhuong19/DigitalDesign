@@ -1,0 +1,6 @@
+Info (10281): Verilog HDL Declaration information at ClockDisplay.v(7): object "Hex_0" differs only in case from object "hex_0" in the same scope File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 7
+Info (10281): Verilog HDL Declaration information at ClockDisplay.v(8): object "Hex_1" differs only in case from object "hex_1" in the same scope File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 8
+Info (10281): Verilog HDL Declaration information at ClockDisplay.v(9): object "Hex_2" differs only in case from object "hex_2" in the same scope File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 9
+Info (10281): Verilog HDL Declaration information at ClockDisplay.v(10): object "Hex_3" differs only in case from object "hex_3" in the same scope File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 10
+Info (10281): Verilog HDL Declaration information at ClockDisplay.v(11): object "Hex_4" differs only in case from object "hex_4" in the same scope File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 11
+Info (10281): Verilog HDL Declaration information at ClockDisplay.v(13): object "Hex_5" differs only in case from object "hex_5" in the same scope File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 13

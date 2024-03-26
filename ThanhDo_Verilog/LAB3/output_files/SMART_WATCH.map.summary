@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Mar 26 18:55:36 2024
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : SMART_WATCH
+Top-level Entity Name : ClockDisplay
+Family : Cyclone IV E
+Total logic elements : 497
+    Total combinational functions : 497
+    Dedicated logic registers : 72
+Total registers : 72
+Total pins : 47
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

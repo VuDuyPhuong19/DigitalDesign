@@ -1,0 +1,1000 @@
+Analysis & Synthesis report for SMART_WATCH
+Tue Mar 26 18:55:36 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: one_hz_clock:OHC
+ 13. Parameter Settings for User Entity Instance: LEDDisplay:hex_0
+ 14. Parameter Settings for User Entity Instance: LEDDisplay:hex_1
+ 15. Parameter Settings for User Entity Instance: LEDDisplay:hex_2
+ 16. Parameter Settings for User Entity Instance: LEDDisplay:hex_3
+ 17. Parameter Settings for User Entity Instance: LEDDisplay:hex_4
+ 18. Parameter Settings for User Entity Instance: LEDDisplay:hex_5
+ 19. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 20. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod5
+ 21. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 22. Parameter Settings for Inferred Entity Instance: lpm_divide:Div5
+ 23. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
+ 24. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod4
+ 25. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
+ 26. Parameter Settings for Inferred Entity Instance: lpm_divide:Div4
+ 27. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
+ 28. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3
+ 29. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
+ 30. Parameter Settings for Inferred Entity Instance: lpm_divide:Div3
+ 31. Port Connectivity Checks: "DayCounter:dc"
+ 32. Post-Synthesis Netlist Statistics for Top Partition
+ 33. Elapsed Time Per Partition
+ 34. Analysis & Synthesis Messages
+ 35. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Mar 26 18:55:36 2024          ;
+; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Revision Name                      ; SMART_WATCH                                    ;
+; Top-level Entity Name              ; ClockDisplay                                   ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 497                                            ;
+;     Total combinational functions  ; 497                                            ;
+;     Dedicated logic registers      ; 72                                             ;
+; Total registers                    ; 72                                             ;
+; Total pins                         ; 47                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; ClockDisplay       ; SMART_WATCH        ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                      ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                  ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
+; SecondCounter.v                  ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/SecondCounter.v                   ;         ;
+; one_hz_clock.v                   ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/one_hz_clock.v                    ;         ;
+; ClockDisplay.v                   ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v                    ;         ;
+; MinuteCounter.v                  ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/MinuteCounter.v                   ;         ;
+; LEDDisplay.v                     ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/LEDDisplay.v                      ;         ;
+; HourCounter.v                    ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/HourCounter.v                     ;         ;
+; DayCounter.v                     ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/DayCounter.v                      ;         ;
+; MonthCounter.v                   ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/MonthCounter.v                    ;         ;
+; YearCounter.v                    ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/YearCounter.v                     ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc      ;         ;
+; db/lpm_divide_k9m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_k9m.tdf             ;         ;
+; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/sign_div_unsign_9kh.tdf        ;         ;
+; db/alt_u_div_64f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/alt_u_div_64f.tdf              ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/add_sub_7pc.tdf                ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/add_sub_8pc.tdf                ;         ;
+; db/lpm_divide_l9m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_l9m.tdf             ;         ;
+; db/sign_div_unsign_akh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/sign_div_unsign_akh.tdf        ;         ;
+; db/alt_u_div_84f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/alt_u_div_84f.tdf              ;         ;
+; db/lpm_divide_hhm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_hhm.tdf             ;         ;
+; db/lpm_divide_ihm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_ihm.tdf             ;         ;
+; db/lpm_divide_i9m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_i9m.tdf             ;         ;
+; db/sign_div_unsign_7kh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/sign_div_unsign_7kh.tdf        ;         ;
+; db/alt_u_div_24f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/alt_u_div_24f.tdf              ;         ;
+; db/lpm_divide_fhm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_fhm.tdf             ;         ;
+; db/lpm_divide_j9m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_j9m.tdf             ;         ;
+; db/sign_div_unsign_8kh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/sign_div_unsign_8kh.tdf        ;         ;
+; db/alt_u_div_44f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/alt_u_div_44f.tdf              ;         ;
+; db/lpm_divide_ghm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_ghm.tdf             ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 497         ;
+;                                             ;             ;
+; Total combinational functions               ; 497         ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 111         ;
+;     -- 3 input functions                    ; 117         ;
+;     -- <=2 input functions                  ; 269         ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 336         ;
+;     -- arithmetic mode                      ; 161         ;
+;                                             ;             ;
+; Total registers                             ; 72          ;
+;     -- Dedicated logic registers            ; 72          ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 47          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; reset~input ;
+; Maximum fan-out                             ; 73          ;
+; Total fan-out                               ; 1575        ;
+; Average fan-out                             ; 2.38        ;
++---------------------------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                    ;
++----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                           ; Entity Name         ; Library Name ;
++----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |ClockDisplay                          ; 497 (40)            ; 72 (0)                    ; 0           ; 0            ; 0       ; 0         ; 47   ; 0            ; |ClockDisplay                                                                                                 ; ClockDisplay        ; work         ;
+;    |DayCounter:dc|                     ; 36 (36)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|DayCounter:dc                                                                                   ; DayCounter          ; work         ;
+;    |HourCounter:hc|                    ; 10 (10)             ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|HourCounter:hc                                                                                  ; HourCounter         ; work         ;
+;    |LEDDisplay:hex_0|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|LEDDisplay:hex_0                                                                                ; LEDDisplay          ; work         ;
+;    |LEDDisplay:hex_1|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|LEDDisplay:hex_1                                                                                ; LEDDisplay          ; work         ;
+;    |LEDDisplay:hex_2|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|LEDDisplay:hex_2                                                                                ; LEDDisplay          ; work         ;
+;    |LEDDisplay:hex_3|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|LEDDisplay:hex_3                                                                                ; LEDDisplay          ; work         ;
+;    |LEDDisplay:hex_4|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|LEDDisplay:hex_4                                                                                ; LEDDisplay          ; work         ;
+;    |LEDDisplay:hex_5|                  ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|LEDDisplay:hex_5                                                                                ; LEDDisplay          ; work         ;
+;    |MinuteCounter:mc|                  ; 12 (12)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|MinuteCounter:mc                                                                                ; MinuteCounter       ; work         ;
+;    |MonthCounter:monthc|               ; 5 (5)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|MonthCounter:monthc                                                                             ; MonthCounter        ; work         ;
+;    |SecondCounter:sc|                  ; 12 (12)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|SecondCounter:sc                                                                                ; SecondCounter       ; work         ;
+;    |YearCounter:yc|                    ; 9 (9)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|YearCounter:yc                                                                                  ; YearCounter         ; work         ;
+;    |lpm_divide:Div0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_hhm:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                   ; lpm_divide_hhm      ; work         ;
+;          |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
+;             |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f       ; work         ;
+;    |lpm_divide:Div1|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_hhm:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div1|lpm_divide_hhm:auto_generated                                                   ; lpm_divide_hhm      ; work         ;
+;          |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div1|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
+;             |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div1|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f       ; work         ;
+;    |lpm_divide:Div2|                   ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div2                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_ghm:auto_generated|  ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div2|lpm_divide_ghm:auto_generated                                                   ; lpm_divide_ghm      ; work         ;
+;          |sign_div_unsign_8kh:divider| ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div2|lpm_divide_ghm:auto_generated|sign_div_unsign_8kh:divider                       ; sign_div_unsign_8kh ; work         ;
+;             |alt_u_div_44f:divider|    ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div2|lpm_divide_ghm:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_44f:divider ; alt_u_div_44f       ; work         ;
+;    |lpm_divide:Div3|                   ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div3                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_ghm:auto_generated|  ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div3|lpm_divide_ghm:auto_generated                                                   ; lpm_divide_ghm      ; work         ;
+;          |sign_div_unsign_8kh:divider| ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div3|lpm_divide_ghm:auto_generated|sign_div_unsign_8kh:divider                       ; sign_div_unsign_8kh ; work         ;
+;             |alt_u_div_44f:divider|    ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div3|lpm_divide_ghm:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_44f:divider ; alt_u_div_44f       ; work         ;
+;    |lpm_divide:Div4|                   ; 4 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div4                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_fhm:auto_generated|  ; 4 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div4|lpm_divide_fhm:auto_generated                                                   ; lpm_divide_fhm      ; work         ;
+;          |sign_div_unsign_7kh:divider| ; 4 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div4|lpm_divide_fhm:auto_generated|sign_div_unsign_7kh:divider                       ; sign_div_unsign_7kh ; work         ;
+;             |alt_u_div_24f:divider|    ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div4|lpm_divide_fhm:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_24f:divider ; alt_u_div_24f       ; work         ;
+;    |lpm_divide:Div5|                   ; 44 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div5                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_ihm:auto_generated|  ; 44 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div5|lpm_divide_ihm:auto_generated                                                   ; lpm_divide_ihm      ; work         ;
+;          |sign_div_unsign_akh:divider| ; 44 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div5|lpm_divide_ihm:auto_generated|sign_div_unsign_akh:divider                       ; sign_div_unsign_akh ; work         ;
+;             |alt_u_div_84f:divider|    ; 44 (44)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Div5|lpm_divide_ihm:auto_generated|sign_div_unsign_akh:divider|alt_u_div_84f:divider ; alt_u_div_84f       ; work         ;
+;    |lpm_divide:Mod0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_k9m:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod0|lpm_divide_k9m:auto_generated                                                   ; lpm_divide_k9m      ; work         ;
+;          |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
+;             |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f       ; work         ;
+;    |lpm_divide:Mod1|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod1                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_k9m:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod1|lpm_divide_k9m:auto_generated                                                   ; lpm_divide_k9m      ; work         ;
+;          |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod1|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
+;             |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod1|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f       ; work         ;
+;    |lpm_divide:Mod2|                   ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod2                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_j9m:auto_generated|  ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod2|lpm_divide_j9m:auto_generated                                                   ; lpm_divide_j9m      ; work         ;
+;          |sign_div_unsign_8kh:divider| ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod2|lpm_divide_j9m:auto_generated|sign_div_unsign_8kh:divider                       ; sign_div_unsign_8kh ; work         ;
+;             |alt_u_div_44f:divider|    ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod2|lpm_divide_j9m:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_44f:divider ; alt_u_div_44f       ; work         ;
+;    |lpm_divide:Mod3|                   ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod3                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_j9m:auto_generated|  ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod3|lpm_divide_j9m:auto_generated                                                   ; lpm_divide_j9m      ; work         ;
+;          |sign_div_unsign_8kh:divider| ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod3|lpm_divide_j9m:auto_generated|sign_div_unsign_8kh:divider                       ; sign_div_unsign_8kh ; work         ;
+;             |alt_u_div_44f:divider|    ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod3|lpm_divide_j9m:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_44f:divider ; alt_u_div_44f       ; work         ;
+;    |lpm_divide:Mod4|                   ; 4 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod4                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_i9m:auto_generated|  ; 4 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod4|lpm_divide_i9m:auto_generated                                                   ; lpm_divide_i9m      ; work         ;
+;          |sign_div_unsign_7kh:divider| ; 4 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod4|lpm_divide_i9m:auto_generated|sign_div_unsign_7kh:divider                       ; sign_div_unsign_7kh ; work         ;
+;             |alt_u_div_24f:divider|    ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod4|lpm_divide_i9m:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_24f:divider ; alt_u_div_24f       ; work         ;
+;    |lpm_divide:Mod5|                   ; 44 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod5                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_l9m:auto_generated|  ; 44 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod5|lpm_divide_l9m:auto_generated                                                   ; lpm_divide_l9m      ; work         ;
+;          |sign_div_unsign_akh:divider| ; 44 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod5|lpm_divide_l9m:auto_generated|sign_div_unsign_akh:divider                       ; sign_div_unsign_akh ; work         ;
+;             |alt_u_div_84f:divider|    ; 44 (44)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|lpm_divide:Mod5|lpm_divide_l9m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_84f:divider ; alt_u_div_84f       ; work         ;
+;    |one_hz_clock:OHC|                  ; 47 (47)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|one_hz_clock:OHC                                                                                ; one_hz_clock        ; work         ;
++----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; state                                              ; button              ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 72    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 7     ;
+; Number of registers using Asynchronous Clear ; 72    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 6     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; YearCounter:yc|year[4]                  ; 9       ;
+; YearCounter:yc|year[3]                  ; 7       ;
+; DayCounter:dc|day[4]                    ; 6       ;
+; DayCounter:dc|day[3]                    ; 6       ;
+; DayCounter:dc|day[1]                    ; 10      ;
+; DayCounter:dc|current_month[1]          ; 5       ;
+; MonthCounter:monthc|month[0]            ; 6       ;
+; MonthCounter:monthc|month[1]            ; 7       ;
+; MinuteCounter:mc|minute[5]              ; 6       ;
+; MinuteCounter:mc|minute[3]              ; 8       ;
+; HourCounter:hc|hour[3]                  ; 6       ;
+; HourCounter:hc|hour[1]                  ; 6       ;
+; DayCounter:dc|current_month[0]          ; 8       ;
+; Total number of inverted registers = 13 ;         ;
++-----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |ClockDisplay|DayCounter:dc|day[0]           ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 3 LEs                ; 12 LEs                 ; Yes        ; |ClockDisplay|DayCounter:dc|current_month[4] ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |ClockDisplay|DayCounter:dc|day[4]           ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |ClockDisplay|DayCounter:dc|current_month[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: one_hz_clock:OHC ;
++----------------+----------+-----------------------------------+
+; Parameter Name ; Value    ; Type                              ;
++----------------+----------+-----------------------------------+
+; CLOCK_FREQ     ; 50000000 ; Signed Integer                    ;
+; COUNTER_MAX    ; 24999999 ; Signed Integer                    ;
++----------------+----------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LEDDisplay:hex_0 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; segment_num    ; 7     ; Signed Integer                       ;
+; n              ; 4     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LEDDisplay:hex_1 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; segment_num    ; 7     ; Signed Integer                       ;
+; n              ; 4     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LEDDisplay:hex_2 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; segment_num    ; 7     ; Signed Integer                       ;
+; n              ; 4     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LEDDisplay:hex_3 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; segment_num    ; 7     ; Signed Integer                       ;
+; n              ; 4     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LEDDisplay:hex_4 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; segment_num    ; 7     ; Signed Integer                       ;
+; n              ; 4     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LEDDisplay:hex_5 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; segment_num    ; 7     ; Signed Integer                       ;
+; n              ; 4     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_k9m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod5 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_l9m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div5 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_ihm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_k9m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod4 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_i9m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div4 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_fhm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_j9m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_j9m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_ghm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div3 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_ghm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DayCounter:dc"                                                                                                         ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; day  ; Output ; Warning  ; Output or bidir port (6 bits) is wider than the port expression (5 bits) it drives; bit(s) "day[5..5]" have no fanouts ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 47                          ;
+; cycloneiii_ff         ; 72                          ;
+;     CLR               ; 59                          ;
+;     CLR SLD           ; 7                           ;
+;     ENA CLR           ; 6                           ;
+; cycloneiii_lcell_comb ; 503                         ;
+;     arith             ; 161                         ;
+;         2 data inputs ; 88                          ;
+;         3 data inputs ; 73                          ;
+;     normal            ; 342                         ;
+;         0 data inputs ; 31                          ;
+;         1 data inputs ; 22                          ;
+;         2 data inputs ; 134                         ;
+;         3 data inputs ; 44                          ;
+;         4 data inputs ; 111                         ;
+;                       ;                             ;
+; Max LUT depth         ; 12.50                       ;
+; Average LUT depth     ; 7.10                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Tue Mar 26 18:55:25 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SMART_WATCH -c SMART_WATCH
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file secondcounter.v
+    Info (12023): Found entity 1: SecondCounter File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/SecondCounter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file one_hz_clock.v
+    Info (12023): Found entity 1: one_hz_clock File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/one_hz_clock.v Line: 1
+Warning (12019): Can't analyze file -- file module LEDDisplay(.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file clockdisplay.v
+    Info (12023): Found entity 1: ClockDisplay File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file minutecounter.v
+    Info (12023): Found entity 1: MinuteCounter File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/MinuteCounter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file leddisplay.v
+    Info (12023): Found entity 1: LEDDisplay File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/LEDDisplay.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file hourcounter.v
+    Info (12023): Found entity 1: HourCounter File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/HourCounter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file daycounter.v
+    Info (12023): Found entity 1: DayCounter File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/DayCounter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file monthcounter.v
+    Info (12023): Found entity 1: MonthCounter File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/MonthCounter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file yearcounter.v
+    Info (12023): Found entity 1: YearCounter File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/YearCounter.v Line: 1
+Info (12127): Elaborating entity "ClockDisplay" for the top level hierarchy
+Warning (10240): Verilog HDL Always Construct warning at ClockDisplay.v(142): inferring latch(es) for variable "state", which holds its previous value in one or more paths through the always construct File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 142
+Warning (10235): Verilog HDL Always Construct warning at ClockDisplay.v(162): variable "seconds" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 162
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(162): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 162
+Warning (10235): Verilog HDL Always Construct warning at ClockDisplay.v(163): variable "seconds" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 163
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(163): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 163
+Warning (10235): Verilog HDL Always Construct warning at ClockDisplay.v(165): variable "minutes" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 165
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(165): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 165
+Warning (10235): Verilog HDL Always Construct warning at ClockDisplay.v(166): variable "minutes" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 166
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(166): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 166
+Warning (10235): Verilog HDL Always Construct warning at ClockDisplay.v(168): variable "hours" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 168
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(168): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 168
+Warning (10235): Verilog HDL Always Construct warning at ClockDisplay.v(169): variable "hours" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 169
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(169): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 169
+Warning (10235): Verilog HDL Always Construct warning at ClockDisplay.v(175): variable "days" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 175
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(175): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 175
+Warning (10235): Verilog HDL Always Construct warning at ClockDisplay.v(176): variable "days" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 176
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(176): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 176
+Warning (10235): Verilog HDL Always Construct warning at ClockDisplay.v(178): variable "months" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 178
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(178): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 178
+Warning (10235): Verilog HDL Always Construct warning at ClockDisplay.v(179): variable "months" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 179
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(179): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 179
+Warning (10235): Verilog HDL Always Construct warning at ClockDisplay.v(181): variable "years" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 181
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(181): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 181
+Warning (10235): Verilog HDL Always Construct warning at ClockDisplay.v(182): variable "years" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 182
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(182): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 182
+Info (10041): Inferred latch for "state" at ClockDisplay.v(142) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 142
+Info (12128): Elaborating entity "one_hz_clock" for hierarchy "one_hz_clock:OHC" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 47
+Warning (10230): Verilog HDL assignment warning at one_hz_clock.v(22): truncated value with size 32 to match size of target (26) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/one_hz_clock.v Line: 22
+Info (12128): Elaborating entity "SecondCounter" for hierarchy "SecondCounter:sc" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 56
+Warning (10230): Verilog HDL assignment warning at SecondCounter.v(20): truncated value with size 32 to match size of target (6) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/SecondCounter.v Line: 20
+Info (12128): Elaborating entity "MinuteCounter" for hierarchy "MinuteCounter:mc" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 64
+Warning (10230): Verilog HDL assignment warning at MinuteCounter.v(19): truncated value with size 32 to match size of target (6) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/MinuteCounter.v Line: 19
+Info (12128): Elaborating entity "HourCounter" for hierarchy "HourCounter:hc" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 72
+Warning (10230): Verilog HDL assignment warning at HourCounter.v(20): truncated value with size 32 to match size of target (5) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/HourCounter.v Line: 20
+Info (12128): Elaborating entity "DayCounter" for hierarchy "DayCounter:dc" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 80
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(13): truncated value with size 32 to match size of target (5) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/DayCounter.v Line: 13
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(18): truncated value with size 32 to match size of target (5) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/DayCounter.v Line: 18
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(27): truncated value with size 32 to match size of target (5) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/DayCounter.v Line: 27
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(30): truncated value with size 32 to match size of target (6) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/DayCounter.v Line: 30
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(36): truncated value with size 32 to match size of target (5) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/DayCounter.v Line: 36
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(39): truncated value with size 32 to match size of target (6) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/DayCounter.v Line: 39
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(45): truncated value with size 32 to match size of target (5) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/DayCounter.v Line: 45
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(48): truncated value with size 32 to match size of target (6) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/DayCounter.v Line: 48
+Info (12128): Elaborating entity "MonthCounter" for hierarchy "MonthCounter:monthc" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 87
+Warning (10230): Verilog HDL assignment warning at MonthCounter.v(20): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/MonthCounter.v Line: 20
+Info (12128): Elaborating entity "YearCounter" for hierarchy "YearCounter:yc" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 93
+Warning (10230): Verilog HDL assignment warning at YearCounter.v(19): truncated value with size 32 to match size of target (7) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/YearCounter.v Line: 19
+Info (12128): Elaborating entity "LEDDisplay" for hierarchy "LEDDisplay:hex_0" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 109
+Info (278001): Inferred 12 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 162
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod5" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 181
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 163
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div5" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 182
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 165
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod4" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 178
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 166
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div4" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 179
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 168
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod3" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 175
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div2" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 169
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div3" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 176
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 162
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 162
+    Info (12134): Parameter "LPM_WIDTHN" = "6"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_k9m.tdf
+    Info (12023): Found entity 1: lpm_divide_k9m File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_k9m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9kh File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/sign_div_unsign_9kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_64f.tdf
+    Info (12023): Found entity 1: alt_u_div_64f File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/alt_u_div_64f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod5" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 181
+Info (12133): Instantiated megafunction "lpm_divide:Mod5" with the following parameter: File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 181
+    Info (12134): Parameter "LPM_WIDTHN" = "7"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_l9m.tdf
+    Info (12023): Found entity 1: lpm_divide_l9m File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_l9m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_akh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_akh File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/sign_div_unsign_akh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_84f.tdf
+    Info (12023): Found entity 1: alt_u_div_84f File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/alt_u_div_84f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 163
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 163
+    Info (12134): Parameter "LPM_WIDTHN" = "6"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hhm.tdf
+    Info (12023): Found entity 1: lpm_divide_hhm File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_hhm.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div5" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 182
+Info (12133): Instantiated megafunction "lpm_divide:Div5" with the following parameter: File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 182
+    Info (12134): Parameter "LPM_WIDTHN" = "7"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ihm.tdf
+    Info (12023): Found entity 1: lpm_divide_ihm File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_ihm.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod4" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 178
+Info (12133): Instantiated megafunction "lpm_divide:Mod4" with the following parameter: File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 178
+    Info (12134): Parameter "LPM_WIDTHN" = "4"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_i9m.tdf
+    Info (12023): Found entity 1: lpm_divide_i9m File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_i9m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_7kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_7kh File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/sign_div_unsign_7kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_24f.tdf
+    Info (12023): Found entity 1: alt_u_div_24f File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/alt_u_div_24f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div4" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 179
+Info (12133): Instantiated megafunction "lpm_divide:Div4" with the following parameter: File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 179
+    Info (12134): Parameter "LPM_WIDTHN" = "4"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_fhm.tdf
+    Info (12023): Found entity 1: lpm_divide_fhm File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_fhm.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod2" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 168
+Info (12133): Instantiated megafunction "lpm_divide:Mod2" with the following parameter: File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 168
+    Info (12134): Parameter "LPM_WIDTHN" = "5"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_j9m.tdf
+    Info (12023): Found entity 1: lpm_divide_j9m File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_j9m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_8kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_8kh File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/sign_div_unsign_8kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_44f.tdf
+    Info (12023): Found entity 1: alt_u_div_44f File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/alt_u_div_44f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div2" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 169
+Info (12133): Instantiated megafunction "lpm_divide:Div2" with the following parameter: File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 169
+    Info (12134): Parameter "LPM_WIDTHN" = "5"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ghm.tdf
+    Info (12023): Found entity 1: lpm_divide_ghm File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/lpm_divide_ghm.tdf Line: 25
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13000): Registers with preset signals will power-up high File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/MonthCounter.v Line: 16
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "Hex_5[5]" is stuck at GND File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 13
+Info (286030): Timing-Driven Synthesis is running
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "lpm_divide:Mod5|lpm_divide_l9m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_84f:divider|add_sub_3_result_int[0]~8" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/alt_u_div_84f.tdf Line: 42
+    Info (17048): Logic cell "lpm_divide:Div5|lpm_divide_ihm:auto_generated|sign_div_unsign_akh:divider|alt_u_div_84f:divider|add_sub_3_result_int[0]~8" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/alt_u_div_84f.tdf Line: 42
+    Info (17048): Logic cell "lpm_divide:Mod3|lpm_divide_j9m:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_44f:divider|add_sub_3_result_int[0]~8" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/alt_u_div_44f.tdf Line: 42
+    Info (17048): Logic cell "lpm_divide:Mod2|lpm_divide_j9m:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_44f:divider|add_sub_3_result_int[0]~8" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/alt_u_div_44f.tdf Line: 42
+    Info (17048): Logic cell "lpm_divide:Div3|lpm_divide_ghm:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_44f:divider|add_sub_3_result_int[0]~8" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/alt_u_div_44f.tdf Line: 42
+    Info (17048): Logic cell "lpm_divide:Div2|lpm_divide_ghm:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_44f:divider|add_sub_3_result_int[0]~8" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/db/alt_u_div_44f.tdf Line: 42
+Info (144001): Generated suppressed messages file C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/output_files/SMART_WATCH.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "reset_day" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 4
+    Warning (15610): No output dependent on input pin "reset_month" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/ClockDisplay.v Line: 5
+Info (21057): Implemented 544 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 42 output pins
+    Info (21061): Implemented 497 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 47 warnings
+    Info: Peak virtual memory: 4850 megabytes
+    Info: Processing ended: Tue Mar 26 18:55:36 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:08
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/output_files/SMART_WATCH.map.smsg.
+
+
