@@ -1,52 +1,70 @@
 |century_clock
 clk_50MHz => clk_50MHz.IN1
-rst_n => rst_n.IN2
-six_led[0] <= count_24_hours:count_24_hours.six_led
-six_led[1] <= count_24_hours:count_24_hours.six_led
-six_led[2] <= count_24_hours:count_24_hours.six_led
-six_led[3] <= count_24_hours:count_24_hours.six_led
-six_led[4] <= count_24_hours:count_24_hours.six_led
-six_led[5] <= count_24_hours:count_24_hours.six_led
-six_led[6] <= count_24_hours:count_24_hours.six_led
-six_led[7] <= count_24_hours:count_24_hours.six_led
-six_led[8] <= count_24_hours:count_24_hours.six_led
-six_led[9] <= count_24_hours:count_24_hours.six_led
-six_led[10] <= count_24_hours:count_24_hours.six_led
-six_led[11] <= count_24_hours:count_24_hours.six_led
-six_led[12] <= count_24_hours:count_24_hours.six_led
-six_led[13] <= count_24_hours:count_24_hours.six_led
-six_led[14] <= count_24_hours:count_24_hours.six_led
-six_led[15] <= count_24_hours:count_24_hours.six_led
-six_led[16] <= count_24_hours:count_24_hours.six_led
-six_led[17] <= count_24_hours:count_24_hours.six_led
-six_led[18] <= count_24_hours:count_24_hours.six_led
-six_led[19] <= count_24_hours:count_24_hours.six_led
-six_led[20] <= count_24_hours:count_24_hours.six_led
-six_led[21] <= count_24_hours:count_24_hours.six_led
-six_led[22] <= count_24_hours:count_24_hours.six_led
-six_led[23] <= count_24_hours:count_24_hours.six_led
-six_led[24] <= count_24_hours:count_24_hours.six_led
-six_led[25] <= count_24_hours:count_24_hours.six_led
-six_led[26] <= count_24_hours:count_24_hours.six_led
-six_led[27] <= count_24_hours:count_24_hours.six_led
-six_led[28] <= count_24_hours:count_24_hours.six_led
-six_led[29] <= count_24_hours:count_24_hours.six_led
-six_led[30] <= count_24_hours:count_24_hours.six_led
-six_led[31] <= count_24_hours:count_24_hours.six_led
-six_led[32] <= count_24_hours:count_24_hours.six_led
-six_led[33] <= count_24_hours:count_24_hours.six_led
-six_led[34] <= count_24_hours:count_24_hours.six_led
-six_led[35] <= count_24_hours:count_24_hours.six_led
-six_led[36] <= count_24_hours:count_24_hours.six_led
-six_led[37] <= count_24_hours:count_24_hours.six_led
-six_led[38] <= count_24_hours:count_24_hours.six_led
-six_led[39] <= count_24_hours:count_24_hours.six_led
-six_led[40] <= count_24_hours:count_24_hours.six_led
-six_led[41] <= count_24_hours:count_24_hours.six_led
+rst_n => rst_n.IN3
+state_button => state[0].CLK
+state_button => state[1].CLK
+state_button => state[2].CLK
+set_button => set_button.IN2
+led[0] << display:display.led_out0
+led[1] << display:display.led_out0
+led[2] << display:display.led_out0
+led[3] << display:display.led_out0
+led[4] << display:display.led_out0
+led[5] << display:display.led_out0
+led[6] << display:display.led_out0
+led[7] << display:display.led_out1
+led[8] << display:display.led_out1
+led[9] << display:display.led_out1
+led[10] << display:display.led_out1
+led[11] << display:display.led_out1
+led[12] << display:display.led_out1
+led[13] << display:display.led_out1
+led[14] << display:display.led_out2
+led[15] << display:display.led_out2
+led[16] << display:display.led_out2
+led[17] << display:display.led_out2
+led[18] << display:display.led_out2
+led[19] << display:display.led_out2
+led[20] << display:display.led_out2
+led[21] << display:display.led_out3
+led[22] << display:display.led_out3
+led[23] << display:display.led_out3
+led[24] << display:display.led_out3
+led[25] << display:display.led_out3
+led[26] << display:display.led_out3
+led[27] << display:display.led_out3
+led[28] << display:display.led_out4
+led[29] << display:display.led_out4
+led[30] << display:display.led_out4
+led[31] << display:display.led_out4
+led[32] << display:display.led_out4
+led[33] << display:display.led_out4
+led[34] << display:display.led_out4
+led[35] << display:display.led_out5
+led[36] << display:display.led_out5
+led[37] << display:display.led_out5
+led[38] << display:display.led_out5
+led[39] << display:display.led_out5
+led[40] << display:display.led_out5
+led[41] << display:display.led_out5
+led[42] << display:display.led_out6
+led[43] << display:display.led_out6
+led[44] << display:display.led_out6
+led[45] << display:display.led_out6
+led[46] << display:display.led_out6
+led[47] << display:display.led_out6
+led[48] << display:display.led_out6
+led[49] << display:display.led_out7
+led[50] << display:display.led_out7
+led[51] << display:display.led_out7
+led[52] << display:display.led_out7
+led[53] << display:display.led_out7
+led[54] << display:display.led_out7
+led[55] << display:display.led_out7
 
 
 |century_clock|one_second_pulse:one_second_pulse
-clk_50MHz => pulse~reg0.CLK
+clk_50MHz => clk_1Hz~reg0.CLK
 clk_50MHz => counter[0].CLK
 clk_50MHz => counter[1].CLK
 clk_50MHz => counter[2].CLK
@@ -73,7 +91,7 @@ clk_50MHz => counter[22].CLK
 clk_50MHz => counter[23].CLK
 clk_50MHz => counter[24].CLK
 clk_50MHz => counter[25].CLK
-rst_n => pulse~reg0.ACLR
+rst_n => clk_1Hz~reg0.ACLR
 rst_n => counter[0].ACLR
 rst_n => counter[1].ACLR
 rst_n => counter[2].ACLR
@@ -100,148 +118,362 @@ rst_n => counter[22].ACLR
 rst_n => counter[23].ACLR
 rst_n => counter[24].ACLR
 rst_n => counter[25].ACLR
-pulse <= pulse~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk_1Hz <= clk_1Hz~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|century_clock|bcd:bcd_sec
+value[0] => Div0.IN9
+value[0] => Mod0.IN9
+value[1] => Div0.IN8
+value[1] => Mod0.IN8
+value[2] => Div0.IN7
+value[2] => Mod0.IN7
+value[3] => Div0.IN6
+value[3] => Mod0.IN6
+value[4] => Div0.IN5
+value[4] => Mod0.IN5
+value[5] => Div0.IN4
+value[5] => Mod0.IN4
+tens[0] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[3] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+ones[0] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[1] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[2] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[3] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|century_clock|bcd:bcd_min
+value[0] => Div0.IN9
+value[0] => Mod0.IN9
+value[1] => Div0.IN8
+value[1] => Mod0.IN8
+value[2] => Div0.IN7
+value[2] => Mod0.IN7
+value[3] => Div0.IN6
+value[3] => Mod0.IN6
+value[4] => Div0.IN5
+value[4] => Mod0.IN5
+value[5] => Div0.IN4
+value[5] => Mod0.IN4
+tens[0] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[3] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+ones[0] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[1] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[2] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[3] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|century_clock|bcd:bcd_hour
+value[0] => Div0.IN9
+value[0] => Mod0.IN9
+value[1] => Div0.IN8
+value[1] => Mod0.IN8
+value[2] => Div0.IN7
+value[2] => Mod0.IN7
+value[3] => Div0.IN6
+value[3] => Mod0.IN6
+value[4] => Div0.IN5
+value[4] => Mod0.IN5
+value[5] => Div0.IN4
+value[5] => Mod0.IN4
+tens[0] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[3] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+ones[0] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[1] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[2] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[3] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|century_clock|bcd:bcd_day
+value[0] => Div0.IN9
+value[0] => Mod0.IN9
+value[1] => Div0.IN8
+value[1] => Mod0.IN8
+value[2] => Div0.IN7
+value[2] => Mod0.IN7
+value[3] => Div0.IN6
+value[3] => Mod0.IN6
+value[4] => Div0.IN5
+value[4] => Mod0.IN5
+value[5] => Div0.IN4
+value[5] => Mod0.IN4
+tens[0] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[3] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+ones[0] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[1] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[2] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[3] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|century_clock|bcd:bcd_mon
+value[0] => Div0.IN9
+value[0] => Mod0.IN9
+value[1] => Div0.IN8
+value[1] => Mod0.IN8
+value[2] => Div0.IN7
+value[2] => Mod0.IN7
+value[3] => Div0.IN6
+value[3] => Mod0.IN6
+value[4] => Div0.IN5
+value[4] => Mod0.IN5
+value[5] => Div0.IN4
+value[5] => Mod0.IN4
+tens[0] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[3] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+ones[0] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[1] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[2] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[3] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|century_clock|bcd:bcd_year
+value[0] => Div0.IN9
+value[0] => Mod0.IN9
+value[1] => Div0.IN8
+value[1] => Mod0.IN8
+value[2] => Div0.IN7
+value[2] => Mod0.IN7
+value[3] => Div0.IN6
+value[3] => Mod0.IN6
+value[4] => Div0.IN5
+value[4] => Mod0.IN5
+value[5] => Div0.IN4
+value[5] => Mod0.IN4
+tens[0] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[3] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+ones[0] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[1] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[2] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+ones[3] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |century_clock|count_24_hours:count_24_hours
-clk_1Hz => minutes[0].CLK
-clk_1Hz => minutes[1].CLK
-clk_1Hz => minutes[2].CLK
-clk_1Hz => minutes[3].CLK
-clk_1Hz => minutes[4].CLK
-clk_1Hz => minutes[5].CLK
-clk_1Hz => seconds[0].CLK
-clk_1Hz => seconds[1].CLK
-clk_1Hz => seconds[2].CLK
-clk_1Hz => seconds[3].CLK
-clk_1Hz => seconds[4].CLK
-clk_1Hz => seconds[5].CLK
-rst_n => minutes[0].ACLR
-rst_n => minutes[1].ACLR
-rst_n => minutes[2].ACLR
-rst_n => minutes[3].ACLR
-rst_n => minutes[4].ACLR
-rst_n => minutes[5].ACLR
-rst_n => seconds[0].ACLR
-rst_n => seconds[1].ACLR
-rst_n => seconds[2].ACLR
-rst_n => seconds[3].ACLR
-rst_n => seconds[4].ACLR
-rst_n => seconds[5].ACLR
-six_led[0] <= seven_segment:led_0.led
-six_led[1] <= seven_segment:led_0.led
-six_led[2] <= seven_segment:led_0.led
-six_led[3] <= seven_segment:led_0.led
-six_led[4] <= seven_segment:led_0.led
-six_led[5] <= seven_segment:led_0.led
-six_led[6] <= seven_segment:led_0.led
-six_led[7] <= seven_segment:led_1.led
-six_led[8] <= seven_segment:led_1.led
-six_led[9] <= seven_segment:led_1.led
-six_led[10] <= seven_segment:led_1.led
-six_led[11] <= seven_segment:led_1.led
-six_led[12] <= seven_segment:led_1.led
-six_led[13] <= seven_segment:led_1.led
-six_led[14] <= seven_segment:led_2.led
-six_led[15] <= seven_segment:led_2.led
-six_led[16] <= seven_segment:led_2.led
-six_led[17] <= seven_segment:led_2.led
-six_led[18] <= seven_segment:led_2.led
-six_led[19] <= seven_segment:led_2.led
-six_led[20] <= seven_segment:led_2.led
-six_led[21] <= seven_segment:led_3.led
-six_led[22] <= seven_segment:led_3.led
-six_led[23] <= seven_segment:led_3.led
-six_led[24] <= seven_segment:led_3.led
-six_led[25] <= seven_segment:led_3.led
-six_led[26] <= seven_segment:led_3.led
-six_led[27] <= seven_segment:led_3.led
-six_led[28] <= seven_segment:led_4.led
-six_led[29] <= seven_segment:led_4.led
-six_led[30] <= seven_segment:led_4.led
-six_led[31] <= seven_segment:led_4.led
-six_led[32] <= seven_segment:led_4.led
-six_led[33] <= seven_segment:led_4.led
-six_led[34] <= seven_segment:led_4.led
-six_led[35] <= seven_segment:led_5.led
-six_led[36] <= seven_segment:led_5.led
-six_led[37] <= seven_segment:led_5.led
-six_led[38] <= seven_segment:led_5.led
-six_led[39] <= seven_segment:led_5.led
-six_led[40] <= seven_segment:led_5.led
-six_led[41] <= seven_segment:led_5.led
+clk_1Hz => hours[0]~reg0.CLK
+clk_1Hz => hours[1]~reg0.CLK
+clk_1Hz => hours[2]~reg0.CLK
+clk_1Hz => hours[3]~reg0.CLK
+clk_1Hz => hours[4]~reg0.CLK
+clk_1Hz => minutes[0]~reg0.CLK
+clk_1Hz => minutes[1]~reg0.CLK
+clk_1Hz => minutes[2]~reg0.CLK
+clk_1Hz => minutes[3]~reg0.CLK
+clk_1Hz => minutes[4]~reg0.CLK
+clk_1Hz => minutes[5]~reg0.CLK
+clk_1Hz => seconds[0]~reg0.CLK
+clk_1Hz => seconds[1]~reg0.CLK
+clk_1Hz => seconds[2]~reg0.CLK
+clk_1Hz => seconds[3]~reg0.CLK
+clk_1Hz => seconds[4]~reg0.CLK
+clk_1Hz => seconds[5]~reg0.CLK
+rst_n => seconds[5].IN0
+rst_n => hours[0]~reg0.ACLR
+rst_n => hours[1]~reg0.ACLR
+rst_n => hours[2]~reg0.ACLR
+rst_n => hours[3]~reg0.ACLR
+rst_n => hours[4]~reg0.ACLR
+rst_n => minutes[0]~reg0.ACLR
+rst_n => minutes[1]~reg0.ACLR
+rst_n => minutes[2]~reg0.ACLR
+rst_n => minutes[3]~reg0.ACLR
+rst_n => minutes[4]~reg0.ACLR
+rst_n => minutes[5]~reg0.ACLR
+rst_n => seconds[0]~reg0.ACLR
+rst_n => seconds[1]~reg0.ACLR
+rst_n => seconds[2]~reg0.ACLR
+rst_n => seconds[3]~reg0.ACLR
+rst_n => seconds[4]~reg0.ACLR
+rst_n => seconds[5]~reg0.ACLR
+state[0] => Decoder0.IN2
+state[1] => Decoder0.IN1
+state[2] => Decoder0.IN0
+set_button => seconds[5].IN1
+seconds[0] <= seconds[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seconds[1] <= seconds[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seconds[2] <= seconds[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seconds[3] <= seconds[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seconds[4] <= seconds[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seconds[5] <= seconds[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minutes[0] <= minutes[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minutes[1] <= minutes[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minutes[2] <= minutes[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minutes[3] <= minutes[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minutes[4] <= minutes[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minutes[5] <= minutes[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hours[0] <= hours[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hours[1] <= hours[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hours[2] <= hours[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hours[3] <= hours[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hours[4] <= hours[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|century_clock|count_24_hours:count_24_hours|bcd:bcd_sec
-value[0] => Div0.IN9
-value[0] => Mod0.IN9
-value[1] => Div0.IN8
-value[1] => Mod0.IN8
-value[2] => Div0.IN7
-value[2] => Mod0.IN7
-value[3] => Div0.IN6
-value[3] => Mod0.IN6
-value[4] => Div0.IN5
-value[4] => Mod0.IN5
-value[5] => Div0.IN4
-value[5] => Mod0.IN4
-tens[0] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
-tens[1] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
-tens[2] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
-tens[3] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
-ones[0] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
-ones[1] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
-ones[2] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
-ones[3] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+|century_clock|date:date
+clk_1Hz => years[0]~reg0.CLK
+clk_1Hz => years[1]~reg0.CLK
+clk_1Hz => years[2]~reg0.CLK
+clk_1Hz => years[3]~reg0.CLK
+clk_1Hz => years[4]~reg0.CLK
+clk_1Hz => years[5]~reg0.CLK
+clk_1Hz => years[6]~reg0.CLK
+clk_1Hz => months[0]~reg0.CLK
+clk_1Hz => months[1]~reg0.CLK
+clk_1Hz => months[2]~reg0.CLK
+clk_1Hz => months[3]~reg0.CLK
+clk_1Hz => days[0]~reg0.CLK
+clk_1Hz => days[1]~reg0.CLK
+clk_1Hz => days[2]~reg0.CLK
+clk_1Hz => days[3]~reg0.CLK
+clk_1Hz => days[4]~reg0.CLK
+clk_1Hz => days[5]~reg0.CLK
+rst_n => days[5].IN0
+rst_n => years[0]~reg0.ACLR
+rst_n => years[1]~reg0.ACLR
+rst_n => years[2]~reg0.ACLR
+rst_n => years[3]~reg0.ACLR
+rst_n => years[4]~reg0.ACLR
+rst_n => years[5]~reg0.ACLR
+rst_n => years[6]~reg0.ACLR
+rst_n => months[0]~reg0.PRESET
+rst_n => months[1]~reg0.ACLR
+rst_n => months[2]~reg0.ACLR
+rst_n => months[3]~reg0.ACLR
+rst_n => days[0]~reg0.PRESET
+rst_n => days[1]~reg0.ACLR
+rst_n => days[2]~reg0.ACLR
+rst_n => days[3]~reg0.ACLR
+rst_n => days[4]~reg0.ACLR
+rst_n => days[5]~reg0.ACLR
+state[0] => Decoder0.IN2
+state[1] => Decoder0.IN1
+state[2] => Decoder0.IN0
+set_button => days[5].IN1
+hours[0] => Equal1.IN31
+hours[1] => Equal1.IN30
+hours[2] => Equal1.IN29
+hours[3] => Equal1.IN1
+hours[4] => Equal1.IN0
+days[0] <= days[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+days[1] <= days[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+days[2] <= days[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+days[3] <= days[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+days[4] <= days[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+days[5] <= days[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+months[0] <= months[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+months[1] <= months[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+months[2] <= months[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+months[3] <= months[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+years[0] <= years[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+years[1] <= years[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+years[2] <= years[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+years[3] <= years[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+years[4] <= years[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+years[5] <= years[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+years[6] <= years[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|century_clock|count_24_hours:count_24_hours|bcd:bcd_min
-value[0] => Div0.IN9
-value[0] => Mod0.IN9
-value[1] => Div0.IN8
-value[1] => Mod0.IN8
-value[2] => Div0.IN7
-value[2] => Mod0.IN7
-value[3] => Div0.IN6
-value[3] => Mod0.IN6
-value[4] => Div0.IN5
-value[4] => Mod0.IN5
-value[5] => Div0.IN4
-value[5] => Mod0.IN4
-tens[0] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
-tens[1] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
-tens[2] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
-tens[3] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
-ones[0] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
-ones[1] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
-ones[2] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
-ones[3] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+|century_clock|display:display
+led_value0[0] => led_value0[0].IN1
+led_value0[1] => led_value0[1].IN1
+led_value0[2] => led_value0[2].IN1
+led_value0[3] => led_value0[3].IN1
+led_value1[0] => led_value1[0].IN1
+led_value1[1] => led_value1[1].IN1
+led_value1[2] => led_value1[2].IN1
+led_value1[3] => led_value1[3].IN1
+led_value2[0] => led_value2[0].IN1
+led_value2[1] => led_value2[1].IN1
+led_value2[2] => led_value2[2].IN1
+led_value2[3] => led_value2[3].IN1
+led_value3[0] => led_value3[0].IN1
+led_value3[1] => led_value3[1].IN1
+led_value3[2] => led_value3[2].IN1
+led_value3[3] => led_value3[3].IN1
+led_value4[0] => led_value4[0].IN1
+led_value4[1] => led_value4[1].IN1
+led_value4[2] => led_value4[2].IN1
+led_value4[3] => led_value4[3].IN1
+led_value5[0] => led_value5[0].IN1
+led_value5[1] => led_value5[1].IN1
+led_value5[2] => led_value5[2].IN1
+led_value5[3] => led_value5[3].IN1
+led_value6[0] => led_value6[0].IN1
+led_value6[1] => led_value6[1].IN1
+led_value6[2] => led_value6[2].IN1
+led_value6[3] => led_value6[3].IN1
+led_value7[0] => led_value7[0].IN1
+led_value7[1] => led_value7[1].IN1
+led_value7[2] => led_value7[2].IN1
+led_value7[3] => led_value7[3].IN1
+led_out0[0] <= seven_segment:led_0.led
+led_out0[1] <= seven_segment:led_0.led
+led_out0[2] <= seven_segment:led_0.led
+led_out0[3] <= seven_segment:led_0.led
+led_out0[4] <= seven_segment:led_0.led
+led_out0[5] <= seven_segment:led_0.led
+led_out0[6] <= seven_segment:led_0.led
+led_out1[0] <= seven_segment:led_1.led
+led_out1[1] <= seven_segment:led_1.led
+led_out1[2] <= seven_segment:led_1.led
+led_out1[3] <= seven_segment:led_1.led
+led_out1[4] <= seven_segment:led_1.led
+led_out1[5] <= seven_segment:led_1.led
+led_out1[6] <= seven_segment:led_1.led
+led_out2[0] <= seven_segment:led_2.led
+led_out2[1] <= seven_segment:led_2.led
+led_out2[2] <= seven_segment:led_2.led
+led_out2[3] <= seven_segment:led_2.led
+led_out2[4] <= seven_segment:led_2.led
+led_out2[5] <= seven_segment:led_2.led
+led_out2[6] <= seven_segment:led_2.led
+led_out3[0] <= seven_segment:led_3.led
+led_out3[1] <= seven_segment:led_3.led
+led_out3[2] <= seven_segment:led_3.led
+led_out3[3] <= seven_segment:led_3.led
+led_out3[4] <= seven_segment:led_3.led
+led_out3[5] <= seven_segment:led_3.led
+led_out3[6] <= seven_segment:led_3.led
+led_out4[0] <= seven_segment:led_4.led
+led_out4[1] <= seven_segment:led_4.led
+led_out4[2] <= seven_segment:led_4.led
+led_out4[3] <= seven_segment:led_4.led
+led_out4[4] <= seven_segment:led_4.led
+led_out4[5] <= seven_segment:led_4.led
+led_out4[6] <= seven_segment:led_4.led
+led_out5[0] <= seven_segment:led_5.led
+led_out5[1] <= seven_segment:led_5.led
+led_out5[2] <= seven_segment:led_5.led
+led_out5[3] <= seven_segment:led_5.led
+led_out5[4] <= seven_segment:led_5.led
+led_out5[5] <= seven_segment:led_5.led
+led_out5[6] <= seven_segment:led_5.led
+led_out6[0] <= seven_segment:led_6.led
+led_out6[1] <= seven_segment:led_6.led
+led_out6[2] <= seven_segment:led_6.led
+led_out6[3] <= seven_segment:led_6.led
+led_out6[4] <= seven_segment:led_6.led
+led_out6[5] <= seven_segment:led_6.led
+led_out6[6] <= seven_segment:led_6.led
+led_out7[0] <= seven_segment:led_7.led
+led_out7[1] <= seven_segment:led_7.led
+led_out7[2] <= seven_segment:led_7.led
+led_out7[3] <= seven_segment:led_7.led
+led_out7[4] <= seven_segment:led_7.led
+led_out7[5] <= seven_segment:led_7.led
+led_out7[6] <= seven_segment:led_7.led
 
 
-|century_clock|count_24_hours:count_24_hours|bcd:bcd_hour
-value[0] => Div0.IN9
-value[0] => Mod0.IN9
-value[1] => Div0.IN8
-value[1] => Mod0.IN8
-value[2] => Div0.IN7
-value[2] => Mod0.IN7
-value[3] => Div0.IN6
-value[3] => Mod0.IN6
-value[4] => Div0.IN5
-value[4] => Mod0.IN5
-value[5] => Div0.IN4
-value[5] => Mod0.IN4
-tens[0] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
-tens[1] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
-tens[2] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
-tens[3] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
-ones[0] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
-ones[1] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
-ones[2] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
-ones[3] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|century_clock|count_24_hours:count_24_hours|seven_segment:led_0
+|century_clock|display:display|seven_segment:led_0
 value[0] => Decoder0.IN3
 value[1] => Decoder0.IN2
 value[2] => Decoder0.IN1
@@ -255,7 +487,7 @@ led[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 led[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|century_clock|count_24_hours:count_24_hours|seven_segment:led_1
+|century_clock|display:display|seven_segment:led_1
 value[0] => Decoder0.IN3
 value[1] => Decoder0.IN2
 value[2] => Decoder0.IN1
@@ -269,7 +501,7 @@ led[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 led[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|century_clock|count_24_hours:count_24_hours|seven_segment:led_2
+|century_clock|display:display|seven_segment:led_2
 value[0] => Decoder0.IN3
 value[1] => Decoder0.IN2
 value[2] => Decoder0.IN1
@@ -283,7 +515,7 @@ led[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 led[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|century_clock|count_24_hours:count_24_hours|seven_segment:led_3
+|century_clock|display:display|seven_segment:led_3
 value[0] => Decoder0.IN3
 value[1] => Decoder0.IN2
 value[2] => Decoder0.IN1
@@ -297,7 +529,7 @@ led[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 led[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|century_clock|count_24_hours:count_24_hours|seven_segment:led_4
+|century_clock|display:display|seven_segment:led_4
 value[0] => Decoder0.IN3
 value[1] => Decoder0.IN2
 value[2] => Decoder0.IN1
@@ -311,7 +543,35 @@ led[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 led[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|century_clock|count_24_hours:count_24_hours|seven_segment:led_5
+|century_clock|display:display|seven_segment:led_5
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+led[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+led[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+led[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+led[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+led[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+led[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+led[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|century_clock|display:display|seven_segment:led_6
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+led[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+led[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+led[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+led[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+led[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+led[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+led[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|century_clock|display:display|seven_segment:led_7
 value[0] => Decoder0.IN3
 value[1] => Decoder0.IN2
 value[2] => Decoder0.IN1

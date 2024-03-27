@@ -1,72 +1,23 @@
-module count_24_hours #(
-	parameter led_num = 6,
-	parameter segment_num = 7,
-	parameter n = 4,	
+module count_24_hours #(	
 	parameter sec_num = 6,
-	parameter second_max = 60,
 	parameter min_num = 6,
-	parameter minute_max = 60,
 	parameter hour_num = 5,
-	parameter hour_max = 24	
+	parameter state_num = 8
 )(
 	input clk_1Hz,
 	input rst_n,
-	output reg [led_num*segment_num-1:0] hour_led
+	input [$clog2(state_num)-1:0] state,
+	input set_button,
+	output reg [sec_num-1:0] seconds,
+	output reg [min_num-1:0] minutes,
+	output reg [hour_num-1:0] hours
 );
 
-reg [sec_num-1:0] seconds;
-reg [min_num-1:0] minutes;
-reg [hour_num-1:0] hours;
-wire [n-1:0] sec_tens, sec_ones;
-wire [n-1:0] min_tens, min_ones;
-wire [n-1:0] hour_tens, hour_ones;
-wire [segment_num-1:0] led_out [led_num-1:0]; // 4 LEDs array
+localparam TIME_VIEW = 0, SET_HOUR = 1, SET_MINUTE = 2, SET_SECOND = 3;   
 
-bcd bcd_sec(
-	.value(seconds),
-	.tens(sec_tens),
-	.ones(sec_ones)
-);
-
-bcd bcd_min(
-	.value(minutes),
-	.tens(min_tens),
-	.ones(min_ones)
-);
-
-bcd bcd_hour(
-	.value(minutes),
-	.tens(hour_tens),
-	.ones(hour_ones)
-);
-	
-seven_segment led_0(
-	.value(sec_ones),
-	.led(led_out[0])
-);
-seven_segment led_1(
-	.value(sec_tens),
-	.led(led_out[1])
-);
-seven_segment led_2(
-	.value(min_ones),
-	.led(led_out[2])
-);
-
-seven_segment led_3(
-	.value(min_tens),
-	.led(led_out[3])
-);
-
-seven_segment led_4(
-	.value(hour_ones),
-	.led(led_out[4])
-);
-
-seven_segment led_5(
-	.value(hour_tens),
-	.led(led_out[5])
-);
+parameter second_max = 60;
+parameter minute_max = 60;
+parameter hour_max = 24;
 
 initial begin
 	seconds = 0;
@@ -74,11 +25,34 @@ initial begin
 	hours = 0;
 end
 
-always @ (posedge clk_1Hz or negedge rst_n) begin
+always @ (posedge clk_1Hz or negedge rst_n or negedge set_button) begin
 	if (~rst_n) begin
 		seconds <= 0;
 		minutes <= 0;
 		hours <= 0;
+	end
+	else if (~set_button) begin
+		case (state) 
+			SET_HOUR: begin
+				hours <= hours + 1;
+				if (hours == hour_max) begin
+					hours <= 0;
+				end
+			end
+			SET_MINUTE: begin
+				minutes <= minutes + 1;
+				if (minutes == minute_max - 1) begin
+					minutes <= 0;
+				end
+			end
+			SET_SECOND: begin
+				seconds <= seconds + 1; 
+				if (seconds == second_max - 1) begin
+					seconds <= 0;
+				end	
+			end
+//			default: state = TIME_VIEW;
+		endcase
 	end
 	else begin
 		seconds <= seconds + 1;
@@ -90,15 +64,10 @@ always @ (posedge clk_1Hz or negedge rst_n) begin
 			minutes <= 0;
 			hours <= hours + 1;
 		end
-		if (hours == hour_max - 1) begin
+		if (hours == hour_max) begin
 			hours <= 0;
-		end
+		end		
 	end
 end
-
-always @ (*) begin
-	hour_led = {led_out[5], led_out[4], led_out[3], led_out[2], led_out[1], led_out[0]};
-end
-
 
 endmodule

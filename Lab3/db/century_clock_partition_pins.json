@@ -4,175 +4,239 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "six_led[0]",
+					"name" : "led[0]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[1]",
+					"name" : "led[1]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[2]",
+					"name" : "led[2]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[3]",
+					"name" : "led[3]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[4]",
+					"name" : "led[4]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[5]",
+					"name" : "led[5]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[6]",
+					"name" : "led[6]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[7]",
+					"name" : "led[7]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[8]",
+					"name" : "led[8]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[9]",
+					"name" : "led[9]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[10]",
+					"name" : "led[10]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[11]",
+					"name" : "led[11]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[12]",
+					"name" : "led[12]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[13]",
+					"name" : "led[13]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[14]",
+					"name" : "led[14]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[15]",
+					"name" : "led[15]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[16]",
+					"name" : "led[16]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[17]",
+					"name" : "led[17]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[18]",
+					"name" : "led[18]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[19]",
+					"name" : "led[19]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[20]",
+					"name" : "led[20]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[21]",
+					"name" : "led[21]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[22]",
+					"name" : "led[22]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[23]",
+					"name" : "led[23]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[24]",
+					"name" : "led[24]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[25]",
+					"name" : "led[25]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[26]",
+					"name" : "led[26]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[27]",
+					"name" : "led[27]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[28]",
+					"name" : "led[28]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[29]",
+					"name" : "led[29]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[30]",
+					"name" : "led[30]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[31]",
+					"name" : "led[31]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[32]",
+					"name" : "led[32]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[33]",
+					"name" : "led[33]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[34]",
+					"name" : "led[34]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[35]",
+					"name" : "led[35]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[36]",
+					"name" : "led[36]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[37]",
+					"name" : "led[37]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[38]",
+					"name" : "led[38]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[39]",
+					"name" : "led[39]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[40]",
+					"name" : "led[40]",
 					"strict" : false
 				},
 				{
-					"name" : "six_led[41]",
+					"name" : "led[41]",
+					"strict" : false
+				},
+				{
+					"name" : "led[42]",
+					"strict" : false
+				},
+				{
+					"name" : "led[43]",
+					"strict" : false
+				},
+				{
+					"name" : "led[44]",
+					"strict" : false
+				},
+				{
+					"name" : "led[45]",
+					"strict" : false
+				},
+				{
+					"name" : "led[46]",
+					"strict" : false
+				},
+				{
+					"name" : "led[47]",
+					"strict" : false
+				},
+				{
+					"name" : "led[48]",
+					"strict" : false
+				},
+				{
+					"name" : "led[49]",
+					"strict" : false
+				},
+				{
+					"name" : "led[50]",
+					"strict" : false
+				},
+				{
+					"name" : "led[51]",
+					"strict" : false
+				},
+				{
+					"name" : "led[52]",
+					"strict" : false
+				},
+				{
+					"name" : "led[53]",
+					"strict" : false
+				},
+				{
+					"name" : "led[54]",
+					"strict" : false
+				},
+				{
+					"name" : "led[55]",
+					"strict" : false
+				},
+				{
+					"name" : "state_button",
 					"strict" : false
 				},
 				{
 					"name" : "rst_n",
+					"strict" : false
+				},
+				{
+					"name" : "set_button",
 					"strict" : false
 				},
 				{

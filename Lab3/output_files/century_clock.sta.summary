@@ -2,76 +2,220 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1200mV 85C Model Setup 'one_second_pulse:one_second_pulse|clk_1Hz'
+Slack : -33.414
+TNS   : -733.864
+
+Type  : Slow 1200mV 85C Model Setup 'rst_n'
+Slack : -32.172
+TNS   : -554.993
+
 Type  : Slow 1200mV 85C Model Setup 'clk_50MHz'
-Slack : -2.759
-TNS   : -49.234
+Slack : -2.842
+TNS   : -52.990
 
-Type  : Slow 1200mV 85C Model Setup 'one_second_pulse:one_second_pulse|pulse'
-Slack : -1.594
-TNS   : -15.345
+Type  : Slow 1200mV 85C Model Setup 'state_button'
+Slack : -0.163
+TNS   : -0.233
 
-Type  : Slow 1200mV 85C Model Hold 'one_second_pulse:one_second_pulse|pulse'
-Slack : 0.387
+Type  : Slow 1200mV 85C Model Hold 'state_button'
+Slack : 0.440
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk_50MHz'
-Slack : 0.640
+Slack : 0.654
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'rst_n'
+Slack : 0.723
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'one_second_pulse:one_second_pulse|clk_1Hz'
+Slack : 0.949
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'one_second_pulse:one_second_pulse|clk_1Hz'
+Slack : -2.505
+TNS   : -82.835
+
+Type  : Slow 1200mV 85C Model Recovery 'rst_n'
+Slack : -1.904
+TNS   : -32.900
+
+Type  : Slow 1200mV 85C Model Recovery 'clk_50MHz'
+Slack : -0.986
+TNS   : -23.064
+
+Type  : Slow 1200mV 85C Model Removal 'rst_n'
+Slack : 0.013
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'one_second_pulse:one_second_pulse|clk_1Hz'
+Slack : 0.245
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'clk_50MHz'
+Slack : 0.699
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_50MHz'
 Slack : -3.000
 TNS   : -37.695
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'one_second_pulse:one_second_pulse|pulse'
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'state_button'
+Slack : -3.000
+TNS   : -6.855
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'rst_n'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'one_second_pulse:one_second_pulse|clk_1Hz'
 Slack : -1.285
-TNS   : -15.420
+TNS   : -43.690
+
+Type  : Slow 1200mV 0C Model Setup 'one_second_pulse:one_second_pulse|clk_1Hz'
+Slack : -30.594
+TNS   : -672.285
+
+Type  : Slow 1200mV 0C Model Setup 'rst_n'
+Slack : -29.448
+TNS   : -507.973
 
 Type  : Slow 1200mV 0C Model Setup 'clk_50MHz'
-Slack : -2.368
-TNS   : -41.316
+Slack : -2.500
+TNS   : -45.306
 
-Type  : Slow 1200mV 0C Model Setup 'one_second_pulse:one_second_pulse|pulse'
-Slack : -1.345
-TNS   : -12.669
+Type  : Slow 1200mV 0C Model Setup 'state_button'
+Slack : -0.046
+TNS   : -0.046
 
-Type  : Slow 1200mV 0C Model Hold 'one_second_pulse:one_second_pulse|pulse'
-Slack : 0.340
+Type  : Slow 1200mV 0C Model Hold 'state_button'
+Slack : 0.387
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk_50MHz'
-Slack : 0.585
+Slack : 0.599
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'rst_n'
+Slack : 0.658
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'one_second_pulse:one_second_pulse|clk_1Hz'
+Slack : 0.996
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'one_second_pulse:one_second_pulse|clk_1Hz'
+Slack : -2.233
+TNS   : -73.758
+
+Type  : Slow 1200mV 0C Model Recovery 'rst_n'
+Slack : -1.921
+TNS   : -35.160
+
+Type  : Slow 1200mV 0C Model Recovery 'clk_50MHz'
+Slack : -0.815
+TNS   : -19.004
+
+Type  : Slow 1200mV 0C Model Removal 'rst_n'
+Slack : 0.023
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'one_second_pulse:one_second_pulse|clk_1Hz'
+Slack : 0.275
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'clk_50MHz'
+Slack : 0.727
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_50MHz'
 Slack : -3.000
 TNS   : -37.695
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'one_second_pulse:one_second_pulse|pulse'
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'state_button'
+Slack : -3.000
+TNS   : -6.855
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'rst_n'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'one_second_pulse:one_second_pulse|clk_1Hz'
 Slack : -1.285
-TNS   : -15.420
+TNS   : -43.690
+
+Type  : Fast 1200mV 0C Model Setup 'one_second_pulse:one_second_pulse|clk_1Hz'
+Slack : -16.651
+TNS   : -368.474
+
+Type  : Fast 1200mV 0C Model Setup 'rst_n'
+Slack : -15.387
+TNS   : -261.148
 
 Type  : Fast 1200mV 0C Model Setup 'clk_50MHz'
-Slack : -0.853
-TNS   : -11.333
+Slack : -0.901
+TNS   : -13.037
 
-Type  : Fast 1200mV 0C Model Setup 'one_second_pulse:one_second_pulse|pulse'
-Slack : -0.268
-TNS   : -1.908
+Type  : Fast 1200mV 0C Model Setup 'state_button'
+Slack : 0.438
+TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'one_second_pulse:one_second_pulse|pulse'
-Slack : 0.175
+Type  : Fast 1200mV 0C Model Hold 'one_second_pulse:one_second_pulse|clk_1Hz'
+Slack : 0.183
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'state_button'
+Slack : 0.199
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'rst_n'
+Slack : 0.221
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk_50MHz'
-Slack : 0.292
+Slack : 0.299
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'one_second_pulse:one_second_pulse|clk_1Hz'
+Slack : -1.410
+TNS   : -46.671
+
+Type  : Fast 1200mV 0C Model Recovery 'clk_50MHz'
+Slack : -0.602
+TNS   : -14.229
+
+Type  : Fast 1200mV 0C Model Recovery 'rst_n'
+Slack : -0.247
+TNS   : -0.475
+
+Type  : Fast 1200mV 0C Model Removal 'rst_n'
+Slack : -0.086
+TNS   : -1.294
+
+Type  : Fast 1200mV 0C Model Removal 'one_second_pulse:one_second_pulse|clk_1Hz'
+Slack : 0.040
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'clk_50MHz'
+Slack : 0.105
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_50MHz'
 Slack : -3.000
-TNS   : -31.734
+TNS   : -31.664
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'one_second_pulse:one_second_pulse|pulse'
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'state_button'
+Slack : -3.000
+TNS   : -6.564
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'rst_n'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'one_second_pulse:one_second_pulse|clk_1Hz'
 Slack : -1.000
-TNS   : -12.000
+TNS   : -34.000
 
 ------------------------------------------------------------

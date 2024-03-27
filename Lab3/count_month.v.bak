@@ -1,0 +1,13 @@
+module count_month #(
+	parameter mon_num = 4,
+)(
+	input days,
+	input rst_n,
+	output reg [mon_num-1:0] months
+);
+
+reg [day_num-1:0] day_max;
+
+always @ ()
+
+endmodule

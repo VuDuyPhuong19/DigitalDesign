@@ -1,0 +1,24 @@
+module date #(
+	parameter day_num = 6,
+	parameter mon_num = 4,
+	parameter year_num = 7
+)(
+	input clk_1Hz,
+	input rst_n,
+	input state_num,
+	output reg [day_num-1:0] days,
+	output reg [month_num-1:0] months,
+	output reg [year_num-1:0] years
+);
+
+initial begin
+	days = 1;
+	months = 1;
+	years = 24;
+end
+
+always @ (posedge clk_1Hz or negedge rst_n) begin
+	if ()
+end
+
+endmodule

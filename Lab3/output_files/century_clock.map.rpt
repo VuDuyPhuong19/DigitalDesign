@@ -1,5 +1,5 @@
 Analysis & Synthesis report for century_clock
-Mon Mar 25 09:12:12 2024
+Tue Mar 26 18:56:43 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -17,23 +17,43 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   9. Multiplexer Restructuring Statistics (Restructuring Performed)
  10. Parameter Settings for User Entity Instance: Top-level Entity: |century_clock
  11. Parameter Settings for User Entity Instance: one_second_pulse:one_second_pulse
- 12. Parameter Settings for User Entity Instance: count_24_hours:count_24_hours
- 13. Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|bcd:bcd_sec
- 14. Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|bcd:bcd_min
- 15. Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|bcd:bcd_hour
- 16. Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|seven_segment:led_0
- 17. Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|seven_segment:led_1
- 18. Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|seven_segment:led_2
- 19. Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|seven_segment:led_3
- 20. Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|seven_segment:led_4
- 21. Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|seven_segment:led_5
- 22. Parameter Settings for Inferred Entity Instance: count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Mod0
- 23. Parameter Settings for Inferred Entity Instance: count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Div0
- 24. Parameter Settings for Inferred Entity Instance: count_24_hours:count_24_hours|bcd:bcd_min|lpm_divide:Mod0
- 25. Parameter Settings for Inferred Entity Instance: count_24_hours:count_24_hours|bcd:bcd_min|lpm_divide:Div0
- 26. Post-Synthesis Netlist Statistics for Top Partition
- 27. Elapsed Time Per Partition
- 28. Analysis & Synthesis Messages
+ 12. Parameter Settings for User Entity Instance: bcd:bcd_sec
+ 13. Parameter Settings for User Entity Instance: bcd:bcd_min
+ 14. Parameter Settings for User Entity Instance: bcd:bcd_hour
+ 15. Parameter Settings for User Entity Instance: bcd:bcd_day
+ 16. Parameter Settings for User Entity Instance: bcd:bcd_mon
+ 17. Parameter Settings for User Entity Instance: bcd:bcd_year
+ 18. Parameter Settings for User Entity Instance: count_24_hours:count_24_hours
+ 19. Parameter Settings for User Entity Instance: date:date
+ 20. Parameter Settings for User Entity Instance: display:display
+ 21. Parameter Settings for User Entity Instance: display:display|seven_segment:led_0
+ 22. Parameter Settings for User Entity Instance: display:display|seven_segment:led_1
+ 23. Parameter Settings for User Entity Instance: display:display|seven_segment:led_2
+ 24. Parameter Settings for User Entity Instance: display:display|seven_segment:led_3
+ 25. Parameter Settings for User Entity Instance: display:display|seven_segment:led_4
+ 26. Parameter Settings for User Entity Instance: display:display|seven_segment:led_5
+ 27. Parameter Settings for User Entity Instance: display:display|seven_segment:led_6
+ 28. Parameter Settings for User Entity Instance: display:display|seven_segment:led_7
+ 29. Parameter Settings for Inferred Entity Instance: bcd:bcd_year|lpm_divide:Mod0
+ 30. Parameter Settings for Inferred Entity Instance: bcd:bcd_year|lpm_divide:Div0
+ 31. Parameter Settings for Inferred Entity Instance: bcd:bcd_sec|lpm_divide:Mod0
+ 32. Parameter Settings for Inferred Entity Instance: bcd:bcd_sec|lpm_divide:Div0
+ 33. Parameter Settings for Inferred Entity Instance: bcd:bcd_min|lpm_divide:Mod0
+ 34. Parameter Settings for Inferred Entity Instance: bcd:bcd_mon|lpm_divide:Mod0
+ 35. Parameter Settings for Inferred Entity Instance: bcd:bcd_min|lpm_divide:Div0
+ 36. Parameter Settings for Inferred Entity Instance: bcd:bcd_mon|lpm_divide:Div0
+ 37. Parameter Settings for Inferred Entity Instance: bcd:bcd_hour|lpm_divide:Mod0
+ 38. Parameter Settings for Inferred Entity Instance: bcd:bcd_day|lpm_divide:Mod0
+ 39. Parameter Settings for Inferred Entity Instance: bcd:bcd_hour|lpm_divide:Div0
+ 40. Parameter Settings for Inferred Entity Instance: bcd:bcd_day|lpm_divide:Div0
+ 41. Parameter Settings for Inferred Entity Instance: date:date|lpm_divide:Mod0
+ 42. Parameter Settings for Inferred Entity Instance: date:date|lpm_divide:Mod1
+ 43. Port Connectivity Checks: "bcd:bcd_year"
+ 44. Port Connectivity Checks: "bcd:bcd_mon"
+ 45. Port Connectivity Checks: "bcd:bcd_hour"
+ 46. Post-Synthesis Netlist Statistics for Top Partition
+ 47. Elapsed Time Per Partition
+ 48. Analysis & Synthesis Messages
 
 
 
@@ -60,16 +80,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Mar 25 09:12:12 2024          ;
+; Analysis & Synthesis Status        ; Successful - Tue Mar 26 18:56:43 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; century_clock                                  ;
 ; Top-level Entity Name              ; century_clock                                  ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 227                                            ;
-;     Total combinational functions  ; 227                                            ;
-;     Dedicated logic registers      ; 39                                             ;
-; Total registers                    ; 39                                             ;
-; Total pins                         ; 44                                             ;
+; Total logic elements               ; 688                                            ;
+;     Total combinational functions  ; 688                                            ;
+;     Dedicated logic registers      ; 64                                             ;
+; Total registers                    ; 64                                             ;
+; Total pins                         ; 60                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -176,7 +196,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processors 2-4         ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -190,6 +210,8 @@ https://fpgasoftware.intel.com/eula.
 ; century_clock.v                  ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v               ;         ;
 ; bcd.v                            ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v                         ;         ;
 ; output_files/count_24_hours.v    ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v ;         ;
+; date.v                           ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v                        ;         ;
+; display.v                        ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/display.v                     ;         ;
 ; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf          ;         ;
 ; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc         ;         ;
 ; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc     ;         ;
@@ -200,6 +222,12 @@ https://fpgasoftware.intel.com/eula.
 ; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/add_sub_7pc.tdf            ;         ;
 ; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/add_sub_8pc.tdf            ;         ;
 ; db/lpm_divide_hhm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/lpm_divide_hhm.tdf         ;         ;
+; db/lpm_divide_o9m.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/lpm_divide_o9m.tdf         ;         ;
+; db/sign_div_unsign_dkh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/sign_div_unsign_dkh.tdf    ;         ;
+; db/alt_u_div_e4f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/alt_u_div_e4f.tdf          ;         ;
+; db/lpm_divide_q9m.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/lpm_divide_q9m.tdf         ;         ;
+; db/sign_div_unsign_hkh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/sign_div_unsign_hkh.tdf    ;         ;
+; db/alt_u_div_m4f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/alt_u_div_m4f.tdf          ;         ;
 +----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
 
 
@@ -208,64 +236,110 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 227         ;
+; Estimated Total logic elements              ; 688         ;
 ;                                             ;             ;
-; Total combinational functions               ; 227         ;
+; Total combinational functions               ; 688         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 46          ;
-;     -- 3 input functions                    ; 50          ;
-;     -- <=2 input functions                  ; 131         ;
+;     -- 4 input functions                    ; 258         ;
+;     -- 3 input functions                    ; 113         ;
+;     -- <=2 input functions                  ; 317         ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 148         ;
-;     -- arithmetic mode                      ; 79          ;
+;     -- normal mode                          ; 533         ;
+;     -- arithmetic mode                      ; 155         ;
 ;                                             ;             ;
-; Total registers                             ; 39          ;
-;     -- Dedicated logic registers            ; 39          ;
+; Total registers                             ; 64          ;
+;     -- Dedicated logic registers            ; 64          ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
-; I/O pins                                    ; 44          ;
+; I/O pins                                    ; 60          ;
 ;                                             ;             ;
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; rst_n~input ;
-; Maximum fan-out                             ; 39          ;
-; Total fan-out                               ; 772         ;
-; Average fan-out                             ; 2.18        ;
+; Maximum fan-out                             ; 97          ;
+; Total fan-out                               ; 2247        ;
+; Average fan-out                             ; 2.58        ;
 +---------------------------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                     ;
-+----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                      ; Entity Name         ; Library Name ;
-+----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |century_clock                               ; 227 (0)             ; 39 (0)                    ; 0           ; 0            ; 0       ; 0         ; 44   ; 0            ; |century_clock                                                                                                                                           ; century_clock       ; work         ;
-;    |count_24_hours:count_24_hours|           ; 180 (26)            ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours                                                                                                             ; count_24_hours      ; work         ;
-;       |bcd:bcd_min|                          ; 63 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_min                                                                                                 ; bcd                 ; work         ;
-;          |lpm_divide:Div0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_min|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
-;             |lpm_divide_hhm:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_min|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                   ; lpm_divide_hhm      ; work         ;
-;                |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_min|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
-;                   |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_min|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f       ; work         ;
-;          |lpm_divide:Mod0|                   ; 33 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_min|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
-;             |lpm_divide_k9m:auto_generated|  ; 33 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_min|lpm_divide:Mod0|lpm_divide_k9m:auto_generated                                                   ; lpm_divide_k9m      ; work         ;
-;                |sign_div_unsign_9kh:divider| ; 33 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_min|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
-;                   |alt_u_div_64f:divider|    ; 33 (33)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_min|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f       ; work         ;
-;       |bcd:bcd_sec|                          ; 63 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_sec                                                                                                 ; bcd                 ; work         ;
-;          |lpm_divide:Div0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
-;             |lpm_divide_hhm:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                   ; lpm_divide_hhm      ; work         ;
-;                |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
-;                   |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f       ; work         ;
-;          |lpm_divide:Mod0|                   ; 33 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
-;             |lpm_divide_k9m:auto_generated|  ; 33 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Mod0|lpm_divide_k9m:auto_generated                                                   ; lpm_divide_k9m      ; work         ;
-;                |sign_div_unsign_9kh:divider| ; 33 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
-;                   |alt_u_div_64f:divider|    ; 33 (33)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f       ; work         ;
-;       |seven_segment:led_0|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|seven_segment:led_0                                                                                         ; seven_segment       ; work         ;
-;       |seven_segment:led_1|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|seven_segment:led_1                                                                                         ; seven_segment       ; work         ;
-;       |seven_segment:led_2|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|seven_segment:led_2                                                                                         ; seven_segment       ; work         ;
-;       |seven_segment:led_3|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours|seven_segment:led_3                                                                                         ; seven_segment       ; work         ;
-;    |one_second_pulse:one_second_pulse|       ; 47 (47)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|one_second_pulse:one_second_pulse                                                                                                         ; one_second_pulse    ; work         ;
-+----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                     ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                         ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |century_clock                            ; 688 (47)            ; 64 (3)                    ; 0           ; 0            ; 0       ; 0         ; 60   ; 0            ; |century_clock                                                                                                              ; century_clock       ; work         ;
+;    |bcd:bcd_day|                          ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_day                                                                                                  ; bcd                 ; work         ;
+;       |lpm_divide:Div0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_day|lpm_divide:Div0                                                                                  ; lpm_divide          ; work         ;
+;          |lpm_divide_hhm:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_day|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                    ; lpm_divide_hhm      ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_day|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                        ; sign_div_unsign_9kh ; work         ;
+;                |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_day|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider  ; alt_u_div_64f       ; work         ;
+;       |lpm_divide:Mod0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_day|lpm_divide:Mod0                                                                                  ; lpm_divide          ; work         ;
+;          |lpm_divide_k9m:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_day|lpm_divide:Mod0|lpm_divide_k9m:auto_generated                                                    ; lpm_divide_k9m      ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_day|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider                        ; sign_div_unsign_9kh ; work         ;
+;                |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_day|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider  ; alt_u_div_64f       ; work         ;
+;    |bcd:bcd_hour|                         ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_hour                                                                                                 ; bcd                 ; work         ;
+;       |lpm_divide:Div0|                   ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_hour|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_hhm:auto_generated|  ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_hour|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                   ; lpm_divide_hhm      ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_hour|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
+;                |alt_u_div_64f:divider|    ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_hour|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f       ; work         ;
+;       |lpm_divide:Mod0|                   ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_hour|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_k9m:auto_generated|  ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_hour|lpm_divide:Mod0|lpm_divide_k9m:auto_generated                                                   ; lpm_divide_k9m      ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 18 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_hour|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
+;                |alt_u_div_64f:divider|    ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_hour|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f       ; work         ;
+;    |bcd:bcd_min|                          ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_min                                                                                                  ; bcd                 ; work         ;
+;       |lpm_divide:Div0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_min|lpm_divide:Div0                                                                                  ; lpm_divide          ; work         ;
+;          |lpm_divide_hhm:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_min|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                    ; lpm_divide_hhm      ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_min|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                        ; sign_div_unsign_9kh ; work         ;
+;                |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_min|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider  ; alt_u_div_64f       ; work         ;
+;       |lpm_divide:Mod0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_min|lpm_divide:Mod0                                                                                  ; lpm_divide          ; work         ;
+;          |lpm_divide_k9m:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_min|lpm_divide:Mod0|lpm_divide_k9m:auto_generated                                                    ; lpm_divide_k9m      ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_min|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider                        ; sign_div_unsign_9kh ; work         ;
+;                |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_min|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider  ; alt_u_div_64f       ; work         ;
+;    |bcd:bcd_mon|                          ; 10 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_mon                                                                                                  ; bcd                 ; work         ;
+;       |lpm_divide:Div0|                   ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_mon|lpm_divide:Div0                                                                                  ; lpm_divide          ; work         ;
+;          |lpm_divide_hhm:auto_generated|  ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_mon|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                    ; lpm_divide_hhm      ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_mon|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                        ; sign_div_unsign_9kh ; work         ;
+;                |alt_u_div_64f:divider|    ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_mon|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider  ; alt_u_div_64f       ; work         ;
+;       |lpm_divide:Mod0|                   ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_mon|lpm_divide:Mod0                                                                                  ; lpm_divide          ; work         ;
+;          |lpm_divide_k9m:auto_generated|  ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_mon|lpm_divide:Mod0|lpm_divide_k9m:auto_generated                                                    ; lpm_divide_k9m      ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_mon|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider                        ; sign_div_unsign_9kh ; work         ;
+;                |alt_u_div_64f:divider|    ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_mon|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider  ; alt_u_div_64f       ; work         ;
+;    |bcd:bcd_sec|                          ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_sec                                                                                                  ; bcd                 ; work         ;
+;       |lpm_divide:Div0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_sec|lpm_divide:Div0                                                                                  ; lpm_divide          ; work         ;
+;          |lpm_divide_hhm:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_sec|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                    ; lpm_divide_hhm      ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_sec|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                        ; sign_div_unsign_9kh ; work         ;
+;                |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_sec|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider  ; alt_u_div_64f       ; work         ;
+;       |lpm_divide:Mod0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_sec|lpm_divide:Mod0                                                                                  ; lpm_divide          ; work         ;
+;          |lpm_divide_k9m:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_sec|lpm_divide:Mod0|lpm_divide_k9m:auto_generated                                                    ; lpm_divide_k9m      ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_sec|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider                        ; sign_div_unsign_9kh ; work         ;
+;                |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_sec|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider  ; alt_u_div_64f       ; work         ;
+;    |bcd:bcd_year|                         ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_year                                                                                                 ; bcd                 ; work         ;
+;       |lpm_divide:Div0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_year|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_hhm:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_year|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                   ; lpm_divide_hhm      ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_year|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
+;                |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_year|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f       ; work         ;
+;       |lpm_divide:Mod0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_year|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_k9m:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_year|lpm_divide:Mod0|lpm_divide_k9m:auto_generated                                                   ; lpm_divide_k9m      ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_year|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
+;                |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_year|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f       ; work         ;
+;    |count_24_hours:count_24_hours|        ; 116 (116)           ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours                                                                                ; count_24_hours      ; work         ;
+;    |date:date|                            ; 136 (130)           ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|date:date                                                                                                    ; date                ; work         ;
+;       |lpm_divide:Mod0|                   ; 6 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|date:date|lpm_divide:Mod0                                                                                    ; lpm_divide          ; work         ;
+;          |lpm_divide_o9m:auto_generated|  ; 6 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|date:date|lpm_divide:Mod0|lpm_divide_o9m:auto_generated                                                      ; lpm_divide_o9m      ; work         ;
+;             |sign_div_unsign_dkh:divider| ; 6 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|date:date|lpm_divide:Mod0|lpm_divide_o9m:auto_generated|sign_div_unsign_dkh:divider                          ; sign_div_unsign_dkh ; work         ;
+;                |alt_u_div_e4f:divider|    ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|date:date|lpm_divide:Mod0|lpm_divide_o9m:auto_generated|sign_div_unsign_dkh:divider|alt_u_div_e4f:divider    ; alt_u_div_e4f       ; work         ;
+;    |display:display|                      ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|display:display                                                                                              ; display             ; work         ;
+;       |seven_segment:led_0|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|display:display|seven_segment:led_0                                                                          ; seven_segment       ; work         ;
+;       |seven_segment:led_1|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|display:display|seven_segment:led_1                                                                          ; seven_segment       ; work         ;
+;       |seven_segment:led_2|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|display:display|seven_segment:led_2                                                                          ; seven_segment       ; work         ;
+;       |seven_segment:led_3|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|display:display|seven_segment:led_3                                                                          ; seven_segment       ; work         ;
+;       |seven_segment:led_4|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|display:display|seven_segment:led_4                                                                          ; seven_segment       ; work         ;
+;       |seven_segment:led_5|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|display:display|seven_segment:led_5                                                                          ; seven_segment       ; work         ;
+;       |seven_segment:led_6|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|display:display|seven_segment:led_6                                                                          ; seven_segment       ; work         ;
+;       |seven_segment:led_7|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|display:display|seven_segment:led_7                                                                          ; seven_segment       ; work         ;
+;    |one_second_pulse:one_second_pulse|    ; 47 (47)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|one_second_pulse:one_second_pulse                                                                            ; one_second_pulse    ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -274,12 +348,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 39    ;
+; Total registers                              ; 64    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 39    ;
+; Number of registers using Asynchronous Clear ; 61    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 7     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -289,7 +363,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |century_clock|count_24_hours:count_24_hours|minutes[5] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |century_clock|count_24_hours:count_24_hours|minutes[0] ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |century_clock|count_24_hours:count_24_hours|hours[4]   ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |century_clock|date:date|months[2]                      ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |century_clock|date:date|days[0]                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |century_clock|date:date|months                         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |century_clock|date:date|years                          ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |century_clock|count_24_hours:count_24_hours|minutes    ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |century_clock|count_24_hours:count_24_hours|hours      ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |century_clock|date:date|days                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
 
 
@@ -298,7 +380,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+-------+------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                 ;
 +----------------+-------+------------------------------------------------------+
-; led_num        ; 6     ; Signed Integer                                       ;
+; led_num        ; 8     ; Signed Integer                                       ;
 ; segment_num    ; 7     ; Signed Integer                                       ;
 +----------------+-------+------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
@@ -314,210 +396,539 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bcd:bcd_sec ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; n              ; 6     ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bcd:bcd_min ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; n              ; 6     ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bcd:bcd_hour ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; n              ; 6     ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bcd:bcd_day ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; n              ; 6     ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bcd:bcd_mon ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; n              ; 6     ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bcd:bcd_year ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; n              ; 6     ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +----------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: count_24_hours:count_24_hours ;
 +----------------+-------+---------------------------------------------------+
 ; Parameter Name ; Value ; Type                                              ;
 +----------------+-------+---------------------------------------------------+
-; led_num        ; 6     ; Signed Integer                                    ;
-; segment_num    ; 7     ; Signed Integer                                    ;
-; n              ; 4     ; Signed Integer                                    ;
 ; sec_num        ; 6     ; Signed Integer                                    ;
-; second_max     ; 60    ; Signed Integer                                    ;
 ; min_num        ; 6     ; Signed Integer                                    ;
-; minute_max     ; 60    ; Signed Integer                                    ;
 ; hour_num       ; 5     ; Signed Integer                                    ;
-; hour_max       ; 24    ; Signed Integer                                    ;
+; state_num      ; 8     ; Signed Integer                                    ;
 +----------------+-------+---------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|bcd:bcd_sec ;
-+----------------+-------+---------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                          ;
-+----------------+-------+---------------------------------------------------------------+
-; n              ; 6     ; Signed Integer                                                ;
-+----------------+-------+---------------------------------------------------------------+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: date:date ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; hour_num       ; 5     ; Signed Integer                ;
+; day_num        ; 6     ; Signed Integer                ;
+; mon_num        ; 4     ; Signed Integer                ;
+; year_num       ; 7     ; Signed Integer                ;
+; state_num      ; 8     ; Signed Integer                ;
++----------------+-------+-------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|bcd:bcd_min ;
-+----------------+-------+---------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                          ;
-+----------------+-------+---------------------------------------------------------------+
-; n              ; 6     ; Signed Integer                                                ;
-+----------------+-------+---------------------------------------------------------------+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: display:display ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; segment_num    ; 7     ; Signed Integer                      ;
+; n              ; 4     ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|bcd:bcd_hour ;
-+----------------+-------+----------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                           ;
-+----------------+-------+----------------------------------------------------------------+
-; n              ; 6     ; Signed Integer                                                 ;
-+----------------+-------+----------------------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: display:display|seven_segment:led_0 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; segment_num    ; 7     ; Signed Integer                                          ;
+; n              ; 4     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|seven_segment:led_0 ;
-+----------------+-------+-----------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                  ;
-+----------------+-------+-----------------------------------------------------------------------+
-; segment_num    ; 7     ; Signed Integer                                                        ;
-; n              ; 4     ; Signed Integer                                                        ;
-+----------------+-------+-----------------------------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: display:display|seven_segment:led_1 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; segment_num    ; 7     ; Signed Integer                                          ;
+; n              ; 4     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|seven_segment:led_1 ;
-+----------------+-------+-----------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                  ;
-+----------------+-------+-----------------------------------------------------------------------+
-; segment_num    ; 7     ; Signed Integer                                                        ;
-; n              ; 4     ; Signed Integer                                                        ;
-+----------------+-------+-----------------------------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: display:display|seven_segment:led_2 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; segment_num    ; 7     ; Signed Integer                                          ;
+; n              ; 4     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|seven_segment:led_2 ;
-+----------------+-------+-----------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                  ;
-+----------------+-------+-----------------------------------------------------------------------+
-; segment_num    ; 7     ; Signed Integer                                                        ;
-; n              ; 4     ; Signed Integer                                                        ;
-+----------------+-------+-----------------------------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: display:display|seven_segment:led_3 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; segment_num    ; 7     ; Signed Integer                                          ;
+; n              ; 4     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|seven_segment:led_3 ;
-+----------------+-------+-----------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                  ;
-+----------------+-------+-----------------------------------------------------------------------+
-; segment_num    ; 7     ; Signed Integer                                                        ;
-; n              ; 4     ; Signed Integer                                                        ;
-+----------------+-------+-----------------------------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: display:display|seven_segment:led_4 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; segment_num    ; 7     ; Signed Integer                                          ;
+; n              ; 4     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|seven_segment:led_4 ;
-+----------------+-------+-----------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                  ;
-+----------------+-------+-----------------------------------------------------------------------+
-; segment_num    ; 7     ; Signed Integer                                                        ;
-; n              ; 4     ; Signed Integer                                                        ;
-+----------------+-------+-----------------------------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: display:display|seven_segment:led_5 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; segment_num    ; 7     ; Signed Integer                                          ;
+; n              ; 4     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: count_24_hours:count_24_hours|seven_segment:led_5 ;
-+----------------+-------+-----------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                  ;
-+----------------+-------+-----------------------------------------------------------------------+
-; segment_num    ; 7     ; Signed Integer                                                        ;
-; n              ; 4     ; Signed Integer                                                        ;
-+----------------+-------+-----------------------------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: display:display|seven_segment:led_6 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; segment_num    ; 7     ; Signed Integer                                          ;
+; n              ; 4     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Mod0 ;
-+------------------------+----------------+------------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                             ;
-+------------------------+----------------+------------------------------------------------------------------+
-; LPM_WIDTHN             ; 6              ; Untyped                                                          ;
-; LPM_WIDTHD             ; 4              ; Untyped                                                          ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                          ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                          ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                          ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                          ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                          ;
-; CBXI_PARAMETER         ; lpm_divide_k9m ; Untyped                                                          ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                          ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                          ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                       ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                     ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                     ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                                   ;
-+------------------------+----------------+------------------------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: display:display|seven_segment:led_7 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; segment_num    ; 7     ; Signed Integer                                          ;
+; n              ; 4     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Div0 ;
-+------------------------+----------------+------------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                             ;
-+------------------------+----------------+------------------------------------------------------------------+
-; LPM_WIDTHN             ; 6              ; Untyped                                                          ;
-; LPM_WIDTHD             ; 4              ; Untyped                                                          ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                          ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                          ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                          ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                          ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                          ;
-; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                                                          ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                          ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                          ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                       ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                     ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                     ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                                   ;
-+------------------------+----------------+------------------------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bcd:bcd_year|lpm_divide:Mod0 ;
++------------------------+----------------+-------------------------------------+
+; Parameter Name         ; Value          ; Type                                ;
++------------------------+----------------+-------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                             ;
+; LPM_WIDTHD             ; 4              ; Untyped                             ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                             ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                             ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                             ;
+; CBXI_PARAMETER         ; lpm_divide_k9m ; Untyped                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                      ;
++------------------------+----------------+-------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: count_24_hours:count_24_hours|bcd:bcd_min|lpm_divide:Mod0 ;
-+------------------------+----------------+------------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                             ;
-+------------------------+----------------+------------------------------------------------------------------+
-; LPM_WIDTHN             ; 6              ; Untyped                                                          ;
-; LPM_WIDTHD             ; 4              ; Untyped                                                          ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                          ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                          ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                          ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                          ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                          ;
-; CBXI_PARAMETER         ; lpm_divide_k9m ; Untyped                                                          ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                          ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                          ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                       ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                     ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                     ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                                   ;
-+------------------------+----------------+------------------------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bcd:bcd_year|lpm_divide:Div0 ;
++------------------------+----------------+-------------------------------------+
+; Parameter Name         ; Value          ; Type                                ;
++------------------------+----------------+-------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                             ;
+; LPM_WIDTHD             ; 4              ; Untyped                             ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                             ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                             ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                             ;
+; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                      ;
++------------------------+----------------+-------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: count_24_hours:count_24_hours|bcd:bcd_min|lpm_divide:Div0 ;
-+------------------------+----------------+------------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                             ;
-+------------------------+----------------+------------------------------------------------------------------+
-; LPM_WIDTHN             ; 6              ; Untyped                                                          ;
-; LPM_WIDTHD             ; 4              ; Untyped                                                          ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                          ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                          ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                          ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                          ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                          ;
-; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                                                          ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                          ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                          ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                       ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                     ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                     ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                                   ;
-+------------------------+----------------+------------------------------------------------------------------+
++------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bcd:bcd_sec|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------+
+; Parameter Name         ; Value          ; Type                               ;
++------------------------+----------------+------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                            ;
+; LPM_WIDTHD             ; 4              ; Untyped                            ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                            ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                            ;
+; CBXI_PARAMETER         ; lpm_divide_k9m ; Untyped                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                     ;
++------------------------+----------------+------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bcd:bcd_sec|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------+
+; Parameter Name         ; Value          ; Type                               ;
++------------------------+----------------+------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                            ;
+; LPM_WIDTHD             ; 4              ; Untyped                            ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                            ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                            ;
+; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                     ;
++------------------------+----------------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bcd:bcd_min|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------+
+; Parameter Name         ; Value          ; Type                               ;
++------------------------+----------------+------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                            ;
+; LPM_WIDTHD             ; 4              ; Untyped                            ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                            ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                            ;
+; CBXI_PARAMETER         ; lpm_divide_k9m ; Untyped                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                     ;
++------------------------+----------------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bcd:bcd_mon|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------+
+; Parameter Name         ; Value          ; Type                               ;
++------------------------+----------------+------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                            ;
+; LPM_WIDTHD             ; 4              ; Untyped                            ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                            ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                            ;
+; CBXI_PARAMETER         ; lpm_divide_k9m ; Untyped                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                     ;
++------------------------+----------------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bcd:bcd_min|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------+
+; Parameter Name         ; Value          ; Type                               ;
++------------------------+----------------+------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                            ;
+; LPM_WIDTHD             ; 4              ; Untyped                            ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                            ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                            ;
+; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                     ;
++------------------------+----------------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bcd:bcd_mon|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------+
+; Parameter Name         ; Value          ; Type                               ;
++------------------------+----------------+------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                            ;
+; LPM_WIDTHD             ; 4              ; Untyped                            ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                            ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                            ;
+; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                     ;
++------------------------+----------------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bcd:bcd_hour|lpm_divide:Mod0 ;
++------------------------+----------------+-------------------------------------+
+; Parameter Name         ; Value          ; Type                                ;
++------------------------+----------------+-------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                             ;
+; LPM_WIDTHD             ; 4              ; Untyped                             ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                             ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                             ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                             ;
+; CBXI_PARAMETER         ; lpm_divide_k9m ; Untyped                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                      ;
++------------------------+----------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bcd:bcd_day|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------+
+; Parameter Name         ; Value          ; Type                               ;
++------------------------+----------------+------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                            ;
+; LPM_WIDTHD             ; 4              ; Untyped                            ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                            ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                            ;
+; CBXI_PARAMETER         ; lpm_divide_k9m ; Untyped                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                     ;
++------------------------+----------------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bcd:bcd_hour|lpm_divide:Div0 ;
++------------------------+----------------+-------------------------------------+
+; Parameter Name         ; Value          ; Type                                ;
++------------------------+----------------+-------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                             ;
+; LPM_WIDTHD             ; 4              ; Untyped                             ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                             ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                             ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                             ;
+; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                      ;
++------------------------+----------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bcd:bcd_day|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------+
+; Parameter Name         ; Value          ; Type                               ;
++------------------------+----------------+------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                            ;
+; LPM_WIDTHD             ; 4              ; Untyped                            ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                            ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                            ;
+; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                     ;
++------------------------+----------------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: date:date|lpm_divide:Mod0 ;
++------------------------+----------------+----------------------------------+
+; Parameter Name         ; Value          ; Type                             ;
++------------------------+----------------+----------------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                          ;
+; LPM_WIDTHD             ; 7              ; Untyped                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                          ;
+; CBXI_PARAMETER         ; lpm_divide_o9m ; Untyped                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                   ;
++------------------------+----------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: date:date|lpm_divide:Mod1 ;
++------------------------+----------------+----------------------------------+
+; Parameter Name         ; Value          ; Type                             ;
++------------------------+----------------+----------------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                          ;
+; LPM_WIDTHD             ; 9              ; Untyped                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                          ;
+; CBXI_PARAMETER         ; lpm_divide_q9m ; Untyped                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                   ;
++------------------------+----------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bcd:bcd_year"                                                                                                                                                                    ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                          ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; value ; Input ; Warning  ; Input port expression (7 bits) is wider than the input port (6 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bcd:bcd_mon"                                                                                                                                  ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                       ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; value ; Input ; Warning  ; Input port expression (4 bits) is smaller than the input port (6 bits) it drives.  Extra input bit(s) "value[5..4]" will be connected to GND. ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bcd:bcd_hour"                                                                                                                                 ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                       ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; value ; Input ; Warning  ; Input port expression (5 bits) is smaller than the input port (6 bits) it drives.  Extra input bit(s) "value[5..5]" will be connected to GND. ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -525,22 +936,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 44                          ;
-; cycloneiii_ff         ; 39                          ;
-;     CLR               ; 39                          ;
-; cycloneiii_lcell_comb ; 231                         ;
-;     arith             ; 79                          ;
-;         2 data inputs ; 47                          ;
-;         3 data inputs ; 32                          ;
-;     normal            ; 152                         ;
-;         0 data inputs ; 12                          ;
-;         1 data inputs ; 7                           ;
-;         2 data inputs ; 69                          ;
-;         3 data inputs ; 18                          ;
-;         4 data inputs ; 46                          ;
+; boundary_port         ; 60                          ;
+; cycloneiii_ff         ; 64                          ;
+;     CLR               ; 54                          ;
+;     ENA CLR           ; 7                           ;
+;     plain             ; 3                           ;
+; cycloneiii_lcell_comb ; 696                         ;
+;     arith             ; 155                         ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 78                          ;
+;         3 data inputs ; 73                          ;
+;     normal            ; 541                         ;
+;         0 data inputs ; 31                          ;
+;         1 data inputs ; 12                          ;
+;         2 data inputs ; 200                         ;
+;         3 data inputs ; 40                          ;
+;         4 data inputs ; 258                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 9.10                        ;
-; Average LUT depth     ; 6.29                        ;
+; Max LUT depth         ; 10.10                       ;
+; Average LUT depth     ; 5.86                        ;
 +-----------------------+-----------------------------+
 
 
@@ -559,7 +973,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Mon Mar 25 09:12:01 2024
+    Info: Processing started: Tue Mar 26 18:56:33 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off century_clock -c century_clock
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -579,23 +993,71 @@ Info (12021): Found 1 design units, including 1 entities, in source file output_
     Info (12023): Found entity 1: count_60_min File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_60_min.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file output_files/count_24_hours.v
     Info (12023): Found entity 1: count_24_hours File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 1
+Warning (12019): Can't analyze file -- file output_files/count_day.v is missing
+Warning (12019): Can't analyze file -- file count_month.v is missing
+Warning (12019): Can't analyze file -- file count_year.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file date.v
+    Info (12023): Found entity 1: date File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file display.v
+    Info (12023): Found entity 1: display File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/display.v Line: 1
+Warning (10222): Verilog HDL Parameter Declaration warning at century_clock.v(14): Parameter Declaration in module "century_clock" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 14
+Warning (10222): Verilog HDL Parameter Declaration warning at century_clock.v(15): Parameter Declaration in module "century_clock" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 15
+Warning (10222): Verilog HDL Parameter Declaration warning at century_clock.v(17): Parameter Declaration in module "century_clock" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 17
+Warning (10222): Verilog HDL Parameter Declaration warning at century_clock.v(18): Parameter Declaration in module "century_clock" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 18
+Warning (10222): Verilog HDL Parameter Declaration warning at century_clock.v(19): Parameter Declaration in module "century_clock" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 19
+Warning (10222): Verilog HDL Parameter Declaration warning at century_clock.v(21): Parameter Declaration in module "century_clock" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 21
+Warning (10222): Verilog HDL Parameter Declaration warning at century_clock.v(22): Parameter Declaration in module "century_clock" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 22
+Warning (10222): Verilog HDL Parameter Declaration warning at century_clock.v(23): Parameter Declaration in module "century_clock" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 23
+Warning (10222): Verilog HDL Parameter Declaration warning at count_24_hours.v(18): Parameter Declaration in module "count_24_hours" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 18
+Warning (10222): Verilog HDL Parameter Declaration warning at count_24_hours.v(19): Parameter Declaration in module "count_24_hours" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 19
+Warning (10222): Verilog HDL Parameter Declaration warning at count_24_hours.v(20): Parameter Declaration in module "count_24_hours" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 20
+Warning (10222): Verilog HDL Parameter Declaration warning at date.v(20): Parameter Declaration in module "date" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 20
+Warning (10222): Verilog HDL Parameter Declaration warning at date.v(21): Parameter Declaration in module "date" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 21
+Warning (10222): Verilog HDL Parameter Declaration warning at date.v(22): Parameter Declaration in module "date" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 22
 Info (12127): Elaborating entity "century_clock" for the top level hierarchy
-Info (12128): Elaborating entity "one_second_pulse" for hierarchy "one_second_pulse:one_second_pulse" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 16
-Info (12128): Elaborating entity "count_24_hours" for hierarchy "count_24_hours:count_24_hours" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 38
-Warning (10230): Verilog HDL assignment warning at count_24_hours.v(84): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 84
-Warning (10230): Verilog HDL assignment warning at count_24_hours.v(87): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 87
-Warning (10230): Verilog HDL assignment warning at count_24_hours.v(91): truncated value with size 32 to match size of target (5) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 91
-Info (12128): Elaborating entity "bcd" for hierarchy "count_24_hours:count_24_hours|bcd:bcd_sec" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 29
+Warning (10230): Verilog HDL assignment warning at century_clock.v(53): truncated value with size 32 to match size of target (3) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 53
+Info (12128): Elaborating entity "one_second_pulse" for hierarchy "one_second_pulse:one_second_pulse" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 111
+Info (12128): Elaborating entity "bcd" for hierarchy "bcd:bcd_sec" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 117
 Warning (10230): Verilog HDL assignment warning at bcd.v(8): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
 Warning (10230): Verilog HDL assignment warning at bcd.v(9): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
-Info (12128): Elaborating entity "seven_segment" for hierarchy "count_24_hours:count_24_hours|seven_segment:led_0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 46
-Info (278001): Inferred 4 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "count_24_hours:count_24_hours|bcd:bcd_sec|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "count_24_hours:count_24_hours|bcd:bcd_sec|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "count_24_hours:count_24_hours|bcd:bcd_min|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "count_24_hours:count_24_hours|bcd:bcd_min|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
-Info (12130): Elaborated megafunction instantiation "count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
-Info (12133): Instantiated megafunction "count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Mod0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
+Info (12128): Elaborating entity "count_24_hours" for hierarchy "count_24_hours:count_24_hours" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 170
+Warning (10230): Verilog HDL assignment warning at count_24_hours.v(37): truncated value with size 32 to match size of target (5) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 37
+Warning (10230): Verilog HDL assignment warning at count_24_hours.v(43): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 43
+Warning (10230): Verilog HDL assignment warning at count_24_hours.v(49): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 49
+Warning (10270): Verilog HDL Case Statement warning at count_24_hours.v(35): incomplete case statement has no default case item File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 35
+Warning (10230): Verilog HDL assignment warning at count_24_hours.v(58): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+Warning (10230): Verilog HDL assignment warning at count_24_hours.v(61): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 61
+Warning (10230): Verilog HDL assignment warning at count_24_hours.v(65): truncated value with size 32 to match size of target (5) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 65
+Info (12128): Elaborating entity "date" for hierarchy "date:date" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 181
+Warning (10230): Verilog HDL assignment warning at date.v(39): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 39
+Warning (10230): Verilog HDL assignment warning at date.v(54): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 54
+Warning (10230): Verilog HDL assignment warning at date.v(60): truncated value with size 32 to match size of target (7) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 60
+Warning (10270): Verilog HDL Case Statement warning at date.v(37): incomplete case statement has no default case item File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 37
+Warning (10230): Verilog HDL assignment warning at date.v(69): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 69
+Warning (10230): Verilog HDL assignment warning at date.v(72): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 72
+Warning (10230): Verilog HDL assignment warning at date.v(76): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 76
+Warning (10230): Verilog HDL assignment warning at date.v(80): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 80
+Warning (10230): Verilog HDL assignment warning at date.v(84): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 84
+Warning (10230): Verilog HDL assignment warning at date.v(88): truncated value with size 32 to match size of target (7) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 88
+Info (12128): Elaborating entity "display" for hierarchy "display:display" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 200
+Info (12128): Elaborating entity "seven_segment" for hierarchy "display:display|seven_segment:led_0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/display.v Line: 26
+Info (278001): Inferred 14 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_year|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_year|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_sec|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_sec|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_min|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_mon|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_min|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_mon|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_hour|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_day|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_hour|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_day|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "date:date|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 75
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "date:date|Mod1" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 75
+Info (12130): Elaborated megafunction instantiation "bcd:bcd_year|lpm_divide:Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
+Info (12133): Instantiated megafunction "bcd:bcd_year|lpm_divide:Mod0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
     Info (12134): Parameter "LPM_WIDTHN" = "6"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -610,25 +1072,109 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/add_
     Info (12023): Found entity 1: add_sub_7pc File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/add_sub_7pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
     Info (12023): Found entity 1: add_sub_8pc File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/add_sub_8pc.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
-Info (12133): Instantiated megafunction "count_24_hours:count_24_hours|bcd:bcd_sec|lpm_divide:Div0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
+Info (12130): Elaborated megafunction instantiation "bcd:bcd_year|lpm_divide:Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
+Info (12133): Instantiated megafunction "bcd:bcd_year|lpm_divide:Div0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
     Info (12134): Parameter "LPM_WIDTHN" = "6"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hhm.tdf
     Info (12023): Found entity 1: lpm_divide_hhm File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/lpm_divide_hhm.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "bcd:bcd_mon|lpm_divide:Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
+Info (12133): Instantiated megafunction "bcd:bcd_mon|lpm_divide:Mod0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
+    Info (12134): Parameter "LPM_WIDTHN" = "6"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12130): Elaborated megafunction instantiation "bcd:bcd_mon|lpm_divide:Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
+Info (12133): Instantiated megafunction "bcd:bcd_mon|lpm_divide:Div0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
+    Info (12134): Parameter "LPM_WIDTHN" = "6"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12130): Elaborated megafunction instantiation "bcd:bcd_hour|lpm_divide:Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
+Info (12133): Instantiated megafunction "bcd:bcd_hour|lpm_divide:Mod0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
+    Info (12134): Parameter "LPM_WIDTHN" = "6"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12130): Elaborated megafunction instantiation "bcd:bcd_hour|lpm_divide:Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
+Info (12133): Instantiated megafunction "bcd:bcd_hour|lpm_divide:Div0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
+    Info (12134): Parameter "LPM_WIDTHN" = "6"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12130): Elaborated megafunction instantiation "date:date|lpm_divide:Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 75
+Info (12133): Instantiated megafunction "date:date|lpm_divide:Mod0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 75
+    Info (12134): Parameter "LPM_WIDTHN" = "7"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_o9m.tdf
+    Info (12023): Found entity 1: lpm_divide_o9m File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/lpm_divide_o9m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_dkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_dkh File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/sign_div_unsign_dkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_e4f.tdf
+    Info (12023): Found entity 1: alt_u_div_e4f File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/alt_u_div_e4f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "date:date|lpm_divide:Mod1" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 75
+Info (12133): Instantiated megafunction "date:date|lpm_divide:Mod1" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 75
+    Info (12134): Parameter "LPM_WIDTHN" = "7"
+    Info (12134): Parameter "LPM_WIDTHD" = "9"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_q9m.tdf
+    Info (12023): Found entity 1: lpm_divide_q9m File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/lpm_divide_q9m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_hkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_hkh File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/sign_div_unsign_hkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_m4f.tdf
+    Info (12023): Found entity 1: alt_u_div_m4f File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/alt_u_div_m4f.tdf Line: 27
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "date:date|years[0]" is converted into an equivalent circuit using register "date:date|years[0]~_emulated" and latch "date:date|years[0]~1" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "date:date|years[1]" is converted into an equivalent circuit using register "date:date|years[1]~_emulated" and latch "date:date|years[1]~6" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "date:date|years[2]" is converted into an equivalent circuit using register "date:date|years[2]~_emulated" and latch "date:date|years[2]~11" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "date:date|years[3]" is converted into an equivalent circuit using register "date:date|years[3]~_emulated" and latch "date:date|years[3]~16" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "count_24_hours:count_24_hours|seconds[0]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|seconds[0]~_emulated" and latch "count_24_hours:count_24_hours|seconds[0]~1" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "count_24_hours:count_24_hours|seconds[1]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|seconds[1]~_emulated" and latch "count_24_hours:count_24_hours|seconds[1]~6" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "count_24_hours:count_24_hours|seconds[2]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|seconds[2]~_emulated" and latch "count_24_hours:count_24_hours|seconds[2]~11" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "count_24_hours:count_24_hours|seconds[3]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|seconds[3]~_emulated" and latch "count_24_hours:count_24_hours|seconds[3]~16" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "count_24_hours:count_24_hours|minutes[0]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|minutes[0]~_emulated" and latch "count_24_hours:count_24_hours|minutes[0]~1" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "date:date|months[0]" is converted into an equivalent circuit using register "date:date|months[0]~_emulated" and latch "date:date|months[0]~1" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "count_24_hours:count_24_hours|minutes[1]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|minutes[1]~_emulated" and latch "count_24_hours:count_24_hours|minutes[1]~6" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "date:date|months[1]" is converted into an equivalent circuit using register "date:date|months[1]~_emulated" and latch "date:date|months[1]~6" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "count_24_hours:count_24_hours|minutes[2]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|minutes[2]~_emulated" and latch "count_24_hours:count_24_hours|minutes[2]~11" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "date:date|months[2]" is converted into an equivalent circuit using register "date:date|months[2]~_emulated" and latch "date:date|months[2]~11" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "count_24_hours:count_24_hours|minutes[3]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|minutes[3]~_emulated" and latch "count_24_hours:count_24_hours|minutes[3]~16" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "date:date|months[3]" is converted into an equivalent circuit using register "date:date|months[3]~_emulated" and latch "date:date|months[3]~16" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "count_24_hours:count_24_hours|hours[0]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|hours[0]~_emulated" and latch "count_24_hours:count_24_hours|hours[0]~1" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "date:date|days[0]" is converted into an equivalent circuit using register "date:date|days[0]~_emulated" and latch "date:date|days[0]~1" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "count_24_hours:count_24_hours|hours[1]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|hours[1]~_emulated" and latch "count_24_hours:count_24_hours|hours[1]~6" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "date:date|days[1]" is converted into an equivalent circuit using register "date:date|days[1]~_emulated" and latch "date:date|days[1]~6" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "count_24_hours:count_24_hours|hours[2]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|hours[2]~_emulated" and latch "count_24_hours:count_24_hours|hours[2]~11" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "date:date|days[2]" is converted into an equivalent circuit using register "date:date|days[2]~_emulated" and latch "date:date|days[2]~11" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "count_24_hours:count_24_hours|hours[3]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|hours[3]~_emulated" and latch "count_24_hours:count_24_hours|hours[3]~16" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "date:date|days[3]" is converted into an equivalent circuit using register "date:date|days[3]~_emulated" and latch "date:date|days[3]~16" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "date:date|years[6]" is converted into an equivalent circuit using register "date:date|years[6]~_emulated" and latch "date:date|years[6]~21" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "date:date|years[5]" is converted into an equivalent circuit using register "date:date|years[5]~_emulated" and latch "date:date|years[5]~26" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "date:date|years[4]" is converted into an equivalent circuit using register "date:date|years[4]~_emulated" and latch "date:date|years[4]~31" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "count_24_hours:count_24_hours|seconds[5]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|seconds[5]~_emulated" and latch "count_24_hours:count_24_hours|seconds[5]~21" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "count_24_hours:count_24_hours|seconds[4]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|seconds[4]~_emulated" and latch "count_24_hours:count_24_hours|seconds[4]~26" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "count_24_hours:count_24_hours|minutes[5]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|minutes[5]~_emulated" and latch "count_24_hours:count_24_hours|minutes[5]~21" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "count_24_hours:count_24_hours|minutes[4]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|minutes[4]~_emulated" and latch "count_24_hours:count_24_hours|minutes[4]~26" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
+    Warning (13310): Register "date:date|days[5]" is converted into an equivalent circuit using register "date:date|days[5]~_emulated" and latch "date:date|days[5]~21" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "date:date|days[4]" is converted into an equivalent circuit using register "date:date|days[4]~_emulated" and latch "date:date|days[4]~26" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 68
+    Warning (13310): Register "count_24_hours:count_24_hours|hours[4]" is converted into an equivalent circuit using register "count_24_hours:count_24_hours|hours[4]~_emulated" and latch "count_24_hours:count_24_hours|hours[4]~21" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 58
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 272 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 42 output pins
-    Info (21061): Implemented 228 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 4793 megabytes
-    Info: Processing ended: Mon Mar 25 09:12:12 2024
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:06
+Info (21057): Implemented 749 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 56 output pins
+    Info (21061): Implemented 689 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 74 warnings
+    Info: Peak virtual memory: 4796 megabytes
+    Info: Processing ended: Tue Mar 26 18:56:43 2024
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:08
 
 
