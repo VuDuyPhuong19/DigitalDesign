@@ -1,12 +1,12 @@
-Fitter Status : Successful - Tue Mar 26 18:57:00 2024
+Fitter Status : Successful - Wed Mar 27 13:13:31 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : century_clock
 Top-level Entity Name : century_clock
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 690 / 114,480 ( < 1 % )
-    Total combinational functions : 688 / 114,480 ( < 1 % )
+Total logic elements : 531 / 114,480 ( < 1 % )
+    Total combinational functions : 530 / 114,480 ( < 1 % )
     Dedicated logic registers : 64 / 114,480 ( < 1 % )
 Total registers : 64
 Total pins : 60 / 529 ( 11 % )

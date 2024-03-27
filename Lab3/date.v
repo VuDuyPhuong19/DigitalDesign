@@ -21,72 +21,84 @@ parameter hour_max = 24;
 parameter mon_max = 12;
 parameter year_max = 100;
 
+reg set_button_last; // luu trang thai cuoi cung cua set_button
+
 initial begin
 	days = 1;
 	months = 1;
 	years = 0;
+	set_button_last = 1;
 end
 
-always @ (posedge clk_1Hz or negedge rst_n or negedge set_button) begin
+always @ (posedge clk_1Hz or negedge rst_n) begin
 	if (~rst_n) begin
         days <= 1;
         months <= 1;
         years <= 0;
+        set_button_last <= 1;
 	end 
-	else if (~set_button) begin
-		case (state) 
-			SET_DAY: begin
-				days <= days + 1;
-				if ((months == 4 || months == 6 || months == 9 || months == 11) && days == 31) begin
-					days <= 1;
-				end
-				else if (months == 2 && (((years % 4 == 0) && (years % 100 != 0)) || (years % 400 == 0)) && days == 30) begin
-					days <= 1;
-				end
-				else if (months == 2 && days == 29) begin
-					days <= 1;
-				end
-				else if (days == 32) begin
-					days <= 1;
-				end
-			end
-			SET_MONTH: begin
-				months <= months + 1;
-				if (months == mon_max + 1) begin
-					months <= 1;
-				end
-			end
-			SET_YEAR: begin
-				years <= years + 1;
-				if (years == year_max) begin
-					years <= 1;
-				end
-			end
-		endcase
-	end
 	else begin
-		if (hours == hour_max) begin
-			days <= days + 1;
+		if (~set_button && set_button_last) begin
+			case (state) 
+				SET_DAY: begin
+					days <= days + 1;
+					if ((months == 4 || months == 6 || months == 9 || months == 11) && days == 31) begin
+						days <= 1;
+					end
+					else if (months == 2 && (((years % 4 == 0) && (years % 100 != 0)) || (years % 400 == 0)) && days == 30) begin
+						days <= 1;
+					end
+					else if (months == 2 && days == 29) begin
+						days <= 1;
+					end
+					else if (days == 32) begin
+						days <= 1;
+					end
+				end
+				SET_MONTH: begin
+					months <= months + 1;
+					if (months == mon_max + 1) begin
+						months <= 1;
+					end
+				end
+				SET_YEAR: begin
+					years <= years + 1;
+					if (years == year_max) begin
+						years <= 1;
+					end
+				end
+			endcase
 		end
-		if ((months == 4 || months == 6 || months == 9 || months == 11) && days == 31) begin
-			months <= months + 1;
-			days <= 1;
+		else if (set_button && ~set_button_last) begin
+			set_button_last <= 1;
 		end
-		else if (months == 2 && (((years % 4 == 0) && (years % 100 != 0)) || (years % 400 == 0)) && days == 30) begin  // nam nhuan
-			months <= months + 1;
-			days <= 1;
+		else if (~set_button) begin
+			set_button_last <= 0;
 		end
-		else if (months == 2 && days == 29) begin
-			months <= months + 1;
-			days <= 1;
-		end
-		else if (days == 32) begin
-			months <= months + 1;
-			days <= 1;
-		end	
-		if (months == 13) begin
-			years <= years + 1;
-			months <= 1;
+		else begin
+			if (hours == hour_max) begin
+				days <= days + 1;
+			end
+			if ((months == 4 || months == 6 || months == 9 || months == 11) && days == 31) begin
+				months <= months + 1;
+				days <= 1;
+			end
+			else if (months == 2 && (((years % 4 == 0) && (years % 100 != 0)) || (years % 400 == 0)) && days == 30) begin  // nam nhuan
+				months <= months + 1;
+				days <= 1;
+			end
+			else if (months == 2 && days == 29) begin
+				months <= months + 1;
+				days <= 1;
+			end
+			else if (days == 32) begin
+				months <= months + 1;
+				days <= 1;
+			end	
+			if (months == 13) begin
+				years <= years + 1;
+				months <= 1;
+			end
 		end
 	end	
 end
