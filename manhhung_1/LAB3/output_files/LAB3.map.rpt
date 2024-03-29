@@ -1,0 +1,730 @@
+Analysis & Synthesis report for LAB3
+Fri Mar 29 19:11:35 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Port Connectivity Checks: "calendar:counter_day_s"
+ 14. Port Connectivity Checks: "time_24h:counter_hour"
+ 15. Port Connectivity Checks: "time_60_min:counter_min"
+ 16. Port Connectivity Checks: "time_60s:counter_sec"
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
+ 20. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Mar 29 19:11:35 2024          ;
+; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Revision Name                      ; LAB3                                           ;
+; Top-level Entity Name              ; STATE_OF_CLK                                   ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 406                                            ;
+;     Total combinational functions  ; 393                                            ;
+;     Dedicated logic registers      ; 178                                            ;
+; Total registers                    ; 178                                            ;
+; Total pins                         ; 66                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; STATE_OF_CLK       ; LAB3               ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                      ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                        ; Library ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------+---------+
+; Clock_1Hz.v                      ; yes             ; User Verilog HDL File  ; C:/TKS/DigitalDesign/manhhung_1/LAB3/Clock_1Hz.v    ;         ;
+; time_60s.v                       ; yes             ; User Verilog HDL File  ; C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60s.v     ;         ;
+; Led.v                            ; yes             ; User Verilog HDL File  ; C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v          ;         ;
+; time_60_min.v                    ; yes             ; User Verilog HDL File  ; C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60_min.v  ;         ;
+; time_24h.v                       ; yes             ; User Verilog HDL File  ; C:/TKS/DigitalDesign/manhhung_1/LAB3/time_24h.v     ;         ;
+; calendar.v                       ; yes             ; User Verilog HDL File  ; C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v     ;         ;
+; STATE_OF_CLK.v                   ; yes             ; User Verilog HDL File  ; C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v ;         ;
+; Debounce.v                       ; yes             ; User Verilog HDL File  ; C:/TKS/DigitalDesign/manhhung_1/LAB3/Debounce.v     ;         ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 406         ;
+;                                             ;             ;
+; Total combinational functions               ; 393         ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 100         ;
+;     -- 3 input functions                    ; 126         ;
+;     -- <=2 input functions                  ; 167         ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 283         ;
+;     -- arithmetic mode                      ; 110         ;
+;                                             ;             ;
+; Total registers                             ; 178         ;
+;     -- Dedicated logic registers            ; 178         ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 66          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; rst_s~input ;
+; Maximum fan-out                             ; 178         ;
+; Total fan-out                               ; 1813        ;
+; Average fan-out                             ; 2.58        ;
++---------------------------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                           ;
++------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+--------------+--------------+
+; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                   ; Entity Name  ; Library Name ;
++------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+--------------+--------------+
+; |STATE_OF_CLK                ; 393 (33)            ; 178 (33)                  ; 0           ; 0            ; 0       ; 0         ; 66   ; 0            ; |STATE_OF_CLK                         ; STATE_OF_CLK ; work         ;
+;    |Clock_1Hz:counter_1hz|   ; 49 (49)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|Clock_1Hz:counter_1hz   ; Clock_1Hz    ; work         ;
+;    |Debounce:fillter1|       ; 29 (29)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|Debounce:fillter1       ; Debounce     ; work         ;
+;    |Debounce:fillter2|       ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|Debounce:fillter2       ; Debounce     ; work         ;
+;    |Debounce:fillter3|       ; 7 (7)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|Debounce:fillter3       ; Debounce     ; work         ;
+;    |Led:led1|                ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|Led:led1                ; Led          ; work         ;
+;    |Led:led2|                ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|Led:led2                ; Led          ; work         ;
+;    |Led:led3|                ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|Led:led3                ; Led          ; work         ;
+;    |Led:led4|                ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|Led:led4                ; Led          ; work         ;
+;    |Led:led5|                ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|Led:led5                ; Led          ; work         ;
+;    |Led:led6|                ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|Led:led6                ; Led          ; work         ;
+;    |Led:led7|                ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|Led:led7                ; Led          ; work         ;
+;    |Led:led8|                ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|Led:led8                ; Led          ; work         ;
+;    |calendar:counter_day_s|  ; 84 (84)             ; 39 (39)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|calendar:counter_day_s  ; calendar     ; work         ;
+;    |time_24h:counter_hour|   ; 23 (23)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|time_24h:counter_hour   ; time_24h     ; work         ;
+;    |time_60_min:counter_min| ; 24 (24)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|time_60_min:counter_min ; time_60_min  ; work         ;
+;    |time_60s:counter_sec|    ; 24 (24)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |STATE_OF_CLK|time_60s:counter_sec    ; time_60s     ; work         ;
++------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+--------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; Led:led1|hex[0]                                     ; Led:led1|Mux7       ; yes                    ;
+; Led:led1|hex[1]                                     ; Led:led1|Mux7       ; yes                    ;
+; Led:led1|hex[2]                                     ; Led:led1|Mux7       ; yes                    ;
+; Led:led1|hex[3]                                     ; Led:led1|Mux7       ; yes                    ;
+; Led:led1|hex[4]                                     ; Led:led1|Mux7       ; yes                    ;
+; Led:led1|hex[5]                                     ; Led:led1|Mux7       ; yes                    ;
+; Led:led1|hex[6]                                     ; Led:led1|Mux7       ; yes                    ;
+; Led:led2|hex[0]                                     ; Led:led2|Mux7       ; yes                    ;
+; Led:led2|hex[1]                                     ; Led:led2|Mux7       ; yes                    ;
+; Led:led2|hex[2]                                     ; Led:led2|Mux7       ; yes                    ;
+; Led:led2|hex[3]                                     ; Led:led2|Mux7       ; yes                    ;
+; Led:led2|hex[4]                                     ; Led:led2|Mux7       ; yes                    ;
+; Led:led2|hex[5]                                     ; Led:led2|Mux7       ; yes                    ;
+; Led:led2|hex[6]                                     ; Led:led2|Mux7       ; yes                    ;
+; Led:led3|hex[0]                                     ; Led:led3|Mux7       ; yes                    ;
+; Led:led3|hex[1]                                     ; Led:led3|Mux7       ; yes                    ;
+; Led:led3|hex[2]                                     ; Led:led3|Mux7       ; yes                    ;
+; Led:led3|hex[3]                                     ; Led:led3|Mux7       ; yes                    ;
+; Led:led3|hex[4]                                     ; Led:led3|Mux7       ; yes                    ;
+; Led:led3|hex[5]                                     ; Led:led3|Mux7       ; yes                    ;
+; Led:led3|hex[6]                                     ; Led:led3|Mux7       ; yes                    ;
+; Led:led8|hex[0]                                     ; Led:led8|Mux7       ; yes                    ;
+; Led:led8|hex[1]                                     ; Led:led8|Mux7       ; yes                    ;
+; Led:led8|hex[2]                                     ; Led:led8|Mux7       ; yes                    ;
+; Led:led8|hex[3]                                     ; Led:led8|Mux7       ; yes                    ;
+; Led:led8|hex[4]                                     ; Led:led8|Mux7       ; yes                    ;
+; Led:led8|hex[5]                                     ; Led:led8|Mux7       ; yes                    ;
+; Led:led8|hex[6]                                     ; Led:led8|Mux7       ; yes                    ;
+; Led:led4|hex[0]                                     ; Led:led4|Mux7       ; yes                    ;
+; Led:led4|hex[1]                                     ; Led:led4|Mux7       ; yes                    ;
+; Led:led4|hex[2]                                     ; Led:led4|Mux7       ; yes                    ;
+; Led:led4|hex[3]                                     ; Led:led4|Mux7       ; yes                    ;
+; Led:led4|hex[4]                                     ; Led:led4|Mux7       ; yes                    ;
+; Led:led4|hex[5]                                     ; Led:led4|Mux7       ; yes                    ;
+; Led:led4|hex[6]                                     ; Led:led4|Mux7       ; yes                    ;
+; Led:led5|hex[0]                                     ; Led:led5|Mux7       ; yes                    ;
+; Led:led5|hex[1]                                     ; Led:led5|Mux7       ; yes                    ;
+; Led:led5|hex[2]                                     ; Led:led5|Mux7       ; yes                    ;
+; Led:led5|hex[3]                                     ; Led:led5|Mux7       ; yes                    ;
+; Led:led5|hex[4]                                     ; Led:led5|Mux7       ; yes                    ;
+; Led:led5|hex[5]                                     ; Led:led5|Mux7       ; yes                    ;
+; Led:led5|hex[6]                                     ; Led:led5|Mux7       ; yes                    ;
+; Led:led6|hex[0]                                     ; Led:led6|Mux7       ; yes                    ;
+; Led:led6|hex[1]                                     ; Led:led6|Mux7       ; yes                    ;
+; Led:led6|hex[2]                                     ; Led:led6|Mux7       ; yes                    ;
+; Led:led6|hex[3]                                     ; Led:led6|Mux7       ; yes                    ;
+; Led:led6|hex[4]                                     ; Led:led6|Mux7       ; yes                    ;
+; Led:led6|hex[5]                                     ; Led:led6|Mux7       ; yes                    ;
+; Led:led6|hex[6]                                     ; Led:led6|Mux7       ; yes                    ;
+; Led:led7|hex[0]                                     ; Led:led7|Mux7       ; yes                    ;
+; Led:led7|hex[1]                                     ; Led:led7|Mux7       ; yes                    ;
+; Led:led7|hex[2]                                     ; Led:led7|Mux7       ; yes                    ;
+; Led:led7|hex[3]                                     ; Led:led7|Mux7       ; yes                    ;
+; Led:led7|hex[4]                                     ; Led:led7|Mux7       ; yes                    ;
+; Led:led7|hex[5]                                     ; Led:led7|Mux7       ; yes                    ;
+; Led:led7|hex[6]                                     ; Led:led7|Mux7       ; yes                    ;
+; Number of user-specified and inferred latches = 56  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                       ;
++----------------------------------------+-------------------------------------------------+
+; Register name                          ; Reason for Removal                              ;
++----------------------------------------+-------------------------------------------------+
+; calendar:counter_day_s|ten_month[1..3] ; Merged with calendar:counter_day_s|ten_month[4] ;
+; Debounce:fillter2|counter[11]          ; Merged with Debounce:fillter1|counter[11]       ;
+; Debounce:fillter3|counter[11]          ; Merged with Debounce:fillter1|counter[11]       ;
+; Debounce:fillter2|counter[7]           ; Merged with Debounce:fillter1|counter[7]        ;
+; Debounce:fillter3|counter[7]           ; Merged with Debounce:fillter1|counter[7]        ;
+; Debounce:fillter2|counter[6]           ; Merged with Debounce:fillter1|counter[6]        ;
+; Debounce:fillter3|counter[6]           ; Merged with Debounce:fillter1|counter[6]        ;
+; Debounce:fillter2|counter[5]           ; Merged with Debounce:fillter1|counter[5]        ;
+; Debounce:fillter3|counter[5]           ; Merged with Debounce:fillter1|counter[5]        ;
+; Debounce:fillter2|counter[4]           ; Merged with Debounce:fillter1|counter[4]        ;
+; Debounce:fillter3|counter[4]           ; Merged with Debounce:fillter1|counter[4]        ;
+; Debounce:fillter2|counter[3]           ; Merged with Debounce:fillter1|counter[3]        ;
+; Debounce:fillter3|counter[3]           ; Merged with Debounce:fillter1|counter[3]        ;
+; Debounce:fillter2|counter[2]           ; Merged with Debounce:fillter1|counter[2]        ;
+; Debounce:fillter3|counter[2]           ; Merged with Debounce:fillter1|counter[2]        ;
+; Debounce:fillter2|counter[20]          ; Merged with Debounce:fillter1|counter[20]       ;
+; Debounce:fillter3|counter[20]          ; Merged with Debounce:fillter1|counter[20]       ;
+; Debounce:fillter2|counter[19]          ; Merged with Debounce:fillter1|counter[19]       ;
+; Debounce:fillter3|counter[19]          ; Merged with Debounce:fillter1|counter[19]       ;
+; Debounce:fillter2|counter[18]          ; Merged with Debounce:fillter1|counter[18]       ;
+; Debounce:fillter3|counter[18]          ; Merged with Debounce:fillter1|counter[18]       ;
+; Debounce:fillter2|counter[17]          ; Merged with Debounce:fillter1|counter[17]       ;
+; Debounce:fillter3|counter[17]          ; Merged with Debounce:fillter1|counter[17]       ;
+; Debounce:fillter2|counter[16]          ; Merged with Debounce:fillter1|counter[16]       ;
+; Debounce:fillter3|counter[16]          ; Merged with Debounce:fillter1|counter[16]       ;
+; Debounce:fillter2|counter[15]          ; Merged with Debounce:fillter1|counter[15]       ;
+; Debounce:fillter3|counter[15]          ; Merged with Debounce:fillter1|counter[15]       ;
+; Debounce:fillter2|counter[14]          ; Merged with Debounce:fillter1|counter[14]       ;
+; Debounce:fillter3|counter[14]          ; Merged with Debounce:fillter1|counter[14]       ;
+; Debounce:fillter2|counter[13]          ; Merged with Debounce:fillter1|counter[13]       ;
+; Debounce:fillter3|counter[13]          ; Merged with Debounce:fillter1|counter[13]       ;
+; Debounce:fillter2|counter[12]          ; Merged with Debounce:fillter1|counter[12]       ;
+; Debounce:fillter3|counter[12]          ; Merged with Debounce:fillter1|counter[12]       ;
+; Debounce:fillter2|counter[10]          ; Merged with Debounce:fillter1|counter[10]       ;
+; Debounce:fillter3|counter[10]          ; Merged with Debounce:fillter1|counter[10]       ;
+; Debounce:fillter2|counter[9]           ; Merged with Debounce:fillter1|counter[9]        ;
+; Debounce:fillter3|counter[9]           ; Merged with Debounce:fillter1|counter[9]        ;
+; Debounce:fillter2|counter[8]           ; Merged with Debounce:fillter1|counter[8]        ;
+; Debounce:fillter3|counter[8]           ; Merged with Debounce:fillter1|counter[8]        ;
+; Debounce:fillter2|counter[1]           ; Merged with Debounce:fillter1|counter[1]        ;
+; Debounce:fillter3|counter[1]           ; Merged with Debounce:fillter1|counter[1]        ;
+; Debounce:fillter2|counter[0]           ; Merged with Debounce:fillter1|counter[0]        ;
+; Debounce:fillter3|counter[0]           ; Merged with Debounce:fillter1|counter[0]        ;
+; calendar:counter_day_s|ten_month[4]    ; Stuck at GND due to stuck port data_in          ;
+; Total Number of Removed Registers = 46 ;                                                 ;
++----------------------------------------+-------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 178   ;
+; Number of registers using Synchronous Clear  ; 17    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 143   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 78    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; calendar:counter_day_s|one_month[0]    ; 7       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |STATE_OF_CLK|calendar:counter_day_s|ten_date[4]  ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |STATE_OF_CLK|calendar:counter_day_s|one_date[2]  ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |STATE_OF_CLK|time_24h:counter_hour|ten_hour[4]   ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |STATE_OF_CLK|calendar:counter_day_s|ten_year[4]  ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |STATE_OF_CLK|calendar:counter_day_s|one_year[4]  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |STATE_OF_CLK|calendar:counter_day_s|one_month[3] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "calendar:counter_day_s"                                                                                                                 ;
++--------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                                         ;
++--------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; one_date     ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "one_date[4..4]" have no fanouts     ;
+; ten_date     ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "ten_date[4..4]" have no fanouts     ;
+; one_month    ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "one_month[4..4]" have no fanouts    ;
+; ten_month    ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "ten_month[4..4]" have no fanouts    ;
+; one_year     ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "one_year[4..4]" have no fanouts     ;
+; ten_year     ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "ten_year[4..4]" have no fanouts     ;
+; hundred_year ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "hundred_year[4..4]" have no fanouts ;
+; million_year ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "million_year[4..4]" have no fanouts ;
++--------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "time_24h:counter_hour"                                                                                                          ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                     ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+; one_hour ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (4 bits) it drives; bit(s) "one_hour[6..4]" have no fanouts ;
+; ten_hour ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (4 bits) it drives; bit(s) "ten_hour[6..4]" have no fanouts ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "time_60_min:counter_min"                                                                                                      ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                    ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+; one_min ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (4 bits) it drives; bit(s) "one_min[6..4]" have no fanouts ;
+; ten_min ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (4 bits) it drives; bit(s) "ten_min[6..4]" have no fanouts ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "time_60s:counter_sec"                                                                                                                              ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                                                                                      ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; one_second ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (4 bits) it drives; bit(s) "one_second[6..4]" have no fanouts                ;
+; ten_second ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (4 bits) it drives; bit(s) "ten_second[6..4]" have no fanouts                ;
+; adjust_clk ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 66                          ;
+; cycloneiii_ff         ; 178                         ;
+;     CLR               ; 88                          ;
+;     CLR SCLR          ; 12                          ;
+;     ENA               ; 35                          ;
+;     ENA CLR           ; 38                          ;
+;     ENA CLR SCLR      ; 5                           ;
+; cycloneiii_lcell_comb ; 393                         ;
+;     arith             ; 110                         ;
+;         2 data inputs ; 110                         ;
+;     normal            ; 283                         ;
+;         1 data inputs ; 15                          ;
+;         2 data inputs ; 42                          ;
+;         3 data inputs ; 126                         ;
+;         4 data inputs ; 100                         ;
+;                       ;                             ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 2.47                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Fri Mar 29 19:11:26 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LAB3 -c LAB3
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file clock_1hz.v
+    Info (12023): Found entity 1: Clock_1Hz File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Clock_1Hz.v Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file time_60s.v
+    Info (12023): Found entity 1: time_60s File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60s.v Line: 1
+    Info (12023): Found entity 2: test_bench_60_counter File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60s.v Line: 46
+Info (12021): Found 1 design units, including 1 entities, in source file led.v
+    Info (12023): Found entity 1: Led File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file lock_display.v
+    Info (12023): Found entity 1: Lock_display File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Lock_display.v Line: 1
+    Info (12023): Found entity 2: test_bench File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Lock_display.v Line: 72
+Info (12021): Found 2 design units, including 2 entities, in source file time_60_min.v
+    Info (12023): Found entity 1: time_60_min File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60_min.v Line: 1
+    Info (12023): Found entity 2: test_1_bench_60_counter File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60_min.v Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file time_24h.v
+    Info (12023): Found entity 1: time_24h File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_24h.v Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file calendar.v
+    Info (12023): Found entity 1: calendar File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 1
+    Info (12023): Found entity 2: calendar_test_bench File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 163
+Info (12021): Found 2 design units, including 2 entities, in source file calendar_display.v
+    Info (12023): Found entity 1: Calendar_display File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Calendar_display.v Line: 1
+    Info (12023): Found entity 2: display_test_bench File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Calendar_display.v Line: 72
+Info (12021): Found 1 design units, including 1 entities, in source file fsm.v
+    Info (12023): Found entity 1: FSM File: C:/TKS/DigitalDesign/manhhung_1/LAB3/FSM.v Line: 1
+Warning (12019): Can't analyze file -- file D:/FSM/time_date.v is missing
+Info (12021): Found 2 design units, including 2 entities, in source file time_date.v
+    Info (12023): Found entity 1: time_date File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_date.v Line: 1
+    Info (12023): Found entity 2: time_date_test File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_date.v Line: 44
+Info (12021): Found 2 design units, including 2 entities, in source file state_of_clk.v
+    Info (12023): Found entity 1: STATE_OF_CLK File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 1
+    Info (12023): Found entity 2: STATE_CLK_test File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 243
+Warning (12019): Can't analyze file -- file output_files/Debounce.v is missing
+Info (12021): Found 2 design units, including 2 entities, in source file debounce.v
+    Info (12023): Found entity 1: Debounce File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Debounce.v Line: 1
+    Info (12023): Found entity 2: test_debound File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Debounce.v Line: 40
+Info (12127): Elaborating entity "STATE_OF_CLK" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at STATE_OF_CLK.v(139): truncated value with size 32 to match size of target (1) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 139
+Warning (10230): Verilog HDL assignment warning at STATE_OF_CLK.v(142): truncated value with size 32 to match size of target (1) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 142
+Warning (10199): Verilog HDL Case Statement warning at STATE_OF_CLK.v(167): case item expression never matches the case expression File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 167
+Warning (10199): Verilog HDL Case Statement warning at STATE_OF_CLK.v(178): case item expression never matches the case expression File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 178
+Warning (10199): Verilog HDL Case Statement warning at STATE_OF_CLK.v(189): case item expression never matches the case expression File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 189
+Warning (10235): Verilog HDL Always Construct warning at STATE_OF_CLK.v(214): variable "rst_s" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 214
+Warning (10230): Verilog HDL assignment warning at STATE_OF_CLK.v(215): truncated value with size 32 to match size of target (1) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 215
+Warning (10235): Verilog HDL Always Construct warning at STATE_OF_CLK.v(218): variable "stop" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 218
+Warning (10235): Verilog HDL Always Construct warning at STATE_OF_CLK.v(219): variable "adjust_hour" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 219
+Warning (10230): Verilog HDL assignment warning at STATE_OF_CLK.v(220): truncated value with size 32 to match size of target (1) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 220
+Warning (10235): Verilog HDL Always Construct warning at STATE_OF_CLK.v(223): variable "adjust_day" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 223
+Warning (10230): Verilog HDL assignment warning at STATE_OF_CLK.v(224): truncated value with size 32 to match size of target (1) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 224
+Warning (10230): Verilog HDL assignment warning at STATE_OF_CLK.v(227): truncated value with size 32 to match size of target (1) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 227
+Warning (10230): Verilog HDL assignment warning at STATE_OF_CLK.v(233): truncated value with size 32 to match size of target (1) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 233
+Warning (10230): Verilog HDL assignment warning at STATE_OF_CLK.v(236): truncated value with size 32 to match size of target (1) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 236
+Info (12128): Elaborating entity "Debounce" for hierarchy "Debounce:fillter1" File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 48
+Warning (10230): Verilog HDL assignment warning at Debounce.v(31): truncated value with size 32 to match size of target (21) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Debounce.v Line: 31
+Info (12128): Elaborating entity "Clock_1Hz" for hierarchy "Clock_1Hz:counter_1hz" File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 65
+Warning (10230): Verilog HDL assignment warning at Clock_1Hz.v(19): truncated value with size 32 to match size of target (27) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Clock_1Hz.v Line: 19
+Info (12128): Elaborating entity "time_60s" for hierarchy "time_60s:counter_sec" File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 73
+Warning (10230): Verilog HDL assignment warning at time_60s.v(33): truncated value with size 32 to match size of target (7) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60s.v Line: 33
+Warning (10230): Verilog HDL assignment warning at time_60s.v(37): truncated value with size 32 to match size of target (7) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60s.v Line: 37
+Info (12128): Elaborating entity "time_60_min" for hierarchy "time_60_min:counter_min" File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 82
+Warning (10230): Verilog HDL assignment warning at time_60_min.v(31): truncated value with size 32 to match size of target (7) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60_min.v Line: 31
+Warning (10230): Verilog HDL assignment warning at time_60_min.v(36): truncated value with size 32 to match size of target (7) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60_min.v Line: 36
+Info (12128): Elaborating entity "time_24h" for hierarchy "time_24h:counter_hour" File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 91
+Warning (10230): Verilog HDL assignment warning at time_24h.v(32): truncated value with size 32 to match size of target (7) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_24h.v Line: 32
+Warning (10230): Verilog HDL assignment warning at time_24h.v(38): truncated value with size 32 to match size of target (7) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_24h.v Line: 38
+Warning (10230): Verilog HDL assignment warning at time_24h.v(43): truncated value with size 32 to match size of target (7) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_24h.v Line: 43
+Info (12128): Elaborating entity "calendar" for hierarchy "calendar:counter_day_s" File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 105
+Warning (10230): Verilog HDL assignment warning at calendar.v(35): truncated value with size 32 to match size of target (15) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 35
+Warning (10230): Verilog HDL assignment warning at calendar.v(57): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 57
+Warning (10230): Verilog HDL assignment warning at calendar.v(61): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 61
+Warning (10230): Verilog HDL assignment warning at calendar.v(65): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 65
+Warning (10230): Verilog HDL assignment warning at calendar.v(73): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 73
+Warning (10230): Verilog HDL assignment warning at calendar.v(77): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 77
+Warning (10230): Verilog HDL assignment warning at calendar.v(81): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 81
+Warning (10230): Verilog HDL assignment warning at calendar.v(104): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 104
+Warning (10230): Verilog HDL assignment warning at calendar.v(109): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 109
+Warning (10230): Verilog HDL assignment warning at calendar.v(114): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 114
+Warning (10230): Verilog HDL assignment warning at calendar.v(119): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 119
+Warning (10230): Verilog HDL assignment warning at calendar.v(123): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 123
+Warning (10230): Verilog HDL assignment warning at calendar.v(128): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 128
+Warning (10230): Verilog HDL assignment warning at calendar.v(132): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 132
+Warning (10230): Verilog HDL assignment warning at calendar.v(145): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 145
+Warning (10230): Verilog HDL assignment warning at calendar.v(150): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 150
+Warning (10230): Verilog HDL assignment warning at calendar.v(154): truncated value with size 32 to match size of target (5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 154
+Info (12128): Elaborating entity "Led" for hierarchy "Led:led1" File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 109
+Warning (10270): Verilog HDL Case Statement warning at Led.v(6): incomplete case statement has no default case item File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 6
+Warning (10240): Verilog HDL Always Construct warning at Led.v(5): inferring latch(es) for variable "hex", which holds its previous value in one or more paths through the always construct File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+Info (10041): Inferred latch for "hex[0]" at Led.v(5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+Info (10041): Inferred latch for "hex[1]" at Led.v(5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+Info (10041): Inferred latch for "hex[2]" at Led.v(5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+Info (10041): Inferred latch for "hex[3]" at Led.v(5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+Info (10041): Inferred latch for "hex[4]" at Led.v(5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+Info (10041): Inferred latch for "hex[5]" at Led.v(5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+Info (10041): Inferred latch for "hex[6]" at Led.v(5) File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer calendar:counter_day_s|intermediate_clk File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 20
+    Warning (19017): Found clock multiplexer time_24h:counter_hour|intermediate_clk File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_24h.v Line: 15
+    Warning (19017): Found clock multiplexer time_60_min:counter_min|intermediate_clk File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60_min.v Line: 13
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch Led:led1|hex[0] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[0][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led1|hex[1] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[0][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led1|hex[2] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[0][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led1|hex[3] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[0][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led1|hex[4] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[0][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led1|hex[5] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[0][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led1|hex[6] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[0][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led2|hex[0] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[1][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led2|hex[1] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[1][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led2|hex[2] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[1][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led2|hex[3] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[1][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led2|hex[4] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[1][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led2|hex[5] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[1][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led2|hex[6] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[1][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led3|hex[0] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[2][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led3|hex[1] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[2][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led3|hex[2] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[2][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led3|hex[3] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[2][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led3|hex[4] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[2][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led3|hex[5] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[2][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led3|hex[6] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[2][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led8|hex[0] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[7][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led8|hex[1] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[7][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led8|hex[2] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[7][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led8|hex[3] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[7][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led8|hex[4] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[7][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led8|hex[5] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[7][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led8|hex[6] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[7][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led4|hex[0] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[3][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led4|hex[1] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[3][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led4|hex[2] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[3][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led4|hex[3] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[3][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led4|hex[4] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[3][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led4|hex[5] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[3][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led4|hex[6] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[3][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led5|hex[0] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[4][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led5|hex[1] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[4][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led5|hex[2] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[4][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led5|hex[3] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[4][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led5|hex[4] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[4][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led5|hex[5] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[4][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led5|hex[6] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[4][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led6|hex[0] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[5][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led6|hex[1] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[5][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led6|hex[2] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[5][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led6|hex[3] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[5][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led6|hex[4] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[5][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led6|hex[5] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[5][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led6|hex[6] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[5][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led7|hex[0] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[6][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led7|hex[1] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[6][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led7|hex[2] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[6][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led7|hex[3] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[6][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led7|hex[4] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[6][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led7|hex[5] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[6][2] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Warning (13012): Latch Led:led7|hex[6] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display_led[6][1] File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 145
+Info (13000): Registers with preset signals will power-up high File: C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v Line: 35
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/TKS/DigitalDesign/manhhung_1/LAB3/output_files/LAB3.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 472 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
+    Info (21059): Implemented 56 output pins
+    Info (21061): Implemented 406 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 163 warnings
+    Info: Peak virtual memory: 4775 megabytes
+    Info: Processing ended: Fri Mar 29 19:11:35 2024
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:08
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/TKS/DigitalDesign/manhhung_1/LAB3/output_files/LAB3.map.smsg.
+
+

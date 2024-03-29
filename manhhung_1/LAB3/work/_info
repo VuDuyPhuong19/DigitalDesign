@@ -1,0 +1,416 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 dC:/TKS/DigitalDesign/manhhung_1/LAB3
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+T_opt
+Z1 VbaPh97o6J_R^6?JY@C`OF1
+Z2 04 23 4 work test_1_bench_60_counter fast 0
+Z3 =1-c025a509b21c-6606813c-276-435c
+Z4 o-quiet -auto_acc_if_foreign -work work +acc
+Z5 n@_opt
+Z6 OL;O;10.2c;57
+Z7 dC:/TKS/DigitalDesign/manhhung_1/LAB3
+Z8 !s110 1711702332
+T_opt2
+Z9 Vn3R31P8aJJ:6G8hb;eGTD1
+Z10 04 21 4 work test_bench_60_counter fast 0
+Z11 =1-c025a509b21c-6605b4bd-394-586c
+R4
+Z12 n@_opt2
+R6
+R7
+Z13 !s110 1711649981
+vcalendar
+Z14 !s110 1711710901
+Z15 IBTf`^_Ln3O27;^8NY^Q`c3
+Z16 V`JN@9S9cnhjKRR_L]QIcM3
+R7
+Z17 w1711703964
+Z18 8C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v
+Z19 FC:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v
+L0 1
+Z20 OL;L;10.2c;57
+r1
+31
+Z21 !s108 1711710901.854000
+Z22 !s107 C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v|
+Z23 !s90 -reportprogress|300|-work|work|C:/TKS/DigitalDesign/manhhung_1/LAB3/calendar.v|
+Z24 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z25 !s100 L39Ag0hjMe0BEPSR4VXjz3
+!i10b 1
+!s85 0
+!i111 0
+vCalendar_display
+R14
+Z26 IjT<]bNZJQFEG@<RCCR@>71
+R16
+R7
+Z27 w1711690955
+Z28 8C:/TKS/DigitalDesign/manhhung_1/LAB3/Calendar_display.v
+Z29 FC:/TKS/DigitalDesign/manhhung_1/LAB3/Calendar_display.v
+L0 1
+R20
+r1
+31
+Z30 !s108 1711710901.904000
+Z31 !s107 C:/TKS/DigitalDesign/manhhung_1/LAB3/Calendar_display.v|
+Z32 !s90 -reportprogress|300|-work|work|C:/TKS/DigitalDesign/manhhung_1/LAB3/Calendar_display.v|
+R24
+Z33 n@calendar_display
+Z34 !s100 Z91;673^VT4mSPh`Z[fEO0
+!i10b 1
+!s85 0
+!i111 0
+vcalendar_test_bench
+R14
+Z35 IDio1oaG]G??DZ8E2;5Y9L2
+R16
+R7
+R17
+R18
+R19
+Z36 L0 163
+R20
+r1
+31
+R21
+R22
+R23
+R24
+Z37 !s100 MXG4mE;<H<k^0Cl?C9jA?3
+!i10b 1
+!s85 0
+!i111 0
+vClock_1Hz
+R14
+Z38 IDQ5W:]`l9MBM9zi9Xg<E12
+R16
+R7
+Z39 w1711351268
+Z40 8C:/TKS/DigitalDesign/manhhung_1/LAB3/Clock_1Hz.v
+Z41 FC:/TKS/DigitalDesign/manhhung_1/LAB3/Clock_1Hz.v
+L0 1
+R20
+r1
+31
+R24
+Z42 n@clock_1@hz
+Z43 !s100 >n3`T`mzG9TLo]I;hXmUh3
+Z44 !s90 -reportprogress|300|-work|work|C:/TKS/DigitalDesign/manhhung_1/LAB3/Clock_1Hz.v|
+Z45 !s108 1711710901.956000
+Z46 !s107 C:/TKS/DigitalDesign/manhhung_1/LAB3/Clock_1Hz.v|
+!i10b 1
+!s85 0
+!i111 0
+vDebounce
+!s110 1711710988
+!i10b 1
+!s100 LkVABY2C1mN_dZlP^j7=>1
+IBXa;;2W7HSn3A=HMdTJlN0
+R16
+R7
+w1711710744
+8C:/TKS/DigitalDesign/manhhung_1/LAB3/output_files/Debounce.v
+FC:/TKS/DigitalDesign/manhhung_1/LAB3/output_files/Debounce.v
+L0 1
+R20
+r1
+!s85 0
+31
+!s108 1711710988.851000
+!s107 C:/TKS/DigitalDesign/manhhung_1/LAB3/output_files/Debounce.v|
+!s90 -reportprogress|300|-work|work|C:/TKS/DigitalDesign/manhhung_1/LAB3/output_files/Debounce.v|
+!i111 0
+R24
+n@debounce
+vdisplay_test_bench
+R14
+Z47 IWg_gFQn^g@zEa3UNi^T;<3
+R16
+R7
+R27
+R28
+R29
+L0 72
+R20
+r1
+31
+R30
+R31
+R32
+R24
+Z48 !s100 4Tb9eZ7QkB;XfM<KV5CoI2
+!i10b 1
+!s85 0
+!i111 0
+vFSM
+Z49 IUVIKAF8mQlzWmI4S_K?em1
+R16
+R7
+Z50 w1711536393
+Z51 8C:/TKS/DigitalDesign/manhhung_1/LAB3/FSM.v
+Z52 FC:/TKS/DigitalDesign/manhhung_1/LAB3/FSM.v
+L0 1
+R20
+r1
+31
+R24
+Z53 n@f@s@m
+Z54 !s110 1711710902
+Z55 !s100 aO[cn]:h8h]YclGWad?F<0
+Z56 !s90 -reportprogress|300|-work|work|C:/TKS/DigitalDesign/manhhung_1/LAB3/FSM.v|
+Z57 !s108 1711710902.003000
+Z58 !s107 C:/TKS/DigitalDesign/manhhung_1/LAB3/FSM.v|
+!i10b 1
+!s85 0
+!i111 0
+vLed
+R54
+Z59 IiA7PI6zZAC=bhcUWiY=603
+R16
+R7
+Z60 w1711695936
+Z61 8C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v
+Z62 FC:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v
+L0 1
+R20
+r1
+31
+R24
+n@led
+Z63 !s100 m:2Xoz[zPAf3H[SZofdIc3
+Z64 !s90 -reportprogress|300|-work|work|C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v|
+Z65 !s108 1711710902.048000
+Z66 !s107 C:/TKS/DigitalDesign/manhhung_1/LAB3/Led.v|
+!i10b 1
+!s85 0
+!i111 0
+vLock_display
+R54
+Z67 IEVM<oShYJH=G^X`aEF=@J0
+R16
+R7
+Z68 w1711620830
+Z69 8C:/TKS/DigitalDesign/manhhung_1/LAB3/Lock_display.v
+Z70 FC:/TKS/DigitalDesign/manhhung_1/LAB3/Lock_display.v
+L0 1
+R20
+r1
+31
+Z71 !s108 1711710902.097000
+Z72 !s107 C:/TKS/DigitalDesign/manhhung_1/LAB3/Lock_display.v|
+Z73 !s90 -reportprogress|300|-work|work|C:/TKS/DigitalDesign/manhhung_1/LAB3/Lock_display.v|
+R24
+Z74 n@lock_display
+Z75 !s100 R;[c_Mk5hnI=6LSf=HoGW1
+!i10b 1
+!s85 0
+!i111 0
+vSTATE_CLK_test
+R54
+Z76 Iob6UcDb>[b4l[a2C>M9I02
+R16
+R7
+Z77 w1711710544
+Z78 8C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v
+Z79 FC:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v
+Z80 L0 243
+R20
+r1
+31
+Z81 !s108 1711710902.148000
+Z82 !s107 C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v|
+Z83 !s90 -reportprogress|300|-work|work|C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v|
+R24
+Z84 n@s@t@a@t@e_@c@l@k_test
+Z85 !s100 i5_;BFj58FN4<5gc3=4Z[0
+!i10b 1
+!s85 0
+!i111 0
+vSTATE_OF_CLK
+R54
+Z86 I0cY5SCijdFZSoDJ5MfAL31
+R16
+R7
+R77
+R78
+R79
+L0 1
+R20
+r1
+31
+R81
+R82
+R83
+R24
+Z87 n@s@t@a@t@e_@o@f_@c@l@k
+Z88 !s100 @BYiI1NlYDj8d2[zjPXjX1
+!i10b 1
+!s85 0
+!i111 0
+vtest_1_bench_60_counter
+R54
+Z89 INmTaS33al^UeC^hzODReM0
+R16
+R7
+Z90 w1711702912
+Z91 8C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60_min.v
+Z92 FC:/TKS/DigitalDesign/manhhung_1/LAB3/time_60_min.v
+L0 43
+R20
+r1
+31
+Z93 !s108 1711710902.249000
+Z94 !s107 C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60_min.v|
+Z95 !s90 -reportprogress|300|-work|work|C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60_min.v|
+R24
+Z96 !s100 o@XE_da6kH[X3Mc]OjMQo2
+!i10b 1
+!s85 0
+!i111 0
+vtest_bench
+R54
+Z97 IoTJK8<iNW8Az^U6lKk5XS2
+R16
+R7
+R68
+R69
+R70
+L0 72
+R20
+r1
+31
+R71
+R72
+R73
+R24
+Z98 !s100 Md@_eibVhHbF[ZKTBFnQZ2
+!i10b 1
+!s85 0
+!i111 0
+vtest_bench_60_counter
+R54
+Z99 IMCUmT_BBPjKLIa4WS8dhU2
+R16
+R7
+Z100 w1711649950
+Z101 8C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60s.v
+Z102 FC:/TKS/DigitalDesign/manhhung_1/LAB3/time_60s.v
+L0 46
+R20
+r1
+31
+Z103 !s108 1711710902.296000
+Z104 !s107 C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60s.v|
+Z105 !s90 -reportprogress|300|-work|work|C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60s.v|
+R24
+Z106 !s100 >7W<JkIkX;NU5VHOI9d7h2
+!i10b 1
+!s85 0
+!i111 0
+vtime_24h
+R54
+Z107 IPbjUJ?Pl;PNoQbo[e>TH=2
+R16
+R7
+Z108 w1711690802
+Z109 8C:/TKS/DigitalDesign/manhhung_1/LAB3/time_24h.v
+Z110 FC:/TKS/DigitalDesign/manhhung_1/LAB3/time_24h.v
+L0 1
+R20
+r1
+31
+R24
+Z111 !s100 Y>EA]OEGcBZNL2Z`3<1VU0
+Z112 !s90 -reportprogress|300|-work|work|C:/TKS/DigitalDesign/manhhung_1/LAB3/time_24h.v|
+Z113 !s108 1711710902.199000
+Z114 !s107 C:/TKS/DigitalDesign/manhhung_1/LAB3/time_24h.v|
+!i10b 1
+!s85 0
+!i111 0
+vtime_60_min
+R54
+Z115 I@[84MA?l3UFPnkzJN@bRA1
+R16
+R7
+R90
+R91
+R92
+L0 1
+R20
+r1
+31
+R93
+R94
+R95
+R24
+Z116 !s100 LPOf`;VM6j9bdWNkU@5FB3
+!i10b 1
+!s85 0
+!i111 0
+vtime_60s
+R54
+Z117 I@<H9^WA0o[1gRQK?V5]Do0
+R16
+R7
+R100
+R101
+R102
+L0 1
+R20
+r1
+31
+R103
+R104
+R105
+R24
+Z118 !s100 _f7XddS==fS;VzDX8z1OU2
+!i10b 1
+!s85 0
+!i111 0
+vtime_date
+R54
+Z119 I@Q]5n1z73lH2fz=dcNkC50
+R16
+R7
+Z120 w1711538440
+Z121 8C:/TKS/DigitalDesign/manhhung_1/LAB3/time_date.v
+Z122 FC:/TKS/DigitalDesign/manhhung_1/LAB3/time_date.v
+L0 1
+R20
+r1
+31
+Z123 !s108 1711710902.345000
+Z124 !s107 C:/TKS/DigitalDesign/manhhung_1/LAB3/time_date.v|
+Z125 !s90 -reportprogress|300|-work|work|C:/TKS/DigitalDesign/manhhung_1/LAB3/time_date.v|
+R24
+Z126 !s100 i[mIVAf34R<2;YQLDX9V33
+!i10b 1
+!s85 0
+!i111 0
+vtime_date_test
+R54
+Z127 I1Fka0o[1=5F;LaabgPocF1
+R16
+R7
+R120
+R121
+R122
+L0 44
+R20
+r1
+31
+R123
+R124
+R125
+R24
+Z128 !s100 `FF>TicaP6:;4DHgWSPn=0
+!i10b 1
+!s85 0
+!i111 0

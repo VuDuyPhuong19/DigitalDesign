@@ -1,0 +1,133 @@
+# Current time Wed Mar 27 16:04:28 2024
+# QuestaSim Stack Trace
+# Program = vish
+# Id = "10.2c"
+# Version = "2013.07"
+# Date = "Jul 19 2013"
+# Platform = win64
+
+Exception c0000005 has occurred at address 1005ab25. Traceback:
+# 0    0x1005ab25: 'Tcl_ExprObj + 0x33b5'
+# 1    0x100a62b4: 'TclObjInterpProcCore + 0x74'
+# 2    0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 3    0x100118d1: 'Tcl_EvalObjv + 0x51'
+# 4    0x10012e2b: 'TclEvalObjEx + 0x15b'
+# 5    0x100ba41c: 'TclServiceIdle + 0xa6c'
+# 6    0x100b9a1c: 'TclServiceIdle + 0x6c'
+# 7    0x100954c1: 'Tcl_DoOneEvent + 0x181'
+# 8    0x102e21a5: 'Tk_MainLoop + 0x25'
+# 9    0x102ae12b: 'Tk_MainEx + 0x91b'
+# 10   0x401084bd: 'Mtirpc_Init + 0x2030d'
+# 11   0x4010a017: 'Mtirpc_Init + 0x21e67'
+# 12   0x405727fe: 'Sqlite_Unload + 0x3d2ae'
+# 13   0xbca3257d: 'BaseThreadInitThunk + 0x1d'
+# 14   0xbea8aa58: 'RtlUserThreadStart + 0x28'
+StackWalk failed 0
+# End of Stack Trace
+
+# Current time Fri Mar 29 01:01:02 2024
+# QuestaSim Stack Trace
+# Program = vish
+# Id = "10.2c"
+# Version = "2013.07"
+# Date = "Jul 19 2013"
+# Platform = win64
+
+Exception c0000005 has occurred at address 1009628f. Traceback:
+# 0    0x1009628f: 'Tcl_GetString + 0x1f'
+# 1    0x100c8880: 'Tcl_UnsetVar2 + 0x16e0'
+# 2    0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 3    0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 4    0x100a62b4: 'TclObjInterpProcCore + 0x74'
+# 5    0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 6    0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 7    0x100a62b4: 'TclObjInterpProcCore + 0x74'
+# 8    0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 9    0x100118d1: 'Tcl_EvalObjv + 0x51'
+# 10   0x10012e2b: 'TclEvalObjEx + 0x15b'
+# 11   0x1001af60: 'Tcl_DbCkrealloc + 0x33a0'
+# 12   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 13   0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 14   0x10057f0a: 'Tcl_ExprObj + 0x79a'
+# 15   0x100130b0: 'TclEvalObjEx + 0x3e0'
+# 16   0x10012cbd: 'Tcl_EvalObjEx + 0x1d'
+# 17   0x8000c0ef: 'Itcl_EvalMemberCode + 0x22f'
+# 18   0x8000c3a4: 'Itcl_ExecMethod + 0x184'
+# 19   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 20   0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 21   0x10057f0a: 'Tcl_ExprObj + 0x79a'
+# 22   0x100130b0: 'TclEvalObjEx + 0x3e0'
+# 23   0x10012cbd: 'Tcl_EvalObjEx + 0x1d'
+# 24   0x8000c0ef: 'Itcl_EvalMemberCode + 0x22f'
+# 25   0x8000c3a4: 'Itcl_ExecMethod + 0x184'
+# 26   0x800108d6: 'Itcl_EvalArgs + 0x106'
+# 27   0x8000db97: 'Itcl_HandleInstance + 0x167'
+# 28   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 29   0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 30   0x100a62b4: 'TclObjInterpProcCore + 0x74'
+# 31   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 32   0x10012405: 'Tcl_EvalEx + 0x9c5'
+# 33   0x1001302d: 'TclEvalObjEx + 0x35d'
+# 34   0x1001af60: 'Tcl_DbCkrealloc + 0x33a0'
+# 35   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 36   0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 37   0x100a62b4: 'TclObjInterpProcCore + 0x74'
+# 38   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 39   0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 40   0x100a62b4: 'TclObjInterpProcCore + 0x74'
+# 41   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 42   0x10012405: 'Tcl_EvalEx + 0x9c5'
+# 43   0x10012f19: 'TclEvalObjEx + 0x249'
+# 44   0x1001af97: 'Tcl_DbCkrealloc + 0x33d7'
+# 45   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 46   0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 47   0x100a62b4: 'TclObjInterpProcCore + 0x74'
+# 48   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 49   0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 50   0x100a62b4: 'TclObjInterpProcCore + 0x74'
+# 51   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 52   0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 53   0x100a62b4: 'TclObjInterpProcCore + 0x74'
+# 54   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 55   0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 56   0x100a62b4: 'TclObjInterpProcCore + 0x74'
+# 57   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 58   0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 59   0x100a62b4: 'TclObjInterpProcCore + 0x74'
+# 60   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 61   0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 62   0x10057f0a: 'Tcl_ExprObj + 0x79a'
+# 63   0x100130b0: 'TclEvalObjEx + 0x3e0'
+# 64   0x10012cbd: 'Tcl_EvalObjEx + 0x1d'
+# 65   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 66   0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 67   0x100a62b4: 'TclObjInterpProcCore + 0x74'
+# 68   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 69   0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 70   0x100a62b4: 'TclObjInterpProcCore + 0x74'
+# 71   0x10011461: 'Tcl_ListMathFuncs + 0x591'
+# 72   0x1005931a: 'Tcl_ExprObj + 0x1baa'
+# 73   0x10057f0a: 'Tcl_ExprObj + 0x79a'
+# 74   0x100130b0: 'TclEvalObjEx + 0x3e0'
+# 75   0x100ba41c: 'TclServiceIdle + 0xa6c'
+# 76   0x100b9a1c: 'TclServiceIdle + 0x6c'
+# 77   0x100954c1: 'Tcl_DoOneEvent + 0x181'
+# 78   0x102e21a5: 'Tk_MainLoop + 0x25'
+# 79   0x102ae12b: 'Tk_MainEx + 0x91b'
+# 80   0x401084bd: 'Mtirpc_Init + 0x2030d'
+# 81   0x4010a017: 'Mtirpc_Init + 0x21e67'
+# 82   0x405727fe: 'Sqlite_Unload + 0x3d2ae'
+# 83   0xa2a7257d: 'BaseThreadInitThunk + 0x1d'
+# 84   0xa49aaa58: 'RtlUserThreadStart + 0x28'
+StackWalk failed 0
+# End of Stack Trace
+
+# Current time Fri Mar 29 13:21:26 2024
+# QuestaSim Stack Trace
+# Program = vish
+# Id = "10.2c"
+# Version = "2013.07"
+# Date = "Jul 19 2013"
+# Platform = win64
+
+Exception c0000005 has occurred at address 100cab7b. Traceback:

@@ -1,0 +1,273 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LED_1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_3[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_3[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_3[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_3[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_8[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_8[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_8[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_8[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_8[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_8[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_8[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_4[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_4[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_4[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_4[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_4[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_4[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_4[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_5[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_5[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_5[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_5[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_5[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_5[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_5[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_6[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_6[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_6[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_6[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_6[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_6[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_6[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_7[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_7[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_7[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_7[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_7[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_7[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_7[6]",
+					"strict" : false
+				},
+				{
+					"name" : "clk_s",
+					"strict" : false
+				},
+				{
+					"name" : "rst_s",
+					"strict" : false
+				},
+				{
+					"name" : "show_date",
+					"strict" : false
+				},
+				{
+					"name" : "stop",
+					"strict" : false
+				},
+				{
+					"name" : "adjust_hour",
+					"strict" : false
+				},
+				{
+					"name" : "adjust_day_clk",
+					"strict" : false
+				},
+				{
+					"name" : "adjust_min_clk",
+					"strict" : false
+				},
+				{
+					"name" : "adjust_hour_clk",
+					"strict" : false
+				},
+				{
+					"name" : "adjust_day",
+					"strict" : false
+				},
+				{
+					"name" : "adjust_min",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

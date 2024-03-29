@@ -1,0 +1,7 @@
+module Clock_1Hz(	
+	input wire sys_clk,
+	input wire rst_n,
+	output reg clk_1hz=0
+);
+
+	

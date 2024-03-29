@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Mar 29 19:11:35 2024
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : LAB3
+Top-level Entity Name : STATE_OF_CLK
+Family : Cyclone IV E
+Total logic elements : 406
+    Total combinational functions : 393
+    Dedicated logic registers : 178
+Total registers : 178
+Total pins : 66
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

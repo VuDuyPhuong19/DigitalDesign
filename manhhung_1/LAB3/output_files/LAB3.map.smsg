@@ -1,0 +1,7 @@
+Warning (10268): Verilog HDL information at Clock_1Hz.v(8): always construct contains both blocking and non-blocking assignments File: C:/TKS/DigitalDesign/manhhung_1/LAB3/Clock_1Hz.v Line: 8
+Warning (10268): Verilog HDL information at time_60_min.v(17): always construct contains both blocking and non-blocking assignments File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_60_min.v Line: 17
+Warning (10268): Verilog HDL information at time_24h.v(18): always construct contains both blocking and non-blocking assignments File: C:/TKS/DigitalDesign/manhhung_1/LAB3/time_24h.v Line: 18
+Info (10281): Verilog HDL Declaration information at STATE_OF_CLK.v(5): object "show_date" differs only in case from object "SHOW_DATE" in the same scope File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 5
+Info (10281): Verilog HDL Declaration information at STATE_OF_CLK.v(8): object "adjust_min" differs only in case from object "ADJUST_MIN" in the same scope File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 8
+Info (10281): Verilog HDL Declaration information at STATE_OF_CLK.v(6): object "adjust_hour" differs only in case from object "ADJUST_HOUR" in the same scope File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 6
+Info (10281): Verilog HDL Declaration information at STATE_OF_CLK.v(7): object "adjust_day" differs only in case from object "ADJUST_DAY" in the same scope File: C:/TKS/DigitalDesign/manhhung_1/LAB3/STATE_OF_CLK.v Line: 7
