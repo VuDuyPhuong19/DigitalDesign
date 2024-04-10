@@ -53,57 +53,7 @@ always @ (negedge state_button) begin
 	state = state + 1;
 	if (state == state_num) state = 0; 
 end
-/*
-always @ (negedge set_button) begin
-	case (state) 
-		SET_HOUR: begin
-			hours = hours + 1;
-			if (hours == hour_max) begin
-				hours = 0;
-			end
-		end
-		SET_MINUTE: begin
-			minutes = minutes + 1;
-			if (minutes == minute_max) begin
-				minutes = 0;
-			end
-		end
-		SET_SECOND: begin
-			seconds = seconds + 1;
-			if (seconds == second_max) begin
-				seconds = 0;
-			end	
-		end
-		SET_DAY: begin
-			days = days + 1;
-			if ((months == 4 || months == 6 || months == 9 || months == 11) && days == 31) begin
-				days = 1;
-			end
-			else if (months == 2 && (((years % 4 == 0) && (years % 100 != 0)) || (years % 400 == 0)) && days == 30) begin
-				days = 1;
-			end
-			else if (months == 2 && days == 29) begin
-				days = 1;
-			end
-			else if (days == 32) begin
-				days = 1;
-			end
-		end
-		SET_MONTH: begin
-			months = months + 1;
-			if (months == mon_max + 1) begin
-				months = 1;
-			end
-		end
-		SET_YEAR: begin
-			years = years + 1;
-			if (years == year_max) begin
-				years = 1;
-			end
-		end
-	endcase
-end
-*/
+
 one_second_pulse one_second_pulse(
 	.clk_50MHz(clk_50MHz),
 	.rst_n(rst_n),
@@ -146,7 +96,7 @@ bcd bcd_year(
 	.ones(year_ones)
 );
 
-always @ (posedge clk_1Hz or negedge rst_n or negedge set_button) begin
+always @ (posedge clk_1Hz or negedge rst_n) begin  
 	case (state) 
 		TIME_VIEW, SET_HOUR, SET_MINUTE, SET_SECOND: begin
 			led_value <= {hour_tens, hour_ones, min_tens, min_ones, sec_tens, sec_ones, 4'd10, 4'd10};
@@ -159,7 +109,7 @@ always @ (posedge clk_1Hz or negedge rst_n or negedge set_button) begin
 	endcase
 end
 
-count_24_hours count_24_hours(
+_time _time(
 	.clk_1Hz(clk_1Hz),
 	.rst_n(rst_n),
 	.state(state),

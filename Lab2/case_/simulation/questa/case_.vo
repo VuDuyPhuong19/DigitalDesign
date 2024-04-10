@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition"
 
-// DATE "03/20/2024 13:56:38"
+// DATE "03/31/2024 14:14:06"
 
 // 
 // Device: Altera EP4CE115F29C7 Package FBGA780
@@ -29,31 +29,84 @@
 
 `timescale 1 ps/ 1 ps
 
-module case_ (
-	a,
-	b,
-	s,
-	c);
-input 	[3:0] a;
-input 	[3:0] b;
-input 	[1:0] s;
-output 	[3:0] c;
+module case_test (
+	reset_potential,
+	reset_mode,
+	leak_potential,
+	positive_threshold,
+	negative_threshold,
+	positive_reset_value,
+	negative_reset_value);
+input 	[9:0] reset_potential;
+input 	reset_mode;
+input 	[9:0] leak_potential;
+input 	[9:0] positive_threshold;
+input 	[9:0] negative_threshold;
+output 	[9:0] positive_reset_value;
+output 	[9:0] negative_reset_value;
 
 // Design Ports Information
-// c[0]	=>  Location: PIN_W4,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// c[1]	=>  Location: PIN_AA3,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// c[2]	=>  Location: PIN_AA4,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// c[3]	=>  Location: PIN_V5,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// s[1]	=>  Location: PIN_V7,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// s[0]	=>  Location: PIN_U8,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// b[0]	=>  Location: PIN_V6,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// a[0]	=>  Location: PIN_AE1,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// b[1]	=>  Location: PIN_AE2,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// a[1]	=>  Location: PIN_U7,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// b[2]	=>  Location: PIN_AB3,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// a[2]	=>  Location: PIN_T8,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// b[3]	=>  Location: PIN_AD1,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// a[3]	=>  Location: PIN_V8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_reset_value[0]	=>  Location: PIN_U25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_reset_value[1]	=>  Location: PIN_AB25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_reset_value[2]	=>  Location: PIN_V26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_reset_value[3]	=>  Location: PIN_T26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_reset_value[4]	=>  Location: PIN_Y25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_reset_value[5]	=>  Location: PIN_W25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_reset_value[6]	=>  Location: PIN_L27,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_reset_value[7]	=>  Location: PIN_T25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_reset_value[8]	=>  Location: PIN_W22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_reset_value[9]	=>  Location: PIN_AA25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_reset_value[0]	=>  Location: PIN_N26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_reset_value[1]	=>  Location: PIN_P27,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_reset_value[2]	=>  Location: PIN_AB26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_reset_value[3]	=>  Location: PIN_T22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_reset_value[4]	=>  Location: PIN_P21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_reset_value[5]	=>  Location: PIN_P26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_reset_value[6]	=>  Location: PIN_M26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_reset_value[7]	=>  Location: PIN_R21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_reset_value[8]	=>  Location: PIN_R22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_reset_value[9]	=>  Location: PIN_M23,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_threshold[0]	=>  Location: PIN_Y26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// leak_potential[0]	=>  Location: PIN_V22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// reset_potential[0]	=>  Location: PIN_U26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// reset_mode	=>  Location: PIN_V25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_threshold[1]	=>  Location: PIN_U28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// leak_potential[1]	=>  Location: PIN_AC27,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// reset_potential[1]	=>  Location: PIN_W27,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_threshold[2]	=>  Location: PIN_U22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// leak_potential[2]	=>  Location: PIN_U24,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// reset_potential[2]	=>  Location: PIN_M28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_threshold[3]	=>  Location: PIN_AB27,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// leak_potential[3]	=>  Location: PIN_T21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// reset_potential[3]	=>  Location: PIN_M25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_threshold[4]	=>  Location: PIN_U23,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// leak_potential[4]	=>  Location: PIN_V27,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// reset_potential[4]	=>  Location: PIN_R26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_threshold[5]	=>  Location: PIN_W21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// leak_potential[5]	=>  Location: PIN_Y22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// reset_potential[5]	=>  Location: PIN_R25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_threshold[6]	=>  Location: PIN_V24,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// leak_potential[6]	=>  Location: PIN_V28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// reset_potential[6]	=>  Location: PIN_L28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_threshold[7]	=>  Location: PIN_V23,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// leak_potential[7]	=>  Location: PIN_V21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// reset_potential[7]	=>  Location: PIN_R24,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_threshold[8]	=>  Location: PIN_W28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// leak_potential[8]	=>  Location: PIN_U21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// reset_potential[8]	=>  Location: PIN_N25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// positive_threshold[9]	=>  Location: PIN_Y23,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// leak_potential[9]	=>  Location: PIN_U27,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// reset_potential[9]	=>  Location: PIN_AA26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_threshold[0]	=>  Location: PIN_N21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_threshold[1]	=>  Location: PIN_W26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_threshold[2]	=>  Location: PIN_R23,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_threshold[3]	=>  Location: PIN_P25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_threshold[4]	=>  Location: PIN_M27,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_threshold[5]	=>  Location: PIN_L24,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_threshold[6]	=>  Location: PIN_R27,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_threshold[7]	=>  Location: PIN_R28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_threshold[8]	=>  Location: PIN_M24,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// negative_threshold[9]	=>  Location: PIN_AB28,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 wire gnd;
@@ -67,36 +120,136 @@ assign unknown = 1'bx;
 tri1 devclrn;
 tri1 devpor;
 tri1 devoe;
-wire \c[0]~output_o ;
-wire \c[1]~output_o ;
-wire \c[2]~output_o ;
-wire \c[3]~output_o ;
-wire \s[1]~input_o ;
-wire \a[0]~input_o ;
-wire \b[0]~input_o ;
-wire \s[0]~input_o ;
-wire \Add0~0_combout ;
-wire \Add0~2_cout ;
-wire \Add0~3_combout ;
-wire \Add0~5_combout ;
-wire \a[1]~input_o ;
-wire \b[1]~input_o ;
-wire \Add0~6_combout ;
-wire \Add0~4 ;
-wire \Add0~7_combout ;
-wire \Add0~9_combout ;
-wire \b[2]~input_o ;
-wire \Add0~10_combout ;
-wire \a[2]~input_o ;
-wire \Add0~8 ;
-wire \Add0~11_combout ;
-wire \Add0~13_combout ;
-wire \a[3]~input_o ;
-wire \b[3]~input_o ;
-wire \Add0~14_combout ;
-wire \Add0~12 ;
-wire \Add0~15_combout ;
-wire \Add0~17_combout ;
+wire \positive_reset_value[0]~output_o ;
+wire \positive_reset_value[1]~output_o ;
+wire \positive_reset_value[2]~output_o ;
+wire \positive_reset_value[3]~output_o ;
+wire \positive_reset_value[4]~output_o ;
+wire \positive_reset_value[5]~output_o ;
+wire \positive_reset_value[6]~output_o ;
+wire \positive_reset_value[7]~output_o ;
+wire \positive_reset_value[8]~output_o ;
+wire \positive_reset_value[9]~output_o ;
+wire \negative_reset_value[0]~output_o ;
+wire \negative_reset_value[1]~output_o ;
+wire \negative_reset_value[2]~output_o ;
+wire \negative_reset_value[3]~output_o ;
+wire \negative_reset_value[4]~output_o ;
+wire \negative_reset_value[5]~output_o ;
+wire \negative_reset_value[6]~output_o ;
+wire \negative_reset_value[7]~output_o ;
+wire \negative_reset_value[8]~output_o ;
+wire \negative_reset_value[9]~output_o ;
+wire \positive_threshold[0]~input_o ;
+wire \leak_potential[0]~input_o ;
+wire \Add1~0_combout ;
+wire \reset_potential[0]~input_o ;
+wire \reset_mode~input_o ;
+wire \Add1~2_combout ;
+wire \reset_potential[1]~input_o ;
+wire \leak_potential[1]~input_o ;
+wire \positive_threshold[1]~input_o ;
+wire \Add1~1 ;
+wire \Add1~3_combout ;
+wire \Add1~5_combout ;
+wire \leak_potential[2]~input_o ;
+wire \positive_threshold[2]~input_o ;
+wire \Add1~4 ;
+wire \Add1~6_combout ;
+wire \reset_potential[2]~input_o ;
+wire \Add1~8_combout ;
+wire \leak_potential[3]~input_o ;
+wire \positive_threshold[3]~input_o ;
+wire \Add1~7 ;
+wire \Add1~9_combout ;
+wire \reset_potential[3]~input_o ;
+wire \Add1~11_combout ;
+wire \leak_potential[4]~input_o ;
+wire \positive_threshold[4]~input_o ;
+wire \Add1~10 ;
+wire \Add1~12_combout ;
+wire \reset_potential[4]~input_o ;
+wire \Add1~14_combout ;
+wire \positive_threshold[5]~input_o ;
+wire \leak_potential[5]~input_o ;
+wire \Add1~13 ;
+wire \Add1~15_combout ;
+wire \reset_potential[5]~input_o ;
+wire \Add1~17_combout ;
+wire \positive_threshold[6]~input_o ;
+wire \leak_potential[6]~input_o ;
+wire \Add1~16 ;
+wire \Add1~18_combout ;
+wire \reset_potential[6]~input_o ;
+wire \Add1~20_combout ;
+wire \reset_potential[7]~input_o ;
+wire \positive_threshold[7]~input_o ;
+wire \leak_potential[7]~input_o ;
+wire \Add1~19 ;
+wire \Add1~21_combout ;
+wire \Add1~23_combout ;
+wire \positive_threshold[8]~input_o ;
+wire \leak_potential[8]~input_o ;
+wire \Add1~22 ;
+wire \Add1~24_combout ;
+wire \reset_potential[8]~input_o ;
+wire \Add1~26_combout ;
+wire \leak_potential[9]~input_o ;
+wire \positive_threshold[9]~input_o ;
+wire \Add1~25 ;
+wire \Add1~27_combout ;
+wire \reset_potential[9]~input_o ;
+wire \Add1~29_combout ;
+wire \negative_threshold[0]~input_o ;
+wire \Add2~1_combout ;
+wire \Add2~0_combout ;
+wire \Add2~3_cout ;
+wire \Add2~4_combout ;
+wire \negative_threshold[1]~input_o ;
+wire \Add2~7_combout ;
+wire \Add2~6_combout ;
+wire \Add2~5 ;
+wire \Add2~8_combout ;
+wire \Add2~10_combout ;
+wire \negative_threshold[2]~input_o ;
+wire \Add2~11_combout ;
+wire \Add2~9 ;
+wire \Add2~12_combout ;
+wire \negative_threshold[3]~input_o ;
+wire \Add2~15_combout ;
+wire \Add2~14_combout ;
+wire \Add2~13 ;
+wire \Add2~16_combout ;
+wire \Add2~18_combout ;
+wire \negative_threshold[4]~input_o ;
+wire \Add2~19_combout ;
+wire \Add2~17 ;
+wire \Add2~20_combout ;
+wire \Add2~22_combout ;
+wire \negative_threshold[5]~input_o ;
+wire \Add2~23_combout ;
+wire \Add2~21 ;
+wire \Add2~24_combout ;
+wire \negative_threshold[6]~input_o ;
+wire \Add2~27_combout ;
+wire \Add2~26_combout ;
+wire \Add2~25 ;
+wire \Add2~28_combout ;
+wire \negative_threshold[7]~input_o ;
+wire \Add2~31_combout ;
+wire \Add2~30_combout ;
+wire \Add2~29 ;
+wire \Add2~32_combout ;
+wire \Add2~34_combout ;
+wire \negative_threshold[8]~input_o ;
+wire \Add2~35_combout ;
+wire \Add2~33 ;
+wire \Add2~36_combout ;
+wire \negative_threshold[9]~input_o ;
+wire \Add2~39_combout ;
+wire \Add2~38_combout ;
+wire \Add2~37 ;
+wire \Add2~40_combout ;
 
 
 hard_block auto_generated_inst(
@@ -104,389 +257,1604 @@ hard_block auto_generated_inst(
 	.devclrn(devclrn),
 	.devoe(devoe));
 
-// Location: IOOBUF_X0_Y14_N9
-cycloneive_io_obuf \c[0]~output (
-	.i(\Add0~5_combout ),
+// Location: IOOBUF_X115_Y27_N2
+cycloneive_io_obuf \positive_reset_value[0]~output (
+	.i(\Add1~2_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\c[0]~output_o ),
+	.o(\positive_reset_value[0]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \c[0]~output .bus_hold = "false";
-defparam \c[0]~output .open_drain_output = "false";
+defparam \positive_reset_value[0]~output .bus_hold = "false";
+defparam \positive_reset_value[0]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y19_N9
-cycloneive_io_obuf \c[1]~output (
-	.i(\Add0~9_combout ),
+// Location: IOOBUF_X115_Y16_N9
+cycloneive_io_obuf \positive_reset_value[1]~output (
+	.i(\Add1~5_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\c[1]~output_o ),
+	.o(\positive_reset_value[1]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \c[1]~output .bus_hold = "false";
-defparam \c[1]~output .open_drain_output = "false";
+defparam \positive_reset_value[1]~output .bus_hold = "false";
+defparam \positive_reset_value[1]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y19_N2
-cycloneive_io_obuf \c[2]~output (
-	.i(\Add0~13_combout ),
+// Location: IOOBUF_X115_Y23_N9
+cycloneive_io_obuf \positive_reset_value[2]~output (
+	.i(\Add1~8_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\c[2]~output_o ),
+	.o(\positive_reset_value[2]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \c[2]~output .bus_hold = "false";
-defparam \c[2]~output .open_drain_output = "false";
+defparam \positive_reset_value[2]~output .bus_hold = "false";
+defparam \positive_reset_value[2]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y15_N16
-cycloneive_io_obuf \c[3]~output (
-	.i(\Add0~17_combout ),
+// Location: IOOBUF_X115_Y31_N9
+cycloneive_io_obuf \positive_reset_value[3]~output (
+	.i(\Add1~11_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\c[3]~output_o ),
+	.o(\positive_reset_value[3]~output_o ),
 	.obar());
 // synopsys translate_off
-defparam \c[3]~output .bus_hold = "false";
-defparam \c[3]~output .open_drain_output = "false";
+defparam \positive_reset_value[3]~output .bus_hold = "false";
+defparam \positive_reset_value[3]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y14_N1
-cycloneive_io_ibuf \s[1]~input (
-	.i(s[1]),
-	.ibar(gnd),
-	.o(\s[1]~input_o ));
+// Location: IOOBUF_X115_Y19_N9
+cycloneive_io_obuf \positive_reset_value[4]~output (
+	.i(\Add1~14_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\positive_reset_value[4]~output_o ),
+	.obar());
 // synopsys translate_off
-defparam \s[1]~input .bus_hold = "false";
-defparam \s[1]~input .simulate_z_as = "z";
+defparam \positive_reset_value[4]~output .bus_hold = "false";
+defparam \positive_reset_value[4]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y16_N15
-cycloneive_io_ibuf \a[0]~input (
-	.i(a[0]),
-	.ibar(gnd),
-	.o(\a[0]~input_o ));
+// Location: IOOBUF_X115_Y20_N9
+cycloneive_io_obuf \positive_reset_value[5]~output (
+	.i(\Add1~17_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\positive_reset_value[5]~output_o ),
+	.obar());
 // synopsys translate_off
-defparam \a[0]~input .bus_hold = "false";
-defparam \a[0]~input .simulate_z_as = "z";
+defparam \positive_reset_value[5]~output .bus_hold = "false";
+defparam \positive_reset_value[5]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y16_N22
-cycloneive_io_ibuf \b[0]~input (
-	.i(b[0]),
-	.ibar(gnd),
-	.o(\b[0]~input_o ));
+// Location: IOOBUF_X115_Y48_N9
+cycloneive_io_obuf \positive_reset_value[6]~output (
+	.i(\Add1~20_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\positive_reset_value[6]~output_o ),
+	.obar());
 // synopsys translate_off
-defparam \b[0]~input .bus_hold = "false";
-defparam \b[0]~input .simulate_z_as = "z";
+defparam \positive_reset_value[6]~output .bus_hold = "false";
+defparam \positive_reset_value[6]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y18_N22
-cycloneive_io_ibuf \s[0]~input (
-	.i(s[0]),
-	.ibar(gnd),
-	.o(\s[0]~input_o ));
+// Location: IOOBUF_X115_Y31_N2
+cycloneive_io_obuf \positive_reset_value[7]~output (
+	.i(\Add1~23_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\positive_reset_value[7]~output_o ),
+	.obar());
 // synopsys translate_off
-defparam \s[0]~input .bus_hold = "false";
-defparam \s[0]~input .simulate_z_as = "z";
+defparam \positive_reset_value[7]~output .bus_hold = "false";
+defparam \positive_reset_value[7]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: LCCOMB_X1_Y18_N16
-cycloneive_lcell_comb \Add0~0 (
+// Location: IOOBUF_X115_Y30_N2
+cycloneive_io_obuf \positive_reset_value[8]~output (
+	.i(\Add1~26_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\positive_reset_value[8]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \positive_reset_value[8]~output .bus_hold = "false";
+defparam \positive_reset_value[8]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X115_Y17_N9
+cycloneive_io_obuf \positive_reset_value[9]~output (
+	.i(\Add1~29_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\positive_reset_value[9]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \positive_reset_value[9]~output .bus_hold = "false";
+defparam \positive_reset_value[9]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X115_Y44_N2
+cycloneive_io_obuf \negative_reset_value[0]~output (
+	.i(\Add2~4_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\negative_reset_value[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \negative_reset_value[0]~output .bus_hold = "false";
+defparam \negative_reset_value[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X115_Y44_N9
+cycloneive_io_obuf \negative_reset_value[1]~output (
+	.i(\Add2~8_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\negative_reset_value[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \negative_reset_value[1]~output .bus_hold = "false";
+defparam \negative_reset_value[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X115_Y15_N2
+cycloneive_io_obuf \negative_reset_value[2]~output (
+	.i(\Add2~12_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\negative_reset_value[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \negative_reset_value[2]~output .bus_hold = "false";
+defparam \negative_reset_value[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X115_Y32_N9
+cycloneive_io_obuf \negative_reset_value[3]~output (
+	.i(\Add2~16_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\negative_reset_value[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \negative_reset_value[3]~output .bus_hold = "false";
+defparam \negative_reset_value[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X115_Y36_N2
+cycloneive_io_obuf \negative_reset_value[4]~output (
+	.i(\Add2~20_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\negative_reset_value[4]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \negative_reset_value[4]~output .bus_hold = "false";
+defparam \negative_reset_value[4]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X115_Y40_N2
+cycloneive_io_obuf \negative_reset_value[5]~output (
+	.i(\Add2~24_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\negative_reset_value[5]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \negative_reset_value[5]~output .bus_hold = "false";
+defparam \negative_reset_value[5]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X115_Y46_N2
+cycloneive_io_obuf \negative_reset_value[6]~output (
+	.i(\Add2~28_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\negative_reset_value[6]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \negative_reset_value[6]~output .bus_hold = "false";
+defparam \negative_reset_value[6]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X115_Y36_N9
+cycloneive_io_obuf \negative_reset_value[7]~output (
+	.i(\Add2~32_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\negative_reset_value[7]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \negative_reset_value[7]~output .bus_hold = "false";
+defparam \negative_reset_value[7]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X115_Y36_N16
+cycloneive_io_obuf \negative_reset_value[8]~output (
+	.i(\Add2~36_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\negative_reset_value[8]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \negative_reset_value[8]~output .bus_hold = "false";
+defparam \negative_reset_value[8]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X115_Y40_N9
+cycloneive_io_obuf \negative_reset_value[9]~output (
+	.i(\Add2~40_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\negative_reset_value[9]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \negative_reset_value[9]~output .bus_hold = "false";
+defparam \negative_reset_value[9]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y18_N1
+cycloneive_io_ibuf \positive_threshold[0]~input (
+	.i(positive_threshold[0]),
+	.ibar(gnd),
+	.o(\positive_threshold[0]~input_o ));
+// synopsys translate_off
+defparam \positive_threshold[0]~input .bus_hold = "false";
+defparam \positive_threshold[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y26_N22
+cycloneive_io_ibuf \leak_potential[0]~input (
+	.i(leak_potential[0]),
+	.ibar(gnd),
+	.o(\leak_potential[0]~input_o ));
+// synopsys translate_off
+defparam \leak_potential[0]~input .bus_hold = "false";
+defparam \leak_potential[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y28_N12
+cycloneive_lcell_comb \Add1~0 (
 // Equation(s):
-// \Add0~0_combout  = \b[0]~input_o  $ (((\s[1]~input_o ) # (\s[0]~input_o )))
+// \Add1~0_combout  = (\positive_threshold[0]~input_o  & (\leak_potential[0]~input_o  $ (VCC))) # (!\positive_threshold[0]~input_o  & ((\leak_potential[0]~input_o ) # (GND)))
+// \Add1~1  = CARRY((\leak_potential[0]~input_o ) # (!\positive_threshold[0]~input_o ))
 
-	.dataa(gnd),
-	.datab(\b[0]~input_o ),
-	.datac(\s[1]~input_o ),
-	.datad(\s[0]~input_o ),
+	.dataa(\positive_threshold[0]~input_o ),
+	.datab(\leak_potential[0]~input_o ),
+	.datac(gnd),
+	.datad(vcc),
 	.cin(gnd),
-	.combout(\Add0~0_combout ),
+	.combout(\Add1~0_combout ),
+	.cout(\Add1~1 ));
+// synopsys translate_off
+defparam \Add1~0 .lut_mask = 16'h66DD;
+defparam \Add1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y27_N8
+cycloneive_io_ibuf \reset_potential[0]~input (
+	.i(reset_potential[0]),
+	.ibar(gnd),
+	.o(\reset_potential[0]~input_o ));
+// synopsys translate_off
+defparam \reset_potential[0]~input .bus_hold = "false";
+defparam \reset_potential[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y23_N1
+cycloneive_io_ibuf \reset_mode~input (
+	.i(reset_mode),
+	.ibar(gnd),
+	.o(\reset_mode~input_o ));
+// synopsys translate_off
+defparam \reset_mode~input .bus_hold = "false";
+defparam \reset_mode~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y31_N8
+cycloneive_lcell_comb \Add1~2 (
+// Equation(s):
+// \Add1~2_combout  = (\reset_mode~input_o  & (\Add1~0_combout )) # (!\reset_mode~input_o  & ((\reset_potential[0]~input_o )))
+
+	.dataa(\Add1~0_combout ),
+	.datab(\reset_potential[0]~input_o ),
+	.datac(\reset_mode~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\Add1~2_combout ),
 	.cout());
 // synopsys translate_off
-defparam \Add0~0 .lut_mask = 16'h333C;
-defparam \Add0~0 .sum_lutc_input = "datac";
+defparam \Add1~2 .lut_mask = 16'hACAC;
+defparam \Add1~2 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X1_Y18_N20
-cycloneive_lcell_comb \Add0~2 (
-// Equation(s):
-// \Add0~2_cout  = CARRY((\s[0]~input_o ) # (\s[1]~input_o ))
+// Location: IOIBUF_X115_Y20_N1
+cycloneive_io_ibuf \reset_potential[1]~input (
+	.i(reset_potential[1]),
+	.ibar(gnd),
+	.o(\reset_potential[1]~input_o ));
+// synopsys translate_off
+defparam \reset_potential[1]~input .bus_hold = "false";
+defparam \reset_potential[1]~input .simulate_z_as = "z";
+// synopsys translate_on
 
-	.dataa(\s[0]~input_o ),
-	.datab(\s[1]~input_o ),
+// Location: IOIBUF_X115_Y15_N8
+cycloneive_io_ibuf \leak_potential[1]~input (
+	.i(leak_potential[1]),
+	.ibar(gnd),
+	.o(\leak_potential[1]~input_o ));
+// synopsys translate_off
+defparam \leak_potential[1]~input .bus_hold = "false";
+defparam \leak_potential[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y28_N1
+cycloneive_io_ibuf \positive_threshold[1]~input (
+	.i(positive_threshold[1]),
+	.ibar(gnd),
+	.o(\positive_threshold[1]~input_o ));
+// synopsys translate_off
+defparam \positive_threshold[1]~input .bus_hold = "false";
+defparam \positive_threshold[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y28_N14
+cycloneive_lcell_comb \Add1~3 (
+// Equation(s):
+// \Add1~3_combout  = (\leak_potential[1]~input_o  & ((\positive_threshold[1]~input_o  & (!\Add1~1 )) # (!\positive_threshold[1]~input_o  & (\Add1~1  & VCC)))) # (!\leak_potential[1]~input_o  & ((\positive_threshold[1]~input_o  & ((\Add1~1 ) # (GND))) # 
+// (!\positive_threshold[1]~input_o  & (!\Add1~1 ))))
+// \Add1~4  = CARRY((\leak_potential[1]~input_o  & (\positive_threshold[1]~input_o  & !\Add1~1 )) # (!\leak_potential[1]~input_o  & ((\positive_threshold[1]~input_o ) # (!\Add1~1 ))))
+
+	.dataa(\leak_potential[1]~input_o ),
+	.datab(\positive_threshold[1]~input_o ),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Add1~1 ),
+	.combout(\Add1~3_combout ),
+	.cout(\Add1~4 ));
+// synopsys translate_off
+defparam \Add1~3 .lut_mask = 16'h694D;
+defparam \Add1~3 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y24_N8
+cycloneive_lcell_comb \Add1~5 (
+// Equation(s):
+// \Add1~5_combout  = (\reset_mode~input_o  & ((\Add1~3_combout ))) # (!\reset_mode~input_o  & (\reset_potential[1]~input_o ))
+
+	.dataa(gnd),
+	.datab(\reset_potential[1]~input_o ),
+	.datac(\Add1~3_combout ),
+	.datad(\reset_mode~input_o ),
+	.cin(gnd),
+	.combout(\Add1~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add1~5 .lut_mask = 16'hF0CC;
+defparam \Add1~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y28_N8
+cycloneive_io_ibuf \leak_potential[2]~input (
+	.i(leak_potential[2]),
+	.ibar(gnd),
+	.o(\leak_potential[2]~input_o ));
+// synopsys translate_off
+defparam \leak_potential[2]~input .bus_hold = "false";
+defparam \leak_potential[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y26_N15
+cycloneive_io_ibuf \positive_threshold[2]~input (
+	.i(positive_threshold[2]),
+	.ibar(gnd),
+	.o(\positive_threshold[2]~input_o ));
+// synopsys translate_off
+defparam \positive_threshold[2]~input .bus_hold = "false";
+defparam \positive_threshold[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y28_N16
+cycloneive_lcell_comb \Add1~6 (
+// Equation(s):
+// \Add1~6_combout  = ((\leak_potential[2]~input_o  $ (\positive_threshold[2]~input_o  $ (\Add1~4 )))) # (GND)
+// \Add1~7  = CARRY((\leak_potential[2]~input_o  & ((!\Add1~4 ) # (!\positive_threshold[2]~input_o ))) # (!\leak_potential[2]~input_o  & (!\positive_threshold[2]~input_o  & !\Add1~4 )))
+
+	.dataa(\leak_potential[2]~input_o ),
+	.datab(\positive_threshold[2]~input_o ),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Add1~4 ),
+	.combout(\Add1~6_combout ),
+	.cout(\Add1~7 ));
+// synopsys translate_off
+defparam \Add1~6 .lut_mask = 16'h962B;
+defparam \Add1~6 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y45_N15
+cycloneive_io_ibuf \reset_potential[2]~input (
+	.i(reset_potential[2]),
+	.ibar(gnd),
+	.o(\reset_potential[2]~input_o ));
+// synopsys translate_off
+defparam \reset_potential[2]~input .bus_hold = "false";
+defparam \reset_potential[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y31_N18
+cycloneive_lcell_comb \Add1~8 (
+// Equation(s):
+// \Add1~8_combout  = (\reset_mode~input_o  & (\Add1~6_combout )) # (!\reset_mode~input_o  & ((\reset_potential[2]~input_o )))
+
+	.dataa(gnd),
+	.datab(\Add1~6_combout ),
+	.datac(\reset_mode~input_o ),
+	.datad(\reset_potential[2]~input_o ),
+	.cin(gnd),
+	.combout(\Add1~8_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add1~8 .lut_mask = 16'hCFC0;
+defparam \Add1~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y32_N1
+cycloneive_io_ibuf \leak_potential[3]~input (
+	.i(leak_potential[3]),
+	.ibar(gnd),
+	.o(\leak_potential[3]~input_o ));
+// synopsys translate_off
+defparam \leak_potential[3]~input .bus_hold = "false";
+defparam \leak_potential[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y18_N8
+cycloneive_io_ibuf \positive_threshold[3]~input (
+	.i(positive_threshold[3]),
+	.ibar(gnd),
+	.o(\positive_threshold[3]~input_o ));
+// synopsys translate_off
+defparam \positive_threshold[3]~input .bus_hold = "false";
+defparam \positive_threshold[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y28_N18
+cycloneive_lcell_comb \Add1~9 (
+// Equation(s):
+// \Add1~9_combout  = (\leak_potential[3]~input_o  & ((\positive_threshold[3]~input_o  & (!\Add1~7 )) # (!\positive_threshold[3]~input_o  & (\Add1~7  & VCC)))) # (!\leak_potential[3]~input_o  & ((\positive_threshold[3]~input_o  & ((\Add1~7 ) # (GND))) # 
+// (!\positive_threshold[3]~input_o  & (!\Add1~7 ))))
+// \Add1~10  = CARRY((\leak_potential[3]~input_o  & (\positive_threshold[3]~input_o  & !\Add1~7 )) # (!\leak_potential[3]~input_o  & ((\positive_threshold[3]~input_o ) # (!\Add1~7 ))))
+
+	.dataa(\leak_potential[3]~input_o ),
+	.datab(\positive_threshold[3]~input_o ),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Add1~7 ),
+	.combout(\Add1~9_combout ),
+	.cout(\Add1~10 ));
+// synopsys translate_off
+defparam \Add1~9 .lut_mask = 16'h694D;
+defparam \Add1~9 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y47_N22
+cycloneive_io_ibuf \reset_potential[3]~input (
+	.i(reset_potential[3]),
+	.ibar(gnd),
+	.o(\reset_potential[3]~input_o ));
+// synopsys translate_off
+defparam \reset_potential[3]~input .bus_hold = "false";
+defparam \reset_potential[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y31_N4
+cycloneive_lcell_comb \Add1~11 (
+// Equation(s):
+// \Add1~11_combout  = (\reset_mode~input_o  & (\Add1~9_combout )) # (!\reset_mode~input_o  & ((\reset_potential[3]~input_o )))
+
+	.dataa(gnd),
+	.datab(\Add1~9_combout ),
+	.datac(\reset_mode~input_o ),
+	.datad(\reset_potential[3]~input_o ),
+	.cin(gnd),
+	.combout(\Add1~11_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add1~11 .lut_mask = 16'hCFC0;
+defparam \Add1~11 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y22_N15
+cycloneive_io_ibuf \leak_potential[4]~input (
+	.i(leak_potential[4]),
+	.ibar(gnd),
+	.o(\leak_potential[4]~input_o ));
+// synopsys translate_off
+defparam \leak_potential[4]~input .bus_hold = "false";
+defparam \leak_potential[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y22_N1
+cycloneive_io_ibuf \positive_threshold[4]~input (
+	.i(positive_threshold[4]),
+	.ibar(gnd),
+	.o(\positive_threshold[4]~input_o ));
+// synopsys translate_off
+defparam \positive_threshold[4]~input .bus_hold = "false";
+defparam \positive_threshold[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y28_N20
+cycloneive_lcell_comb \Add1~12 (
+// Equation(s):
+// \Add1~12_combout  = ((\leak_potential[4]~input_o  $ (\positive_threshold[4]~input_o  $ (\Add1~10 )))) # (GND)
+// \Add1~13  = CARRY((\leak_potential[4]~input_o  & ((!\Add1~10 ) # (!\positive_threshold[4]~input_o ))) # (!\leak_potential[4]~input_o  & (!\positive_threshold[4]~input_o  & !\Add1~10 )))
+
+	.dataa(\leak_potential[4]~input_o ),
+	.datab(\positive_threshold[4]~input_o ),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Add1~10 ),
+	.combout(\Add1~12_combout ),
+	.cout(\Add1~13 ));
+// synopsys translate_off
+defparam \Add1~12 .lut_mask = 16'h962B;
+defparam \Add1~12 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y33_N8
+cycloneive_io_ibuf \reset_potential[4]~input (
+	.i(reset_potential[4]),
+	.ibar(gnd),
+	.o(\reset_potential[4]~input_o ));
+// synopsys translate_off
+defparam \reset_potential[4]~input .bus_hold = "false";
+defparam \reset_potential[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y31_N22
+cycloneive_lcell_comb \Add1~14 (
+// Equation(s):
+// \Add1~14_combout  = (\reset_mode~input_o  & (\Add1~12_combout )) # (!\reset_mode~input_o  & ((\reset_potential[4]~input_o )))
+
+	.dataa(gnd),
+	.datab(\Add1~12_combout ),
+	.datac(\reset_mode~input_o ),
+	.datad(\reset_potential[4]~input_o ),
+	.cin(gnd),
+	.combout(\Add1~14_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add1~14 .lut_mask = 16'hCFC0;
+defparam \Add1~14 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y25_N22
+cycloneive_io_ibuf \positive_threshold[5]~input (
+	.i(positive_threshold[5]),
+	.ibar(gnd),
+	.o(\positive_threshold[5]~input_o ));
+// synopsys translate_off
+defparam \positive_threshold[5]~input .bus_hold = "false";
+defparam \positive_threshold[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y30_N8
+cycloneive_io_ibuf \leak_potential[5]~input (
+	.i(leak_potential[5]),
+	.ibar(gnd),
+	.o(\leak_potential[5]~input_o ));
+// synopsys translate_off
+defparam \leak_potential[5]~input .bus_hold = "false";
+defparam \leak_potential[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y28_N22
+cycloneive_lcell_comb \Add1~15 (
+// Equation(s):
+// \Add1~15_combout  = (\positive_threshold[5]~input_o  & ((\leak_potential[5]~input_o  & (!\Add1~13 )) # (!\leak_potential[5]~input_o  & ((\Add1~13 ) # (GND))))) # (!\positive_threshold[5]~input_o  & ((\leak_potential[5]~input_o  & (\Add1~13  & VCC)) # 
+// (!\leak_potential[5]~input_o  & (!\Add1~13 ))))
+// \Add1~16  = CARRY((\positive_threshold[5]~input_o  & ((!\Add1~13 ) # (!\leak_potential[5]~input_o ))) # (!\positive_threshold[5]~input_o  & (!\leak_potential[5]~input_o  & !\Add1~13 )))
+
+	.dataa(\positive_threshold[5]~input_o ),
+	.datab(\leak_potential[5]~input_o ),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Add1~13 ),
+	.combout(\Add1~15_combout ),
+	.cout(\Add1~16 ));
+// synopsys translate_off
+defparam \Add1~15 .lut_mask = 16'h692B;
+defparam \Add1~15 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y33_N1
+cycloneive_io_ibuf \reset_potential[5]~input (
+	.i(reset_potential[5]),
+	.ibar(gnd),
+	.o(\reset_potential[5]~input_o ));
+// synopsys translate_off
+defparam \reset_potential[5]~input .bus_hold = "false";
+defparam \reset_potential[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y28_N8
+cycloneive_lcell_comb \Add1~17 (
+// Equation(s):
+// \Add1~17_combout  = (\reset_mode~input_o  & (\Add1~15_combout )) # (!\reset_mode~input_o  & ((\reset_potential[5]~input_o )))
+
+	.dataa(\reset_mode~input_o ),
+	.datab(gnd),
+	.datac(\Add1~15_combout ),
+	.datad(\reset_potential[5]~input_o ),
+	.cin(gnd),
+	.combout(\Add1~17_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add1~17 .lut_mask = 16'hF5A0;
+defparam \Add1~17 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y24_N8
+cycloneive_io_ibuf \positive_threshold[6]~input (
+	.i(positive_threshold[6]),
+	.ibar(gnd),
+	.o(\positive_threshold[6]~input_o ));
+// synopsys translate_off
+defparam \positive_threshold[6]~input .bus_hold = "false";
+defparam \positive_threshold[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y22_N22
+cycloneive_io_ibuf \leak_potential[6]~input (
+	.i(leak_potential[6]),
+	.ibar(gnd),
+	.o(\leak_potential[6]~input_o ));
+// synopsys translate_off
+defparam \leak_potential[6]~input .bus_hold = "false";
+defparam \leak_potential[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y28_N24
+cycloneive_lcell_comb \Add1~18 (
+// Equation(s):
+// \Add1~18_combout  = ((\positive_threshold[6]~input_o  $ (\leak_potential[6]~input_o  $ (\Add1~16 )))) # (GND)
+// \Add1~19  = CARRY((\positive_threshold[6]~input_o  & (\leak_potential[6]~input_o  & !\Add1~16 )) # (!\positive_threshold[6]~input_o  & ((\leak_potential[6]~input_o ) # (!\Add1~16 ))))
+
+	.dataa(\positive_threshold[6]~input_o ),
+	.datab(\leak_potential[6]~input_o ),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Add1~16 ),
+	.combout(\Add1~18_combout ),
+	.cout(\Add1~19 ));
+// synopsys translate_off
+defparam \Add1~18 .lut_mask = 16'h964D;
+defparam \Add1~18 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y47_N15
+cycloneive_io_ibuf \reset_potential[6]~input (
+	.i(reset_potential[6]),
+	.ibar(gnd),
+	.o(\reset_potential[6]~input_o ));
+// synopsys translate_off
+defparam \reset_potential[6]~input .bus_hold = "false";
+defparam \reset_potential[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y31_N0
+cycloneive_lcell_comb \Add1~20 (
+// Equation(s):
+// \Add1~20_combout  = (\reset_mode~input_o  & (\Add1~18_combout )) # (!\reset_mode~input_o  & ((\reset_potential[6]~input_o )))
+
+	.dataa(gnd),
+	.datab(\reset_mode~input_o ),
+	.datac(\Add1~18_combout ),
+	.datad(\reset_potential[6]~input_o ),
+	.cin(gnd),
+	.combout(\Add1~20_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add1~20 .lut_mask = 16'hF3C0;
+defparam \Add1~20 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y35_N22
+cycloneive_io_ibuf \reset_potential[7]~input (
+	.i(reset_potential[7]),
+	.ibar(gnd),
+	.o(\reset_potential[7]~input_o ));
+// synopsys translate_off
+defparam \reset_potential[7]~input .bus_hold = "false";
+defparam \reset_potential[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y24_N1
+cycloneive_io_ibuf \positive_threshold[7]~input (
+	.i(positive_threshold[7]),
+	.ibar(gnd),
+	.o(\positive_threshold[7]~input_o ));
+// synopsys translate_off
+defparam \positive_threshold[7]~input .bus_hold = "false";
+defparam \positive_threshold[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y25_N15
+cycloneive_io_ibuf \leak_potential[7]~input (
+	.i(leak_potential[7]),
+	.ibar(gnd),
+	.o(\leak_potential[7]~input_o ));
+// synopsys translate_off
+defparam \leak_potential[7]~input .bus_hold = "false";
+defparam \leak_potential[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y28_N26
+cycloneive_lcell_comb \Add1~21 (
+// Equation(s):
+// \Add1~21_combout  = (\positive_threshold[7]~input_o  & ((\leak_potential[7]~input_o  & (!\Add1~19 )) # (!\leak_potential[7]~input_o  & ((\Add1~19 ) # (GND))))) # (!\positive_threshold[7]~input_o  & ((\leak_potential[7]~input_o  & (\Add1~19  & VCC)) # 
+// (!\leak_potential[7]~input_o  & (!\Add1~19 ))))
+// \Add1~22  = CARRY((\positive_threshold[7]~input_o  & ((!\Add1~19 ) # (!\leak_potential[7]~input_o ))) # (!\positive_threshold[7]~input_o  & (!\leak_potential[7]~input_o  & !\Add1~19 )))
+
+	.dataa(\positive_threshold[7]~input_o ),
+	.datab(\leak_potential[7]~input_o ),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Add1~19 ),
+	.combout(\Add1~21_combout ),
+	.cout(\Add1~22 ));
+// synopsys translate_off
+defparam \Add1~21 .lut_mask = 16'h692B;
+defparam \Add1~21 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y31_N10
+cycloneive_lcell_comb \Add1~23 (
+// Equation(s):
+// \Add1~23_combout  = (\reset_mode~input_o  & ((\Add1~21_combout ))) # (!\reset_mode~input_o  & (\reset_potential[7]~input_o ))
+
+	.dataa(gnd),
+	.datab(\reset_mode~input_o ),
+	.datac(\reset_potential[7]~input_o ),
+	.datad(\Add1~21_combout ),
+	.cin(gnd),
+	.combout(\Add1~23_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add1~23 .lut_mask = 16'hFC30;
+defparam \Add1~23 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y21_N15
+cycloneive_io_ibuf \positive_threshold[8]~input (
+	.i(positive_threshold[8]),
+	.ibar(gnd),
+	.o(\positive_threshold[8]~input_o ));
+// synopsys translate_off
+defparam \positive_threshold[8]~input .bus_hold = "false";
+defparam \positive_threshold[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y29_N1
+cycloneive_io_ibuf \leak_potential[8]~input (
+	.i(leak_potential[8]),
+	.ibar(gnd),
+	.o(\leak_potential[8]~input_o ));
+// synopsys translate_off
+defparam \leak_potential[8]~input .bus_hold = "false";
+defparam \leak_potential[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y28_N28
+cycloneive_lcell_comb \Add1~24 (
+// Equation(s):
+// \Add1~24_combout  = ((\positive_threshold[8]~input_o  $ (\leak_potential[8]~input_o  $ (\Add1~22 )))) # (GND)
+// \Add1~25  = CARRY((\positive_threshold[8]~input_o  & (\leak_potential[8]~input_o  & !\Add1~22 )) # (!\positive_threshold[8]~input_o  & ((\leak_potential[8]~input_o ) # (!\Add1~22 ))))
+
+	.dataa(\positive_threshold[8]~input_o ),
+	.datab(\leak_potential[8]~input_o ),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Add1~22 ),
+	.combout(\Add1~24_combout ),
+	.cout(\Add1~25 ));
+// synopsys translate_off
+defparam \Add1~24 .lut_mask = 16'h964D;
+defparam \Add1~24 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y45_N22
+cycloneive_io_ibuf \reset_potential[8]~input (
+	.i(reset_potential[8]),
+	.ibar(gnd),
+	.o(\reset_potential[8]~input_o ));
+// synopsys translate_off
+defparam \reset_potential[8]~input .bus_hold = "false";
+defparam \reset_potential[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y31_N28
+cycloneive_lcell_comb \Add1~26 (
+// Equation(s):
+// \Add1~26_combout  = (\reset_mode~input_o  & (\Add1~24_combout )) # (!\reset_mode~input_o  & ((\reset_potential[8]~input_o )))
+
+	.dataa(\Add1~24_combout ),
+	.datab(\reset_mode~input_o ),
+	.datac(\reset_potential[8]~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\Add1~26_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add1~26 .lut_mask = 16'hB8B8;
+defparam \Add1~26 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y29_N8
+cycloneive_io_ibuf \leak_potential[9]~input (
+	.i(leak_potential[9]),
+	.ibar(gnd),
+	.o(\leak_potential[9]~input_o ));
+// synopsys translate_off
+defparam \leak_potential[9]~input .bus_hold = "false";
+defparam \leak_potential[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y14_N8
+cycloneive_io_ibuf \positive_threshold[9]~input (
+	.i(positive_threshold[9]),
+	.ibar(gnd),
+	.o(\positive_threshold[9]~input_o ));
+// synopsys translate_off
+defparam \positive_threshold[9]~input .bus_hold = "false";
+defparam \positive_threshold[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y28_N30
+cycloneive_lcell_comb \Add1~27 (
+// Equation(s):
+// \Add1~27_combout  = \leak_potential[9]~input_o  $ (\positive_threshold[9]~input_o  $ (!\Add1~25 ))
+
+	.dataa(\leak_potential[9]~input_o ),
+	.datab(\positive_threshold[9]~input_o ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(\Add1~25 ),
+	.combout(\Add1~27_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add1~27 .lut_mask = 16'h6969;
+defparam \Add1~27 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y16_N1
+cycloneive_io_ibuf \reset_potential[9]~input (
+	.i(reset_potential[9]),
+	.ibar(gnd),
+	.o(\reset_potential[9]~input_o ));
+// synopsys translate_off
+defparam \reset_potential[9]~input .bus_hold = "false";
+defparam \reset_potential[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y24_N18
+cycloneive_lcell_comb \Add1~29 (
+// Equation(s):
+// \Add1~29_combout  = (\reset_mode~input_o  & (\Add1~27_combout )) # (!\reset_mode~input_o  & ((\reset_potential[9]~input_o )))
+
+	.dataa(\Add1~27_combout ),
+	.datab(gnd),
+	.datac(\reset_potential[9]~input_o ),
+	.datad(\reset_mode~input_o ),
+	.cin(gnd),
+	.combout(\Add1~29_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add1~29 .lut_mask = 16'hAAF0;
+defparam \Add1~29 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y42_N15
+cycloneive_io_ibuf \negative_threshold[0]~input (
+	.i(negative_threshold[0]),
+	.ibar(gnd),
+	.o(\negative_threshold[0]~input_o ));
+// synopsys translate_off
+defparam \negative_threshold[0]~input .bus_hold = "false";
+defparam \negative_threshold[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y31_N30
+cycloneive_lcell_comb \Add2~1 (
+// Equation(s):
+// \Add2~1_combout  = (\reset_mode~input_o  & ((\negative_threshold[0]~input_o ))) # (!\reset_mode~input_o  & (\reset_potential[0]~input_o ))
+
+	.dataa(gnd),
+	.datab(\reset_potential[0]~input_o ),
+	.datac(\reset_mode~input_o ),
+	.datad(\negative_threshold[0]~input_o ),
+	.cin(gnd),
+	.combout(\Add2~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~1 .lut_mask = 16'hFC0C;
+defparam \Add2~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y28_N2
+cycloneive_lcell_comb \Add2~0 (
+// Equation(s):
+// \Add2~0_combout  = (\leak_potential[0]~input_o ) # (!\reset_mode~input_o )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\reset_mode~input_o ),
+	.datad(\leak_potential[0]~input_o ),
+	.cin(gnd),
+	.combout(\Add2~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~0 .lut_mask = 16'hFF0F;
+defparam \Add2~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y32_N2
+cycloneive_lcell_comb \Add2~3 (
+// Equation(s):
+// \Add2~3_cout  = CARRY(\reset_mode~input_o )
+
+	.dataa(gnd),
+	.datab(\reset_mode~input_o ),
 	.datac(gnd),
 	.datad(vcc),
 	.cin(gnd),
 	.combout(),
-	.cout(\Add0~2_cout ));
+	.cout(\Add2~3_cout ));
 // synopsys translate_off
-defparam \Add0~2 .lut_mask = 16'h00EE;
-defparam \Add0~2 .sum_lutc_input = "datac";
+defparam \Add2~3 .lut_mask = 16'h00CC;
+defparam \Add2~3 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X1_Y18_N22
-cycloneive_lcell_comb \Add0~3 (
+// Location: LCCOMB_X114_Y32_N4
+cycloneive_lcell_comb \Add2~4 (
 // Equation(s):
-// \Add0~3_combout  = (\a[0]~input_o  & ((\Add0~0_combout  & (\Add0~2_cout  & VCC)) # (!\Add0~0_combout  & (!\Add0~2_cout )))) # (!\a[0]~input_o  & ((\Add0~0_combout  & (!\Add0~2_cout )) # (!\Add0~0_combout  & ((\Add0~2_cout ) # (GND)))))
-// \Add0~4  = CARRY((\a[0]~input_o  & (!\Add0~0_combout  & !\Add0~2_cout )) # (!\a[0]~input_o  & ((!\Add0~2_cout ) # (!\Add0~0_combout ))))
+// \Add2~4_combout  = (\Add2~1_combout  & ((\Add2~0_combout  & (!\Add2~3_cout )) # (!\Add2~0_combout  & ((\Add2~3_cout ) # (GND))))) # (!\Add2~1_combout  & ((\Add2~0_combout  & (\Add2~3_cout  & VCC)) # (!\Add2~0_combout  & (!\Add2~3_cout ))))
+// \Add2~5  = CARRY((\Add2~1_combout  & ((!\Add2~3_cout ) # (!\Add2~0_combout ))) # (!\Add2~1_combout  & (!\Add2~0_combout  & !\Add2~3_cout )))
 
-	.dataa(\a[0]~input_o ),
-	.datab(\Add0~0_combout ),
+	.dataa(\Add2~1_combout ),
+	.datab(\Add2~0_combout ),
 	.datac(gnd),
 	.datad(vcc),
-	.cin(\Add0~2_cout ),
-	.combout(\Add0~3_combout ),
-	.cout(\Add0~4 ));
+	.cin(\Add2~3_cout ),
+	.combout(\Add2~4_combout ),
+	.cout(\Add2~5 ));
 // synopsys translate_off
-defparam \Add0~3 .lut_mask = 16'h9617;
-defparam \Add0~3 .sum_lutc_input = "cin";
+defparam \Add2~4 .lut_mask = 16'h692B;
+defparam \Add2~4 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: LCCOMB_X1_Y18_N18
-cycloneive_lcell_comb \Add0~5 (
+// Location: IOIBUF_X115_Y19_N1
+cycloneive_io_ibuf \negative_threshold[1]~input (
+	.i(negative_threshold[1]),
+	.ibar(gnd),
+	.o(\negative_threshold[1]~input_o ));
+// synopsys translate_off
+defparam \negative_threshold[1]~input .bus_hold = "false";
+defparam \negative_threshold[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y24_N12
+cycloneive_lcell_comb \Add2~7 (
 // Equation(s):
-// \Add0~5_combout  = (\s[1]~input_o  & ((!\a[0]~input_o ))) # (!\s[1]~input_o  & (\Add0~3_combout ))
+// \Add2~7_combout  = (\reset_mode~input_o  & ((\negative_threshold[1]~input_o ))) # (!\reset_mode~input_o  & (\reset_potential[1]~input_o ))
 
 	.dataa(gnd),
-	.datab(\s[1]~input_o ),
-	.datac(\Add0~3_combout ),
-	.datad(\a[0]~input_o ),
+	.datab(\reset_potential[1]~input_o ),
+	.datac(\negative_threshold[1]~input_o ),
+	.datad(\reset_mode~input_o ),
 	.cin(gnd),
-	.combout(\Add0~5_combout ),
+	.combout(\Add2~7_combout ),
 	.cout());
 // synopsys translate_off
-defparam \Add0~5 .lut_mask = 16'h30FC;
-defparam \Add0~5 .sum_lutc_input = "datac";
+defparam \Add2~7 .lut_mask = 16'hF0CC;
+defparam \Add2~7 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y18_N15
-cycloneive_io_ibuf \a[1]~input (
-	.i(a[1]),
-	.ibar(gnd),
-	.o(\a[1]~input_o ));
-// synopsys translate_off
-defparam \a[1]~input .bus_hold = "false";
-defparam \a[1]~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X0_Y17_N15
-cycloneive_io_ibuf \b[1]~input (
-	.i(b[1]),
-	.ibar(gnd),
-	.o(\b[1]~input_o ));
-// synopsys translate_off
-defparam \b[1]~input .bus_hold = "false";
-defparam \b[1]~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: LCCOMB_X1_Y18_N4
-cycloneive_lcell_comb \Add0~6 (
+// Location: LCCOMB_X114_Y32_N0
+cycloneive_lcell_comb \Add2~6 (
 // Equation(s):
-// \Add0~6_combout  = \b[1]~input_o  $ (((\s[1]~input_o ) # (\s[0]~input_o )))
+// \Add2~6_combout  = (\leak_potential[1]~input_o  & \reset_mode~input_o )
 
-	.dataa(\b[1]~input_o ),
+	.dataa(\leak_potential[1]~input_o ),
 	.datab(gnd),
-	.datac(\s[1]~input_o ),
-	.datad(\s[0]~input_o ),
+	.datac(\reset_mode~input_o ),
+	.datad(gnd),
 	.cin(gnd),
-	.combout(\Add0~6_combout ),
+	.combout(\Add2~6_combout ),
 	.cout());
 // synopsys translate_off
-defparam \Add0~6 .lut_mask = 16'h555A;
-defparam \Add0~6 .sum_lutc_input = "datac";
+defparam \Add2~6 .lut_mask = 16'hA0A0;
+defparam \Add2~6 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X1_Y18_N24
-cycloneive_lcell_comb \Add0~7 (
+// Location: LCCOMB_X114_Y32_N6
+cycloneive_lcell_comb \Add2~8 (
 // Equation(s):
-// \Add0~7_combout  = ((\a[1]~input_o  $ (\Add0~6_combout  $ (!\Add0~4 )))) # (GND)
-// \Add0~8  = CARRY((\a[1]~input_o  & ((\Add0~6_combout ) # (!\Add0~4 ))) # (!\a[1]~input_o  & (\Add0~6_combout  & !\Add0~4 )))
+// \Add2~8_combout  = ((\Add2~7_combout  $ (\Add2~6_combout  $ (\Add2~5 )))) # (GND)
+// \Add2~9  = CARRY((\Add2~7_combout  & (\Add2~6_combout  & !\Add2~5 )) # (!\Add2~7_combout  & ((\Add2~6_combout ) # (!\Add2~5 ))))
 
-	.dataa(\a[1]~input_o ),
-	.datab(\Add0~6_combout ),
+	.dataa(\Add2~7_combout ),
+	.datab(\Add2~6_combout ),
 	.datac(gnd),
 	.datad(vcc),
-	.cin(\Add0~4 ),
-	.combout(\Add0~7_combout ),
-	.cout(\Add0~8 ));
+	.cin(\Add2~5 ),
+	.combout(\Add2~8_combout ),
+	.cout(\Add2~9 ));
 // synopsys translate_off
-defparam \Add0~7 .lut_mask = 16'h698E;
-defparam \Add0~7 .sum_lutc_input = "cin";
+defparam \Add2~8 .lut_mask = 16'h964D;
+defparam \Add2~8 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: LCCOMB_X1_Y18_N6
-cycloneive_lcell_comb \Add0~9 (
+// Location: LCCOMB_X114_Y28_N4
+cycloneive_lcell_comb \Add2~10 (
 // Equation(s):
-// \Add0~9_combout  = (\s[1]~input_o  & (!\a[1]~input_o )) # (!\s[1]~input_o  & ((\Add0~7_combout )))
+// \Add2~10_combout  = (\leak_potential[2]~input_o  & \reset_mode~input_o )
 
-	.dataa(\a[1]~input_o ),
+	.dataa(\leak_potential[2]~input_o ),
 	.datab(gnd),
-	.datac(\s[1]~input_o ),
-	.datad(\Add0~7_combout ),
+	.datac(\reset_mode~input_o ),
+	.datad(gnd),
 	.cin(gnd),
-	.combout(\Add0~9_combout ),
+	.combout(\Add2~10_combout ),
 	.cout());
 // synopsys translate_off
-defparam \Add0~9 .lut_mask = 16'h5F50;
-defparam \Add0~9 .sum_lutc_input = "datac";
+defparam \Add2~10 .lut_mask = 16'hA0A0;
+defparam \Add2~10 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y21_N22
-cycloneive_io_ibuf \b[2]~input (
-	.i(b[2]),
+// Location: IOIBUF_X115_Y35_N15
+cycloneive_io_ibuf \negative_threshold[2]~input (
+	.i(negative_threshold[2]),
 	.ibar(gnd),
-	.o(\b[2]~input_o ));
+	.o(\negative_threshold[2]~input_o ));
 // synopsys translate_off
-defparam \b[2]~input .bus_hold = "false";
-defparam \b[2]~input .simulate_z_as = "z";
+defparam \negative_threshold[2]~input .bus_hold = "false";
+defparam \negative_threshold[2]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: LCCOMB_X1_Y18_N8
-cycloneive_lcell_comb \Add0~10 (
+// Location: LCCOMB_X114_Y31_N24
+cycloneive_lcell_comb \Add2~11 (
 // Equation(s):
-// \Add0~10_combout  = \b[2]~input_o  $ (((\s[0]~input_o ) # (\s[1]~input_o )))
+// \Add2~11_combout  = (\reset_mode~input_o  & (\negative_threshold[2]~input_o )) # (!\reset_mode~input_o  & ((\reset_potential[2]~input_o )))
 
-	.dataa(gnd),
-	.datab(\s[0]~input_o ),
-	.datac(\s[1]~input_o ),
-	.datad(\b[2]~input_o ),
+	.dataa(\negative_threshold[2]~input_o ),
+	.datab(gnd),
+	.datac(\reset_mode~input_o ),
+	.datad(\reset_potential[2]~input_o ),
 	.cin(gnd),
-	.combout(\Add0~10_combout ),
+	.combout(\Add2~11_combout ),
 	.cout());
 // synopsys translate_off
-defparam \Add0~10 .lut_mask = 16'h03FC;
-defparam \Add0~10 .sum_lutc_input = "datac";
+defparam \Add2~11 .lut_mask = 16'hAFA0;
+defparam \Add2~11 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y20_N15
-cycloneive_io_ibuf \a[2]~input (
-	.i(a[2]),
-	.ibar(gnd),
-	.o(\a[2]~input_o ));
-// synopsys translate_off
-defparam \a[2]~input .bus_hold = "false";
-defparam \a[2]~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: LCCOMB_X1_Y18_N26
-cycloneive_lcell_comb \Add0~11 (
+// Location: LCCOMB_X114_Y32_N8
+cycloneive_lcell_comb \Add2~12 (
 // Equation(s):
-// \Add0~11_combout  = (\Add0~10_combout  & ((\a[2]~input_o  & (\Add0~8  & VCC)) # (!\a[2]~input_o  & (!\Add0~8 )))) # (!\Add0~10_combout  & ((\a[2]~input_o  & (!\Add0~8 )) # (!\a[2]~input_o  & ((\Add0~8 ) # (GND)))))
-// \Add0~12  = CARRY((\Add0~10_combout  & (!\a[2]~input_o  & !\Add0~8 )) # (!\Add0~10_combout  & ((!\Add0~8 ) # (!\a[2]~input_o ))))
+// \Add2~12_combout  = (\Add2~10_combout  & ((\Add2~11_combout  & (!\Add2~9 )) # (!\Add2~11_combout  & (\Add2~9  & VCC)))) # (!\Add2~10_combout  & ((\Add2~11_combout  & ((\Add2~9 ) # (GND))) # (!\Add2~11_combout  & (!\Add2~9 ))))
+// \Add2~13  = CARRY((\Add2~10_combout  & (\Add2~11_combout  & !\Add2~9 )) # (!\Add2~10_combout  & ((\Add2~11_combout ) # (!\Add2~9 ))))
 
-	.dataa(\Add0~10_combout ),
-	.datab(\a[2]~input_o ),
+	.dataa(\Add2~10_combout ),
+	.datab(\Add2~11_combout ),
 	.datac(gnd),
 	.datad(vcc),
-	.cin(\Add0~8 ),
-	.combout(\Add0~11_combout ),
-	.cout(\Add0~12 ));
+	.cin(\Add2~9 ),
+	.combout(\Add2~12_combout ),
+	.cout(\Add2~13 ));
 // synopsys translate_off
-defparam \Add0~11 .lut_mask = 16'h9617;
-defparam \Add0~11 .sum_lutc_input = "cin";
+defparam \Add2~12 .lut_mask = 16'h694D;
+defparam \Add2~12 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: LCCOMB_X1_Y18_N10
-cycloneive_lcell_comb \Add0~13 (
-// Equation(s):
-// \Add0~13_combout  = (\s[1]~input_o  & ((!\a[2]~input_o ))) # (!\s[1]~input_o  & (\Add0~11_combout ))
-
-	.dataa(gnd),
-	.datab(\s[1]~input_o ),
-	.datac(\Add0~11_combout ),
-	.datad(\a[2]~input_o ),
-	.cin(gnd),
-	.combout(\Add0~13_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Add0~13 .lut_mask = 16'h30FC;
-defparam \Add0~13 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: IOIBUF_X0_Y15_N22
-cycloneive_io_ibuf \a[3]~input (
-	.i(a[3]),
+// Location: IOIBUF_X115_Y41_N8
+cycloneive_io_ibuf \negative_threshold[3]~input (
+	.i(negative_threshold[3]),
 	.ibar(gnd),
-	.o(\a[3]~input_o ));
+	.o(\negative_threshold[3]~input_o ));
 // synopsys translate_off
-defparam \a[3]~input .bus_hold = "false";
-defparam \a[3]~input .simulate_z_as = "z";
+defparam \negative_threshold[3]~input .bus_hold = "false";
+defparam \negative_threshold[3]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y21_N15
-cycloneive_io_ibuf \b[3]~input (
-	.i(b[3]),
-	.ibar(gnd),
-	.o(\b[3]~input_o ));
-// synopsys translate_off
-defparam \b[3]~input .bus_hold = "false";
-defparam \b[3]~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: LCCOMB_X1_Y18_N12
-cycloneive_lcell_comb \Add0~14 (
+// Location: LCCOMB_X114_Y31_N2
+cycloneive_lcell_comb \Add2~15 (
 // Equation(s):
-// \Add0~14_combout  = \b[3]~input_o  $ (((\s[0]~input_o ) # (\s[1]~input_o )))
+// \Add2~15_combout  = (\reset_mode~input_o  & (\negative_threshold[3]~input_o )) # (!\reset_mode~input_o  & ((\reset_potential[3]~input_o )))
 
-	.dataa(gnd),
-	.datab(\s[0]~input_o ),
-	.datac(\s[1]~input_o ),
-	.datad(\b[3]~input_o ),
-	.cin(gnd),
-	.combout(\Add0~14_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Add0~14 .lut_mask = 16'h03FC;
-defparam \Add0~14 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X1_Y18_N28
-cycloneive_lcell_comb \Add0~15 (
-// Equation(s):
-// \Add0~15_combout  = \a[3]~input_o  $ (\Add0~12  $ (!\Add0~14_combout ))
-
-	.dataa(\a[3]~input_o ),
+	.dataa(\negative_threshold[3]~input_o ),
 	.datab(gnd),
+	.datac(\reset_mode~input_o ),
+	.datad(\reset_potential[3]~input_o ),
+	.cin(gnd),
+	.combout(\Add2~15_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~15 .lut_mask = 16'hAFA0;
+defparam \Add2~15 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y32_N24
+cycloneive_lcell_comb \Add2~14 (
+// Equation(s):
+// \Add2~14_combout  = (\reset_mode~input_o  & \leak_potential[3]~input_o )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\reset_mode~input_o ),
+	.datad(\leak_potential[3]~input_o ),
+	.cin(gnd),
+	.combout(\Add2~14_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~14 .lut_mask = 16'hF000;
+defparam \Add2~14 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y32_N10
+cycloneive_lcell_comb \Add2~16 (
+// Equation(s):
+// \Add2~16_combout  = ((\Add2~15_combout  $ (\Add2~14_combout  $ (\Add2~13 )))) # (GND)
+// \Add2~17  = CARRY((\Add2~15_combout  & (\Add2~14_combout  & !\Add2~13 )) # (!\Add2~15_combout  & ((\Add2~14_combout ) # (!\Add2~13 ))))
+
+	.dataa(\Add2~15_combout ),
+	.datab(\Add2~14_combout ),
 	.datac(gnd),
-	.datad(\Add0~14_combout ),
-	.cin(\Add0~12 ),
-	.combout(\Add0~15_combout ),
-	.cout());
+	.datad(vcc),
+	.cin(\Add2~13 ),
+	.combout(\Add2~16_combout ),
+	.cout(\Add2~17 ));
 // synopsys translate_off
-defparam \Add0~15 .lut_mask = 16'h5AA5;
-defparam \Add0~15 .sum_lutc_input = "cin";
+defparam \Add2~16 .lut_mask = 16'h964D;
+defparam \Add2~16 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: LCCOMB_X1_Y18_N30
-cycloneive_lcell_comb \Add0~17 (
+// Location: LCCOMB_X114_Y28_N6
+cycloneive_lcell_comb \Add2~18 (
 // Equation(s):
-// \Add0~17_combout  = (\s[1]~input_o  & (!\a[3]~input_o )) # (!\s[1]~input_o  & ((\Add0~15_combout )))
+// \Add2~18_combout  = (\reset_mode~input_o  & \leak_potential[4]~input_o )
 
-	.dataa(\a[3]~input_o ),
+	.dataa(\reset_mode~input_o ),
 	.datab(gnd),
-	.datac(\s[1]~input_o ),
-	.datad(\Add0~15_combout ),
+	.datac(\leak_potential[4]~input_o ),
+	.datad(gnd),
 	.cin(gnd),
-	.combout(\Add0~17_combout ),
+	.combout(\Add2~18_combout ),
 	.cout());
 // synopsys translate_off
-defparam \Add0~17 .lut_mask = 16'h5F50;
-defparam \Add0~17 .sum_lutc_input = "datac";
+defparam \Add2~18 .lut_mask = 16'hA0A0;
+defparam \Add2~18 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-assign c[0] = \c[0]~output_o ;
+// Location: IOIBUF_X115_Y46_N8
+cycloneive_io_ibuf \negative_threshold[4]~input (
+	.i(negative_threshold[4]),
+	.ibar(gnd),
+	.o(\negative_threshold[4]~input_o ));
+// synopsys translate_off
+defparam \negative_threshold[4]~input .bus_hold = "false";
+defparam \negative_threshold[4]~input .simulate_z_as = "z";
+// synopsys translate_on
 
-assign c[1] = \c[1]~output_o ;
+// Location: LCCOMB_X114_Y31_N12
+cycloneive_lcell_comb \Add2~19 (
+// Equation(s):
+// \Add2~19_combout  = (\reset_mode~input_o  & ((\negative_threshold[4]~input_o ))) # (!\reset_mode~input_o  & (\reset_potential[4]~input_o ))
 
-assign c[2] = \c[2]~output_o ;
+	.dataa(gnd),
+	.datab(\reset_potential[4]~input_o ),
+	.datac(\reset_mode~input_o ),
+	.datad(\negative_threshold[4]~input_o ),
+	.cin(gnd),
+	.combout(\Add2~19_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~19 .lut_mask = 16'hFC0C;
+defparam \Add2~19 .sum_lutc_input = "datac";
+// synopsys translate_on
 
-assign c[3] = \c[3]~output_o ;
+// Location: LCCOMB_X114_Y32_N12
+cycloneive_lcell_comb \Add2~20 (
+// Equation(s):
+// \Add2~20_combout  = (\Add2~18_combout  & ((\Add2~19_combout  & (!\Add2~17 )) # (!\Add2~19_combout  & (\Add2~17  & VCC)))) # (!\Add2~18_combout  & ((\Add2~19_combout  & ((\Add2~17 ) # (GND))) # (!\Add2~19_combout  & (!\Add2~17 ))))
+// \Add2~21  = CARRY((\Add2~18_combout  & (\Add2~19_combout  & !\Add2~17 )) # (!\Add2~18_combout  & ((\Add2~19_combout ) # (!\Add2~17 ))))
+
+	.dataa(\Add2~18_combout ),
+	.datab(\Add2~19_combout ),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Add2~17 ),
+	.combout(\Add2~20_combout ),
+	.cout(\Add2~21 ));
+// synopsys translate_off
+defparam \Add2~20 .lut_mask = 16'h694D;
+defparam \Add2~20 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y32_N26
+cycloneive_lcell_comb \Add2~22 (
+// Equation(s):
+// \Add2~22_combout  = (\reset_mode~input_o  & \leak_potential[5]~input_o )
+
+	.dataa(gnd),
+	.datab(\reset_mode~input_o ),
+	.datac(\leak_potential[5]~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\Add2~22_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~22 .lut_mask = 16'hC0C0;
+defparam \Add2~22 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y48_N1
+cycloneive_io_ibuf \negative_threshold[5]~input (
+	.i(negative_threshold[5]),
+	.ibar(gnd),
+	.o(\negative_threshold[5]~input_o ));
+// synopsys translate_off
+defparam \negative_threshold[5]~input .bus_hold = "false";
+defparam \negative_threshold[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y32_N28
+cycloneive_lcell_comb \Add2~23 (
+// Equation(s):
+// \Add2~23_combout  = (\reset_mode~input_o  & ((\negative_threshold[5]~input_o ))) # (!\reset_mode~input_o  & (\reset_potential[5]~input_o ))
+
+	.dataa(\reset_potential[5]~input_o ),
+	.datab(gnd),
+	.datac(\reset_mode~input_o ),
+	.datad(\negative_threshold[5]~input_o ),
+	.cin(gnd),
+	.combout(\Add2~23_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~23 .lut_mask = 16'hFA0A;
+defparam \Add2~23 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y32_N14
+cycloneive_lcell_comb \Add2~24 (
+// Equation(s):
+// \Add2~24_combout  = ((\Add2~22_combout  $ (\Add2~23_combout  $ (\Add2~21 )))) # (GND)
+// \Add2~25  = CARRY((\Add2~22_combout  & ((!\Add2~21 ) # (!\Add2~23_combout ))) # (!\Add2~22_combout  & (!\Add2~23_combout  & !\Add2~21 )))
+
+	.dataa(\Add2~22_combout ),
+	.datab(\Add2~23_combout ),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Add2~21 ),
+	.combout(\Add2~24_combout ),
+	.cout(\Add2~25 ));
+// synopsys translate_off
+defparam \Add2~24 .lut_mask = 16'h962B;
+defparam \Add2~24 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y34_N15
+cycloneive_io_ibuf \negative_threshold[6]~input (
+	.i(negative_threshold[6]),
+	.ibar(gnd),
+	.o(\negative_threshold[6]~input_o ));
+// synopsys translate_off
+defparam \negative_threshold[6]~input .bus_hold = "false";
+defparam \negative_threshold[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y31_N14
+cycloneive_lcell_comb \Add2~27 (
+// Equation(s):
+// \Add2~27_combout  = (\reset_mode~input_o  & (\negative_threshold[6]~input_o )) # (!\reset_mode~input_o  & ((\reset_potential[6]~input_o )))
+
+	.dataa(\negative_threshold[6]~input_o ),
+	.datab(gnd),
+	.datac(\reset_mode~input_o ),
+	.datad(\reset_potential[6]~input_o ),
+	.cin(gnd),
+	.combout(\Add2~27_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~27 .lut_mask = 16'hAFA0;
+defparam \Add2~27 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y28_N0
+cycloneive_lcell_comb \Add2~26 (
+// Equation(s):
+// \Add2~26_combout  = (\leak_potential[6]~input_o  & \reset_mode~input_o )
+
+	.dataa(gnd),
+	.datab(\leak_potential[6]~input_o ),
+	.datac(\reset_mode~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\Add2~26_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~26 .lut_mask = 16'hC0C0;
+defparam \Add2~26 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y32_N16
+cycloneive_lcell_comb \Add2~28 (
+// Equation(s):
+// \Add2~28_combout  = (\Add2~27_combout  & ((\Add2~26_combout  & (!\Add2~25 )) # (!\Add2~26_combout  & ((\Add2~25 ) # (GND))))) # (!\Add2~27_combout  & ((\Add2~26_combout  & (\Add2~25  & VCC)) # (!\Add2~26_combout  & (!\Add2~25 ))))
+// \Add2~29  = CARRY((\Add2~27_combout  & ((!\Add2~25 ) # (!\Add2~26_combout ))) # (!\Add2~27_combout  & (!\Add2~26_combout  & !\Add2~25 )))
+
+	.dataa(\Add2~27_combout ),
+	.datab(\Add2~26_combout ),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Add2~25 ),
+	.combout(\Add2~28_combout ),
+	.cout(\Add2~29 ));
+// synopsys translate_off
+defparam \Add2~28 .lut_mask = 16'h692B;
+defparam \Add2~28 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y34_N22
+cycloneive_io_ibuf \negative_threshold[7]~input (
+	.i(negative_threshold[7]),
+	.ibar(gnd),
+	.o(\negative_threshold[7]~input_o ));
+// synopsys translate_off
+defparam \negative_threshold[7]~input .bus_hold = "false";
+defparam \negative_threshold[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y31_N16
+cycloneive_lcell_comb \Add2~31 (
+// Equation(s):
+// \Add2~31_combout  = (\reset_mode~input_o  & ((\negative_threshold[7]~input_o ))) # (!\reset_mode~input_o  & (\reset_potential[7]~input_o ))
+
+	.dataa(gnd),
+	.datab(\reset_mode~input_o ),
+	.datac(\reset_potential[7]~input_o ),
+	.datad(\negative_threshold[7]~input_o ),
+	.cin(gnd),
+	.combout(\Add2~31_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~31 .lut_mask = 16'hFC30;
+defparam \Add2~31 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y28_N10
+cycloneive_lcell_comb \Add2~30 (
+// Equation(s):
+// \Add2~30_combout  = (\reset_mode~input_o  & \leak_potential[7]~input_o )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\reset_mode~input_o ),
+	.datad(\leak_potential[7]~input_o ),
+	.cin(gnd),
+	.combout(\Add2~30_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~30 .lut_mask = 16'hF000;
+defparam \Add2~30 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y32_N18
+cycloneive_lcell_comb \Add2~32 (
+// Equation(s):
+// \Add2~32_combout  = ((\Add2~31_combout  $ (\Add2~30_combout  $ (\Add2~29 )))) # (GND)
+// \Add2~33  = CARRY((\Add2~31_combout  & (\Add2~30_combout  & !\Add2~29 )) # (!\Add2~31_combout  & ((\Add2~30_combout ) # (!\Add2~29 ))))
+
+	.dataa(\Add2~31_combout ),
+	.datab(\Add2~30_combout ),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Add2~29 ),
+	.combout(\Add2~32_combout ),
+	.cout(\Add2~33 ));
+// synopsys translate_off
+defparam \Add2~32 .lut_mask = 16'h964D;
+defparam \Add2~32 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y32_N30
+cycloneive_lcell_comb \Add2~34 (
+// Equation(s):
+// \Add2~34_combout  = (\reset_mode~input_o  & \leak_potential[8]~input_o )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\reset_mode~input_o ),
+	.datad(\leak_potential[8]~input_o ),
+	.cin(gnd),
+	.combout(\Add2~34_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~34 .lut_mask = 16'hF000;
+defparam \Add2~34 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y41_N1
+cycloneive_io_ibuf \negative_threshold[8]~input (
+	.i(negative_threshold[8]),
+	.ibar(gnd),
+	.o(\negative_threshold[8]~input_o ));
+// synopsys translate_off
+defparam \negative_threshold[8]~input .bus_hold = "false";
+defparam \negative_threshold[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y31_N26
+cycloneive_lcell_comb \Add2~35 (
+// Equation(s):
+// \Add2~35_combout  = (\reset_mode~input_o  & (\negative_threshold[8]~input_o )) # (!\reset_mode~input_o  & ((\reset_potential[8]~input_o )))
+
+	.dataa(\negative_threshold[8]~input_o ),
+	.datab(\reset_mode~input_o ),
+	.datac(\reset_potential[8]~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\Add2~35_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~35 .lut_mask = 16'hB8B8;
+defparam \Add2~35 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y32_N20
+cycloneive_lcell_comb \Add2~36 (
+// Equation(s):
+// \Add2~36_combout  = (\Add2~34_combout  & ((\Add2~35_combout  & (!\Add2~33 )) # (!\Add2~35_combout  & (\Add2~33  & VCC)))) # (!\Add2~34_combout  & ((\Add2~35_combout  & ((\Add2~33 ) # (GND))) # (!\Add2~35_combout  & (!\Add2~33 ))))
+// \Add2~37  = CARRY((\Add2~34_combout  & (\Add2~35_combout  & !\Add2~33 )) # (!\Add2~34_combout  & ((\Add2~35_combout ) # (!\Add2~33 ))))
+
+	.dataa(\Add2~34_combout ),
+	.datab(\Add2~35_combout ),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Add2~33 ),
+	.combout(\Add2~36_combout ),
+	.cout(\Add2~37 ));
+// synopsys translate_off
+defparam \Add2~36 .lut_mask = 16'h694D;
+defparam \Add2~36 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y17_N1
+cycloneive_io_ibuf \negative_threshold[9]~input (
+	.i(negative_threshold[9]),
+	.ibar(gnd),
+	.o(\negative_threshold[9]~input_o ));
+// synopsys translate_off
+defparam \negative_threshold[9]~input .bus_hold = "false";
+defparam \negative_threshold[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y24_N14
+cycloneive_lcell_comb \Add2~39 (
+// Equation(s):
+// \Add2~39_combout  = (\reset_mode~input_o  & (\negative_threshold[9]~input_o )) # (!\reset_mode~input_o  & ((\reset_potential[9]~input_o )))
+
+	.dataa(gnd),
+	.datab(\negative_threshold[9]~input_o ),
+	.datac(\reset_potential[9]~input_o ),
+	.datad(\reset_mode~input_o ),
+	.cin(gnd),
+	.combout(\Add2~39_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~39 .lut_mask = 16'hCCF0;
+defparam \Add2~39 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y31_N20
+cycloneive_lcell_comb \Add2~38 (
+// Equation(s):
+// \Add2~38_combout  = (\reset_mode~input_o  & \leak_potential[9]~input_o )
+
+	.dataa(gnd),
+	.datab(\reset_mode~input_o ),
+	.datac(\leak_potential[9]~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\Add2~38_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~38 .lut_mask = 16'hC0C0;
+defparam \Add2~38 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X114_Y32_N22
+cycloneive_lcell_comb \Add2~40 (
+// Equation(s):
+// \Add2~40_combout  = \Add2~39_combout  $ (\Add2~37  $ (\Add2~38_combout ))
+
+	.dataa(gnd),
+	.datab(\Add2~39_combout ),
+	.datac(gnd),
+	.datad(\Add2~38_combout ),
+	.cin(\Add2~37 ),
+	.combout(\Add2~40_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add2~40 .lut_mask = 16'hC33C;
+defparam \Add2~40 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+assign positive_reset_value[0] = \positive_reset_value[0]~output_o ;
+
+assign positive_reset_value[1] = \positive_reset_value[1]~output_o ;
+
+assign positive_reset_value[2] = \positive_reset_value[2]~output_o ;
+
+assign positive_reset_value[3] = \positive_reset_value[3]~output_o ;
+
+assign positive_reset_value[4] = \positive_reset_value[4]~output_o ;
+
+assign positive_reset_value[5] = \positive_reset_value[5]~output_o ;
+
+assign positive_reset_value[6] = \positive_reset_value[6]~output_o ;
+
+assign positive_reset_value[7] = \positive_reset_value[7]~output_o ;
+
+assign positive_reset_value[8] = \positive_reset_value[8]~output_o ;
+
+assign positive_reset_value[9] = \positive_reset_value[9]~output_o ;
+
+assign negative_reset_value[0] = \negative_reset_value[0]~output_o ;
+
+assign negative_reset_value[1] = \negative_reset_value[1]~output_o ;
+
+assign negative_reset_value[2] = \negative_reset_value[2]~output_o ;
+
+assign negative_reset_value[3] = \negative_reset_value[3]~output_o ;
+
+assign negative_reset_value[4] = \negative_reset_value[4]~output_o ;
+
+assign negative_reset_value[5] = \negative_reset_value[5]~output_o ;
+
+assign negative_reset_value[6] = \negative_reset_value[6]~output_o ;
+
+assign negative_reset_value[7] = \negative_reset_value[7]~output_o ;
+
+assign negative_reset_value[8] = \negative_reset_value[8]~output_o ;
+
+assign negative_reset_value[9] = \negative_reset_value[9]~output_o ;
 
 endmodule
 

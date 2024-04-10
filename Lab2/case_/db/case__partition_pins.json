@@ -4,59 +4,247 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "c[0]",
+					"name" : "positive_reset_value[0]",
 					"strict" : false
 				},
 				{
-					"name" : "c[1]",
+					"name" : "positive_reset_value[1]",
 					"strict" : false
 				},
 				{
-					"name" : "c[2]",
+					"name" : "positive_reset_value[2]",
 					"strict" : false
 				},
 				{
-					"name" : "c[3]",
+					"name" : "positive_reset_value[3]",
 					"strict" : false
 				},
 				{
-					"name" : "s[1]",
+					"name" : "positive_reset_value[4]",
 					"strict" : false
 				},
 				{
-					"name" : "s[0]",
+					"name" : "positive_reset_value[5]",
 					"strict" : false
 				},
 				{
-					"name" : "b[0]",
+					"name" : "positive_reset_value[6]",
 					"strict" : false
 				},
 				{
-					"name" : "a[0]",
+					"name" : "positive_reset_value[7]",
 					"strict" : false
 				},
 				{
-					"name" : "b[1]",
+					"name" : "positive_reset_value[8]",
 					"strict" : false
 				},
 				{
-					"name" : "a[1]",
+					"name" : "positive_reset_value[9]",
 					"strict" : false
 				},
 				{
-					"name" : "b[2]",
+					"name" : "negative_reset_value[0]",
 					"strict" : false
 				},
 				{
-					"name" : "a[2]",
+					"name" : "negative_reset_value[1]",
 					"strict" : false
 				},
 				{
-					"name" : "b[3]",
+					"name" : "negative_reset_value[2]",
 					"strict" : false
 				},
 				{
-					"name" : "a[3]",
+					"name" : "negative_reset_value[3]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_reset_value[4]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_reset_value[5]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_reset_value[6]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_reset_value[7]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_reset_value[8]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_reset_value[9]",
+					"strict" : false
+				},
+				{
+					"name" : "positive_threshold[0]",
+					"strict" : false
+				},
+				{
+					"name" : "leak_potential[0]",
+					"strict" : false
+				},
+				{
+					"name" : "reset_potential[0]",
+					"strict" : false
+				},
+				{
+					"name" : "reset_mode",
+					"strict" : false
+				},
+				{
+					"name" : "positive_threshold[1]",
+					"strict" : false
+				},
+				{
+					"name" : "leak_potential[1]",
+					"strict" : false
+				},
+				{
+					"name" : "reset_potential[1]",
+					"strict" : false
+				},
+				{
+					"name" : "positive_threshold[2]",
+					"strict" : false
+				},
+				{
+					"name" : "leak_potential[2]",
+					"strict" : false
+				},
+				{
+					"name" : "reset_potential[2]",
+					"strict" : false
+				},
+				{
+					"name" : "positive_threshold[3]",
+					"strict" : false
+				},
+				{
+					"name" : "leak_potential[3]",
+					"strict" : false
+				},
+				{
+					"name" : "reset_potential[3]",
+					"strict" : false
+				},
+				{
+					"name" : "positive_threshold[4]",
+					"strict" : false
+				},
+				{
+					"name" : "leak_potential[4]",
+					"strict" : false
+				},
+				{
+					"name" : "reset_potential[4]",
+					"strict" : false
+				},
+				{
+					"name" : "positive_threshold[5]",
+					"strict" : false
+				},
+				{
+					"name" : "leak_potential[5]",
+					"strict" : false
+				},
+				{
+					"name" : "reset_potential[5]",
+					"strict" : false
+				},
+				{
+					"name" : "positive_threshold[6]",
+					"strict" : false
+				},
+				{
+					"name" : "leak_potential[6]",
+					"strict" : false
+				},
+				{
+					"name" : "reset_potential[6]",
+					"strict" : false
+				},
+				{
+					"name" : "positive_threshold[7]",
+					"strict" : false
+				},
+				{
+					"name" : "leak_potential[7]",
+					"strict" : false
+				},
+				{
+					"name" : "reset_potential[7]",
+					"strict" : false
+				},
+				{
+					"name" : "positive_threshold[8]",
+					"strict" : false
+				},
+				{
+					"name" : "leak_potential[8]",
+					"strict" : false
+				},
+				{
+					"name" : "reset_potential[8]",
+					"strict" : false
+				},
+				{
+					"name" : "positive_threshold[9]",
+					"strict" : false
+				},
+				{
+					"name" : "leak_potential[9]",
+					"strict" : false
+				},
+				{
+					"name" : "reset_potential[9]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_threshold[0]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_threshold[1]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_threshold[2]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_threshold[3]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_threshold[4]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_threshold[5]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_threshold[6]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_threshold[7]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_threshold[8]",
+					"strict" : false
+				},
+				{
+					"name" : "negative_threshold[9]",
 					"strict" : false
 				}
 			]

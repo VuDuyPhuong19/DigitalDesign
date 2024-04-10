@@ -45,7 +45,7 @@ always @ (posedge clk_1Hz or negedge rst_n) begin
 					if ((months == 4 || months == 6 || months == 9 || months == 11) && days == 31) begin
 						days <= 1;
 					end
-					else if (months == 2 && (((years % 4 == 0) && (years % 100 != 0)) || (years % 400 == 0)) && days == 30) begin
+					else if (months == 2 && years[1:0] == 2'b00 && days == 30) begin
 						days <= 1;
 					end
 					else if (months == 2 && days == 29) begin
@@ -83,11 +83,11 @@ always @ (posedge clk_1Hz or negedge rst_n) begin
 				months <= months + 1;
 				days <= 1;
 			end
-			else if (months == 2 && (((years % 4 == 0) && (years % 100 != 0)) || (years % 400 == 0)) && days == 30) begin  // nam nhuan
+			else if (months == 2 && years[1:0] == 2'b00 && days == 30) begin  // nam nhuan
 				months <= months + 1;
 				days <= 1;
 			end
-			else if (months == 2 && days == 29) begin
+			else if (months == 2 && years[1:0] != 2'b00 && days == 29) begin
 				months <= months + 1;
 				days <= 1;
 			end
@@ -101,6 +101,54 @@ always @ (posedge clk_1Hz or negedge rst_n) begin
 			end
 		end
 	end	
+end
+
+endmodule
+
+`timescale 1ns/1ns
+module date_tb();
+parameter hour_num = 5;
+parameter day_num = 6;
+parameter mon_num = 4;
+parameter year_num = 7;
+parameter state_num = 8;
+
+reg clk_1Hz;
+reg rst_n;
+reg [$clog2(state_num)-1:0] state;
+reg set_button;
+reg [hour_num-1:0] hours;
+wire [day_num-1:0] days;
+wire [mon_num-1:0] months;
+wire [year_num-1:0] years;
+
+date uut(.clk_1Hz(clk_1Hz),
+	 .rst_n(rst_n),
+	 .state(state),
+	 .set_button(set_button),
+	 .hours(hours),
+	 .days(days),
+	 .months(months),
+	 .years(years)
+	);
+
+initial begin
+	clk_1Hz = 0;
+	forever clk_1Hz = #10 ~clk_1Hz;
+end
+
+initial $monitor("time=%t, rst_n=%d, state=%d, set_button=%d, hours=%d, days=%d, months=%d, years=%d", $time, rst_n, state, set_button, hours, days, months, years);
+	
+initial begin
+	rst_n = 1;
+	state = 1;
+	set_button = 1;
+	hours = 10;
+	# 20 hours = 15;
+	# 20 hours = 22; 
+	# 20 hours = 23; 
+	# 20 hours = 24; 
+	#10000 $finish;
 end
 
 endmodule

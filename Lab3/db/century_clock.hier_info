@@ -259,7 +259,7 @@ ones[2] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
 ones[3] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|century_clock|count_24_hours:count_24_hours
+|century_clock|_time:_time
 clk_1Hz => set_button_last.CLK
 clk_1Hz => hours[0]~reg0.CLK
 clk_1Hz => hours[1]~reg0.CLK

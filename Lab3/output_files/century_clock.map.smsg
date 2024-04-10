@@ -1,2 +1,2 @@
-Warning (10268): Verilog HDL information at count_24_hours.v(28): always construct contains both blocking and non-blocking assignments File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 28
-Warning (10268): Verilog HDL information at date.v(30): always construct contains both blocking and non-blocking assignments File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 30
+Warning (10268): Verilog HDL information at date.v(33): always construct contains both blocking and non-blocking assignments File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 33
+Warning (10268): Verilog HDL information at _time.v(31): always construct contains both blocking and non-blocking assignments File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/_time.v Line: 31

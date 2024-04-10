@@ -1,5 +1,5 @@
 Analysis & Synthesis report for century_clock
-Wed Mar 27 13:13:18 2024
+Fri Mar 29 19:20:11 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -25,7 +25,7 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
  17. Parameter Settings for User Entity Instance: bcd:bcd_day
  18. Parameter Settings for User Entity Instance: bcd:bcd_mon
  19. Parameter Settings for User Entity Instance: bcd:bcd_year
- 20. Parameter Settings for User Entity Instance: count_24_hours:count_24_hours
+ 20. Parameter Settings for User Entity Instance: _time:_time
  21. Parameter Settings for User Entity Instance: date:date
  22. Parameter Settings for User Entity Instance: display:display
  23. Parameter Settings for User Entity Instance: display:display|seven_segment:led_0
@@ -48,14 +48,12 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
  40. Parameter Settings for Inferred Entity Instance: bcd:bcd_day|lpm_divide:Mod0
  41. Parameter Settings for Inferred Entity Instance: bcd:bcd_hour|lpm_divide:Div0
  42. Parameter Settings for Inferred Entity Instance: bcd:bcd_day|lpm_divide:Div0
- 43. Parameter Settings for Inferred Entity Instance: date:date|lpm_divide:Mod0
- 44. Parameter Settings for Inferred Entity Instance: date:date|lpm_divide:Mod1
- 45. Port Connectivity Checks: "bcd:bcd_year"
- 46. Port Connectivity Checks: "bcd:bcd_mon"
- 47. Port Connectivity Checks: "bcd:bcd_hour"
- 48. Post-Synthesis Netlist Statistics for Top Partition
- 49. Elapsed Time Per Partition
- 50. Analysis & Synthesis Messages
+ 43. Port Connectivity Checks: "bcd:bcd_year"
+ 44. Port Connectivity Checks: "bcd:bcd_mon"
+ 45. Port Connectivity Checks: "bcd:bcd_hour"
+ 46. Post-Synthesis Netlist Statistics for Top Partition
+ 47. Elapsed Time Per Partition
+ 48. Analysis & Synthesis Messages
 
 
 
@@ -82,13 +80,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Mar 27 13:13:18 2024          ;
+; Analysis & Synthesis Status        ; Successful - Fri Mar 29 19:20:11 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; century_clock                                  ;
 ; Top-level Entity Name              ; century_clock                                  ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 530                                            ;
-;     Total combinational functions  ; 530                                            ;
+; Total logic elements               ; 529                                            ;
+;     Total combinational functions  ; 529                                            ;
 ;     Dedicated logic registers      ; 64                                             ;
 ; Total registers                    ; 64                                             ;
 ; Total pins                         ; 60                                             ;
@@ -202,35 +200,29 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                          ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                      ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
-; seven_segment.v                  ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/seven_segment.v               ;         ;
-; one_second_pulse.v               ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/one_second_pulse.v            ;         ;
-; century_clock.v                  ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v               ;         ;
-; bcd.v                            ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v                         ;         ;
-; output_files/count_24_hours.v    ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v ;         ;
-; date.v                           ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v                        ;         ;
-; display.v                        ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/display.v                     ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf          ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc         ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc     ;         ;
-; aglobal231.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc          ;         ;
-; db/lpm_divide_k9m.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/lpm_divide_k9m.tdf         ;         ;
-; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/sign_div_unsign_9kh.tdf    ;         ;
-; db/alt_u_div_64f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/alt_u_div_64f.tdf          ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/add_sub_7pc.tdf            ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/add_sub_8pc.tdf            ;         ;
-; db/lpm_divide_hhm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/lpm_divide_hhm.tdf         ;         ;
-; db/lpm_divide_o9m.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/lpm_divide_o9m.tdf         ;         ;
-; db/sign_div_unsign_dkh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/sign_div_unsign_dkh.tdf    ;         ;
-; db/alt_u_div_e4f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/alt_u_div_e4f.tdf          ;         ;
-; db/lpm_divide_q9m.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/lpm_divide_q9m.tdf         ;         ;
-; db/sign_div_unsign_hkh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/sign_div_unsign_hkh.tdf    ;         ;
-; db/alt_u_div_m4f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/alt_u_div_m4f.tdf          ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                   ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
+; seven_segment.v                  ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/seven_segment.v            ;         ;
+; one_second_pulse.v               ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/one_second_pulse.v         ;         ;
+; century_clock.v                  ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v            ;         ;
+; bcd.v                            ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v                      ;         ;
+; date.v                           ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v                     ;         ;
+; display.v                        ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/display.v                  ;         ;
+; _time.v                          ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/_time.v                    ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf       ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc      ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc  ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc       ;         ;
+; db/lpm_divide_k9m.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/lpm_divide_k9m.tdf      ;         ;
+; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/sign_div_unsign_9kh.tdf ;         ;
+; db/alt_u_div_64f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/alt_u_div_64f.tdf       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/add_sub_8pc.tdf         ;         ;
+; db/lpm_divide_hhm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/lpm_divide_hhm.tdf      ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------+
@@ -238,17 +230,17 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------+
 ; Resource                                    ; Usage    ;
 +---------------------------------------------+----------+
-; Estimated Total logic elements              ; 530      ;
+; Estimated Total logic elements              ; 529      ;
 ;                                             ;          ;
-; Total combinational functions               ; 530      ;
+; Total combinational functions               ; 529      ;
 ; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 160      ;
-;     -- 3 input functions                    ; 91       ;
-;     -- <=2 input functions                  ; 279      ;
+;     -- 4 input functions                    ; 162      ;
+;     -- 3 input functions                    ; 93       ;
+;     -- <=2 input functions                  ; 274      ;
 ;                                             ;          ;
 ; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 366      ;
-;     -- arithmetic mode                      ; 164      ;
+;     -- normal mode                          ; 370      ;
+;     -- arithmetic mode                      ; 159      ;
 ;                                             ;          ;
 ; Total registers                             ; 64       ;
 ;     -- Dedicated logic registers            ; 64       ;
@@ -259,9 +251,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0        ;
 ;                                             ;          ;
 ; Maximum fan-out node                        ; state[2] ;
-; Maximum fan-out                             ; 67       ;
-; Total fan-out                               ; 1721     ;
-; Average fan-out                             ; 2.41     ;
+; Maximum fan-out                             ; 68       ;
+; Total fan-out                               ; 1727     ;
+; Average fan-out                             ; 2.42     ;
 +---------------------------------------------+----------+
 
 
@@ -270,7 +262,8 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                         ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |century_clock                            ; 530 (41)            ; 64 (3)                    ; 0           ; 0            ; 0       ; 0         ; 60   ; 0            ; |century_clock                                                                                                              ; century_clock       ; work         ;
+; |century_clock                            ; 529 (41)            ; 64 (3)                    ; 0           ; 0            ; 0       ; 0         ; 60   ; 0            ; |century_clock                                                                                                              ; century_clock       ; work         ;
+;    |_time:_time|                          ; 41 (41)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|_time:_time                                                                                                  ; _time               ; work         ;
 ;    |bcd:bcd_day|                          ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_day                                                                                                  ; bcd                 ; work         ;
 ;       |lpm_divide:Div0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_day|lpm_divide:Div0                                                                                  ; lpm_divide          ; work         ;
 ;          |lpm_divide_hhm:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_day|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                    ; lpm_divide_hhm      ; work         ;
@@ -325,12 +318,7 @@ https://fpgasoftware.intel.com/eula.
 ;          |lpm_divide_k9m:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_year|lpm_divide:Mod0|lpm_divide_k9m:auto_generated                                                   ; lpm_divide_k9m      ; work         ;
 ;             |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_year|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
 ;                |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|bcd:bcd_year|lpm_divide:Mod0|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f       ; work         ;
-;    |count_24_hours:count_24_hours|        ; 40 (40)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|count_24_hours:count_24_hours                                                                                ; count_24_hours      ; work         ;
-;    |date:date|                            ; 60 (54)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|date:date                                                                                                    ; date                ; work         ;
-;       |lpm_divide:Mod0|                   ; 6 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|date:date|lpm_divide:Mod0                                                                                    ; lpm_divide          ; work         ;
-;          |lpm_divide_o9m:auto_generated|  ; 6 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|date:date|lpm_divide:Mod0|lpm_divide_o9m:auto_generated                                                      ; lpm_divide_o9m      ; work         ;
-;             |sign_div_unsign_dkh:divider| ; 6 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|date:date|lpm_divide:Mod0|lpm_divide_o9m:auto_generated|sign_div_unsign_dkh:divider                          ; sign_div_unsign_dkh ; work         ;
-;                |alt_u_div_e4f:divider|    ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|date:date|lpm_divide:Mod0|lpm_divide_o9m:auto_generated|sign_div_unsign_dkh:divider|alt_u_div_e4f:divider    ; alt_u_div_e4f       ; work         ;
+;    |date:date|                            ; 58 (58)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|date:date                                                                                                    ; date                ; work         ;
 ;    |display:display|                      ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|display:display                                                                                              ; display             ; work         ;
 ;       |seven_segment:led_0|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|display:display|seven_segment:led_0                                                                          ; seven_segment       ; work         ;
 ;       |seven_segment:led_1|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |century_clock|display:display|seven_segment:led_1                                                                          ; seven_segment       ; work         ;
@@ -345,15 +333,15 @@ https://fpgasoftware.intel.com/eula.
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                        ;
-+-----------------------------------------------+-----------------------------------------------------------+
-; Register name                                 ; Reason for Removal                                        ;
-+-----------------------------------------------+-----------------------------------------------------------+
-; date:date|set_button_last                     ; Merged with count_24_hours:count_24_hours|set_button_last ;
-; count_24_hours:count_24_hours|set_button_last ; Stuck at VCC due to stuck port data_in                    ;
-; Total Number of Removed Registers = 2         ;                                                           ;
-+-----------------------------------------------+-----------------------------------------------------------+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++---------------------------------------+-----------------------------------------+
+; Register name                         ; Reason for Removal                      ;
++---------------------------------------+-----------------------------------------+
+; date:date|set_button_last             ; Merged with _time:_time|set_button_last ;
+; _time:_time|set_button_last           ; Stuck at VCC due to stuck port data_in  ;
+; Total Number of Removed Registers = 2 ;                                         ;
++---------------------------------------+-----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -376,24 +364,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; date:date|months[0]                    ; 8       ;
-; date:date|days[0]                      ; 10      ;
+; date:date|months[0]                    ; 9       ;
+; date:date|days[0]                      ; 12      ;
 ; Total number of inverted registers = 2 ;         ;
 +----------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |century_clock|count_24_hours:count_24_hours|seconds[0] ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |century_clock|date:date|years[6]                       ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |century_clock|count_24_hours:count_24_hours|minutes[5] ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; Yes        ; |century_clock|count_24_hours:count_24_hours|hours[0]   ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |century_clock|date:date|months[3]                      ;
-; 12:1               ; 5 bits    ; 40 LEs        ; 5 LEs                ; 35 LEs                 ; Yes        ; |century_clock|date:date|days[1]                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |century_clock|_time:_time|seconds[0] ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |century_clock|date:date|years[6]     ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |century_clock|_time:_time|minutes[5] ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; Yes        ; |century_clock|_time:_time|hours[0]   ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |century_clock|date:date|months[3]    ;
+; 12:1               ; 5 bits    ; 40 LEs        ; 5 LEs                ; 35 LEs                 ; Yes        ; |century_clock|date:date|days[1]      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
 
 
 +-------------------------------------------------------------------------------+
@@ -477,16 +465,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: count_24_hours:count_24_hours ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; sec_num        ; 6     ; Signed Integer                                    ;
-; min_num        ; 6     ; Signed Integer                                    ;
-; hour_num       ; 5     ; Signed Integer                                    ;
-; state_num      ; 8     ; Signed Integer                                    ;
-+----------------+-------+---------------------------------------------------+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: _time:_time ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; sec_num        ; 6     ; Signed Integer                  ;
+; min_num        ; 6     ; Signed Integer                  ;
+; hour_num       ; 5     ; Signed Integer                  ;
+; state_num      ; 8     ; Signed Integer                  ;
++----------------+-------+---------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -879,52 +867,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: date:date|lpm_divide:Mod0 ;
-+------------------------+----------------+----------------------------------+
-; Parameter Name         ; Value          ; Type                             ;
-+------------------------+----------------+----------------------------------+
-; LPM_WIDTHN             ; 7              ; Untyped                          ;
-; LPM_WIDTHD             ; 7              ; Untyped                          ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
-; LPM_PIPELINE           ; 0              ; Untyped                          ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                          ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                          ;
-; CBXI_PARAMETER         ; lpm_divide_o9m ; Untyped                          ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                          ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                          ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                       ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                     ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                     ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                   ;
-+------------------------+----------------+----------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: date:date|lpm_divide:Mod1 ;
-+------------------------+----------------+----------------------------------+
-; Parameter Name         ; Value          ; Type                             ;
-+------------------------+----------------+----------------------------------+
-; LPM_WIDTHN             ; 7              ; Untyped                          ;
-; LPM_WIDTHD             ; 9              ; Untyped                          ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
-; LPM_PIPELINE           ; 0              ; Untyped                          ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                          ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                          ;
-; CBXI_PARAMETER         ; lpm_divide_q9m ; Untyped                          ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                          ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                          ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                       ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                     ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                     ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                   ;
-+------------------------+----------------+----------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "bcd:bcd_year"                                                                                                                                                                    ;
 +-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -962,20 +904,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     CLR               ; 44                          ;
 ;     ENA CLR           ; 17                          ;
 ;     plain             ; 3                           ;
-; cycloneiii_lcell_comb ; 538                         ;
-;     arith             ; 164                         ;
+; cycloneiii_lcell_comb ; 537                         ;
+;     arith             ; 159                         ;
 ;         1 data inputs ; 4                           ;
-;         2 data inputs ; 87                          ;
+;         2 data inputs ; 82                          ;
 ;         3 data inputs ; 73                          ;
-;     normal            ; 374                         ;
-;         0 data inputs ; 31                          ;
+;     normal            ; 378                         ;
+;         0 data inputs ; 30                          ;
 ;         1 data inputs ; 14                          ;
-;         2 data inputs ; 151                         ;
-;         3 data inputs ; 18                          ;
-;         4 data inputs ; 160                         ;
+;         2 data inputs ; 152                         ;
+;         3 data inputs ; 20                          ;
+;         4 data inputs ; 162                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 10.10                       ;
-; Average LUT depth     ; 6.94                        ;
+; Average LUT depth     ; 6.93                        ;
 +-----------------------+-----------------------------+
 
 
@@ -994,7 +936,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Wed Mar 27 13:13:09 2024
+    Info: Processing started: Fri Mar 29 19:20:02 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off century_clock -c century_clock
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1008,8 +950,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file count_6
     Info (12023): Found entity 1: count_60s File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/count_60s.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file century_clock.v
     Info (12023): Found entity 1: century_clock File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file bcd.v
+Info (12021): Found 2 design units, including 2 entities, in source file bcd.v
     Info (12023): Found entity 1: bcd File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 1
+    Info (12023): Found entity 2: bcd_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 26
 Info (12021): Found 1 design units, including 1 entities, in source file output_files/count_60_min.v
     Info (12023): Found entity 1: count_60_min File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_60_min.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file output_files/count_24_hours.v
@@ -1017,10 +960,16 @@ Info (12021): Found 1 design units, including 1 entities, in source file output_
 Warning (12019): Can't analyze file -- file output_files/count_day.v is missing
 Warning (12019): Can't analyze file -- file count_month.v is missing
 Warning (12019): Can't analyze file -- file count_year.v is missing
-Info (12021): Found 1 design units, including 1 entities, in source file date.v
+Info (12021): Found 2 design units, including 2 entities, in source file date.v
     Info (12023): Found entity 1: date File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 1
+    Info (12023): Found entity 2: date_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 109
 Info (12021): Found 1 design units, including 1 entities, in source file display.v
     Info (12023): Found entity 1: display File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/display.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file century_clock_tb.v
+    Info (12023): Found entity 1: century_clock_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock_tb.v Line: 2
+Info (12021): Found 2 design units, including 2 entities, in source file _time.v
+    Info (12023): Found entity 1: _time File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/_time.v Line: 1
+    Info (12023): Found entity 2: _time_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/_time.v Line: 87
 Warning (10222): Verilog HDL Parameter Declaration warning at century_clock.v(14): Parameter Declaration in module "century_clock" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 14
 Warning (10222): Verilog HDL Parameter Declaration warning at century_clock.v(15): Parameter Declaration in module "century_clock" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 15
 Warning (10222): Verilog HDL Parameter Declaration warning at century_clock.v(17): Parameter Declaration in module "century_clock" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 17
@@ -1029,26 +978,29 @@ Warning (10222): Verilog HDL Parameter Declaration warning at century_clock.v(19
 Warning (10222): Verilog HDL Parameter Declaration warning at century_clock.v(21): Parameter Declaration in module "century_clock" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 21
 Warning (10222): Verilog HDL Parameter Declaration warning at century_clock.v(22): Parameter Declaration in module "century_clock" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 22
 Warning (10222): Verilog HDL Parameter Declaration warning at century_clock.v(23): Parameter Declaration in module "century_clock" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 23
-Warning (10222): Verilog HDL Parameter Declaration warning at count_24_hours.v(18): Parameter Declaration in module "count_24_hours" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 18
-Warning (10222): Verilog HDL Parameter Declaration warning at count_24_hours.v(19): Parameter Declaration in module "count_24_hours" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 19
-Warning (10222): Verilog HDL Parameter Declaration warning at count_24_hours.v(20): Parameter Declaration in module "count_24_hours" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 20
+Warning (10222): Verilog HDL Parameter Declaration warning at _time.v(18): Parameter Declaration in module "_time" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/_time.v Line: 18
+Warning (10222): Verilog HDL Parameter Declaration warning at _time.v(19): Parameter Declaration in module "_time" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/_time.v Line: 19
+Warning (10222): Verilog HDL Parameter Declaration warning at _time.v(20): Parameter Declaration in module "_time" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/_time.v Line: 20
 Warning (10222): Verilog HDL Parameter Declaration warning at date.v(20): Parameter Declaration in module "date" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 20
 Warning (10222): Verilog HDL Parameter Declaration warning at date.v(21): Parameter Declaration in module "date" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 21
 Warning (10222): Verilog HDL Parameter Declaration warning at date.v(22): Parameter Declaration in module "date" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 22
+Warning (10222): Verilog HDL Parameter Declaration warning at count_24_hours.v(18): Parameter Declaration in module "count_24_hours" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 18
+Warning (10222): Verilog HDL Parameter Declaration warning at count_24_hours.v(19): Parameter Declaration in module "count_24_hours" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 19
+Warning (10222): Verilog HDL Parameter Declaration warning at count_24_hours.v(20): Parameter Declaration in module "count_24_hours" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 20
 Info (12127): Elaborating entity "century_clock" for the top level hierarchy
 Warning (10230): Verilog HDL assignment warning at century_clock.v(53): truncated value with size 32 to match size of target (3) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 53
-Info (12128): Elaborating entity "one_second_pulse" for hierarchy "one_second_pulse:one_second_pulse" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 111
-Info (12128): Elaborating entity "bcd" for hierarchy "bcd:bcd_sec" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 117
-Warning (10230): Verilog HDL assignment warning at bcd.v(8): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
-Warning (10230): Verilog HDL assignment warning at bcd.v(9): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
-Info (12128): Elaborating entity "count_24_hours" for hierarchy "count_24_hours:count_24_hours" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 170
-Warning (10230): Verilog HDL assignment warning at count_24_hours.v(42): truncated value with size 32 to match size of target (5) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 42
-Warning (10230): Verilog HDL assignment warning at count_24_hours.v(48): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 48
-Warning (10230): Verilog HDL assignment warning at count_24_hours.v(54): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 54
-Warning (10230): Verilog HDL assignment warning at count_24_hours.v(69): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 69
-Warning (10230): Verilog HDL assignment warning at count_24_hours.v(72): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 72
-Warning (10230): Verilog HDL assignment warning at count_24_hours.v(76): truncated value with size 32 to match size of target (5) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/output_files/count_24_hours.v Line: 76
-Info (12128): Elaborating entity "date" for hierarchy "date:date" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 181
+Info (12128): Elaborating entity "one_second_pulse" for hierarchy "one_second_pulse:one_second_pulse" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 61
+Info (12128): Elaborating entity "bcd" for hierarchy "bcd:bcd_sec" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 67
+Warning (10230): Verilog HDL assignment warning at bcd.v(20): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 20
+Warning (10230): Verilog HDL assignment warning at bcd.v(21): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 21
+Info (12128): Elaborating entity "_time" for hierarchy "_time:_time" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 120
+Warning (10230): Verilog HDL assignment warning at _time.v(42): truncated value with size 32 to match size of target (5) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/_time.v Line: 42
+Warning (10230): Verilog HDL assignment warning at _time.v(48): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/_time.v Line: 48
+Warning (10230): Verilog HDL assignment warning at _time.v(54): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/_time.v Line: 54
+Warning (10230): Verilog HDL assignment warning at _time.v(68): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/_time.v Line: 68
+Warning (10230): Verilog HDL assignment warning at _time.v(71): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/_time.v Line: 71
+Warning (10230): Verilog HDL assignment warning at _time.v(75): truncated value with size 32 to match size of target (5) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/_time.v Line: 75
+Info (12128): Elaborating entity "date" for hierarchy "date:date" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 131
 Warning (10230): Verilog HDL assignment warning at date.v(44): truncated value with size 32 to match size of target (6) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 44
 Warning (10230): Verilog HDL assignment warning at date.v(59): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 59
 Warning (10230): Verilog HDL assignment warning at date.v(65): truncated value with size 32 to match size of target (7) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 65
@@ -1058,25 +1010,23 @@ Warning (10230): Verilog HDL assignment warning at date.v(87): truncated value w
 Warning (10230): Verilog HDL assignment warning at date.v(91): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 91
 Warning (10230): Verilog HDL assignment warning at date.v(95): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 95
 Warning (10230): Verilog HDL assignment warning at date.v(99): truncated value with size 32 to match size of target (7) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 99
-Info (12128): Elaborating entity "display" for hierarchy "display:display" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 200
+Info (12128): Elaborating entity "display" for hierarchy "display:display" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/century_clock.v Line: 150
 Info (12128): Elaborating entity "seven_segment" for hierarchy "display:display|seven_segment:led_0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/display.v Line: 26
-Info (278001): Inferred 14 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_year|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_year|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_sec|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_sec|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_min|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_mon|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_min|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_mon|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_hour|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_day|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_hour|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_day|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "date:date|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 86
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "date:date|Mod1" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 86
-Info (12130): Elaborated megafunction instantiation "bcd:bcd_year|lpm_divide:Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
-Info (12133): Instantiated megafunction "bcd:bcd_year|lpm_divide:Mod0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
+Info (278001): Inferred 12 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_year|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 21
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_year|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 20
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_sec|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 21
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_sec|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 20
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_min|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 21
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_mon|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 21
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_min|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 20
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_mon|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 20
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_hour|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 21
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_day|Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 21
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_hour|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 20
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bcd:bcd_day|Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 20
+Info (12130): Elaborated megafunction instantiation "bcd:bcd_year|lpm_divide:Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 21
+Info (12133): Instantiated megafunction "bcd:bcd_year|lpm_divide:Mod0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 21
     Info (12134): Parameter "LPM_WIDTHN" = "6"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -1091,76 +1041,52 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/add_
     Info (12023): Found entity 1: add_sub_7pc File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/add_sub_7pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
     Info (12023): Found entity 1: add_sub_8pc File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/add_sub_8pc.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "bcd:bcd_year|lpm_divide:Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
-Info (12133): Instantiated megafunction "bcd:bcd_year|lpm_divide:Div0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
+Info (12130): Elaborated megafunction instantiation "bcd:bcd_year|lpm_divide:Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 20
+Info (12133): Instantiated megafunction "bcd:bcd_year|lpm_divide:Div0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 20
     Info (12134): Parameter "LPM_WIDTHN" = "6"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hhm.tdf
     Info (12023): Found entity 1: lpm_divide_hhm File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/lpm_divide_hhm.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "bcd:bcd_mon|lpm_divide:Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
-Info (12133): Instantiated megafunction "bcd:bcd_mon|lpm_divide:Mod0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
+Info (12130): Elaborated megafunction instantiation "bcd:bcd_mon|lpm_divide:Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 21
+Info (12133): Instantiated megafunction "bcd:bcd_mon|lpm_divide:Mod0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 21
     Info (12134): Parameter "LPM_WIDTHN" = "6"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12130): Elaborated megafunction instantiation "bcd:bcd_mon|lpm_divide:Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
-Info (12133): Instantiated megafunction "bcd:bcd_mon|lpm_divide:Div0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
+Info (12130): Elaborated megafunction instantiation "bcd:bcd_mon|lpm_divide:Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 20
+Info (12133): Instantiated megafunction "bcd:bcd_mon|lpm_divide:Div0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 20
     Info (12134): Parameter "LPM_WIDTHN" = "6"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12130): Elaborated megafunction instantiation "bcd:bcd_hour|lpm_divide:Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
-Info (12133): Instantiated megafunction "bcd:bcd_hour|lpm_divide:Mod0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 9
+Info (12130): Elaborated megafunction instantiation "bcd:bcd_hour|lpm_divide:Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 21
+Info (12133): Instantiated megafunction "bcd:bcd_hour|lpm_divide:Mod0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 21
     Info (12134): Parameter "LPM_WIDTHN" = "6"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12130): Elaborated megafunction instantiation "bcd:bcd_hour|lpm_divide:Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
-Info (12133): Instantiated megafunction "bcd:bcd_hour|lpm_divide:Div0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 8
+Info (12130): Elaborated megafunction instantiation "bcd:bcd_hour|lpm_divide:Div0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 20
+Info (12133): Instantiated megafunction "bcd:bcd_hour|lpm_divide:Div0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/bcd.v Line: 20
     Info (12134): Parameter "LPM_WIDTHN" = "6"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12130): Elaborated megafunction instantiation "date:date|lpm_divide:Mod0" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 86
-Info (12133): Instantiated megafunction "date:date|lpm_divide:Mod0" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 86
-    Info (12134): Parameter "LPM_WIDTHN" = "7"
-    Info (12134): Parameter "LPM_WIDTHD" = "7"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_o9m.tdf
-    Info (12023): Found entity 1: lpm_divide_o9m File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/lpm_divide_o9m.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_dkh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_dkh File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/sign_div_unsign_dkh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_e4f.tdf
-    Info (12023): Found entity 1: alt_u_div_e4f File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/alt_u_div_e4f.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "date:date|lpm_divide:Mod1" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 86
-Info (12133): Instantiated megafunction "date:date|lpm_divide:Mod1" with the following parameter: File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 86
-    Info (12134): Parameter "LPM_WIDTHN" = "7"
-    Info (12134): Parameter "LPM_WIDTHD" = "9"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_q9m.tdf
-    Info (12023): Found entity 1: lpm_divide_q9m File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/lpm_divide_q9m.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_hkh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_hkh File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/sign_div_unsign_hkh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_m4f.tdf
-    Info (12023): Found entity 1: alt_u_div_m4f File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/db/alt_u_div_m4f.tdf Line: 27
 Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13000): Registers with preset signals will power-up high File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab3/date.v Line: 41
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 591 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 590 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 56 output pins
-    Info (21061): Implemented 531 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 37 warnings
+    Info (21061): Implemented 530 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 40 warnings
     Info: Peak virtual memory: 4793 megabytes
-    Info: Processing ended: Wed Mar 27 13:13:18 2024
+    Info: Processing ended: Fri Mar 29 19:20:11 2024
     Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:08
+    Info: Total CPU time (on all processors): 00:00:09
 
 

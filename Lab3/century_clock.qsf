@@ -133,4 +133,6 @@ set_location_assignment PIN_AH17 -to led[52]
 set_location_assignment PIN_AF17 -to led[51]
 set_location_assignment PIN_AG18 -to led[50]
 set_location_assignment PIN_AA14 -to led[49]
+set_global_assignment -name VERILOG_FILE century_clock_tb.v
+set_global_assignment -name VERILOG_FILE _time.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

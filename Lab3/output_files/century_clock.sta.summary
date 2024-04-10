@@ -3,19 +3,19 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'one_second_pulse:one_second_pulse|clk_1Hz'
-Slack : -3.354
-TNS   : -86.248
+Slack : -3.585
+TNS   : -84.490
 
 Type  : Slow 1200mV 85C Model Setup 'clk_50MHz'
-Slack : -2.623
-TNS   : -47.519
+Slack : -2.713
+TNS   : -48.071
 
 Type  : Slow 1200mV 85C Model Setup 'state_button'
-Slack : -0.191
-TNS   : -0.197
+Slack : -0.190
+TNS   : -0.190
 
 Type  : Slow 1200mV 85C Model Hold 'one_second_pulse:one_second_pulse|clk_1Hz'
-Slack : 0.386
+Slack : 0.387
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'state_button'
@@ -23,7 +23,7 @@ Slack : 0.440
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk_50MHz'
-Slack : 0.640
+Slack : 0.642
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_50MHz'
@@ -39,19 +39,19 @@ Slack : -1.285
 TNS   : -43.690
 
 Type  : Slow 1200mV 0C Model Setup 'one_second_pulse:one_second_pulse|clk_1Hz'
-Slack : -2.922
-TNS   : -76.133
+Slack : -3.222
+TNS   : -74.685
 
 Type  : Slow 1200mV 0C Model Setup 'clk_50MHz'
-Slack : -2.262
-TNS   : -39.760
+Slack : -2.391
+TNS   : -40.476
 
 Type  : Slow 1200mV 0C Model Setup 'state_button'
-Slack : -0.069
-TNS   : -0.069
+Slack : -0.072
+TNS   : -0.072
 
 Type  : Slow 1200mV 0C Model Hold 'one_second_pulse:one_second_pulse|clk_1Hz'
-Slack : 0.340
+Slack : 0.338
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'state_button'
@@ -59,7 +59,7 @@ Slack : 0.387
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk_50MHz'
-Slack : 0.585
+Slack : 0.587
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_50MHz'
@@ -75,19 +75,19 @@ Slack : -1.285
 TNS   : -43.690
 
 Type  : Fast 1200mV 0C Model Setup 'one_second_pulse:one_second_pulse|clk_1Hz'
-Slack : -1.334
-TNS   : -39.706
+Slack : -1.210
+TNS   : -32.393
 
 Type  : Fast 1200mV 0C Model Setup 'clk_50MHz'
-Slack : -0.797
-TNS   : -10.628
+Slack : -0.837
+TNS   : -10.826
 
 Type  : Fast 1200mV 0C Model Setup 'state_button'
-Slack : 0.423
+Slack : 0.422
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'one_second_pulse:one_second_pulse|clk_1Hz'
-Slack : 0.175
+Slack : 0.173
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'state_button'
@@ -95,16 +95,16 @@ Slack : 0.199
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk_50MHz'
-Slack : 0.291
+Slack : 0.294
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_50MHz'
 Slack : -3.000
-TNS   : -31.756
+TNS   : -31.779
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'state_button'
 Slack : -3.000
-TNS   : -6.717
+TNS   : -6.660
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'one_second_pulse:one_second_pulse|clk_1Hz'
 Slack : -1.000

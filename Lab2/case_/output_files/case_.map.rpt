@@ -1,5 +1,5 @@
 Analysis & Synthesis report for case_
-Wed Mar 20 13:56:21 2024
+Sun Mar 31 14:13:40 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -43,16 +43,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Mar 20 13:56:21 2024          ;
+; Analysis & Synthesis Status        ; Successful - Sun Mar 31 14:13:40 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; case_                                          ;
-; Top-level Entity Name              ; case_                                          ;
+; Top-level Entity Name              ; case_test                                      ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 13                                             ;
-;     Total combinational functions  ; 13                                             ;
+; Total logic elements               ; 51                                             ;
+;     Total combinational functions  ; 51                                             ;
 ;     Dedicated logic registers      ; 0                                              ;
 ; Total registers                    ; 0                                              ;
-; Total pins                         ; 14                                             ;
+; Total pins                         ; 61                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -66,7 +66,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; case_              ; case_              ;
+; Top-level entity name                                            ; case_test          ; case_              ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -162,45 +162,45 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                        ;
-+----------------------------------+-----------------+------------------------+---------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path          ; Library ;
-+----------------------------------+-----------------+------------------------+---------------------------------------+---------+
-; case_.v                          ; yes             ; User Verilog HDL File  ; D:/Verilog project/Lab2/case_/case_.v ;         ;
-+----------------------------------+-----------------+------------------------+---------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                        ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                          ; Library ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------+---------+
+; case_test.v                      ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab2/case_/case_test.v ;         ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary              ;
-+---------------------------------------------+------------+
-; Resource                                    ; Usage      ;
-+---------------------------------------------+------------+
-; Estimated Total logic elements              ; 13         ;
-;                                             ;            ;
-; Total combinational functions               ; 13         ;
-; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 0          ;
-;     -- 3 input functions                    ; 12         ;
-;     -- <=2 input functions                  ; 1          ;
-;                                             ;            ;
-; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 9          ;
-;     -- arithmetic mode                      ; 4          ;
-;                                             ;            ;
-; Total registers                             ; 0          ;
-;     -- Dedicated logic registers            ; 0          ;
-;     -- I/O registers                        ; 0          ;
-;                                             ;            ;
-; I/O pins                                    ; 14         ;
-;                                             ;            ;
-; Embedded Multiplier 9-bit elements          ; 0          ;
-;                                             ;            ;
-; Maximum fan-out node                        ; s[1]~input ;
-; Maximum fan-out                             ; 9          ;
-; Total fan-out                               ; 56         ;
-; Average fan-out                             ; 1.37       ;
-+---------------------------------------------+------------+
++----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                    ;
++---------------------------------------------+------------------+
+; Resource                                    ; Usage            ;
++---------------------------------------------+------------------+
+; Estimated Total logic elements              ; 51               ;
+;                                             ;                  ;
+; Total combinational functions               ; 51               ;
+; Logic element usage by number of LUT inputs ;                  ;
+;     -- 4 input functions                    ; 0                ;
+;     -- 3 input functions                    ; 38               ;
+;     -- <=2 input functions                  ; 13               ;
+;                                             ;                  ;
+; Logic elements by mode                      ;                  ;
+;     -- normal mode                          ; 32               ;
+;     -- arithmetic mode                      ; 19               ;
+;                                             ;                  ;
+; Total registers                             ; 0                ;
+;     -- Dedicated logic registers            ; 0                ;
+;     -- I/O registers                        ; 0                ;
+;                                             ;                  ;
+; I/O pins                                    ; 61               ;
+;                                             ;                  ;
+; Embedded Multiplier 9-bit elements          ; 0                ;
+;                                             ;                  ;
+; Maximum fan-out node                        ; reset_mode~input ;
+; Maximum fan-out                             ; 31               ;
+; Total fan-out                               ; 221              ;
+; Average fan-out                             ; 1.28             ;
++---------------------------------------------+------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -208,7 +208,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |case_                     ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |case_              ; case_       ; work         ;
+; |case_test                 ; 51 (51)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 61   ; 0            ; |case_test          ; case_test   ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -233,16 +233,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 14                          ;
-; cycloneiii_lcell_comb ; 13                          ;
-;     arith             ; 4                           ;
-;         3 data inputs ; 4                           ;
-;     normal            ; 9                           ;
+; boundary_port         ; 61                          ;
+; cycloneiii_lcell_comb ; 51                          ;
+;     arith             ; 19                          ;
 ;         2 data inputs ; 1                           ;
-;         3 data inputs ; 8                           ;
+;         3 data inputs ; 18                          ;
+;     normal            ; 32                          ;
+;         2 data inputs ; 12                          ;
+;         3 data inputs ; 20                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.30                        ;
-; Average LUT depth     ; 3.00                        ;
+; Max LUT depth         ; 2.90                        ;
+; Average LUT depth     ; 2.52                        ;
 +-----------------------+-----------------------------+
 
 
@@ -261,25 +262,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Wed Mar 20 13:56:12 2024
+    Info: Processing started: Sun Mar 31 14:13:28 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off case_ -c case_
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file case_.v
-    Info (12023): Found entity 1: case_ File: D:/Verilog project/Lab2/case_/case_.v Line: 1
-Info (12127): Elaborating entity "case_" for the top level hierarchy
-Warning (10059): Verilog HDL Case Statement warning at case_.v(12): case item expression never matches the case expression because it contains an 'x' or 'z' value File: D:/Verilog project/Lab2/case_/case_.v Line: 12
+    Info (12023): Found entity 1: case_ File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab2/case_/case_.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file case_test.v
+    Info (12023): Found entity 1: case_test File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab2/case_/case_test.v Line: 1
+Info (12127): Elaborating entity "case_test" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 27 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 10 input pins
-    Info (21059): Implemented 4 output pins
-    Info (21061): Implemented 13 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4762 megabytes
-    Info: Processing ended: Wed Mar 20 13:56:21 2024
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:09
+Info (21057): Implemented 112 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 41 input pins
+    Info (21059): Implemented 20 output pins
+    Info (21061): Implemented 51 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4773 megabytes
+    Info: Processing ended: Sun Mar 31 14:13:40 2024
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:10
 
 

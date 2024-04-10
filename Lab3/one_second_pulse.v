@@ -5,6 +5,7 @@ module one_second_pulse(
 );
 
 parameter COUNTER_MAX = 50000000;
+// parameter COUNTER_MAX = 1000;
 
 reg [25:0] counter;
 
