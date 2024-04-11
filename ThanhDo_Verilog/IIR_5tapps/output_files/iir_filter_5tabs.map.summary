@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Apr 11 17:41:35 2024
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : iir_filter_5tabs
+Top-level Entity Name : iir_filter_5tabs
+Family : Cyclone IV E
+Total logic elements : 0
+    Total combinational functions : 0
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 50
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
