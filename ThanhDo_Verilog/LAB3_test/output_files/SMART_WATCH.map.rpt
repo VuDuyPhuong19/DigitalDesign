@@ -1,0 +1,635 @@
+Analysis & Synthesis report for SMART_WATCH
+Fri Mar 29 18:08:12 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: one_hz_clock:OHC
+ 13. Parameter Settings for User Entity Instance: LEDDisplay:hex_0
+ 14. Parameter Settings for User Entity Instance: LEDDisplay:hex_1
+ 15. Parameter Settings for User Entity Instance: LEDDisplay:hex_2
+ 16. Parameter Settings for User Entity Instance: LEDDisplay:hex_3
+ 17. Parameter Settings for User Entity Instance: LEDDisplay:hex_4
+ 18. Parameter Settings for User Entity Instance: LEDDisplay:hex_5
+ 19. Port Connectivity Checks: "BinaryToBCD:BCDyears"
+ 20. Port Connectivity Checks: "BinaryToBCD:BCDmonths"
+ 21. Port Connectivity Checks: "BinaryToBCD:BCDdays"
+ 22. Port Connectivity Checks: "DayCounter:dc"
+ 23. Port Connectivity Checks: "BinaryToBCD:BCDhour"
+ 24. Port Connectivity Checks: "HourCounter:hc"
+ 25. Port Connectivity Checks: "BinaryToBCD:BCDminute"
+ 26. Port Connectivity Checks: "BinaryToBCD:BCDsecond"
+ 27. Post-Synthesis Netlist Statistics for Top Partition
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
+ 30. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Mar 29 18:08:12 2024          ;
+; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Revision Name                      ; SMART_WATCH                                    ;
+; Top-level Entity Name              ; ClockDisplay                                   ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 303                                            ;
+;     Total combinational functions  ; 303                                            ;
+;     Dedicated logic registers      ; 100                                            ;
+; Total registers                    ; 100                                            ;
+; Total pins                         ; 49                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; ClockDisplay       ; SMART_WATCH        ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                   ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                     ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------+---------+
+; SecondCounter.v                  ; yes             ; User Verilog HDL File  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/SecondCounter.v ;         ;
+; one_hz_clock.v                   ; yes             ; User Verilog HDL File  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/one_hz_clock.v  ;         ;
+; ClockDisplay.v                   ; yes             ; User Verilog HDL File  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v  ;         ;
+; MinuteCounter.v                  ; yes             ; User Verilog HDL File  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/MinuteCounter.v ;         ;
+; LEDDisplay.v                     ; yes             ; User Verilog HDL File  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/LEDDisplay.v    ;         ;
+; HourCounter.v                    ; yes             ; User Verilog HDL File  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/HourCounter.v   ;         ;
+; DayCounter.v                     ; yes             ; User Verilog HDL File  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/DayCounter.v    ;         ;
+; MonthCounter.v                   ; yes             ; User Verilog HDL File  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/MonthCounter.v  ;         ;
+; YearCounter.v                    ; yes             ; User Verilog HDL File  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/YearCounter.v   ;         ;
+; BinaryToBCD.v                    ; yes             ; User Verilog HDL File  ; C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/BinaryToBCD.v   ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 303         ;
+;                                             ;             ;
+; Total combinational functions               ; 303         ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 147         ;
+;     -- 3 input functions                    ; 70          ;
+;     -- <=2 input functions                  ; 86          ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 244         ;
+;     -- arithmetic mode                      ; 59          ;
+;                                             ;             ;
+; Total registers                             ; 100         ;
+;     -- Dedicated logic registers            ; 100         ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 49          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; reset~input ;
+; Maximum fan-out                             ; 79          ;
+; Total fan-out                               ; 1380        ;
+; Average fan-out                             ; 2.75        ;
++---------------------------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                        ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                 ; Entity Name   ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------+---------------+--------------+
+; |ClockDisplay              ; 303 (73)            ; 100 (27)                  ; 0           ; 0            ; 0       ; 0         ; 49   ; 0            ; |ClockDisplay                       ; ClockDisplay  ; work         ;
+;    |BinaryToBCD:BCDdays|   ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|BinaryToBCD:BCDdays   ; BinaryToBCD   ; work         ;
+;    |BinaryToBCD:BCDhour|   ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|BinaryToBCD:BCDhour   ; BinaryToBCD   ; work         ;
+;    |BinaryToBCD:BCDminute| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|BinaryToBCD:BCDminute ; BinaryToBCD   ; work         ;
+;    |BinaryToBCD:BCDmonths| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|BinaryToBCD:BCDmonths ; BinaryToBCD   ; work         ;
+;    |BinaryToBCD:BCDsecond| ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|BinaryToBCD:BCDsecond ; BinaryToBCD   ; work         ;
+;    |BinaryToBCD:BCDyears|  ; 20 (20)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|BinaryToBCD:BCDyears  ; BinaryToBCD   ; work         ;
+;    |DayCounter:dc|         ; 36 (36)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|DayCounter:dc         ; DayCounter    ; work         ;
+;    |HourCounter:hc|        ; 18 (18)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|HourCounter:hc        ; HourCounter   ; work         ;
+;    |LEDDisplay:hex_0|      ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|LEDDisplay:hex_0      ; LEDDisplay    ; work         ;
+;    |LEDDisplay:hex_1|      ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|LEDDisplay:hex_1      ; LEDDisplay    ; work         ;
+;    |LEDDisplay:hex_2|      ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|LEDDisplay:hex_2      ; LEDDisplay    ; work         ;
+;    |LEDDisplay:hex_3|      ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|LEDDisplay:hex_3      ; LEDDisplay    ; work         ;
+;    |LEDDisplay:hex_4|      ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|LEDDisplay:hex_4      ; LEDDisplay    ; work         ;
+;    |LEDDisplay:hex_5|      ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|LEDDisplay:hex_5      ; LEDDisplay    ; work         ;
+;    |MinuteCounter:mc|      ; 12 (12)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|MinuteCounter:mc      ; MinuteCounter ; work         ;
+;    |MonthCounter:monthc|   ; 5 (5)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|MonthCounter:monthc   ; MonthCounter  ; work         ;
+;    |SecondCounter:sc|      ; 12 (12)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|SecondCounter:sc      ; SecondCounter ; work         ;
+;    |YearCounter:yc|        ; 9 (9)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|YearCounter:yc        ; YearCounter   ; work         ;
+;    |one_hz_clock:OHC|      ; 43 (43)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ClockDisplay|one_hz_clock:OHC      ; one_hz_clock  ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------+
+; Registers Removed During Synthesis                                  ;
++---------------------------------------+-----------------------------+
+; Register name                         ; Reason for Removal          ;
++---------------------------------------+-----------------------------+
+; tens_digit_3[3]                       ; Merged with tens_digit_3[2] ;
+; Total Number of Removed Registers = 1 ;                             ;
++---------------------------------------+-----------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 100   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 24    ;
+; Number of registers using Asynchronous Clear ; 77    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 13    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; YearCounter:yc|year[4]                  ; 7       ;
+; YearCounter:yc|year[3]                  ; 5       ;
+; DayCounter:dc|day[1]                    ; 9       ;
+; DayCounter:dc|day[3]                    ; 9       ;
+; DayCounter:dc|day[4]                    ; 9       ;
+; DayCounter:dc|current_month[1]          ; 6       ;
+; MonthCounter:monthc|month[0]            ; 7       ;
+; MinuteCounter:mc|minute[5]              ; 7       ;
+; MinuteCounter:mc|minute[3]              ; 7       ;
+; MonthCounter:monthc|month[1]            ; 8       ;
+; HourCounter:hc|hour[1]                  ; 9       ;
+; HourCounter:hc|hour[3]                  ; 10      ;
+; DayCounter:dc|current_month[0]          ; 8       ;
+; Total number of inverted registers = 13 ;         ;
++-----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |ClockDisplay|HourCounter:hc|hour[2]         ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |ClockDisplay|tens_digit_1[1]                ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 6 LEs                ; 9 LEs                  ; Yes        ; |ClockDisplay|units_digit_1[2]               ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |ClockDisplay|units_digit_2[3]               ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 6 LEs                ; 9 LEs                  ; Yes        ; |ClockDisplay|units_digit_3[3]               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |ClockDisplay|DayCounter:dc|day[5]           ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 3 LEs                ; 12 LEs                 ; Yes        ; |ClockDisplay|DayCounter:dc|current_month[3] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |ClockDisplay|HourCounter:hc|hour[1]         ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |ClockDisplay|DayCounter:dc|day[3]           ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |ClockDisplay|DayCounter:dc|current_month[1] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |ClockDisplay|BinaryToBCD:BCDdays|Add6       ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |ClockDisplay|BinaryToBCD:BCDmonths|Add6     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |ClockDisplay|BinaryToBCD:BCDyears|Add6      ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |ClockDisplay|BinaryToBCD:BCDyears|Add5      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: one_hz_clock:OHC ;
++----------------+---------+------------------------------------+
+; Parameter Name ; Value   ; Type                               ;
++----------------+---------+------------------------------------+
+; CLOCK_FREQ     ; 2500000 ; Signed Integer                     ;
+; COUNTER_MAX    ; 1249999 ; Signed Integer                     ;
++----------------+---------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LEDDisplay:hex_0 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; segment_num    ; 7     ; Signed Integer                       ;
+; n              ; 4     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LEDDisplay:hex_1 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; segment_num    ; 7     ; Signed Integer                       ;
+; n              ; 4     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LEDDisplay:hex_2 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; segment_num    ; 7     ; Signed Integer                       ;
+; n              ; 4     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LEDDisplay:hex_3 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; segment_num    ; 7     ; Signed Integer                       ;
+; n              ; 4     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LEDDisplay:hex_4 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; segment_num    ; 7     ; Signed Integer                       ;
+; n              ; 4     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LEDDisplay:hex_5 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; segment_num    ; 7     ; Signed Integer                       ;
+; n              ; 4     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BinaryToBCD:BCDyears"                                                                                                                           ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; binary ; Input ; Warning  ; Input port expression (7 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "binary[7..7]" will be connected to GND. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BinaryToBCD:BCDmonths"                                                                                                                          ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; binary ; Input ; Warning  ; Input port expression (4 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "binary[7..4]" will be connected to GND. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BinaryToBCD:BCDdays"                                                                                                                            ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; binary ; Input ; Warning  ; Input port expression (5 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "binary[7..5]" will be connected to GND. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DayCounter:dc"                                                                                                         ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; day  ; Output ; Warning  ; Output or bidir port (6 bits) is wider than the port expression (5 bits) it drives; bit(s) "day[5..5]" have no fanouts ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BinaryToBCD:BCDhour"                                                                                                                            ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; binary ; Input ; Warning  ; Input port expression (5 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "binary[7..5]" will be connected to GND. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "HourCounter:hc"                                                                                                                             ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; key3 ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BinaryToBCD:BCDminute"                                                                                                                          ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; binary ; Input ; Warning  ; Input port expression (6 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "binary[7..6]" will be connected to GND. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BinaryToBCD:BCDsecond"                                                                                                                          ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; binary ; Input ; Warning  ; Input port expression (6 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "binary[7..6]" will be connected to GND. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 49                          ;
+; cycloneiii_ff         ; 100                         ;
+;     CLR               ; 57                          ;
+;     CLR SLD           ; 7                           ;
+;     ENA CLR           ; 13                          ;
+;     SLD               ; 17                          ;
+;     plain             ; 6                           ;
+; cycloneiii_lcell_comb ; 310                         ;
+;     arith             ; 59                          ;
+;         2 data inputs ; 54                          ;
+;         3 data inputs ; 5                           ;
+;     normal            ; 251                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 20                          ;
+;         2 data inputs ; 18                          ;
+;         3 data inputs ; 65                          ;
+;         4 data inputs ; 147                         ;
+;                       ;                             ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 2.79                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Fri Mar 29 18:07:58 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SMART_WATCH -c SMART_WATCH
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file secondcounter.v
+    Info (12023): Found entity 1: SecondCounter File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/SecondCounter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file one_hz_clock.v
+    Info (12023): Found entity 1: one_hz_clock File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/one_hz_clock.v Line: 1
+Warning (12019): Can't analyze file -- file module LEDDisplay(.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file clockdisplay.v
+    Info (12023): Found entity 1: ClockDisplay File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file minutecounter.v
+    Info (12023): Found entity 1: MinuteCounter File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/MinuteCounter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file leddisplay.v
+    Info (12023): Found entity 1: LEDDisplay File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/LEDDisplay.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file hourcounter.v
+    Info (12023): Found entity 1: HourCounter File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/HourCounter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file daycounter.v
+    Info (12023): Found entity 1: DayCounter File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/DayCounter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file monthcounter.v
+    Info (12023): Found entity 1: MonthCounter File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/MonthCounter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file yearcounter.v
+    Info (12023): Found entity 1: YearCounter File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/YearCounter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file binarytobcd.v
+    Info (12023): Found entity 1: BinaryToBCD File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/BinaryToBCD.v Line: 1
+Info (12127): Elaborating entity "ClockDisplay" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at ClockDisplay.v(48): object "state" assigned a value but never read File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 48
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(48): truncated value with size 32 to match size of target (1) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 48
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(222): truncated value with size 32 to match size of target (3) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 222
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(258): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 258
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(259): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 259
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(261): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 261
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(262): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 262
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(266): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 266
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(267): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 267
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(272): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 272
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(273): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 273
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(276): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 276
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(277): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 277
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(279): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 279
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(280): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 280
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(289): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 289
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(290): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 290
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(292): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 292
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(293): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 293
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(296): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 296
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(297): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 297
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(302): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 302
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(303): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 303
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(306): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 306
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(307): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 307
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(309): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 309
+Warning (10230): Verilog HDL assignment warning at ClockDisplay.v(310): truncated value with size 7 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 310
+Info (12128): Elaborating entity "one_hz_clock" for hierarchy "one_hz_clock:OHC" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 75
+Warning (10230): Verilog HDL assignment warning at one_hz_clock.v(22): truncated value with size 32 to match size of target (26) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/one_hz_clock.v Line: 22
+Info (12128): Elaborating entity "SecondCounter" for hierarchy "SecondCounter:sc" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 84
+Warning (10230): Verilog HDL assignment warning at SecondCounter.v(20): truncated value with size 32 to match size of target (6) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/SecondCounter.v Line: 20
+Info (12128): Elaborating entity "BinaryToBCD" for hierarchy "BinaryToBCD:BCDsecond" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 89
+Warning (10230): Verilog HDL assignment warning at BinaryToBCD.v(16): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/BinaryToBCD.v Line: 16
+Warning (10230): Verilog HDL assignment warning at BinaryToBCD.v(14): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/BinaryToBCD.v Line: 14
+Info (12128): Elaborating entity "MinuteCounter" for hierarchy "MinuteCounter:mc" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 97
+Warning (10230): Verilog HDL assignment warning at MinuteCounter.v(19): truncated value with size 32 to match size of target (6) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/MinuteCounter.v Line: 19
+Info (12128): Elaborating entity "HourCounter" for hierarchy "HourCounter:hc" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 112
+Warning (10036): Verilog HDL or VHDL warning at HourCounter.v(12): object "last_key1_state" assigned a value but never read File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/HourCounter.v Line: 12
+Warning (10230): Verilog HDL assignment warning at HourCounter.v(30): truncated value with size 32 to match size of target (5) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/HourCounter.v Line: 30
+Warning (10230): Verilog HDL assignment warning at HourCounter.v(42): truncated value with size 32 to match size of target (5) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/HourCounter.v Line: 42
+Warning (10230): Verilog HDL assignment warning at HourCounter.v(54): truncated value with size 32 to match size of target (5) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/HourCounter.v Line: 54
+Info (12128): Elaborating entity "DayCounter" for hierarchy "DayCounter:dc" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 125
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(13): truncated value with size 32 to match size of target (5) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/DayCounter.v Line: 13
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(18): truncated value with size 32 to match size of target (5) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/DayCounter.v Line: 18
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(27): truncated value with size 32 to match size of target (5) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/DayCounter.v Line: 27
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(30): truncated value with size 32 to match size of target (6) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/DayCounter.v Line: 30
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(36): truncated value with size 32 to match size of target (5) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/DayCounter.v Line: 36
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(39): truncated value with size 32 to match size of target (6) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/DayCounter.v Line: 39
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(45): truncated value with size 32 to match size of target (5) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/DayCounter.v Line: 45
+Warning (10230): Verilog HDL assignment warning at DayCounter.v(48): truncated value with size 32 to match size of target (6) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/DayCounter.v Line: 48
+Info (12128): Elaborating entity "MonthCounter" for hierarchy "MonthCounter:monthc" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 137
+Warning (10230): Verilog HDL assignment warning at MonthCounter.v(20): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/MonthCounter.v Line: 20
+Info (12128): Elaborating entity "YearCounter" for hierarchy "YearCounter:yc" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 149
+Warning (10230): Verilog HDL assignment warning at YearCounter.v(19): truncated value with size 32 to match size of target (7) File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/YearCounter.v Line: 19
+Info (12128): Elaborating entity "LEDDisplay" for hierarchy "LEDDisplay:hex_0" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 170
+Warning (12241): 8 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13000): Registers with preset signals will power-up high File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/MonthCounter.v Line: 16
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "last_SW0" is converted into an equivalent circuit using register "last_SW0~_emulated" and latch "last_SW0~1" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 214
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/output_files/SMART_WATCH.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "reset_day" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 4
+    Warning (15610): No output dependent on input pin "reset_month" File: C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/ClockDisplay.v Line: 5
+Info (21057): Implemented 353 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 42 output pins
+    Info (21061): Implemented 304 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 54 warnings
+    Info: Peak virtual memory: 4831 megabytes
+    Info: Processing ended: Fri Mar 29 18:08:12 2024
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:14
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3_test/output_files/SMART_WATCH.map.smsg.
+
+

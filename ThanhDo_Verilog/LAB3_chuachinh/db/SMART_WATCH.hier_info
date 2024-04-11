@@ -1,0 +1,539 @@
+|ClockDisplay
+clk => clk.IN1
+reset => reset.IN7
+reset_day => ~NO_FANOUT~
+reset_month => ~NO_FANOUT~
+button => state.LATCH_ENABLE
+Hex_0[0] << LEDDisplay:hex_0.seg
+Hex_0[1] << LEDDisplay:hex_0.seg
+Hex_0[2] << LEDDisplay:hex_0.seg
+Hex_0[3] << LEDDisplay:hex_0.seg
+Hex_0[4] << LEDDisplay:hex_0.seg
+Hex_0[5] << LEDDisplay:hex_0.seg
+Hex_0[6] << LEDDisplay:hex_0.seg
+Hex_1[0] << LEDDisplay:hex_1.seg
+Hex_1[1] << LEDDisplay:hex_1.seg
+Hex_1[2] << LEDDisplay:hex_1.seg
+Hex_1[3] << LEDDisplay:hex_1.seg
+Hex_1[4] << LEDDisplay:hex_1.seg
+Hex_1[5] << LEDDisplay:hex_1.seg
+Hex_1[6] << LEDDisplay:hex_1.seg
+Hex_2[0] << LEDDisplay:hex_2.seg
+Hex_2[1] << LEDDisplay:hex_2.seg
+Hex_2[2] << LEDDisplay:hex_2.seg
+Hex_2[3] << LEDDisplay:hex_2.seg
+Hex_2[4] << LEDDisplay:hex_2.seg
+Hex_2[5] << LEDDisplay:hex_2.seg
+Hex_2[6] << LEDDisplay:hex_2.seg
+Hex_3[0] << LEDDisplay:hex_3.seg
+Hex_3[1] << LEDDisplay:hex_3.seg
+Hex_3[2] << LEDDisplay:hex_3.seg
+Hex_3[3] << LEDDisplay:hex_3.seg
+Hex_3[4] << LEDDisplay:hex_3.seg
+Hex_3[5] << LEDDisplay:hex_3.seg
+Hex_3[6] << LEDDisplay:hex_3.seg
+Hex_4[0] << LEDDisplay:hex_4.seg
+Hex_4[1] << LEDDisplay:hex_4.seg
+Hex_4[2] << LEDDisplay:hex_4.seg
+Hex_4[3] << LEDDisplay:hex_4.seg
+Hex_4[4] << LEDDisplay:hex_4.seg
+Hex_4[5] << LEDDisplay:hex_4.seg
+Hex_4[6] << LEDDisplay:hex_4.seg
+Hex_5[0] << LEDDisplay:hex_5.seg
+Hex_5[1] << LEDDisplay:hex_5.seg
+Hex_5[2] << LEDDisplay:hex_5.seg
+Hex_5[3] << LEDDisplay:hex_5.seg
+Hex_5[4] << LEDDisplay:hex_5.seg
+Hex_5[5] << LEDDisplay:hex_5.seg
+Hex_5[6] << LEDDisplay:hex_5.seg
+
+
+|ClockDisplay|one_hz_clock:OHC
+clk => one_hz~reg0.CLK
+clk => counter[0].CLK
+clk => counter[1].CLK
+clk => counter[2].CLK
+clk => counter[3].CLK
+clk => counter[4].CLK
+clk => counter[5].CLK
+clk => counter[6].CLK
+clk => counter[7].CLK
+clk => counter[8].CLK
+clk => counter[9].CLK
+clk => counter[10].CLK
+clk => counter[11].CLK
+clk => counter[12].CLK
+clk => counter[13].CLK
+clk => counter[14].CLK
+clk => counter[15].CLK
+clk => counter[16].CLK
+clk => counter[17].CLK
+clk => counter[18].CLK
+clk => counter[19].CLK
+clk => counter[20].CLK
+clk => counter[21].CLK
+clk => counter[22].CLK
+clk => counter[23].CLK
+clk => counter[24].CLK
+clk => counter[25].CLK
+reset => one_hz~reg0.ACLR
+reset => counter[0].ACLR
+reset => counter[1].ACLR
+reset => counter[2].ACLR
+reset => counter[3].ACLR
+reset => counter[4].ACLR
+reset => counter[5].ACLR
+reset => counter[6].ACLR
+reset => counter[7].ACLR
+reset => counter[8].ACLR
+reset => counter[9].ACLR
+reset => counter[10].ACLR
+reset => counter[11].ACLR
+reset => counter[12].ACLR
+reset => counter[13].ACLR
+reset => counter[14].ACLR
+reset => counter[15].ACLR
+reset => counter[16].ACLR
+reset => counter[17].ACLR
+reset => counter[18].ACLR
+reset => counter[19].ACLR
+reset => counter[20].ACLR
+reset => counter[21].ACLR
+reset => counter[22].ACLR
+reset => counter[23].ACLR
+reset => counter[24].ACLR
+reset => counter[25].ACLR
+one_hz <= one_hz~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|SecondCounter:sc
+clk => one_min~reg0.CLK
+clk => second[0]~reg0.CLK
+clk => second[1]~reg0.CLK
+clk => second[2]~reg0.CLK
+clk => second[3]~reg0.CLK
+clk => second[4]~reg0.CLK
+clk => second[5]~reg0.CLK
+reset => one_min~reg0.ACLR
+reset => second[0]~reg0.ACLR
+reset => second[1]~reg0.ACLR
+reset => second[2]~reg0.ACLR
+reset => second[3]~reg0.ACLR
+reset => second[4]~reg0.ACLR
+reset => second[5]~reg0.ACLR
+second[0] <= second[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+second[1] <= second[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+second[2] <= second[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+second[3] <= second[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+second[4] <= second[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+second[5] <= second[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+one_min <= one_min~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|BinaryToBCD:BCDsecond
+binary[0] => ones[0].DATAIN
+binary[1] => LessThan6.IN8
+binary[1] => Add6.IN8
+binary[1] => ones.DATAA
+binary[2] => LessThan4.IN8
+binary[2] => Add4.IN8
+binary[2] => ones.DATAA
+binary[3] => LessThan2.IN8
+binary[3] => Add2.IN8
+binary[3] => ones.DATAA
+binary[4] => LessThan1.IN8
+binary[4] => Add1.IN8
+binary[4] => ones.DATAA
+binary[5] => LessThan0.IN6
+binary[5] => Add0.IN6
+binary[5] => ones.DATAA
+binary[6] => LessThan0.IN5
+binary[6] => Add0.IN5
+binary[6] => ones.DATAA
+binary[7] => LessThan0.IN4
+binary[7] => Add0.IN4
+binary[7] => ones.DATAA
+tens[0] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+tens[3] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+ones[0] <= binary[0].DB_MAX_OUTPUT_PORT_TYPE
+ones[1] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+ones[2] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+ones[3] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|MinuteCounter:mc
+clk => one_hour~reg0.CLK
+clk => minute[0]~reg0.CLK
+clk => minute[1]~reg0.CLK
+clk => minute[2]~reg0.CLK
+clk => minute[3]~reg0.CLK
+clk => minute[4]~reg0.CLK
+clk => minute[5]~reg0.CLK
+reset => one_hour~reg0.ACLR
+reset => minute[0]~reg0.ACLR
+reset => minute[1]~reg0.ACLR
+reset => minute[2]~reg0.ACLR
+reset => minute[3]~reg0.PRESET
+reset => minute[4]~reg0.ACLR
+reset => minute[5]~reg0.PRESET
+minute[0] <= minute[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minute[1] <= minute[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minute[2] <= minute[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minute[3] <= minute[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minute[4] <= minute[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+minute[5] <= minute[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+one_hour <= one_hour~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|BinaryToBCD:BCDminute
+binary[0] => ones[0].DATAIN
+binary[1] => LessThan6.IN8
+binary[1] => Add6.IN8
+binary[1] => ones.DATAA
+binary[2] => LessThan4.IN8
+binary[2] => Add4.IN8
+binary[2] => ones.DATAA
+binary[3] => LessThan2.IN8
+binary[3] => Add2.IN8
+binary[3] => ones.DATAA
+binary[4] => LessThan1.IN8
+binary[4] => Add1.IN8
+binary[4] => ones.DATAA
+binary[5] => LessThan0.IN6
+binary[5] => Add0.IN6
+binary[5] => ones.DATAA
+binary[6] => LessThan0.IN5
+binary[6] => Add0.IN5
+binary[6] => ones.DATAA
+binary[7] => LessThan0.IN4
+binary[7] => Add0.IN4
+binary[7] => ones.DATAA
+tens[0] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+tens[3] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+ones[0] <= binary[0].DB_MAX_OUTPUT_PORT_TYPE
+ones[1] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+ones[2] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+ones[3] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|HourCounter:hc
+clk => one_day~reg0.CLK
+clk => hour[0]~reg0.CLK
+clk => hour[1]~reg0.CLK
+clk => hour[2]~reg0.CLK
+clk => hour[3]~reg0.CLK
+clk => hour[4]~reg0.CLK
+reset => one_day~reg0.ACLR
+reset => hour[0]~reg0.ACLR
+reset => hour[1]~reg0.PRESET
+reset => hour[2]~reg0.ACLR
+reset => hour[3]~reg0.PRESET
+reset => hour[4]~reg0.ACLR
+hour[0] <= hour[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hour[1] <= hour[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hour[2] <= hour[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hour[3] <= hour[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hour[4] <= hour[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+one_day <= one_day~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|BinaryToBCD:BCDhour
+binary[0] => ones[0].DATAIN
+binary[1] => LessThan6.IN8
+binary[1] => Add6.IN8
+binary[1] => ones.DATAA
+binary[2] => LessThan4.IN8
+binary[2] => Add4.IN8
+binary[2] => ones.DATAA
+binary[3] => LessThan2.IN8
+binary[3] => Add2.IN8
+binary[3] => ones.DATAA
+binary[4] => LessThan1.IN8
+binary[4] => Add1.IN8
+binary[4] => ones.DATAA
+binary[5] => LessThan0.IN6
+binary[5] => Add0.IN6
+binary[5] => ones.DATAA
+binary[6] => LessThan0.IN5
+binary[6] => Add0.IN5
+binary[6] => ones.DATAA
+binary[7] => LessThan0.IN4
+binary[7] => Add0.IN4
+binary[7] => ones.DATAA
+tens[0] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+tens[3] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+ones[0] <= binary[0].DB_MAX_OUTPUT_PORT_TYPE
+ones[1] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+ones[2] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+ones[3] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|DayCounter:dc
+clk => one_month~reg0.CLK
+clk => current_month[0].CLK
+clk => current_month[1].CLK
+clk => current_month[2].CLK
+clk => current_month[3].CLK
+clk => current_month[4].CLK
+clk => day[0]~reg0.CLK
+clk => day[1]~reg0.CLK
+clk => day[2]~reg0.CLK
+clk => day[3]~reg0.CLK
+clk => day[4]~reg0.CLK
+clk => day[5]~reg0.CLK
+reset => one_month~reg0.ACLR
+reset => current_month[0].PRESET
+reset => current_month[1].PRESET
+reset => current_month[2].ACLR
+reset => current_month[3].ACLR
+reset => current_month[4].ACLR
+reset => day[0]~reg0.ACLR
+reset => day[1]~reg0.PRESET
+reset => day[2]~reg0.ACLR
+reset => day[3]~reg0.PRESET
+reset => day[4]~reg0.PRESET
+reset => day[5]~reg0.ACLR
+leap_year => Equal0.IN57
+day[0] <= day[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+day[1] <= day[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+day[2] <= day[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+day[3] <= day[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+day[4] <= day[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+day[5] <= day[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+one_month <= one_month~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|BinaryToBCD:BCDdays
+binary[0] => ones[0].DATAIN
+binary[1] => LessThan6.IN8
+binary[1] => Add6.IN8
+binary[1] => ones.DATAA
+binary[2] => LessThan4.IN8
+binary[2] => Add4.IN8
+binary[2] => ones.DATAA
+binary[3] => LessThan2.IN8
+binary[3] => Add2.IN8
+binary[3] => ones.DATAA
+binary[4] => LessThan1.IN8
+binary[4] => Add1.IN8
+binary[4] => ones.DATAA
+binary[5] => LessThan0.IN6
+binary[5] => Add0.IN6
+binary[5] => ones.DATAA
+binary[6] => LessThan0.IN5
+binary[6] => Add0.IN5
+binary[6] => ones.DATAA
+binary[7] => LessThan0.IN4
+binary[7] => Add0.IN4
+binary[7] => ones.DATAA
+tens[0] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+tens[3] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+ones[0] <= binary[0].DB_MAX_OUTPUT_PORT_TYPE
+ones[1] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+ones[2] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+ones[3] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|MonthCounter:monthc
+clk => one_year~reg0.CLK
+clk => month[0]~reg0.CLK
+clk => month[1]~reg0.CLK
+clk => month[2]~reg0.CLK
+clk => month[3]~reg0.CLK
+reset => one_year~reg0.ACLR
+reset => month[0]~reg0.PRESET
+reset => month[1]~reg0.PRESET
+reset => month[2]~reg0.ACLR
+reset => month[3]~reg0.ACLR
+month[0] <= month[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+month[1] <= month[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+month[2] <= month[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+month[3] <= month[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+one_year <= one_year~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|BinaryToBCD:BCDmonths
+binary[0] => ones[0].DATAIN
+binary[1] => LessThan6.IN8
+binary[1] => Add6.IN8
+binary[1] => ones.DATAA
+binary[2] => LessThan4.IN8
+binary[2] => Add4.IN8
+binary[2] => ones.DATAA
+binary[3] => LessThan2.IN8
+binary[3] => Add2.IN8
+binary[3] => ones.DATAA
+binary[4] => LessThan1.IN8
+binary[4] => Add1.IN8
+binary[4] => ones.DATAA
+binary[5] => LessThan0.IN6
+binary[5] => Add0.IN6
+binary[5] => ones.DATAA
+binary[6] => LessThan0.IN5
+binary[6] => Add0.IN5
+binary[6] => ones.DATAA
+binary[7] => LessThan0.IN4
+binary[7] => Add0.IN4
+binary[7] => ones.DATAA
+tens[0] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+tens[3] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+ones[0] <= binary[0].DB_MAX_OUTPUT_PORT_TYPE
+ones[1] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+ones[2] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+ones[3] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|YearCounter:yc
+clk => leap_year~reg0.CLK
+clk => year[0]~reg0.CLK
+clk => year[1]~reg0.CLK
+clk => year[2]~reg0.CLK
+clk => year[3]~reg0.CLK
+clk => year[4]~reg0.CLK
+clk => year[5]~reg0.CLK
+clk => year[6]~reg0.CLK
+reset => leap_year~reg0.ACLR
+reset => year[0]~reg0.ACLR
+reset => year[1]~reg0.ACLR
+reset => year[2]~reg0.ACLR
+reset => year[3]~reg0.PRESET
+reset => year[4]~reg0.PRESET
+reset => year[5]~reg0.ACLR
+reset => year[6]~reg0.ACLR
+year[0] <= year[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+year[1] <= year[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+year[2] <= year[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+year[3] <= year[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+year[4] <= year[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+year[5] <= year[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+year[6] <= year[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leap_year <= leap_year~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|BinaryToBCD:BCDyears
+binary[0] => ones[0].DATAIN
+binary[1] => LessThan6.IN8
+binary[1] => Add6.IN8
+binary[1] => ones.DATAA
+binary[2] => LessThan4.IN8
+binary[2] => Add4.IN8
+binary[2] => ones.DATAA
+binary[3] => LessThan2.IN8
+binary[3] => Add2.IN8
+binary[3] => ones.DATAA
+binary[4] => LessThan1.IN8
+binary[4] => Add1.IN8
+binary[4] => ones.DATAA
+binary[5] => LessThan0.IN6
+binary[5] => Add0.IN6
+binary[5] => ones.DATAA
+binary[6] => LessThan0.IN5
+binary[6] => Add0.IN5
+binary[6] => ones.DATAA
+binary[7] => LessThan0.IN4
+binary[7] => Add0.IN4
+binary[7] => ones.DATAA
+tens[0] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+tens[3] <= tens.DB_MAX_OUTPUT_PORT_TYPE
+ones[0] <= binary[0].DB_MAX_OUTPUT_PORT_TYPE
+ones[1] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+ones[2] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+ones[3] <= ones.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|LEDDisplay:hex_0
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|LEDDisplay:hex_1
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|LEDDisplay:hex_2
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|LEDDisplay:hex_3
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|LEDDisplay:hex_4
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockDisplay|LEDDisplay:hex_5
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+

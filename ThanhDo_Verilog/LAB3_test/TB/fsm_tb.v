@@ -1,0 +1,65 @@
+
+
+`timescale 1ns / 1ps
+
+module fsm_tb ();
+
+// Khai báo các bi?n s? ???c s? d?ng làm ??u vào cho DUT (Device Under Test)
+reg x;
+reg clk;
+reg rst_n;
+
+// Khai báo bi?n ?? theo dõi ??u ra t? DUT
+wire y;
+
+// Kh?i t?o instance c?a DUT
+fsm_topmodule dut (
+    .x(x), 
+    .clk(clk), 
+    .rst_n(rst_n), 
+    .y(y)
+);
+
+// Kh?i t?o clock
+initial begin
+    clk = 0;
+    forever #10 clk = ~clk; // T?o xung clock v?i chu k? 20ns
+end
+
+// (Tùy ch?n) In giá tr? c?a y khi có s? thay ??i
+initial begin
+    $monitor("At time %t, output y = %d", $time, y);
+end
+
+// Kh?i t?o test
+initial begin
+    // Kh?i t?o tín hi?u
+    rst_n = 0; x = 0;
+    
+    // Reset DUT
+    #20 rst_n = 1;
+    
+    // Ki?m tra tr?ng thái chuy?n ??i c?a FSM
+    #20 x = 1;
+    #20 x = 0;
+    #20 x = 1;
+    #20 x = 0;
+    #20 x = 1;
+    #20 x = 0;
+    #20 x = 1;
+    #20 x = 0;
+    #20 x = 1;
+    #20 x = 0;
+    #20 x = 1;
+    #20 x = 0;
+    
+    // Thêm các tr??ng h?p ki?m tra khác ? ?ây
+    
+    //#100; // ??i m?t th?i gian ?? quan sát k?t qu?
+    
+    $stop; // K?t thúc mô ph?ng
+end
+
+
+
+endmodule

@@ -1,0 +1,27 @@
+module one_hz_clock_generator(
+    input clk,        // Đầu vào xung clock 50 MHz
+    input reset,      // Đầu vào reset để khởi động lại bộ đếm
+    output reg one_hz // Xung 1 Hz đầu ra
+);
+
+// Giả sử xung clock của bạn là 50MHz
+parameter CLOCK_FREQ = 50_000_000;
+parameter COUNTER_MAX = CLOCK_FREQ - 1;
+
+reg[25:0] counter; // Bộ đếm 26-bit đủ để đếm đến 49,999,999
+
+always @(posedge clk or posedge reset) begin
+    if (reset) begin
+        counter <= 0;
+        one_hz <= 0;
+    end else begin
+        if (counter == COUNTER_MAX) begin
+            counter <= 0; // Đặt lại bộ đếm sau khi đạt đến 1 giây
+            one_hz <= ~one_hz; // Chuyển trạng thái của xung đầu ra để tạo xung 1 Hz
+        end else begin
+            counter <= counter + 1; // Tăng bộ đếm
+        end
+    end
+end
+
+endmodule

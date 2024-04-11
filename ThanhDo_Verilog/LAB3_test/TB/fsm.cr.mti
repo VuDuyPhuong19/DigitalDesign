@@ -1,0 +1,15 @@
+C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/TB/fsm_topmodule.v {1 {vlog -work work -vopt C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/TB/fsm_topmodule.v
+QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+-- Compiling module fsm_topmodule
+
+Top level modules:
+	fsm_topmodule
+
+} {} {}} C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/TB/fsm_tb.v {1 {vlog -work work -vopt C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/TB/fsm_tb.v
+QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+-- Compiling module fsm_tb
+
+Top level modules:
+	fsm_tb
+
+} {} {}}

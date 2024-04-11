@@ -1,0 +1,6 @@
+
+State Machine - |fsm_pattern|state
+Name state.wait_1st_1 state.wait_2nd_1 state.wait_0 
+state.wait_1st_1 0 0 0 
+state.wait_0 1 0 1 
+state.wait_2nd_1 1 1 0 

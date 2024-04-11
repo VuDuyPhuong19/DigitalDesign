@@ -1,0 +1,7 @@
+|fsm_pattern
+x => Selector2.IN1
+clk => state~1.DATAIN
+rst_n => state~3.DATAIN
+y <= <VCC>
+
+

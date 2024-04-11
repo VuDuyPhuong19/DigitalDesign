@@ -1,0 +1,32 @@
+module BinaryToBCD(
+    input wire [6:0] binary, // Số nhị phân đầu vào tối đa 7 bit (0-127)
+    output reg [3:0] tens,   // Chữ số hàng chục của BCD (0-9)
+    output reg [3:0] ones    // Chữ số hàng đơn vị của BCD (0-9)
+);
+
+// Biến trung gian để thực hiện thuật toán Double Dabble
+reg [9:0] shift_reg; // 10 bit cho 2 nibbles BCD và 7 bit nhị phân
+integer i;
+
+always @(binary) begin
+    // Khởi tạo giá trị
+    shift_reg = 0;
+    // Gán giá trị nhị phân vào các bit cuối cùng của shift_reg
+    shift_reg[6:0] = binary;
+
+    // Thuật toán Double Dabble
+    for (i = 0; i < 7; i++) begin // Xử lý 7 lần cho 7 bit
+        // Kiểm tra và thêm 3 nếu cần
+        if (shift_reg[9:4] >= 5)
+            shift_reg[9:4] = shift_reg[9:4] + 3;
+
+        // Dịch trái shift_reg
+        shift_reg = shift_reg << 1;
+    end
+    
+    // Cập nhật giá trị BCD
+    tens = shift_reg[9:6];
+    ones = shift_reg[3:0];
+end
+
+endmodule

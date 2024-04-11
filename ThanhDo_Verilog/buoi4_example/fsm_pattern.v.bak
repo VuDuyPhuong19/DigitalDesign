@@ -1,0 +1,35 @@
+module fsm_pattern(
+	input x,
+	output y,
+	input clk,
+	input rst_n
+
+);
+// ma hoa trang thai bang localparam
+	localparam wait_1st_1 = 2'b00;
+	localparam wait_0 = 2'b01;
+	localparam wait_2st_1 = 2'b10;
+	
+	reg [1:0] state, nextstate;
+	
+	// mo ta ham trang thai ke tiep delta
+	always @( x or state) begin
+	case (state) begin
+	
+		wait_1st_1:
+						if(x==0) nextstate = wait_1st_1;
+						else nextstate= wait_0
+		wait_0 : 
+						if(x==0) nexstate= wait_2nd_1;
+						else nextstate =wait_0;
+		wait_2nd_1:
+						if(x==0) nextstate= wait_1st_1;
+						else nextstate= wait_1st_1;
+	default: nextstate= wait_1st_1;
+	
+	
+	
+		end 
+	end
+
+	

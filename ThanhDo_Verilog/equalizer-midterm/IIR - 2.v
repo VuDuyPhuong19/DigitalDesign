@@ -35,7 +35,6 @@ always @(posedge clk or negedge rst_n) begin
         y2 <= y1; y1 <= stage_result;
     end
 end
-
 // Đầu ra của stage này là kết quả của phép trừ giữa feedforward và feedback
 assign data_out = stage_result;
 
@@ -44,18 +43,24 @@ endmodule
 module iir_filter_5tabs(
     input wire clk,
     input wire rst,
-    input wire signed [15:0] data_in,  // Đầu vào của bộ lọc
-    output wire signed [15:0] data_out // Đầu ra của bộ lọc
+    input wire signed [15:0] gain,       // Đầu vào của gain
+    input wire signed [15:0] data_in,    // Đầu vào của bộ lọc
+    output wire signed [15:0] data_out   // Đầu ra của bộ lọc
 );
 
-// Định nghĩa các hệ số cho mỗi stage - bạn cần thay thế bằng các giá trị thực tế
+// Các hệ số bộ lọc cho từng stage
 wire signed [15:0] a1, a2, b0, b1, b2;
-// ...
+// ... Khai báo giá trị thực tế cho các hệ số của mỗi stage
 
 // Kết nối nhiều stages
 wire signed [15:0] stage_outputs[4:0];
+wire signed [15:0] adjusted_data_in;
 
-iir_stage stage1(.clk(clk), .rst(rst), .data_in(data_in), /* Hệ số cho stage 1 */, .data_out(stage_outputs[0]));
+// Áp dụng gain vào data_in trước khi nó đi qua các stages của bộ lọc
+assign adjusted_data_in = data_in * gain;
+
+// Khởi tạo các stages của bộ lọc với data_in đã được điều chỉnh
+iir_stage stage1(.clk(clk), .rst(rst), .data_in(adjusted_data_in), /* Hệ số cho stage 1 */, .data_out(stage_outputs[0]));
 iir_stage stage2(.clk(clk), .rst(rst), .data_in(stage_outputs[0]), /* Hệ số cho stage 2 */, .data_out(stage_outputs[1]));
 iir_stage stage3(.clk(clk), .rst(rst), .data_in(stage_outputs[1]), /* Hệ số cho stage 3 */, .data_out(stage_outputs[2]));
 iir_stage stage4(.clk(clk), .rst(rst), .data_in(stage_outputs[2]), /* Hệ số cho stage 4 */, .data_out(stage_outputs[3]));
@@ -65,5 +70,3 @@ iir_stage stage5(.clk(clk), .rst(rst), .data_in(stage_outputs[3]), /* Hệ số 
 assign data_out = stage_outputs[4];
 
 endmodule
-
-

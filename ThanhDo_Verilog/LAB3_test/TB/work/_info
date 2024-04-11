@@ -1,0 +1,86 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 dC:/questasim64_10.2c/examples
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+T_opt
+VSzCU3Kk;iSIdS98YUDEb32
+04 13 4 work fsm_tb_random fast 0
+=1-d8bbc125ab8c-6604f3ce-3d5-727c
+Z1 o-quiet -auto_acc_if_foreign -work work
+n@_opt
+Z2 OL;O;10.2c;57
+Z3 dC:/questasim64_10.2c/examples
+!s110 1711600591
+T_opt1
+V:4B3WV6R9cW5dW<a9MUDk2
+04 6 4 work fsm_tb fast 0
+=1-d8bbc125ab8c-6604e742-221-293c
+R1
+n@_opt1
+R2
+R3
+!s110 1711597378
+vfsm_tb
+If1XOKPILTc@mbe?mK`N>h2
+Z4 V`JN@9S9cnhjKRR_L]QIcM3
+Z5 dC:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/TB
+w1711595508
+8C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/TB/fsm_tb.v
+FC:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/TB/fsm_tb.v
+L0 5
+Z6 OL;L;10.2c;57
+r1
+31
+Z7 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s110 1711600127
+!s100 [Go9zFXc81FNih:k:LiKn2
+!s90 -reportprogress|300|-work|work|-vopt|C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/TB/fsm_tb.v|
+!s108 1711600127.402000
+!s107 C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/TB/fsm_tb.v|
+!i10b 1
+!s85 0
+!i111 0
+vfsm_tb_random
+R4
+r1
+!s85 0
+31
+I26@VGHgWfIakO<;Q9d6_<3
+R5
+w1711600578
+8C:/questasim64_10.2c/examples/fileverilog/fsm_tb_random.v
+FC:/questasim64_10.2c/examples/fileverilog/fsm_tb_random.v
+L0 3
+R6
+R7
+!s90 -reportprogress|300|-work|work|-vopt|C:/questasim64_10.2c/examples/fileverilog/fsm_tb_random.v|
+!i10b 1
+!s100 FH19<kh<;?ZR?lezm:mQn1
+!s108 1711600585.161000
+!s107 C:/questasim64_10.2c/examples/fileverilog/fsm_tb_random.v|
+!i111 0
+vfsm_topmodule
+R4
+r1
+31
+I98HNN9R`QWQ_10X@?Y<NU0
+R5
+w1711598584
+8C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/TB/fsm_topmodule.v
+FC:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/TB/fsm_topmodule.v
+L0 2
+R6
+R7
+!s100 Co^N?>JVn9LKgi_]@0XAi1
+!s90 -reportprogress|300|-work|work|-vopt|C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/TB/fsm_topmodule.v|
+!s108 1711600127.315000
+!s107 C:/THANHDO_LAB_Verilog/ThanhDo_Verilog/LAB3/TB/fsm_topmodule.v|
+!s85 0
+!i10b 1
+!i111 0

@@ -1,0 +1,437 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -4.660
+TNS   : -122.668
+
+Type  : Slow 1200mV 85C Model Setup 'MinuteCounter:mc|one_hour'
+Slack : -2.858
+TNS   : -9.347
+
+Type  : Slow 1200mV 85C Model Setup 'HourCounter:hc|one_day'
+Slack : -2.769
+TNS   : -29.491
+
+Type  : Slow 1200mV 85C Model Setup 'one_hz_clock:OHC|one_hz'
+Slack : -1.514
+TNS   : -7.534
+
+Type  : Slow 1200mV 85C Model Setup 'SecondCounter:sc|one_min'
+Slack : -1.469
+TNS   : -7.749
+
+Type  : Slow 1200mV 85C Model Setup 'MonthCounter:monthc|one_year'
+Slack : -1.008
+TNS   : -7.546
+
+Type  : Slow 1200mV 85C Model Setup 'DayCounter:dc|one_month'
+Slack : -0.392
+TNS   : -1.000
+
+Type  : Slow 1200mV 85C Model Hold 'DayCounter:dc|one_month'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'HourCounter:hc|one_day'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'MinuteCounter:mc|one_hour'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'MonthCounter:monthc|one_year'
+Slack : 0.672
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'one_hz_clock:OHC|one_hz'
+Slack : 0.676
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'SecondCounter:sc|one_min'
+Slack : 0.677
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'SecondCounter:sc|one_min'
+Slack : -0.826
+TNS   : -4.450
+
+Type  : Slow 1200mV 85C Model Recovery 'clk'
+Slack : -0.290
+TNS   : -6.439
+
+Type  : Slow 1200mV 85C Model Recovery 'MonthCounter:monthc|one_year'
+Slack : 0.072
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'DayCounter:dc|one_month'
+Slack : 0.093
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'one_hz_clock:OHC|one_hz'
+Slack : 0.114
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'MinuteCounter:mc|one_hour'
+Slack : 0.142
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'HourCounter:hc|one_day'
+Slack : 0.143
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'HourCounter:hc|one_day'
+Slack : -0.247
+TNS   : -2.888
+
+Type  : Slow 1200mV 85C Model Removal 'one_hz_clock:OHC|one_hz'
+Slack : -0.200
+TNS   : -1.377
+
+Type  : Slow 1200mV 85C Model Removal 'MinuteCounter:mc|one_hour'
+Slack : -0.180
+TNS   : -1.260
+
+Type  : Slow 1200mV 85C Model Removal 'DayCounter:dc|one_month'
+Slack : -0.179
+TNS   : -0.895
+
+Type  : Slow 1200mV 85C Model Removal 'MonthCounter:monthc|one_year'
+Slack : -0.164
+TNS   : -1.123
+
+Type  : Slow 1200mV 85C Model Removal 'clk'
+Slack : 0.126
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'SecondCounter:sc|one_min'
+Slack : 0.413
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -72.390
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'reset'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'HourCounter:hc|one_day'
+Slack : -1.285
+TNS   : -15.420
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MonthCounter:monthc|one_year'
+Slack : -1.285
+TNS   : -10.280
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MinuteCounter:mc|one_hour'
+Slack : -1.285
+TNS   : -8.995
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SecondCounter:sc|one_min'
+Slack : -1.285
+TNS   : -8.995
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'one_hz_clock:OHC|one_hz'
+Slack : -1.285
+TNS   : -8.995
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'DayCounter:dc|one_month'
+Slack : -1.285
+TNS   : -6.425
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -4.174
+TNS   : -106.282
+
+Type  : Slow 1200mV 0C Model Setup 'MinuteCounter:mc|one_hour'
+Slack : -2.568
+TNS   : -8.027
+
+Type  : Slow 1200mV 0C Model Setup 'HourCounter:hc|one_day'
+Slack : -2.438
+TNS   : -25.916
+
+Type  : Slow 1200mV 0C Model Setup 'one_hz_clock:OHC|one_hz'
+Slack : -1.245
+TNS   : -6.067
+
+Type  : Slow 1200mV 0C Model Setup 'SecondCounter:sc|one_min'
+Slack : -1.222
+TNS   : -6.388
+
+Type  : Slow 1200mV 0C Model Setup 'MonthCounter:monthc|one_year'
+Slack : -0.802
+TNS   : -6.120
+
+Type  : Slow 1200mV 0C Model Setup 'DayCounter:dc|one_month'
+Slack : -0.249
+TNS   : -0.586
+
+Type  : Slow 1200mV 0C Model Hold 'DayCounter:dc|one_month'
+Slack : 0.353
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'MinuteCounter:mc|one_hour'
+Slack : 0.353
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'HourCounter:hc|one_day'
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'MonthCounter:monthc|one_year'
+Slack : 0.616
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SecondCounter:sc|one_min'
+Slack : 0.619
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'one_hz_clock:OHC|one_hz'
+Slack : 0.619
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'SecondCounter:sc|one_min'
+Slack : -0.614
+TNS   : -3.110
+
+Type  : Slow 1200mV 0C Model Recovery 'clk'
+Slack : -0.194
+TNS   : -3.842
+
+Type  : Slow 1200mV 0C Model Recovery 'MonthCounter:monthc|one_year'
+Slack : 0.100
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'DayCounter:dc|one_month'
+Slack : 0.128
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'one_hz_clock:OHC|one_hz'
+Slack : 0.135
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'MinuteCounter:mc|one_hour'
+Slack : 0.148
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'HourCounter:hc|one_day'
+Slack : 0.158
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'HourCounter:hc|one_day'
+Slack : -0.098
+TNS   : -1.109
+
+Type  : Slow 1200mV 0C Model Removal 'one_hz_clock:OHC|one_hz'
+Slack : -0.056
+TNS   : -0.378
+
+Type  : Slow 1200mV 0C Model Removal 'MinuteCounter:mc|one_hour'
+Slack : -0.053
+TNS   : -0.371
+
+Type  : Slow 1200mV 0C Model Removal 'DayCounter:dc|one_month'
+Slack : -0.046
+TNS   : -0.230
+
+Type  : Slow 1200mV 0C Model Removal 'MonthCounter:monthc|one_year'
+Slack : -0.028
+TNS   : -0.042
+
+Type  : Slow 1200mV 0C Model Removal 'clk'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'SecondCounter:sc|one_min'
+Slack : 0.511
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -72.390
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'reset'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'HourCounter:hc|one_day'
+Slack : -1.285
+TNS   : -15.420
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MonthCounter:monthc|one_year'
+Slack : -1.285
+TNS   : -10.280
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MinuteCounter:mc|one_hour'
+Slack : -1.285
+TNS   : -8.995
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SecondCounter:sc|one_min'
+Slack : -1.285
+TNS   : -8.995
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'one_hz_clock:OHC|one_hz'
+Slack : -1.285
+TNS   : -8.995
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'DayCounter:dc|one_month'
+Slack : -1.285
+TNS   : -6.425
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -1.765
+TNS   : -35.757
+
+Type  : Fast 1200mV 0C Model Setup 'MinuteCounter:mc|one_hour'
+Slack : -0.967
+TNS   : -1.603
+
+Type  : Fast 1200mV 0C Model Setup 'HourCounter:hc|one_day'
+Slack : -0.781
+TNS   : -7.593
+
+Type  : Fast 1200mV 0C Model Setup 'one_hz_clock:OHC|one_hz'
+Slack : -0.222
+TNS   : -0.733
+
+Type  : Fast 1200mV 0C Model Setup 'SecondCounter:sc|one_min'
+Slack : -0.194
+TNS   : -0.817
+
+Type  : Fast 1200mV 0C Model Setup 'MonthCounter:monthc|one_year'
+Slack : -0.003
+TNS   : -0.003
+
+Type  : Fast 1200mV 0C Model Setup 'DayCounter:dc|one_month'
+Slack : 0.311
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'DayCounter:dc|one_month'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'HourCounter:hc|one_day'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'MinuteCounter:mc|one_hour'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'MonthCounter:monthc|one_year'
+Slack : 0.308
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SecondCounter:sc|one_min'
+Slack : 0.309
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'one_hz_clock:OHC|one_hz'
+Slack : 0.309
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'SecondCounter:sc|one_min'
+Slack : -0.618
+TNS   : -3.576
+
+Type  : Fast 1200mV 0C Model Recovery 'clk'
+Slack : -0.205
+TNS   : -4.951
+
+Type  : Fast 1200mV 0C Model Recovery 'DayCounter:dc|one_month'
+Slack : -0.059
+TNS   : -0.295
+
+Type  : Fast 1200mV 0C Model Recovery 'MonthCounter:monthc|one_year'
+Slack : -0.042
+TNS   : -0.322
+
+Type  : Fast 1200mV 0C Model Recovery 'one_hz_clock:OHC|one_hz'
+Slack : -0.023
+TNS   : -0.023
+
+Type  : Fast 1200mV 0C Model Recovery 'HourCounter:hc|one_day'
+Slack : 0.004
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'MinuteCounter:mc|one_hour'
+Slack : 0.017
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'HourCounter:hc|one_day'
+Slack : -0.313
+TNS   : -3.685
+
+Type  : Fast 1200mV 0C Model Removal 'one_hz_clock:OHC|one_hz'
+Slack : -0.285
+TNS   : -1.978
+
+Type  : Fast 1200mV 0C Model Removal 'MinuteCounter:mc|one_hour'
+Slack : -0.265
+TNS   : -1.855
+
+Type  : Fast 1200mV 0C Model Removal 'DayCounter:dc|one_month'
+Slack : -0.265
+TNS   : -1.325
+
+Type  : Fast 1200mV 0C Model Removal 'MonthCounter:monthc|one_year'
+Slack : -0.253
+TNS   : -1.989
+
+Type  : Fast 1200mV 0C Model Removal 'clk'
+Slack : -0.161
+TNS   : -4.080
+
+Type  : Fast 1200mV 0C Model Removal 'SecondCounter:sc|one_min'
+Slack : -0.066
+TNS   : -0.396
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -60.385
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'reset'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'HourCounter:hc|one_day'
+Slack : -1.000
+TNS   : -12.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MonthCounter:monthc|one_year'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MinuteCounter:mc|one_hour'
+Slack : -1.000
+TNS   : -7.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SecondCounter:sc|one_min'
+Slack : -1.000
+TNS   : -7.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'one_hz_clock:OHC|one_hz'
+Slack : -1.000
+TNS   : -7.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'DayCounter:dc|one_month'
+Slack : -1.000
+TNS   : -5.000
+
+------------------------------------------------------------
