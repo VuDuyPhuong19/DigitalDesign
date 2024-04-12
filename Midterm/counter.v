@@ -1,12 +1,14 @@
-module counter (
+module counter #(
+	parameter COUNT_BIT_NUM = 6
+)(
 	input clk,
 	input rst_n,
-	output reg [4:0] count,
+	output reg [COUNT_BIT_NUM-1:0] count,
 	output calculated
 );
 
-parameter COUNTER_MIN = 5'b00000;
-parameter COUNTER_MAX = 5'b11111;
+parameter COUNTER_MIN = 6'b000000;
+parameter COUNTER_MAX = 6'b111111;
 always @ (posedge clk or negedge rst_n) begin
 	if (~rst_n) begin
 		count <= 0;

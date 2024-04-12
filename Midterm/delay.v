@@ -1,10 +1,11 @@
 module delay #(
 	parameter DATA_BIT_NUM = 16,
-	parameter NUMTABS = 31
+	parameter NUMTABS = 64,
+	parameter COUNT_BIT_NUM = $clog2(NUMTABS)
 )(
 	input clk,
 	input rst_n,
-	input count,
+	input [COUNT_BIT_NUM-1:0] count,
 	input calculated,
 	input signed [DATA_BIT_NUM-1:0] data_in,
 	output signed [DATA_BIT_NUM-1:0] data_delay_in

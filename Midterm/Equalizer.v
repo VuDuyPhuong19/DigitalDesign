@@ -2,7 +2,7 @@ module Equalizer #(
 	parameter FILTER_NUM = 8,
 	parameter DATA_BIT = 16,
 	parameter GAIN_BIT = 5,
-	parameter COUNT_BIT_NUM = 5
+	parameter COUNT_BIT_NUM = 6
 )(
 	input clk,
 	input rst_n,
