@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Thu Apr 11 02:48:36 2024
+Analysis & Synthesis Status : Successful - Fri Apr 12 21:48:29 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : LAB4
-Top-level Entity Name : IIR_fillter
+Top-level Entity Name : iir_stage
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 32
-Total pins : 39
+Total registers : 440
+Total pins : 50
 Total virtual pins : 0
 Total block memory bits : 0
-Total DSP Blocks : 5
+Total DSP Blocks : 51
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0

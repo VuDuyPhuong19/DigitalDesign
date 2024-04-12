@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at IIR_fillter.v(32): always construct contains both blocking and non-blocking assignments File: C:/TKS/DigitalDesign/manhhung_1/LAB4/IIR_fillter.v Line: 32
+Warning (10268): Verilog HDL information at IIR_fillter.v(52): always construct contains both blocking and non-blocking assignments File: C:/TKS/DigitalDesign/manhhung_1/LAB4/IIR_fillter.v Line: 52

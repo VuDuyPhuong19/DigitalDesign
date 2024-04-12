@@ -1,5 +1,5 @@
 Flow report for LAB4
-Thu Apr 11 02:49:19 2024
+Fri Apr 12 21:49:41 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -41,19 +41,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Thu Apr 11 02:49:19 2024          ;
+; Flow Status                     ; Successful - Fri Apr 12 21:49:41 2024          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; LAB4                                           ;
-; Top-level Entity Name           ; IIR_fillter                                    ;
+; Top-level Entity Name           ; iir_stage                                      ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CGXFC7C7F23C8                                 ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 26 / 56,480 ( < 1 % )                          ;
-; Total registers                 ; 32                                             ;
-; Total pins                      ; 39 / 268 ( 15 % )                              ;
+; Logic utilization (in ALMs)     ; 429 / 56,480 ( < 1 % )                         ;
+; Total registers                 ; 440                                            ;
+; Total pins                      ; 50 / 268 ( 19 % )                              ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0 / 7,024,640 ( 0 % )                          ;
-; Total DSP Blocks                ; 5 / 156 ( 3 % )                                ;
+; Total DSP Blocks                ; 51 / 156 ( 33 % )                              ;
 ; Total HSSI RX PCSs              ; 0 / 6 ( 0 % )                                  ;
 ; Total HSSI PMA RX Deserializers ; 0 / 6 ( 0 % )                                  ;
 ; Total HSSI TX PCSs              ; 0 / 6 ( 0 % )                                  ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/11/2024 02:48:29 ;
+; Start date & time ; 04/12/2024 21:48:20 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; LAB4                ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 2543814995277.171277850918320          ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 2543814995277.171293330019468          ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -89,13 +89,13 @@ https://fpgasoftware.intel.com/eula.
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation                    ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --                                ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --                                ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; IIR_fillter ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; IIR_fillter ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; IIR_fillter ; Top                               ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; iir_stage   ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; iir_stage   ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; iir_stage   ; Top                               ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --                                ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --                                ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --                                ;
-; TOP_LEVEL_ENTITY                    ; IIR_fillter                            ; LAB4          ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                    ; iir_stage                              ; LAB4          ; --          ; --                                ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 
 
@@ -104,12 +104,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4841 MB             ; 00:00:09                           ;
-; Fitter               ; 00:00:26     ; 1.0                     ; 6687 MB             ; 00:00:34                           ;
-; Assembler            ; 00:00:07     ; 1.0                     ; 4864 MB             ; 00:00:06                           ;
-; Timing Analyzer      ; 00:00:04     ; 1.1                     ; 5203 MB             ; 00:00:04                           ;
-; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4742 MB             ; 00:00:01                           ;
-; Total                ; 00:00:47     ; --                      ; --                  ; 00:00:54                           ;
+; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4873 MB             ; 00:00:07                           ;
+; Fitter               ; 00:00:48     ; 1.2                     ; 6731 MB             ; 00:00:48                           ;
+; Assembler            ; 00:00:07     ; 1.0                     ; 4887 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:10     ; 2.1                     ; 5265 MB             ; 00:00:10                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4767 MB             ; 00:00:01                           ;
+; Total                ; 00:01:16     ; --                      ; --                  ; 00:01:11                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

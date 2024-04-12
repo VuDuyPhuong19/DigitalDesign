@@ -68,7 +68,75 @@
 					"strict" : false
 				},
 				{
-					"name" : "coeff_in_1",
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "gain[0]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[1]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[2]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[3]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[4]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[5]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[6]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[7]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[8]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[9]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[10]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[11]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[12]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[13]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[14]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[15]",
 					"strict" : false
 				},
 				{
@@ -133,30 +201,6 @@
 				},
 				{
 					"name" : "data_in[15]",
-					"strict" : false
-				},
-				{
-					"name" : "clk",
-					"strict" : false
-				},
-				{
-					"name" : "rst_n",
-					"strict" : false
-				},
-				{
-					"name" : "coeff_out_1",
-					"strict" : false
-				},
-				{
-					"name" : "coeff_in_2",
-					"strict" : false
-				},
-				{
-					"name" : "coeff_out_2",
-					"strict" : false
-				},
-				{
-					"name" : "coeff_in_3",
 					"strict" : false
 				}
 			]

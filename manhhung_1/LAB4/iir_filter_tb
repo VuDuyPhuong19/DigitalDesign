@@ -1,0 +1,43 @@
+`timescale 1ns / 1ps
+
+module iir_filter_tb;
+
+parameter DATA_BIT_NUM = 16;
+parameter SAMPLES = 1024; // S? l??ng m?u d? li?u
+reg clk, rst;
+reg signed [DATA_BIT_NUM-1:0] data_in;
+wire signed [DATA_BIT_NUM-1:0] data_out;
+reg [DATA_BIT_NUM-1:0] data_array [0:SAMPLES-1]; // M?ng l?u tr? d? li?u ??c t? file
+integer i;
+
+// Kh?i t?o instance c?a b? l?c IIR
+
+// ??nh ngh?a chu k? clock
+always #10 clk = ~clk;
+
+// Kh?i th?c hi?n vi?c test
+initial begin
+    // Kh?i t?o
+    clk = 0;
+    rst = 1;
+    data_in = 0;
+    i = 0;
+
+    // ??c d? li?u t? file .txt
+    $readmemb("output.txt", data_array);
+
+    // Reset b? l?c
+    #100 rst = 0;
+
+    // ??a d? li?u t? file .txt vào b? l?c
+    for (i = 0; i < SAMPLES; i = i + 1) begin
+        @ (posedge clk);
+        data_in = data_array[i];
+    end
+
+    // K?t thúc mô ph?ng
+    #1000;
+    $stop;
+end
+
+endmodule
