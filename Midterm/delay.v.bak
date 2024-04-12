@@ -4,13 +4,13 @@ module delay #(
 )(
 	input clk,
 	input rst_n,
-	input count,
+	input counter,
 	input calculated,
 	input signed [DATA_BIT_NUM-1:0] data_in,
-	output signed [DATA_BIT_NUM-1:0] data_delay_in
+	output signed [DATA_BIT_NUM-1:0] data_delay_in,
 );
 
-reg signed [DATA_BIT_NUM-1:0] data_delay [NUMTABS-1:0];
+reg signed [DATA_BIT_NUM] data_delay [NUMTABS-1:0] = 0,
 integer i;
 
 always @ (posedge clk or negedge rst_n) begin
@@ -29,6 +29,6 @@ always @ (posedge clk or negedge rst_n) begin
 	end
 end
 
-assign data_delay_in = data_delay[count];
+assign data_delay_in = data_delay[counter];
 
 endmodule
