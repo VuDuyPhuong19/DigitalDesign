@@ -1,5 +1,5 @@
 Fitter report for Equalizer
-Sat Apr 13 00:16:45 2024
+Sat Apr 13 01:16:32 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -70,7 +70,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                      ;
 +------------------------------------+------------------------------------------------+
-; Fitter Status                      ; Successful - Sat Apr 13 00:16:45 2024          ;
+; Fitter Status                      ; Successful - Sat Apr 13 01:16:32 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; Equalizer                                      ;
 ; Top-level Entity Name              ; FIR_filter                                     ;
@@ -163,7 +163,7 @@ https://fpgasoftware.intel.com/eula.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   1.2%      ;
-;     Processor 3            ;   1.1%      ;
+;     Processor 3            ;   1.2%      ;
 ;     Processor 4            ;   1.1%      ;
 +----------------------------+-------------+
 
@@ -1943,10 +1943,10 @@ Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Info (144001): Generated suppressed messages file D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/output_files/Equalizer.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 5721 megabytes
-    Info: Processing ended: Sat Apr 13 00:16:45 2024
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Peak virtual memory: 5714 megabytes
+    Info: Processing ended: Sat Apr 13 01:16:32 2024
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:11
 
 
 +----------------------------+
