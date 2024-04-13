@@ -27,8 +27,8 @@ for (lowcut, highcut), gain in zip(bands, gains):
     filtered_signal = lfilter(fir_coeff, 1.0, data) * gain
     equalized_signal += filtered_signal
     
-    # In ra hệ số của mỗi băng tần
-    print(f"He so bo loc cho bang tan {lowcut}-{highcut} Hz: {fir_coeff}\n")
+    # # In ra hệ số của mỗi băng tần
+    # print(f"He so bo loc cho bang tan {lowcut}-{highcut} Hz: {fir_coeff}\n")
 
     
     # Đáp ứng tần số của bộ lọc

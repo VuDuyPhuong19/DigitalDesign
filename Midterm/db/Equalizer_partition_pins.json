@@ -72,6 +72,38 @@
 					"strict" : false
 				},
 				{
+					"name" : "gain[6]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[7]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[4]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[5]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[2]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[3]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[0]",
+					"strict" : false
+				},
+				{
+					"name" : "gain[1]",
+					"strict" : false
+				},
+				{
 					"name" : "rst_n",
 					"strict" : false
 				},

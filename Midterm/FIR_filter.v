@@ -8,13 +8,13 @@ module FIR_filter #(
 	input [COUNT_BIT_NUM-1:0] count,
 	input calculated,
 	input signed [DATA_BIT_NUM-1:0] filter_data_in,
-	output signed [DATA_BIT_NUM+COEFF_BIT_NUM-1:0] filter_data_out
+	output signed [DATA_BIT_NUM:0] filter_data_out
 );
 
 wire [COEFF_BIT_NUM-1:0] coeffs_in;
 wire signed [DATA_BIT_NUM-1:0] data_delay_in;
-wire [COUNT_BIT_NUM-1:0] count;
-wire calculated;
+//wire [COUNT_BIT_NUM-1:0] count;
+//wire calculated;
 
 // counter counter(.clk(clk), .rst_n(rst_n), .count(count), .calculated(calculated));
 
