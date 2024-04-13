@@ -5,10 +5,10 @@ module FIR_filter #(
 )(
 	input clk,
 	input rst_n,
-	// input [COUNT_BIT_NUM-1:0] count,
-	// input calculated,
+	input [COUNT_BIT_NUM-1:0] count,
+	input calculated,
 	input signed [DATA_BIT_NUM-1:0] filter_data_in,
-	output signed [DATA_BIT_NUM+DATA_BIT_NUM-1:0] filter_data_out
+	output signed [DATA_BIT_NUM+COEFF_BIT_NUM-1:0] filter_data_out
 );
 
 wire [COEFF_BIT_NUM-1:0] coeffs_in;
@@ -16,7 +16,7 @@ wire signed [DATA_BIT_NUM-1:0] data_delay_in;
 wire [COUNT_BIT_NUM-1:0] count;
 wire calculated;
 
-counter counter(.clk(clk), .rst_n(rst_n), .count(count), .calculated(calculated));
+// counter counter(.clk(clk), .rst_n(rst_n), .count(count), .calculated(calculated));
 
 coeffs coeffs(.count(count), .coeffs_in(coeffs_in));
 
@@ -25,6 +25,4 @@ delay delay(.clk(clk), .rst_n(rst_n), .count(count), .calculated(calculated), .d
 mac mac(.clk(clk), .rst_n(rst_n), .calculated(calculated), .data_delay_in(data_delay_in), .coeffs(coeffs_in), .data_out(filter_data_out));
 
 endmodule 
-
-
 

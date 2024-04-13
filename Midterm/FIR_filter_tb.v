@@ -10,7 +10,6 @@ wire signed [DATA_BIT_NUM+DATA_BIT_NUM-1:0] filter_data_out;
 reg [DATA_BIT_NUM-1:0] data_in_array [0:SAMPLES-1];
 integer i, j;
 
-// Khởi tạo instance của FIR_filter
 FIR_filter uut(
     .clk(clk),
     .rst_n(rst_n),
@@ -24,27 +23,22 @@ initial begin
 end
 
 initial begin
-    // Khởi tạo
-    rst_n = 0; // Kích hoạt reset
+    rst_n = 0; 
     filter_data_in = 0;
     i = 0;
 
     // Đọc dữ liệu từ file .txt
     $readmemb("D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/noisy_signal.txt", data_in_array);
 
-    // Thực hiện reset trong thời gian ngắn
     #100 rst_n = 1;
 
     // Đưa dữ liệu từ file .txt vào bộ lọc
     for (i = 0; i < SAMPLES; i = i + 1) begin    
         for (j = 0; j <= DELAY_NUM; j = j + 1) @ (posedge clk);                                                                                                                                        
         filter_data_in = data_in_array[i];        
-        // $writememb("memory_binary.txt", memory);
     end
 
     #100000 $finish;
-
-    // Kết thúc mô phỏng
 end
 
 endmodule

@@ -1,2 +1,2 @@
 v1
-DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,mac:mac|lpm_mult:Mult0|mult_26t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,FIR_filter:filter_block[7].filter|mac:mac|lpm_mult:Mult0|mult_26t:auto_generated|mac_out2,

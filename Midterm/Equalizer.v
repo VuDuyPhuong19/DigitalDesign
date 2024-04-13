@@ -16,7 +16,6 @@ wire calculated;
 
 counter counter(.clk(clk), .rst_n(rst_n), .count(count), .calculated(calculated));
 wire signed [DATA_BIT-1:0] filter_data_out [0:FILTER_NUM-1];
-reg signed [DATA_BIT-1:0] filter_data_in [0:FILTER_NUM-1]; // filter_data_in = data_in * gain
 
 
 generate
@@ -25,9 +24,9 @@ generate
 		FIR_filter filter (
 			.clk(clk),
 			.rst_n(rst_n),
-//			.count(count),
-//			.calculated(calculated),
-			.filter_data_in(filter_data_in[filter_index]),
+			.count(count),
+			.calculated(calculated),
+			.filter_data_in(data_in),
 			.filter_data_out(filter_data_out[filter_index])	
 		);
 	end
