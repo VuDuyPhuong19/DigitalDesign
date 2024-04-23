@@ -1,0 +1,76 @@
+// FSM
+module highway_controller #(                   
+	parameter TIMEOUT_BIT = 4,
+	parameter tIMEOUT_BIT = 2,
+	parameter LIGHT_BIT = 3
+)(
+	input clk,
+	input rst_n,
+	input car,
+	input [TIMEOUT_BIT-1:0] Timeout,
+	input [tIMEOUT_BIT-1:0] timeout,
+	input enable_h,
+	output start_h, // kích hoạt đếm 
+	output enable_n,
+	output [LIGHT_BIT-1:0] light_h
+);
+
+parameter STATE_NUM = 3;
+parameter GREEN_H = 3'b001;
+parameter YELLOW_H = 3'b010;
+parameter RED_H = 3'b100;
+parameter GREEN_LIGHT = 3'b001;
+parameter YELLOW_LIGHT = 3'b010;
+parameter RED_LIGHT = 3'b100;
+
+reg [STATE_NUM-1:0] current_state, next_state;
+
+always @ (posedge clk or negedge rst_n) begin
+	if(~rst_n) begin
+		current_state <= GREEN_H;
+	end
+	else begin
+		current_state <= next_state;
+	end
+end
+
+always @ (current_state or next_state or enable_h or car or Timeout or timeout) begin
+
+	case(current_state)
+		GREEN_H: begin
+			light_h = GREEN_LIGHT;
+			if (car && Timeout == 1) begin
+				next_state = YELLOW_H;
+				start_h = 1;
+			end 
+			else begin
+				next_state = current_state;
+				start_h = 0;
+			end
+		end
+		YELLOW_H: begin
+			light_h = YELLOW_LIGHT;
+			if (timeout == 1) begin
+				next_state = RED_H;
+				enable_n = 1;
+			end
+			else begin
+				next_state = current_state;
+				enable_n = 0;
+			end
+		end
+		RED_H:begin
+			light_h = RED_LIGHT;
+			if (enable_h) begin
+				next_state = GREEN_H;
+				start_h = 1;
+			end
+			else begin
+				next_state = current_state;
+				start_h = 0;
+			end
+		end
+	endcase
+end
+
+endmodule

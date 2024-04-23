@@ -1,0 +1,33 @@
+// Datapath
+module timer #(
+	parameter TIMEOUT_BIT = 4,
+	parameter tIMEOUT_BIT = 2
+)(        
+	input clk,           
+	input start,
+	input clk_1s_enable,
+	output reg [TIMEOUT_BIT-1:0] Timeout,
+	output reg [tIMEOUT_BIT-1:0] timeout
+);
+
+parameter TIMEOUT_MAX = 9;
+parameter tIMEOUT_MAX = 3;
+
+always @ (posedge clk) begin
+	if (clk_1s_enable) begin
+		if (start) begin
+			Timeout <= TIMEOUT_MAX;
+			timeout <= tIMEOUT_MAX;
+		end
+		else begin
+			if (Timeout != 1) begin
+				Timeout = Timeout - 1;
+			end 
+			if (timeout != 1) begin
+				timeout = timeout - 1;
+			end
+		end
+	end
+end
+
+endmodule

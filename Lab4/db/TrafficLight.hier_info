@@ -1,0 +1,179 @@
+|TrafficLight
+clk => clk.IN4
+rst_n => rst_n.IN3
+car => car.IN2
+led_out[0] <= seven_segment:t.led
+led_out[1] <= seven_segment:t.led
+led_out[2] <= seven_segment:t.led
+led_out[3] <= seven_segment:t.led
+led_out[4] <= seven_segment:t.led
+led_out[5] <= seven_segment:t.led
+led_out[6] <= seven_segment:t.led
+led_out[7] <= seven_segment:T.led
+led_out[8] <= seven_segment:T.led
+led_out[9] <= seven_segment:T.led
+led_out[10] <= seven_segment:T.led
+led_out[11] <= seven_segment:T.led
+led_out[12] <= seven_segment:T.led
+led_out[13] <= seven_segment:T.led
+green_h_led <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+yellow_h_led <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+red_h_led <= Equal2.DB_MAX_OUTPUT_PORT_TYPE
+green_n_led <= Equal3.DB_MAX_OUTPUT_PORT_TYPE
+yellow_n_led <= Equal4.DB_MAX_OUTPUT_PORT_TYPE
+red_n_led <= Equal5.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TrafficLight|clk_1s:clk_1s
+clk => clk_1s_enable~reg0.CLK
+clk => counter[0].CLK
+clk => counter[1].CLK
+clk => counter[2].CLK
+clk => counter[3].CLK
+clk => counter[4].CLK
+clk => counter[5].CLK
+clk => counter[6].CLK
+clk => counter[7].CLK
+clk => counter[8].CLK
+clk => counter[9].CLK
+clk => counter[10].CLK
+clk => counter[11].CLK
+clk => counter[12].CLK
+clk => counter[13].CLK
+clk => counter[14].CLK
+clk => counter[15].CLK
+clk => counter[16].CLK
+clk => counter[17].CLK
+clk => counter[18].CLK
+clk => counter[19].CLK
+clk => counter[20].CLK
+clk => counter[21].CLK
+clk => counter[22].CLK
+clk => counter[23].CLK
+clk => counter[24].CLK
+clk => counter[25].CLK
+rst_n => clk_1s_enable~reg0.ACLR
+rst_n => counter[0].ACLR
+rst_n => counter[1].ACLR
+rst_n => counter[2].ACLR
+rst_n => counter[3].ACLR
+rst_n => counter[4].ACLR
+rst_n => counter[5].ACLR
+rst_n => counter[6].ACLR
+rst_n => counter[7].ACLR
+rst_n => counter[8].ACLR
+rst_n => counter[9].ACLR
+rst_n => counter[10].ACLR
+rst_n => counter[11].ACLR
+rst_n => counter[12].ACLR
+rst_n => counter[13].ACLR
+rst_n => counter[14].ACLR
+rst_n => counter[15].ACLR
+rst_n => counter[16].ACLR
+rst_n => counter[17].ACLR
+rst_n => counter[18].ACLR
+rst_n => counter[19].ACLR
+rst_n => counter[20].ACLR
+rst_n => counter[21].ACLR
+rst_n => counter[22].ACLR
+rst_n => counter[23].ACLR
+rst_n => counter[24].ACLR
+rst_n => counter[25].ACLR
+clk_1s_enable <= clk_1s_enable~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TrafficLight|timer:timer
+clk => timeout[0]~reg0.CLK
+clk => timeout[1]~reg0.CLK
+clk => Timeout[0]~reg0.CLK
+clk => Timeout[1]~reg0.CLK
+clk => Timeout[2]~reg0.CLK
+clk => Timeout[3]~reg0.CLK
+start => Timeout.OUTPUTSELECT
+start => Timeout.OUTPUTSELECT
+start => Timeout.OUTPUTSELECT
+start => Timeout.OUTPUTSELECT
+start => timeout.OUTPUTSELECT
+start => timeout.OUTPUTSELECT
+clk_1s_enable => Timeout[3]~reg0.ENA
+clk_1s_enable => Timeout[2]~reg0.ENA
+clk_1s_enable => Timeout[1]~reg0.ENA
+clk_1s_enable => Timeout[0]~reg0.ENA
+clk_1s_enable => timeout[1]~reg0.ENA
+clk_1s_enable => timeout[0]~reg0.ENA
+Timeout[0] <= Timeout[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Timeout[1] <= Timeout[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Timeout[2] <= Timeout[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Timeout[3] <= Timeout[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+timeout[0] <= timeout[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+timeout[1] <= timeout[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TrafficLight|highway_controller:highway_controller
+clk => current_state~1.DATAIN
+rst_n => current_state~3.DATAIN
+car => always1.IN1
+Timeout[0] => Equal0.IN31
+Timeout[1] => Equal0.IN30
+Timeout[2] => Equal0.IN29
+Timeout[3] => Equal0.IN28
+timeout[0] => Equal1.IN31
+timeout[1] => Equal1.IN30
+enable_h => Selector2.IN2
+enable_h => Selector1.IN1
+enable_h => Selector4.IN2
+start_h <= start_h$latch.DB_MAX_OUTPUT_PORT_TYPE
+enable_n <= enable_n$latch.DB_MAX_OUTPUT_PORT_TYPE
+light_h[0] <= light_h[0].DB_MAX_OUTPUT_PORT_TYPE
+light_h[1] <= light_h[1].DB_MAX_OUTPUT_PORT_TYPE
+light_h[2] <= light_h[2].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TrafficLight|countryroad_controller:countryroad_controller
+clk => current_state~1.DATAIN
+rst_n => current_state~3.DATAIN
+car => ~NO_FANOUT~
+Timeout[0] => Equal0.IN31
+Timeout[1] => Equal0.IN30
+Timeout[2] => Equal0.IN29
+Timeout[3] => Equal0.IN28
+timeout[0] => Equal1.IN31
+timeout[1] => Equal1.IN30
+enable_n => Selector2.IN2
+enable_n => Selector1.IN1
+enable_n => Selector4.IN2
+start_n <= start_n$latch.DB_MAX_OUTPUT_PORT_TYPE
+enable_h <= enable_h$latch.DB_MAX_OUTPUT_PORT_TYPE
+light_n[0] <= light_n[0].DB_MAX_OUTPUT_PORT_TYPE
+light_n[1] <= light_n[1].DB_MAX_OUTPUT_PORT_TYPE
+light_n[2] <= light_n[2].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TrafficLight|seven_segment:T
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+led[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+led[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+led[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+led[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+led[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+led[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+led[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TrafficLight|seven_segment:t
+value[0] => Decoder0.IN3
+value[1] => Decoder0.IN2
+value[2] => Decoder0.IN1
+value[3] => Decoder0.IN0
+led[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+led[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+led[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+led[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+led[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+led[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+led[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+

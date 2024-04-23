@@ -1,0 +1,113 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -3.220
+TNS   : -71.235
+
+Type  : Slow 1200mV 85C Model Setup 'countryroad_controller:countryroad_controller|current_state.YELLOW_N'
+Slack : -2.010
+TNS   : -3.379
+
+Type  : Slow 1200mV 85C Model Setup 'highway_controller:highway_controller|current_state.YELLOW_H'
+Slack : -1.365
+TNS   : -2.348
+
+Type  : Slow 1200mV 85C Model Hold 'highway_controller:highway_controller|current_state.YELLOW_H'
+Slack : 0.379
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'countryroad_controller:countryroad_controller|current_state.YELLOW_N'
+Slack : 0.624
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -53.115
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'highway_controller:highway_controller|current_state.YELLOW_H'
+Slack : 0.467
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'countryroad_controller:countryroad_controller|current_state.YELLOW_N'
+Slack : 0.486
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -2.883
+TNS   : -60.908
+
+Type  : Slow 1200mV 0C Model Setup 'countryroad_controller:countryroad_controller|current_state.YELLOW_N'
+Slack : -1.721
+TNS   : -2.986
+
+Type  : Slow 1200mV 0C Model Setup 'highway_controller:highway_controller|current_state.YELLOW_H'
+Slack : -1.185
+TNS   : -2.104
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'highway_controller:highway_controller|current_state.YELLOW_H'
+Slack : 0.475
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'countryroad_controller:countryroad_controller|current_state.YELLOW_N'
+Slack : 0.611
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -53.115
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'highway_controller:highway_controller|current_state.YELLOW_H'
+Slack : 0.397
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'countryroad_controller:countryroad_controller|current_state.YELLOW_N'
+Slack : 0.446
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -1.052
+TNS   : -17.243
+
+Type  : Fast 1200mV 0C Model Setup 'countryroad_controller:countryroad_controller|current_state.YELLOW_N'
+Slack : -0.856
+TNS   : -1.207
+
+Type  : Fast 1200mV 0C Model Setup 'highway_controller:highway_controller|current_state.YELLOW_H'
+Slack : -0.419
+TNS   : -0.554
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'countryroad_controller:countryroad_controller|current_state.YELLOW_N'
+Slack : 0.281
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'highway_controller:highway_controller|current_state.YELLOW_H'
+Slack : 0.303
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -44.672
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'highway_controller:highway_controller|current_state.YELLOW_H'
+Slack : 0.366
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'countryroad_controller:countryroad_controller|current_state.YELLOW_N'
+Slack : 0.388
+TNS   : 0.000
+
+------------------------------------------------------------

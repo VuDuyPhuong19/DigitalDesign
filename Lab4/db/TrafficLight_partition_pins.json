@@ -1,0 +1,97 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "led_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "led_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "led_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "led_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "led_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "led_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "led_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "led_out[8]",
+					"strict" : false
+				},
+				{
+					"name" : "led_out[9]",
+					"strict" : false
+				},
+				{
+					"name" : "led_out[10]",
+					"strict" : false
+				},
+				{
+					"name" : "led_out[11]",
+					"strict" : false
+				},
+				{
+					"name" : "led_out[12]",
+					"strict" : false
+				},
+				{
+					"name" : "led_out[13]",
+					"strict" : false
+				},
+				{
+					"name" : "green_h_led",
+					"strict" : false
+				},
+				{
+					"name" : "yellow_h_led",
+					"strict" : false
+				},
+				{
+					"name" : "red_h_led",
+					"strict" : false
+				},
+				{
+					"name" : "green_n_led",
+					"strict" : false
+				},
+				{
+					"name" : "yellow_n_led",
+					"strict" : false
+				},
+				{
+					"name" : "red_n_led",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "car",
+					"strict" : false
+				},
+				{
+					"name" : "rst_n",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
