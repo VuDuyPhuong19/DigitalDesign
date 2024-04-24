@@ -1,3 +1,6 @@
+// architecture (draw.io) 
+// https://app.diagrams.net/#G1OU_oI-Piuf8ZVvSfukQoe2DTeIAQKjZS#%7B%22pageId%22%3A%22jCtttE93AKi2Yj6rNEwo%22%7D
+
 module TrafficLight(
 	input clk,
 	input rst_n,
