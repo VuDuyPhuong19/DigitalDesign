@@ -4,8 +4,8 @@ module timer #(
 	parameter t_bit = 2
 )(        
 	input clk,           
-	input start,
-	input clk_1s_enable,
+	input start_y,
+	input start_g,
 	output reg [TIMEOUT_BIT-1:0] Timeout,
 	output reg [t_bit-1:0] timeout
 );
@@ -20,16 +20,30 @@ end
 
 always @ (posedge clk) begin
 	// if (clk_1s_enable) begin
-		if (start) begin
-			Timeout <= TIMEOUT_MAX;
+		// if (start) begin
+		// 	Timeout <= TIMEOUT_MAX;
+		// 	timeout <= tIMEOUT_MAX;
+		// end
+		// else begin
+        //     if (Timeout != 0) begin
+        //         Timeout <= Timeout - 1;
+        //     end else if (timeout != 0) begin
+        //         timeout <= timeout - 1;
+        //     end
+		// end
+		// Timeout <= TIMEOUT_MAX;
+		// timeout <= tIMEOUT_MAX;
+		if (start_y) begin
 			timeout <= tIMEOUT_MAX;
 		end
 		else begin
-            if (Timeout != 0) begin
-                Timeout <= Timeout - 1;
-            end else if (timeout != 0) begin
-                timeout <= timeout - 1;
-            end
+			timeout <= timeout - 1;
+		end
+		if (start_g) begin
+			Timeout <= TIMEOUT_MAX;
+		end
+		else begin
+			Timeout <= Timeout - 1;
 		end
 	// end
 end

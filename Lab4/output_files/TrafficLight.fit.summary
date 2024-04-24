@@ -1,11 +1,11 @@
-Fitter Status : Successful - Mon Apr 22 18:59:32 2024
+Fitter Status : Successful - Tue Apr 23 16:09:30 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : TrafficLight
 Top-level Entity Name : TrafficLight
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 85 / 114,480 ( < 1 % )
+Total logic elements : 84 / 114,480 ( < 1 % )
     Total combinational functions : 83 / 114,480 ( < 1 % )
     Dedicated logic registers : 39 / 114,480 ( < 1 % )
 Total registers : 39

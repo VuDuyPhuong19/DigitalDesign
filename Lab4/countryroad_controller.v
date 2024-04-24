@@ -10,7 +10,8 @@ module countryroad_controller #(
 	input [TIMEOUT_BIT-1:0] Timeout,
 	input [t_bit-1:0] timeout,
 	input enable_n,
-	output reg start_n, // kích hoạt đếm 
+	output reg start_y_n, // kích hoạt đếm 
+	output reg start_g_n,
 	output reg enable_h,
 	output reg [LIGHT_BIT-1:0] light_n
 );
@@ -36,14 +37,15 @@ end
 
 always @ (current_state or next_state or enable_n or car or Timeout or timeout) begin
 	next_state = current_state;
-	start_n = 0;
+	start_y_n = 0;
+	start_g_n = 0;
 	enable_h = 0;
 	case (current_state)
 		GREEN_N: begin
 			light_n = GREEN_LIGHT;
 			if (Timeout == 0) begin
 				next_state = YELLOW_N;
-				start_n = 1;
+				start_y_n = 1;
 			end
 			// else begin
 			// 	next_state = current_state;
@@ -65,7 +67,7 @@ always @ (current_state or next_state or enable_n or car or Timeout or timeout) 
 			light_n = RED_LIGHT;
 			if (enable_n) begin
 				next_state = GREEN_N;
-				start_n = 1;
+				start_g_n = 1;
 			end
 			// else begin
 			// 	next_state = current_state;

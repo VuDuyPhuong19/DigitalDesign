@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TrafficLight
-Mon Apr 22 18:59:17 2024
+Tue Apr 23 16:09:18 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -15,11 +15,11 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |TrafficLight|countryroad_controller:countryroad_controller|current_state
   9. State Machine - |TrafficLight|highway_controller:highway_controller|current_state
- 10. User-Specified and Inferred Latches
- 11. General Register Statistics
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
  13. Parameter Settings for User Entity Instance: Top-level Entity: |TrafficLight
- 14. Parameter Settings for User Entity Instance: clk_1s:clk_1s
+ 14. Parameter Settings for User Entity Instance: one_second_pulse:one_second_pulse
  15. Parameter Settings for User Entity Instance: timer:timer
  16. Parameter Settings for User Entity Instance: highway_controller:highway_controller
  17. Parameter Settings for User Entity Instance: countryroad_controller:countryroad_controller
@@ -56,7 +56,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Apr 22 18:59:16 2024          ;
+; Analysis & Synthesis Status        ; Successful - Tue Apr 23 16:09:18 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; TrafficLight                                   ;
 ; Top-level Entity Name              ; TrafficLight                                   ;
@@ -172,8 +172,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-4         ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -185,42 +184,42 @@ https://fpgasoftware.intel.com/eula.
 ; highway_controller.v             ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/highway_controller.v     ;         ;
 ; countryroad_controller.v         ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/countryroad_controller.v ;         ;
 ; timer.v                          ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/timer.v                  ;         ;
-; clk_1s.v                         ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/clk_1s.v                 ;         ;
 ; TrafficLight.v                   ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v           ;         ;
 ; seven_segment.v                  ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/seven_segment.v          ;         ;
+; one_second_pulse.v               ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/one_second_pulse.v       ;         ;
 +----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 83        ;
-;                                             ;           ;
-; Total combinational functions               ; 83        ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 31        ;
-;     -- 3 input functions                    ; 8         ;
-;     -- <=2 input functions                  ; 44        ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 58        ;
-;     -- arithmetic mode                      ; 25        ;
-;                                             ;           ;
-; Total registers                             ; 39        ;
-;     -- Dedicated logic registers            ; 39        ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 23        ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 39        ;
-; Total fan-out                               ; 390       ;
-; Average fan-out                             ; 2.32      ;
-+---------------------------------------------+-----------+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 83          ;
+;                                             ;             ;
+; Total combinational functions               ; 83          ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 33          ;
+;     -- 3 input functions                    ; 5           ;
+;     -- <=2 input functions                  ; 45          ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 58          ;
+;     -- arithmetic mode                      ; 25          ;
+;                                             ;             ;
+; Total registers                             ; 39          ;
+;     -- Dedicated logic registers            ; 39          ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 23          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; rst_n~input ;
+; Maximum fan-out                             ; 33          ;
+; Total fan-out                               ; 389         ;
+; Average fan-out                             ; 2.32        ;
++---------------------------------------------+-------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -228,13 +227,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                         ; Entity Name            ; Library Name ;
 +----------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------+------------------------+--------------+
-; |TrafficLight                                      ; 83 (0)              ; 39 (0)                    ; 0           ; 0            ; 0       ; 0         ; 23   ; 0            ; |TrafficLight                                               ; TrafficLight           ; work         ;
-;    |clk_1s:clk_1s|                                 ; 47 (47)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TrafficLight|clk_1s:clk_1s                                 ; clk_1s                 ; work         ;
+; |TrafficLight                                      ; 83 (3)              ; 39 (0)                    ; 0           ; 0            ; 0       ; 0         ; 23   ; 0            ; |TrafficLight                                               ; TrafficLight           ; work         ;
 ;    |countryroad_controller:countryroad_controller| ; 7 (7)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TrafficLight|countryroad_controller:countryroad_controller ; countryroad_controller ; work         ;
-;    |highway_controller:highway_controller|         ; 8 (8)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TrafficLight|highway_controller:highway_controller         ; highway_controller     ; work         ;
+;    |highway_controller:highway_controller|         ; 9 (9)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TrafficLight|highway_controller:highway_controller         ; highway_controller     ; work         ;
+;    |one_second_pulse:one_second_pulse|             ; 47 (47)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TrafficLight|one_second_pulse:one_second_pulse             ; one_second_pulse       ; work         ;
 ;    |seven_segment:T|                               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TrafficLight|seven_segment:T                               ; seven_segment          ; work         ;
 ;    |seven_segment:t|                               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TrafficLight|seven_segment:t                               ; seven_segment          ; work         ;
-;    |timer:timer|                                   ; 11 (11)             ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TrafficLight|timer:timer                                   ; timer                  ; work         ;
+;    |timer:timer|                                   ; 7 (7)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TrafficLight|timer:timer                                   ; timer                  ; work         ;
 +----------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------+------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -263,20 +262,6 @@ Encoding Type:  One-Hot
 +------------------------+---------------------+------------------------+-----------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                                                                    ;
-+--------------------------------------------------------+----------------------------------------------------------------------+------------------------+
-; Latch Name                                             ; Latch Enable Signal                                                  ; Free of Timing Hazards ;
-+--------------------------------------------------------+----------------------------------------------------------------------+------------------------+
-; highway_controller:highway_controller|start_h          ; highway_controller:highway_controller|current_state.YELLOW_H         ; yes                    ;
-; countryroad_controller:countryroad_controller|start_n  ; countryroad_controller:countryroad_controller|current_state.YELLOW_N ; yes                    ;
-; countryroad_controller:countryroad_controller|enable_h ; countryroad_controller:countryroad_controller|current_state.YELLOW_N ; yes                    ;
-; highway_controller:highway_controller|enable_n         ; highway_controller:highway_controller|current_state.YELLOW_H         ; yes                    ;
-; Number of user-specified and inferred latches = 4      ;                                                                      ;                        ;
-+--------------------------------------------------------+----------------------------------------------------------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
@@ -287,19 +272,32 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 33    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 2     ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TrafficLight|timer:timer|timeout[1] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TrafficLight|timer:timer|Timeout[3] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; timer:timer|timeout[1]                 ; 8       ;
+; timer:timer|timeout[0]                 ; 9       ;
+; timer:timer|Timeout[0]                 ; 12      ;
+; timer:timer|Timeout[3]                 ; 9       ;
+; Total number of inverted registers = 4 ;         ;
++----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |TrafficLight|countryroad_controller:countryroad_controller|Selector1 ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |TrafficLight|highway_controller:highway_controller|Selector0         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------+
@@ -317,13 +315,13 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: clk_1s:clk_1s ;
-+----------------+----------+--------------------------------+
-; Parameter Name ; Value    ; Type                           ;
-+----------------+----------+--------------------------------+
-; COUNTER_MAX    ; 50000000 ; Signed Integer                 ;
-+----------------+----------+--------------------------------+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: one_second_pulse:one_second_pulse ;
++----------------+----------+----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                               ;
++----------------+----------+----------------------------------------------------+
+; COUNTER_MAX    ; 50000000 ; Signed Integer                                     ;
++----------------+----------+----------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -401,20 +399,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; boundary_port         ; 23                          ;
 ; cycloneiii_ff         ; 39                          ;
 ;     CLR               ; 33                          ;
-;     ENA               ; 2                           ;
-;     plain             ; 4                           ;
-; cycloneiii_lcell_comb ; 90                          ;
+;     plain             ; 6                           ;
+; cycloneiii_lcell_comb ; 88                          ;
 ;     arith             ; 25                          ;
 ;         2 data inputs ; 25                          ;
-;     normal            ; 65                          ;
+;     normal            ; 63                          ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 7                           ;
-;         2 data inputs ; 18                          ;
-;         3 data inputs ; 8                           ;
-;         4 data inputs ; 31                          ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 19                          ;
+;         3 data inputs ; 5                           ;
+;         4 data inputs ; 33                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.50                        ;
-; Average LUT depth     ; 3.04                        ;
+; Average LUT depth     ; 3.30                        ;
 +-----------------------+-----------------------------+
 
 
@@ -433,63 +430,60 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Mon Apr 22 18:59:07 2024
+    Info: Processing started: Tue Apr 23 16:09:11 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TrafficLight -c TrafficLight
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file highway_controller.v
+Info (12021): Found 2 design units, including 2 entities, in source file highway_controller.v
     Info (12023): Found entity 1: highway_controller File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/highway_controller.v Line: 2
+    Info (12023): Found entity 2: highway_controller_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/highway_controller.v Line: 82
 Info (12021): Found 1 design units, including 1 entities, in source file countryroad_controller.v
     Info (12023): Found entity 1: countryroad_controller File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/countryroad_controller.v Line: 2
-Info (12021): Found 1 design units, including 1 entities, in source file timer.v
+Info (12021): Found 2 design units, including 2 entities, in source file timer.v
     Info (12023): Found entity 1: timer File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/timer.v Line: 2
+    Info (12023): Found entity 2: timer_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/timer.v Line: 53
 Info (12021): Found 1 design units, including 1 entities, in source file clk_1s.v
     Info (12023): Found entity 1: clk_1s File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/clk_1s.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file trafficlight.v
     Info (12023): Found entity 1: TrafficLight File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file seven_segment.v
     Info (12023): Found entity 1: seven_segment File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/seven_segment.v Line: 1
-Warning (10222): Verilog HDL Parameter Declaration warning at highway_controller.v(18): Parameter Declaration in module "highway_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/highway_controller.v Line: 18
+Info (12021): Found 1 design units, including 1 entities, in source file one_second_pulse.v
+    Info (12023): Found entity 1: one_second_pulse File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/one_second_pulse.v Line: 1
 Warning (10222): Verilog HDL Parameter Declaration warning at highway_controller.v(19): Parameter Declaration in module "highway_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/highway_controller.v Line: 19
 Warning (10222): Verilog HDL Parameter Declaration warning at highway_controller.v(20): Parameter Declaration in module "highway_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/highway_controller.v Line: 20
 Warning (10222): Verilog HDL Parameter Declaration warning at highway_controller.v(21): Parameter Declaration in module "highway_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/highway_controller.v Line: 21
 Warning (10222): Verilog HDL Parameter Declaration warning at highway_controller.v(22): Parameter Declaration in module "highway_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/highway_controller.v Line: 22
 Warning (10222): Verilog HDL Parameter Declaration warning at highway_controller.v(23): Parameter Declaration in module "highway_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/highway_controller.v Line: 23
 Warning (10222): Verilog HDL Parameter Declaration warning at highway_controller.v(24): Parameter Declaration in module "highway_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/highway_controller.v Line: 24
-Warning (10222): Verilog HDL Parameter Declaration warning at countryroad_controller.v(18): Parameter Declaration in module "countryroad_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/countryroad_controller.v Line: 18
+Warning (10222): Verilog HDL Parameter Declaration warning at highway_controller.v(25): Parameter Declaration in module "highway_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/highway_controller.v Line: 25
 Warning (10222): Verilog HDL Parameter Declaration warning at countryroad_controller.v(19): Parameter Declaration in module "countryroad_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/countryroad_controller.v Line: 19
 Warning (10222): Verilog HDL Parameter Declaration warning at countryroad_controller.v(20): Parameter Declaration in module "countryroad_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/countryroad_controller.v Line: 20
 Warning (10222): Verilog HDL Parameter Declaration warning at countryroad_controller.v(21): Parameter Declaration in module "countryroad_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/countryroad_controller.v Line: 21
 Warning (10222): Verilog HDL Parameter Declaration warning at countryroad_controller.v(22): Parameter Declaration in module "countryroad_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/countryroad_controller.v Line: 22
 Warning (10222): Verilog HDL Parameter Declaration warning at countryroad_controller.v(23): Parameter Declaration in module "countryroad_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/countryroad_controller.v Line: 23
 Warning (10222): Verilog HDL Parameter Declaration warning at countryroad_controller.v(24): Parameter Declaration in module "countryroad_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/countryroad_controller.v Line: 24
+Warning (10222): Verilog HDL Parameter Declaration warning at countryroad_controller.v(25): Parameter Declaration in module "countryroad_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/countryroad_controller.v Line: 25
 Warning (10222): Verilog HDL Parameter Declaration warning at timer.v(13): Parameter Declaration in module "timer" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/timer.v Line: 13
 Warning (10222): Verilog HDL Parameter Declaration warning at timer.v(14): Parameter Declaration in module "timer" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/timer.v Line: 14
 Info (12127): Elaborating entity "TrafficLight" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at TrafficLight.v(54): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 54
-Warning (10230): Verilog HDL assignment warning at TrafficLight.v(55): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 55
-Warning (10230): Verilog HDL assignment warning at TrafficLight.v(56): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 56
+Warning (10230): Verilog HDL assignment warning at TrafficLight.v(57): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 57
 Warning (10230): Verilog HDL assignment warning at TrafficLight.v(58): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 58
 Warning (10230): Verilog HDL assignment warning at TrafficLight.v(59): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 59
-Warning (10230): Verilog HDL assignment warning at TrafficLight.v(60): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 60
-Info (12128): Elaborating entity "clk_1s" for hierarchy "clk_1s:clk_1s" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 23
-Warning (10230): Verilog HDL assignment warning at clk_1s.v(21): truncated value with size 32 to match size of target (26) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/clk_1s.v Line: 21
-Info (12128): Elaborating entity "timer" for hierarchy "timer:timer" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 26
-Warning (10230): Verilog HDL assignment warning at timer.v(19): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/timer.v Line: 19
-Warning (10230): Verilog HDL assignment warning at timer.v(20): truncated value with size 32 to match size of target (2) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/timer.v Line: 20
-Warning (10230): Verilog HDL assignment warning at timer.v(24): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/timer.v Line: 24
-Warning (10230): Verilog HDL assignment warning at timer.v(27): truncated value with size 32 to match size of target (2) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/timer.v Line: 27
-Info (12128): Elaborating entity "highway_controller" for hierarchy "highway_controller:highway_controller" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 38
-Warning (10240): Verilog HDL Always Construct warning at highway_controller.v(37): inferring latch(es) for variable "start_h", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/highway_controller.v Line: 37
-Warning (10240): Verilog HDL Always Construct warning at highway_controller.v(37): inferring latch(es) for variable "enable_n", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/highway_controller.v Line: 37
-Info (10041): Inferred latch for "enable_n" at highway_controller.v(37) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/highway_controller.v Line: 37
-Info (10041): Inferred latch for "start_h" at highway_controller.v(37) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/highway_controller.v Line: 37
-Info (12128): Elaborating entity "countryroad_controller" for hierarchy "countryroad_controller:countryroad_controller" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 50
-Warning (10240): Verilog HDL Always Construct warning at countryroad_controller.v(37): inferring latch(es) for variable "start_n", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/countryroad_controller.v Line: 37
-Warning (10240): Verilog HDL Always Construct warning at countryroad_controller.v(37): inferring latch(es) for variable "enable_h", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/countryroad_controller.v Line: 37
-Info (10041): Inferred latch for "enable_h" at countryroad_controller.v(37) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/countryroad_controller.v Line: 37
-Info (10041): Inferred latch for "start_n" at countryroad_controller.v(37) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/countryroad_controller.v Line: 37
-Info (12128): Elaborating entity "seven_segment" for hierarchy "seven_segment:T" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 62
+Warning (10230): Verilog HDL assignment warning at TrafficLight.v(61): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 61
+Warning (10230): Verilog HDL assignment warning at TrafficLight.v(62): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 62
+Warning (10230): Verilog HDL assignment warning at TrafficLight.v(63): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 63
+Info (12128): Elaborating entity "one_second_pulse" for hierarchy "one_second_pulse:one_second_pulse" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 26
+Info (12128): Elaborating entity "timer" for hierarchy "timer:timer" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 29
+Warning (10230): Verilog HDL assignment warning at timer.v(17): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/timer.v Line: 17
+Warning (10230): Verilog HDL assignment warning at timer.v(18): truncated value with size 32 to match size of target (2) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/timer.v Line: 18
+Warning (10230): Verilog HDL assignment warning at timer.v(37): truncated value with size 32 to match size of target (2) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/timer.v Line: 37
+Warning (10230): Verilog HDL assignment warning at timer.v(40): truncated value with size 32 to match size of target (2) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/timer.v Line: 40
+Warning (10230): Verilog HDL assignment warning at timer.v(43): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/timer.v Line: 43
+Warning (10230): Verilog HDL assignment warning at timer.v(46): truncated value with size 32 to match size of target (4) File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/timer.v Line: 46
+Info (12128): Elaborating entity "highway_controller" for hierarchy "highway_controller:highway_controller" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 42
+Info (12128): Elaborating entity "countryroad_controller" for hierarchy "countryroad_controller:countryroad_controller" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 55
+Info (12128): Elaborating entity "seven_segment" for hierarchy "seven_segment:T" File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 65
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "led_out[5]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Lab4/TrafficLight.v Line: 5
@@ -501,10 +495,10 @@ Info (21057): Implemented 107 device resources after synthesis - the final resou
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 20 output pins
     Info (21061): Implemented 84 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 35 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 32 warnings
     Info: Peak virtual memory: 4774 megabytes
-    Info: Processing ended: Mon Apr 22 18:59:17 2024
-    Info: Elapsed time: 00:00:10
+    Info: Processing ended: Tue Apr 23 16:09:18 2024
+    Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:07
 
 

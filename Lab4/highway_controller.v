@@ -10,7 +10,8 @@ module highway_controller #(
 	input [TIMEOUT_BIT-1:0] Timeout,
 	input [t_bit-1:0] timeout,
 	input enable_h,
-	output reg start_h, // kích hoạt đếm 
+	output reg start_y_h, // kích hoạt đếm 
+	output reg start_g_h,
 	output reg enable_n,
 	output reg [LIGHT_BIT-1:0] light_h
 );
@@ -36,14 +37,15 @@ end
 
 always @ (current_state or next_state or enable_h or car or Timeout or timeout) begin
 	next_state = current_state;
-	start_h = 0;
+	start_y_h = 0;
+	start_g_h = 0;
 	enable_n = 0;
 	case(current_state)
 		GREEN_H: begin
 			light_h = GREEN_LIGHT;
 			if (~car && Timeout == 0) begin
 				next_state = YELLOW_H;
-				start_h = 1;
+				start_y_h = 1;
 			end 
 			// else begin
 			// 	next_state <= current_state;
@@ -65,7 +67,7 @@ always @ (current_state or next_state or enable_h or car or Timeout or timeout) 
 			light_h = RED_LIGHT;
 			if (enable_h) begin
 				next_state = GREEN_H;
-				start_h = 1;
+				start_g_h = 1;
 			end
 			// else begin
 			// 	next_state = current_state;
