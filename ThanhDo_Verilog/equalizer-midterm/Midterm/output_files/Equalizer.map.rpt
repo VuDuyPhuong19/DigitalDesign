@@ -1,0 +1,1172 @@
+Analysis & Synthesis report for Equalizer
+Fri Apr 12 11:33:31 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |Equalizer
+ 12. Parameter Settings for User Entity Instance: counter:counter
+ 13. Parameter Settings for User Entity Instance: FIR_filter:filter_block[0].filter
+ 14. Parameter Settings for User Entity Instance: FIR_filter:filter_block[0].filter|counter:counter
+ 15. Parameter Settings for User Entity Instance: FIR_filter:filter_block[0].filter|coeffs:coeffs
+ 16. Parameter Settings for User Entity Instance: FIR_filter:filter_block[0].filter|delay:delay
+ 17. Parameter Settings for User Entity Instance: FIR_filter:filter_block[0].filter|mac:mac
+ 18. Parameter Settings for User Entity Instance: FIR_filter:filter_block[0].filter|mac:mac|multiplier:mul
+ 19. Parameter Settings for User Entity Instance: FIR_filter:filter_block[1].filter
+ 20. Parameter Settings for User Entity Instance: FIR_filter:filter_block[1].filter|counter:counter
+ 21. Parameter Settings for User Entity Instance: FIR_filter:filter_block[1].filter|coeffs:coeffs
+ 22. Parameter Settings for User Entity Instance: FIR_filter:filter_block[1].filter|delay:delay
+ 23. Parameter Settings for User Entity Instance: FIR_filter:filter_block[1].filter|mac:mac
+ 24. Parameter Settings for User Entity Instance: FIR_filter:filter_block[1].filter|mac:mac|multiplier:mul
+ 25. Parameter Settings for User Entity Instance: FIR_filter:filter_block[2].filter
+ 26. Parameter Settings for User Entity Instance: FIR_filter:filter_block[2].filter|counter:counter
+ 27. Parameter Settings for User Entity Instance: FIR_filter:filter_block[2].filter|coeffs:coeffs
+ 28. Parameter Settings for User Entity Instance: FIR_filter:filter_block[2].filter|delay:delay
+ 29. Parameter Settings for User Entity Instance: FIR_filter:filter_block[2].filter|mac:mac
+ 30. Parameter Settings for User Entity Instance: FIR_filter:filter_block[2].filter|mac:mac|multiplier:mul
+ 31. Parameter Settings for User Entity Instance: FIR_filter:filter_block[3].filter
+ 32. Parameter Settings for User Entity Instance: FIR_filter:filter_block[3].filter|counter:counter
+ 33. Parameter Settings for User Entity Instance: FIR_filter:filter_block[3].filter|coeffs:coeffs
+ 34. Parameter Settings for User Entity Instance: FIR_filter:filter_block[3].filter|delay:delay
+ 35. Parameter Settings for User Entity Instance: FIR_filter:filter_block[3].filter|mac:mac
+ 36. Parameter Settings for User Entity Instance: FIR_filter:filter_block[3].filter|mac:mac|multiplier:mul
+ 37. Parameter Settings for User Entity Instance: FIR_filter:filter_block[4].filter
+ 38. Parameter Settings for User Entity Instance: FIR_filter:filter_block[4].filter|counter:counter
+ 39. Parameter Settings for User Entity Instance: FIR_filter:filter_block[4].filter|coeffs:coeffs
+ 40. Parameter Settings for User Entity Instance: FIR_filter:filter_block[4].filter|delay:delay
+ 41. Parameter Settings for User Entity Instance: FIR_filter:filter_block[4].filter|mac:mac
+ 42. Parameter Settings for User Entity Instance: FIR_filter:filter_block[4].filter|mac:mac|multiplier:mul
+ 43. Parameter Settings for User Entity Instance: FIR_filter:filter_block[5].filter
+ 44. Parameter Settings for User Entity Instance: FIR_filter:filter_block[5].filter|counter:counter
+ 45. Parameter Settings for User Entity Instance: FIR_filter:filter_block[5].filter|coeffs:coeffs
+ 46. Parameter Settings for User Entity Instance: FIR_filter:filter_block[5].filter|delay:delay
+ 47. Parameter Settings for User Entity Instance: FIR_filter:filter_block[5].filter|mac:mac
+ 48. Parameter Settings for User Entity Instance: FIR_filter:filter_block[5].filter|mac:mac|multiplier:mul
+ 49. Parameter Settings for User Entity Instance: FIR_filter:filter_block[6].filter
+ 50. Parameter Settings for User Entity Instance: FIR_filter:filter_block[6].filter|counter:counter
+ 51. Parameter Settings for User Entity Instance: FIR_filter:filter_block[6].filter|coeffs:coeffs
+ 52. Parameter Settings for User Entity Instance: FIR_filter:filter_block[6].filter|delay:delay
+ 53. Parameter Settings for User Entity Instance: FIR_filter:filter_block[6].filter|mac:mac
+ 54. Parameter Settings for User Entity Instance: FIR_filter:filter_block[6].filter|mac:mac|multiplier:mul
+ 55. Parameter Settings for User Entity Instance: FIR_filter:filter_block[7].filter
+ 56. Parameter Settings for User Entity Instance: FIR_filter:filter_block[7].filter|counter:counter
+ 57. Parameter Settings for User Entity Instance: FIR_filter:filter_block[7].filter|coeffs:coeffs
+ 58. Parameter Settings for User Entity Instance: FIR_filter:filter_block[7].filter|delay:delay
+ 59. Parameter Settings for User Entity Instance: FIR_filter:filter_block[7].filter|mac:mac
+ 60. Parameter Settings for User Entity Instance: FIR_filter:filter_block[7].filter|mac:mac|multiplier:mul
+ 61. Port Connectivity Checks: "FIR_filter:filter_block[6].filter"
+ 62. Port Connectivity Checks: "FIR_filter:filter_block[5].filter"
+ 63. Port Connectivity Checks: "FIR_filter:filter_block[4].filter"
+ 64. Port Connectivity Checks: "FIR_filter:filter_block[3].filter"
+ 65. Port Connectivity Checks: "FIR_filter:filter_block[2].filter"
+ 66. Port Connectivity Checks: "FIR_filter:filter_block[1].filter"
+ 67. Port Connectivity Checks: "FIR_filter:filter_block[0].filter|mac:mac|multiplier:mul"
+ 68. Port Connectivity Checks: "FIR_filter:filter_block[0].filter|delay:delay"
+ 69. Port Connectivity Checks: "FIR_filter:filter_block[0].filter"
+ 70. Port Connectivity Checks: "counter:counter"
+ 71. Post-Synthesis Netlist Statistics for Top Partition
+ 72. Elapsed Time Per Partition
+ 73. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Apr 12 11:33:31 2024          ;
+; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Revision Name                      ; Equalizer                                      ;
+; Top-level Entity Name              ; Equalizer                                      ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 0                                              ;
+;     Total combinational functions  ; 0                                              ;
+;     Dedicated logic registers      ; 0                                              ;
+; Total registers                    ; 0                                              ;
+; Total pins                         ; 74                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; Equalizer          ; Equalizer          ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                          ;
++----------------------------------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                               ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                        ; Library ;
++----------------------------------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
+; coeffs.v                                                       ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/coeffs.v     ;         ;
+; delay.v                                                        ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/delay.v      ;         ;
+; counter.v                                                      ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/counter.v    ;         ;
+; mac.v                                                          ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v        ;         ;
+; FIR_filter.v                                                   ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/FIR_filter.v ;         ;
+; multiplier.v                                                   ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/multiplier.v ;         ;
+; Equalizer.v                                                    ; yes             ; User Verilog HDL File        ; D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v  ;         ;
+; verilog projectdigitaldesigndigitaldesignmidtermdata_input.txt ; yes             ; Auto-Generated Megafunction  ; verilog projectdigitaldesigndigitaldesignmidtermdata_input.txt      ;         ;
++----------------------------------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 74    ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 74    ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |Equalizer                 ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 74   ; 0            ; |Equalizer          ; Equalizer   ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                    ;
++----------------------------------------------------------------+----------------------------------------------------------------------+
+; Register name                                                  ; Reason for Removal                                                   ;
++----------------------------------------------------------------+----------------------------------------------------------------------+
+; FIR_filter:filter_block[7].filter|delay:delay|data_delay[0][0] ; Stuck at GND due to stuck port data_in                               ;
+; FIR_filter:filter_block[7].filter|delay:delay|data_delay[1][0] ; Stuck at GND due to stuck port data_in                               ;
+; FIR_filter:filter_block[7].filter|delay:delay|data_delay[0][3] ; Stuck at GND due to stuck port data_in                               ;
+; FIR_filter:filter_block[7].filter|delay:delay|data_delay[0][2] ; Stuck at GND due to stuck port data_in                               ;
+; FIR_filter:filter_block[7].filter|delay:delay|data_delay[0][1] ; Stuck at GND due to stuck port data_in                               ;
+; FIR_filter:filter_block[7].filter|delay:delay|data_delay[1][3] ; Stuck at GND due to stuck port data_in                               ;
+; FIR_filter:filter_block[7].filter|delay:delay|data_delay[1][2] ; Stuck at GND due to stuck port data_in                               ;
+; FIR_filter:filter_block[7].filter|delay:delay|data_delay[1][1] ; Stuck at GND due to stuck port data_in                               ;
+; FIR_filter:filter_block[7].filter|mac:mac|accumulator[16..31]  ; Lost fanout                                                          ;
+; FIR_filter:filter_block[7].filter|mac:mac|accumulator[1..15]   ; Merged with FIR_filter:filter_block[7].filter|mac:mac|accumulator[0] ;
+; FIR_filter:filter_block[7].filter|mac:mac|accumulator[0]       ; Stuck at GND due to stuck port data_in                               ;
+; data_out[0]~reg0                                               ; Stuck at GND due to stuck port data_in                               ;
+; data_out[15]~reg0                                              ; Stuck at GND due to stuck port data_in                               ;
+; data_out[14]~reg0                                              ; Stuck at GND due to stuck port data_in                               ;
+; data_out[13]~reg0                                              ; Stuck at GND due to stuck port data_in                               ;
+; data_out[12]~reg0                                              ; Stuck at GND due to stuck port data_in                               ;
+; data_out[11]~reg0                                              ; Stuck at GND due to stuck port data_in                               ;
+; data_out[10]~reg0                                              ; Stuck at GND due to stuck port data_in                               ;
+; data_out[9]~reg0                                               ; Stuck at GND due to stuck port data_in                               ;
+; data_out[8]~reg0                                               ; Stuck at GND due to stuck port data_in                               ;
+; data_out[7]~reg0                                               ; Stuck at GND due to stuck port data_in                               ;
+; data_out[6]~reg0                                               ; Stuck at GND due to stuck port data_in                               ;
+; data_out[5]~reg0                                               ; Stuck at GND due to stuck port data_in                               ;
+; data_out[4]~reg0                                               ; Stuck at GND due to stuck port data_in                               ;
+; data_out[3]~reg0                                               ; Stuck at GND due to stuck port data_in                               ;
+; data_out[2]~reg0                                               ; Stuck at GND due to stuck port data_in                               ;
+; data_out[1]~reg0                                               ; Stuck at GND due to stuck port data_in                               ;
+; FIR_filter:filter_block[7].filter|counter:counter|count[0..4]  ; Lost fanout                                                          ;
+; Total Number of Removed Registers = 61                         ;                                                                      ;
++----------------------------------------------------------------+----------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                              ;
++----------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------+
+; Register name                                                  ; Reason for Removal        ; Registers Removed due to This Register                                      ;
++----------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------+
+; FIR_filter:filter_block[7].filter|mac:mac|accumulator[0]       ; Stuck at GND              ; data_out[15]~reg0, data_out[14]~reg0, data_out[13]~reg0, data_out[12]~reg0, ;
+;                                                                ; due to stuck port data_in ; data_out[11]~reg0, data_out[10]~reg0, data_out[9]~reg0, data_out[8]~reg0,   ;
+;                                                                ;                           ; data_out[7]~reg0                                                            ;
+; FIR_filter:filter_block[7].filter|delay:delay|data_delay[0][0] ; Stuck at GND              ; FIR_filter:filter_block[7].filter|counter:counter|count[4],                 ;
+;                                                                ; due to stuck port data_in ; FIR_filter:filter_block[7].filter|counter:counter|count[3],                 ;
+;                                                                ;                           ; FIR_filter:filter_block[7].filter|counter:counter|count[2],                 ;
+;                                                                ;                           ; FIR_filter:filter_block[7].filter|counter:counter|count[1],                 ;
+;                                                                ;                           ; FIR_filter:filter_block[7].filter|counter:counter|count[0]                  ;
++----------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |Equalizer ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; FILTER_NUM     ; 8     ; Signed Integer                                   ;
+; DATA_BIT       ; 16    ; Signed Integer                                   ;
+; GAIN_BIT       ; 5     ; Signed Integer                                   ;
+; COUNT_BIT_NUM  ; 5     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: counter:counter ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; COUNTER_MIN    ; 00000 ; Unsigned Binary                     ;
+; COUNTER_MAX    ; 11111 ; Unsigned Binary                     ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[0].filter ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                        ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                        ;
+; COUNT_BIT_NUM  ; 5     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[0].filter|counter:counter ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; COUNTER_MIN    ; 00000 ; Unsigned Binary                                                       ;
+; COUNTER_MAX    ; 11111 ; Unsigned Binary                                                       ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[0].filter|coeffs:coeffs ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; NUMTABS        ; 31    ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[0].filter|delay:delay ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                    ;
+; NUMTABS        ; 31    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[0].filter|mac:mac ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[0].filter|mac:mac|multiplier:mul ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; N              ; 4     ; Signed Integer                                                               ;
++----------------+-------+------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[1].filter ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                        ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                        ;
+; COUNT_BIT_NUM  ; 5     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[1].filter|counter:counter ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; COUNTER_MIN    ; 00000 ; Unsigned Binary                                                       ;
+; COUNTER_MAX    ; 11111 ; Unsigned Binary                                                       ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[1].filter|coeffs:coeffs ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; NUMTABS        ; 31    ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[1].filter|delay:delay ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                    ;
+; NUMTABS        ; 31    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[1].filter|mac:mac ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[1].filter|mac:mac|multiplier:mul ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; N              ; 4     ; Signed Integer                                                               ;
++----------------+-------+------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[2].filter ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                        ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                        ;
+; COUNT_BIT_NUM  ; 5     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[2].filter|counter:counter ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; COUNTER_MIN    ; 00000 ; Unsigned Binary                                                       ;
+; COUNTER_MAX    ; 11111 ; Unsigned Binary                                                       ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[2].filter|coeffs:coeffs ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; NUMTABS        ; 31    ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[2].filter|delay:delay ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                    ;
+; NUMTABS        ; 31    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[2].filter|mac:mac ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[2].filter|mac:mac|multiplier:mul ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; N              ; 4     ; Signed Integer                                                               ;
++----------------+-------+------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[3].filter ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                        ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                        ;
+; COUNT_BIT_NUM  ; 5     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[3].filter|counter:counter ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; COUNTER_MIN    ; 00000 ; Unsigned Binary                                                       ;
+; COUNTER_MAX    ; 11111 ; Unsigned Binary                                                       ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[3].filter|coeffs:coeffs ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; NUMTABS        ; 31    ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[3].filter|delay:delay ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                    ;
+; NUMTABS        ; 31    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[3].filter|mac:mac ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[3].filter|mac:mac|multiplier:mul ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; N              ; 4     ; Signed Integer                                                               ;
++----------------+-------+------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[4].filter ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                        ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                        ;
+; COUNT_BIT_NUM  ; 5     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[4].filter|counter:counter ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; COUNTER_MIN    ; 00000 ; Unsigned Binary                                                       ;
+; COUNTER_MAX    ; 11111 ; Unsigned Binary                                                       ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[4].filter|coeffs:coeffs ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; NUMTABS        ; 31    ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[4].filter|delay:delay ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                    ;
+; NUMTABS        ; 31    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[4].filter|mac:mac ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[4].filter|mac:mac|multiplier:mul ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; N              ; 4     ; Signed Integer                                                               ;
++----------------+-------+------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[5].filter ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                        ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                        ;
+; COUNT_BIT_NUM  ; 5     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[5].filter|counter:counter ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; COUNTER_MIN    ; 00000 ; Unsigned Binary                                                       ;
+; COUNTER_MAX    ; 11111 ; Unsigned Binary                                                       ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[5].filter|coeffs:coeffs ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; NUMTABS        ; 31    ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[5].filter|delay:delay ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                    ;
+; NUMTABS        ; 31    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[5].filter|mac:mac ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[5].filter|mac:mac|multiplier:mul ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; N              ; 4     ; Signed Integer                                                               ;
++----------------+-------+------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[6].filter ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                        ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                        ;
+; COUNT_BIT_NUM  ; 5     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[6].filter|counter:counter ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; COUNTER_MIN    ; 00000 ; Unsigned Binary                                                       ;
+; COUNTER_MAX    ; 11111 ; Unsigned Binary                                                       ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[6].filter|coeffs:coeffs ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; NUMTABS        ; 31    ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[6].filter|delay:delay ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                    ;
+; NUMTABS        ; 31    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[6].filter|mac:mac ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[6].filter|mac:mac|multiplier:mul ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; N              ; 4     ; Signed Integer                                                               ;
++----------------+-------+------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[7].filter ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                        ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                        ;
+; COUNT_BIT_NUM  ; 5     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[7].filter|counter:counter ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; COUNTER_MIN    ; 00000 ; Unsigned Binary                                                       ;
+; COUNTER_MAX    ; 11111 ; Unsigned Binary                                                       ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[7].filter|coeffs:coeffs ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; NUMTABS        ; 31    ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[7].filter|delay:delay ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                    ;
+; NUMTABS        ; 31    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[7].filter|mac:mac ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                                ;
+; COEFF_BIT_NUM  ; 16    ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIR_filter:filter_block[7].filter|mac:mac|multiplier:mul ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; N              ; 4     ; Signed Integer                                                               ;
++----------------+-------+------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FIR_filter:filter_block[6].filter"                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; filter_data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FIR_filter:filter_block[5].filter"                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; filter_data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FIR_filter:filter_block[4].filter"                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; filter_data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FIR_filter:filter_block[3].filter"                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; filter_data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FIR_filter:filter_block[2].filter"                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; filter_data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FIR_filter:filter_block[1].filter"                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; filter_data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FIR_filter:filter_block[0].filter|mac:mac|multiplier:mul"                                                                                                                             ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                                            ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; A       ; Input  ; Warning  ; Input port expression (15 bits) is wider than the input port (4 bits) it drives.  The 11 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B       ; Input  ; Warning  ; Input port expression (15 bits) is wider than the input port (4 bits) it drives.  The 11 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; product ; Output ; Warning  ; Output or bidir port (8 bits) is smaller than the port expression (32 bits) it drives.  The 24 most-significant bit(s) in the port expression will be connected to GND.            ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FIR_filter:filter_block[0].filter|delay:delay"                                                                                                                                   ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                          ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; count ; Input ; Warning  ; Input port expression (5 bits) is wider than the input port (1 bits) it drives.  The 4 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FIR_filter:filter_block[0].filter"                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; filter_data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "counter:counter"                                                                          ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; count      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; calculated ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 74                          ;
+; cycloneiii_lcell_comb ; 1                           ;
+;     normal            ; 1                           ;
+;         0 data inputs ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 0.00                        ;
+; Average LUT depth     ; 0.00                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Fri Apr 12 11:33:23 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Equalizer -c Equalizer
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file coeffs.v
+    Info (12023): Found entity 1: coeffs File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/coeffs.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file delay.v
+    Info (12023): Found entity 1: delay File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/delay.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file counter.v
+    Info (12023): Found entity 1: counter File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/counter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mac.v
+    Info (12023): Found entity 1: mac File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file fir_filter.v
+    Info (12023): Found entity 1: FIR_filter File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/FIR_filter.v Line: 1
+    Info (12023): Found entity 2: FIR_filter_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/FIR_filter.v Line: 29
+Info (12021): Found 2 design units, including 2 entities, in source file multiplier.v
+    Info (12023): Found entity 1: multiplier File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/multiplier.v Line: 44
+    Info (12023): Found entity 2: multiplier_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/multiplier.v Line: 67
+Info (12021): Found 1 design units, including 1 entities, in source file half_adder.v
+    Info (12023): Found entity 1: half_adder File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/half_adder.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file full_adder.v
+    Info (12023): Found entity 1: full_adder File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/full_adder.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file equalizer.v
+    Info (12023): Found entity 1: Equalizer File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 1
+Info (12127): Elaborating entity "Equalizer" for the top level hierarchy
+Info (12128): Elaborating entity "counter" for hierarchy "counter:counter" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 17
+Warning (10230): Verilog HDL assignment warning at counter.v(19): truncated value with size 32 to match size of target (5) File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/counter.v Line: 19
+Warning (10230): Verilog HDL assignment warning at counter.v(24): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/counter.v Line: 24
+Info (12128): Elaborating entity "FIR_filter" for hierarchy "FIR_filter:filter_block[0].filter" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 32
+Info (12128): Elaborating entity "coeffs" for hierarchy "FIR_filter:filter_block[0].filter|coeffs:coeffs" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/FIR_filter.v Line: 21
+Info (12128): Elaborating entity "delay" for hierarchy "FIR_filter:filter_block[0].filter|delay:delay" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/FIR_filter.v Line: 23
+Warning (10027): Verilog HDL or VHDL warning at the delay.v(32): index expression is not wide enough to address all of the elements in the array File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/delay.v Line: 32
+Info (12128): Elaborating entity "mac" for hierarchy "FIR_filter:filter_block[0].filter|mac:mac" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/FIR_filter.v Line: 25
+Warning (10036): Verilog HDL or VHDL warning at mac.v(15): object "sign_bit" assigned a value but never read File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 15
+Warning (10230): Verilog HDL assignment warning at mac.v(22): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 22
+Info (12128): Elaborating entity "multiplier" for hierarchy "FIR_filter:filter_block[0].filter|mac:mac|multiplier:mul" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12020): Port "A" on the entity instantiation of "mul" is connected to a signal of width 15. The formal width of the signal in the module is 4.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12020): Port "B" on the entity instantiation of "mul" is connected to a signal of width 15. The formal width of the signal in the module is 4.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12030): Port "product" on the entity instantiation of "mul" is connected to a signal of width 32. The formal width of the signal in the module is 8.  The extra bits will be left dangling without any fan-out logic. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12020): Port "count" on the entity instantiation of "delay" is connected to a signal of width 5. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/FIR_filter.v Line: 23
+Warning (12020): Port "A" on the entity instantiation of "mul" is connected to a signal of width 15. The formal width of the signal in the module is 4.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12020): Port "B" on the entity instantiation of "mul" is connected to a signal of width 15. The formal width of the signal in the module is 4.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12030): Port "product" on the entity instantiation of "mul" is connected to a signal of width 32. The formal width of the signal in the module is 8.  The extra bits will be left dangling without any fan-out logic. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12020): Port "count" on the entity instantiation of "delay" is connected to a signal of width 5. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/FIR_filter.v Line: 23
+Warning (12020): Port "A" on the entity instantiation of "mul" is connected to a signal of width 15. The formal width of the signal in the module is 4.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12020): Port "B" on the entity instantiation of "mul" is connected to a signal of width 15. The formal width of the signal in the module is 4.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12030): Port "product" on the entity instantiation of "mul" is connected to a signal of width 32. The formal width of the signal in the module is 8.  The extra bits will be left dangling without any fan-out logic. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12020): Port "count" on the entity instantiation of "delay" is connected to a signal of width 5. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/FIR_filter.v Line: 23
+Warning (12020): Port "A" on the entity instantiation of "mul" is connected to a signal of width 15. The formal width of the signal in the module is 4.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12020): Port "B" on the entity instantiation of "mul" is connected to a signal of width 15. The formal width of the signal in the module is 4.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12030): Port "product" on the entity instantiation of "mul" is connected to a signal of width 32. The formal width of the signal in the module is 8.  The extra bits will be left dangling without any fan-out logic. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12020): Port "count" on the entity instantiation of "delay" is connected to a signal of width 5. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/FIR_filter.v Line: 23
+Warning (12020): Port "A" on the entity instantiation of "mul" is connected to a signal of width 15. The formal width of the signal in the module is 4.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12020): Port "B" on the entity instantiation of "mul" is connected to a signal of width 15. The formal width of the signal in the module is 4.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12030): Port "product" on the entity instantiation of "mul" is connected to a signal of width 32. The formal width of the signal in the module is 8.  The extra bits will be left dangling without any fan-out logic. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12020): Port "count" on the entity instantiation of "delay" is connected to a signal of width 5. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/FIR_filter.v Line: 23
+Warning (12020): Port "A" on the entity instantiation of "mul" is connected to a signal of width 15. The formal width of the signal in the module is 4.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12020): Port "B" on the entity instantiation of "mul" is connected to a signal of width 15. The formal width of the signal in the module is 4.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12030): Port "product" on the entity instantiation of "mul" is connected to a signal of width 32. The formal width of the signal in the module is 8.  The extra bits will be left dangling without any fan-out logic. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12020): Port "count" on the entity instantiation of "delay" is connected to a signal of width 5. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/FIR_filter.v Line: 23
+Warning (12020): Port "A" on the entity instantiation of "mul" is connected to a signal of width 15. The formal width of the signal in the module is 4.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12020): Port "B" on the entity instantiation of "mul" is connected to a signal of width 15. The formal width of the signal in the module is 4.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12030): Port "product" on the entity instantiation of "mul" is connected to a signal of width 32. The formal width of the signal in the module is 8.  The extra bits will be left dangling without any fan-out logic. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/mac.v Line: 21
+Warning (12020): Port "count" on the entity instantiation of "delay" is connected to a signal of width 5. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/FIR_filter.v Line: 23
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "data_out[0]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+    Warning (13410): Pin "data_out[1]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+    Warning (13410): Pin "data_out[2]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+    Warning (13410): Pin "data_out[3]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+    Warning (13410): Pin "data_out[4]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+    Warning (13410): Pin "data_out[5]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+    Warning (13410): Pin "data_out[6]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+    Warning (13410): Pin "data_out[7]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+    Warning (13410): Pin "data_out[8]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+    Warning (13410): Pin "data_out[9]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+    Warning (13410): Pin "data_out[10]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+    Warning (13410): Pin "data_out[11]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+    Warning (13410): Pin "data_out[12]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+    Warning (13410): Pin "data_out[13]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+    Warning (13410): Pin "data_out[14]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+    Warning (13410): Pin "data_out[15]" is stuck at GND File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 43
+Info (17049): 21 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 58 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "rst_n" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain[0]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[1]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[2]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[3]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[4]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[5]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[6]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[7]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[8]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[9]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[10]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[11]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[12]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[13]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[14]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[15]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[16]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[17]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[18]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[19]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[20]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[21]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[22]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[23]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[24]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[25]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[26]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[27]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[28]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[29]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[30]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[31]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[32]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[33]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[34]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[35]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[36]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[37]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[38]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain[39]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "data_in[0]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+    Warning (15610): No output dependent on input pin "data_in[1]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+    Warning (15610): No output dependent on input pin "data_in[2]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+    Warning (15610): No output dependent on input pin "data_in[3]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+    Warning (15610): No output dependent on input pin "data_in[4]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+    Warning (15610): No output dependent on input pin "data_in[5]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+    Warning (15610): No output dependent on input pin "data_in[6]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+    Warning (15610): No output dependent on input pin "data_in[7]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+    Warning (15610): No output dependent on input pin "data_in[8]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+    Warning (15610): No output dependent on input pin "data_in[9]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+    Warning (15610): No output dependent on input pin "data_in[10]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+    Warning (15610): No output dependent on input pin "data_in[11]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+    Warning (15610): No output dependent on input pin "data_in[12]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+    Warning (15610): No output dependent on input pin "data_in[13]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+    Warning (15610): No output dependent on input pin "data_in[14]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+    Warning (15610): No output dependent on input pin "data_in[15]" File: D:/Verilog project/DigitalDesign/DigitalDesign/Midterm/Equalizer.v Line: 10
+Info (21057): Implemented 74 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 58 input pins
+    Info (21059): Implemented 16 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 111 warnings
+    Info: Peak virtual memory: 4755 megabytes
+    Info: Processing ended: Fri Apr 12 11:33:31 2024
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:11
+
+

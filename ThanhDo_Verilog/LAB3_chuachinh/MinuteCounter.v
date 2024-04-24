@@ -2,7 +2,7 @@ module MinuteCounter(
     input clk,     // Clock input, được kích hoạt mỗi khi một phút trôi qua
     input reset,   // Reset input để đặt lại bộ đếm về 0
     output reg [5:0] minute = 0, // 6-bit output cho giá trị phút
-	 output reg one_hour =0// Output that indicates a hour has passed
+output reg one_hour =0// Output that indicates a hour has passed
 );
 
 always @(posedge clk or negedge reset) begin

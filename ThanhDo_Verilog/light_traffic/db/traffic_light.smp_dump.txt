@@ -1,0 +1,12 @@
+
+State Machine - |traffic_light|countryroad_controller:CR|CurrentState
+Name CurrentState.green_r CurrentState.yellow_r CurrentState.red_r 
+CurrentState.red_r 0 0 0 
+CurrentState.yellow_r 0 1 1 
+CurrentState.green_r 1 0 1 
+
+State Machine - |traffic_light|hightway_controller:HW|CurrentState
+Name CurrentState.green_h CurrentState.yellow_h CurrentState.red_h 
+CurrentState.green_h 0 0 0 
+CurrentState.yellow_h 1 1 0 
+CurrentState.red_h 1 0 1 

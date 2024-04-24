@@ -1,0 +1,520 @@
+Analysis & Synthesis report for traffic_light
+Tue Apr 23 16:06:13 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |traffic_light|countryroad_controller:CR|CurrentState
+  9. State Machine - |traffic_light|hightway_controller:HW|CurrentState
+ 10. User-Specified and Inferred Latches
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: hightway_controller:HW
+ 15. Parameter Settings for User Entity Instance: countryroad_controller:CR
+ 16. Parameter Settings for User Entity Instance: one_hz_clock:one_Hz
+ 17. Parameter Settings for User Entity Instance: lights:Led
+ 18. Port Connectivity Checks: "lights:Led|BinaryToBCD:BCD"
+ 19. Port Connectivity Checks: "lights:Led"
+ 20. Port Connectivity Checks: "countryroad_controller:CR|Debounce:DB1"
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
+ 24. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Apr 23 16:06:13 2024          ;
+; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Revision Name                      ; traffic_light                                  ;
+; Top-level Entity Name              ; traffic_light                                  ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 135                                            ;
+;     Total combinational functions  ; 130                                            ;
+;     Dedicated logic registers      ; 52                                             ;
+; Total registers                    ; 52                                             ;
+; Total pins                         ; 31                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; traffic_light      ; traffic_light      ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                    ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+---------+
+; traffic_light.v                  ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/traffic_light.v          ;         ;
+; hightway_controller.v            ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/hightway_controller.v    ;         ;
+; countryroad_controller.v         ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v ;         ;
+; timer.v                          ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/timer.v                  ;         ;
+; lights.v                         ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/lights.v                 ;         ;
+; Debounce.v                       ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/Debounce.v               ;         ;
+; one_hz_clock.v                   ; yes             ; Auto-Found Verilog HDL File  ; C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/one_hz_clock.v           ;         ;
+; binarytobcd.v                    ; yes             ; Auto-Found Verilog HDL File  ; C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/binarytobcd.v            ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 135       ;
+;                                             ;           ;
+; Total combinational functions               ; 130       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 45        ;
+;     -- 3 input functions                    ; 32        ;
+;     -- <=2 input functions                  ; 53        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 100       ;
+;     -- arithmetic mode                      ; 30        ;
+;                                             ;           ;
+; Total registers                             ; 52        ;
+;     -- Dedicated logic registers            ; 52        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 31        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 52        ;
+; Total fan-out                               ; 595       ;
+; Average fan-out                             ; 2.44      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                           ;
++--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------+------------------------+--------------+
+; Compilation Hierarchy Node     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                       ; Entity Name            ; Library Name ;
++--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------+------------------------+--------------+
+; |traffic_light                 ; 130 (1)             ; 52 (0)                    ; 0           ; 0            ; 0       ; 0         ; 31   ; 0            ; |traffic_light                            ; traffic_light          ; work         ;
+;    |Debounce:DB|               ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_light|Debounce:DB                ; Debounce               ; work         ;
+;    |countryroad_controller:CR| ; 14 (14)             ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_light|countryroad_controller:CR  ; countryroad_controller ; work         ;
+;    |hightway_controller:HW|    ; 10 (10)             ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_light|hightway_controller:HW     ; hightway_controller    ; work         ;
+;    |lights:Led|                ; 29 (20)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_light|lights:Led                 ; lights                 ; work         ;
+;       |BinaryToBCD:BCD|        ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_light|lights:Led|BinaryToBCD:BCD ; BinaryToBCD            ; work         ;
+;    |one_hz_clock:one_Hz|       ; 48 (48)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_light|one_hz_clock:one_Hz        ; one_hz_clock           ; work         ;
+;    |timer:T|                   ; 28 (28)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |traffic_light|timer:T                    ; timer                  ; work         ;
++--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------+------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------+
+; State Machine - |traffic_light|countryroad_controller:CR|CurrentState                     ;
++-----------------------+----------------------+-----------------------+--------------------+
+; Name                  ; CurrentState.green_r ; CurrentState.yellow_r ; CurrentState.red_r ;
++-----------------------+----------------------+-----------------------+--------------------+
+; CurrentState.red_r    ; 0                    ; 0                     ; 0                  ;
+; CurrentState.yellow_r ; 0                    ; 1                     ; 1                  ;
+; CurrentState.green_r  ; 1                    ; 0                     ; 1                  ;
++-----------------------+----------------------+-----------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------+
+; State Machine - |traffic_light|hightway_controller:HW|CurrentState                        ;
++-----------------------+----------------------+-----------------------+--------------------+
+; Name                  ; CurrentState.green_h ; CurrentState.yellow_h ; CurrentState.red_h ;
++-----------------------+----------------------+-----------------------+--------------------+
+; CurrentState.green_h  ; 0                    ; 0                     ; 0                  ;
+; CurrentState.yellow_h ; 1                    ; 1                     ; 0                  ;
+; CurrentState.red_h    ; 1                    ; 0                     ; 1                  ;
++-----------------------+----------------------+-----------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                               ;
++----------------------------------------------------+-------------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal                 ; Free of Timing Hazards ;
++----------------------------------------------------+-------------------------------------+------------------------+
+; countryroad_controller:CR|enable_h                 ; countryroad_controller:CR|Selector3 ; yes                    ;
+; countryroad_controller:CR|NextState.red_r_146      ; countryroad_controller:CR|Selector1 ; yes                    ;
+; countryroad_controller:CR|NextState.yellow_r_134   ; countryroad_controller:CR|Selector1 ; yes                    ;
+; countryroad_controller:CR|NextState.green_r_122    ; countryroad_controller:CR|Selector1 ; yes                    ;
+; hightway_controller:HW|start_h                     ; hightway_controller:HW|Selector0    ; yes                    ;
+; countryroad_controller:CR|start_r                  ; countryroad_controller:CR|Selector6 ; yes                    ;
+; hightway_controller:HW|enable_r                    ; hightway_controller:HW|Selector1    ; yes                    ;
+; Number of user-specified and inferred latches = 7  ;                                     ;                        ;
++----------------------------------------------------+-------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 52    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 2     ;
+; Number of registers using Asynchronous Clear ; 45    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 6     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; timer:T|internal_count[3]              ; 6       ;
+; timer:T|internal_count[1]              ; 6       ;
+; timer:T|internal_count[2]              ; 5       ;
+; timer:T|internal_count[4]              ; 5       ;
+; Total number of inverted registers = 4 ;         ;
++----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |traffic_light|timer:T|internal_count[5] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |traffic_light|timer:T|internal_count[1] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: hightway_controller:HW ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; green_h        ; 100   ; Unsigned Binary                            ;
+; yellow_h       ; 010   ; Unsigned Binary                            ;
+; red_h          ; 001   ; Unsigned Binary                            ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: countryroad_controller:CR ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; green_r        ; 100   ; Unsigned Binary                               ;
+; yellow_r       ; 010   ; Unsigned Binary                               ;
+; red_r          ; 001   ; Unsigned Binary                               ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: one_hz_clock:one_Hz ;
++----------------+----------+--------------------------------------+
+; Parameter Name ; Value    ; Type                                 ;
++----------------+----------+--------------------------------------+
+; CLOCK_FREQ     ; 25000000 ; Signed Integer                       ;
+; COUNTER_MAX    ; 12499999 ; Signed Integer                       ;
++----------------+----------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lights:Led ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; segment_num    ; 7     ; Signed Integer                 ;
+; n              ; 4     ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "lights:Led|BinaryToBCD:BCD"                                                                                                                     ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; binary ; Input ; Warning  ; Input port expression (7 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "binary[7..7]" will be connected to GND. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "lights:Led"                                                                                                                                   ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                       ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; value ; Input ; Warning  ; Input port expression (6 bits) is smaller than the input port (7 bits) it drives.  Extra input bit(s) "value[6..6]" will be connected to GND. ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "countryroad_controller:CR|Debounce:DB1"                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Qout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 31                          ;
+; cycloneiii_ff         ; 52                          ;
+;     CLR               ; 43                          ;
+;     CLR SLD           ; 2                           ;
+;     ENA               ; 6                           ;
+;     plain             ; 1                           ;
+; cycloneiii_lcell_comb ; 139                         ;
+;     arith             ; 30                          ;
+;         2 data inputs ; 30                          ;
+;     normal            ; 109                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 11                          ;
+;         2 data inputs ; 20                          ;
+;         3 data inputs ; 32                          ;
+;         4 data inputs ; 45                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.30                        ;
+; Average LUT depth     ; 2.93                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Tue Apr 23 16:06:05 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off traffic_light -c traffic_light
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file traffic_light.v
+    Info (12023): Found entity 1: traffic_light File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/traffic_light.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file hightway_controller.v
+    Info (12023): Found entity 1: hightway_controller File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/hightway_controller.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file countryroad_controller.v
+    Info (12023): Found entity 1: countryroad_controller File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file timer.v
+    Info (12023): Found entity 1: timer File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/timer.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file lights.v
+    Info (12023): Found entity 1: lights File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/lights.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file debounce.v
+    Info (12023): Found entity 1: Debounce File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/Debounce.v Line: 1
+Info (12127): Elaborating entity "traffic_light" for the top level hierarchy
+Info (12128): Elaborating entity "Debounce" for hierarchy "Debounce:DB" File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/traffic_light.v Line: 25
+Info (12128): Elaborating entity "hightway_controller" for hierarchy "hightway_controller:HW" File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/traffic_light.v Line: 37
+Warning (10240): Verilog HDL Always Construct warning at hightway_controller.v(30): inferring latch(es) for variable "start_h", which holds its previous value in one or more paths through the always construct File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/hightway_controller.v Line: 30
+Warning (10240): Verilog HDL Always Construct warning at hightway_controller.v(30): inferring latch(es) for variable "enable_r", which holds its previous value in one or more paths through the always construct File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/hightway_controller.v Line: 30
+Info (10041): Inferred latch for "enable_r" at hightway_controller.v(30) File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/hightway_controller.v Line: 30
+Info (10041): Inferred latch for "start_h" at hightway_controller.v(30) File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/hightway_controller.v Line: 30
+Info (12128): Elaborating entity "countryroad_controller" for hierarchy "countryroad_controller:CR" File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/traffic_light.v Line: 49
+Warning (10036): Verilog HDL or VHDL warning at countryroad_controller.v(14): object "car_prev" assigned a value but never read File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 14
+Critical Warning (10237): Verilog HDL warning at countryroad_controller.v(27): can't infer register for assignment in edge-triggered always construct because the clock isn't obvious. Generated combinational logic instead File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 27
+Warning (10240): Verilog HDL Always Construct warning at countryroad_controller.v(35): inferring latch(es) for variable "NextState", which holds its previous value in one or more paths through the always construct File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 35
+Warning (10240): Verilog HDL Always Construct warning at countryroad_controller.v(35): inferring latch(es) for variable "start_r", which holds its previous value in one or more paths through the always construct File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 35
+Warning (10240): Verilog HDL Always Construct warning at countryroad_controller.v(35): inferring latch(es) for variable "enable_h", which holds its previous value in one or more paths through the always construct File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 35
+Info (10041): Inferred latch for "enable_h" at countryroad_controller.v(35) File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 35
+Info (10041): Inferred latch for "start_r" at countryroad_controller.v(35) File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 35
+Info (10041): Inferred latch for "NextState.green_r" at countryroad_controller.v(35) File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 35
+Info (10041): Inferred latch for "NextState.yellow_r" at countryroad_controller.v(35) File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 35
+Info (10041): Inferred latch for "NextState.red_r" at countryroad_controller.v(35) File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 35
+Warning (12125): Using design file one_hz_clock.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: one_hz_clock File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/one_hz_clock.v Line: 1
+Info (12128): Elaborating entity "one_hz_clock" for hierarchy "one_hz_clock:one_Hz" File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/traffic_light.v Line: 55
+Warning (10230): Verilog HDL assignment warning at one_hz_clock.v(22): truncated value with size 32 to match size of target (26) File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/one_hz_clock.v Line: 22
+Info (12128): Elaborating entity "timer" for hierarchy "timer:T" File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/traffic_light.v Line: 68
+Warning (10230): Verilog HDL assignment warning at timer.v(28): truncated value with size 32 to match size of target (6) File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/timer.v Line: 28
+Info (12128): Elaborating entity "lights" for hierarchy "lights:Led" File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/traffic_light.v Line: 80
+Warning (10235): Verilog HDL Always Construct warning at lights.v(25): variable "tens" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/lights.v Line: 25
+Warning (10235): Verilog HDL Always Construct warning at lights.v(38): variable "ones" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/lights.v Line: 38
+Info (10264): Verilog HDL Case Statement information at lights.v(53): all case item expressions in this case statement are onehot File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/lights.v Line: 53
+Info (10264): Verilog HDL Case Statement information at lights.v(61): all case item expressions in this case statement are onehot File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/lights.v Line: 61
+Warning (12125): Using design file binarytobcd.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: BinaryToBCD File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/binarytobcd.v Line: 1
+Info (12128): Elaborating entity "BinaryToBCD" for hierarchy "lights:Led|BinaryToBCD:BCD" File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/lights.v Line: 22
+Warning (10230): Verilog HDL assignment warning at binarytobcd.v(16): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/binarytobcd.v Line: 16
+Warning (10230): Verilog HDL assignment warning at binarytobcd.v(14): truncated value with size 32 to match size of target (4) File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/binarytobcd.v Line: 14
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch countryroad_controller:CR|enable_h has unsafe behavior File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal countryroad_controller:CR|CurrentState.yellow_r File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 12
+Warning (13012): Latch countryroad_controller:CR|NextState.red_r_146 has unsafe behavior File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hightway_controller:HW|enable_r File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/hightway_controller.v Line: 9
+Warning (13012): Latch countryroad_controller:CR|NextState.green_r_122 has unsafe behavior File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal hightway_controller:HW|enable_r File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/hightway_controller.v Line: 9
+Warning (13012): Latch countryroad_controller:CR|start_r has unsafe behavior File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal countryroad_controller:CR|CurrentState.red_r File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/countryroad_controller.v Line: 12
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "seg_light_h[5]" is stuck at GND File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/traffic_light.v Line: 5
+    Warning (13410): Pin "seg_light_r[5]" is stuck at GND File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/traffic_light.v Line: 6
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/output_files/traffic_light.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 168 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 28 output pins
+    Info (21061): Implemented 137 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 28 warnings
+    Info: Peak virtual memory: 4831 megabytes
+    Info: Processing ended: Tue Apr 23 16:06:13 2024
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:10
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/output_files/traffic_light.map.smsg.
+
+

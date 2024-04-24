@@ -1,0 +1,18 @@
+Analysis & Synthesis Status : Successful - Sat Apr 13 08:30:38 2024
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : IIR_fillter
+Top-level Entity Name : IIR_fillter
+Family : Cyclone IV GX
+Total logic elements : 425
+    Total combinational functions : 377
+    Dedicated logic registers : 64
+Total registers : 64
+Total pins : 194
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 20
+Total GXB Receiver Channel PCS : 0
+Total GXB Receiver Channel PMA : 0
+Total GXB Transmitter Channel PCS : 0
+Total GXB Transmitter Channel PMA : 0
+Total PLLs : 0

@@ -1,0 +1,52 @@
+module hightway_controller
+(
+	input clk,
+	input reset,
+	input car,
+	input time_out,
+	input T_out,
+	input enable_h,
+	output enable_r,
+	output start_h,
+	output [2:0] light_h
+	
+);
+reg [2:0] CurrentState, NextState;
+parameter [2:0] green_h = 3'b100, yellow_h = 3'b010, red_h = 3b'001;
+
+always  @(posedge clk or negedge reset) begin
+	if(!reset)
+	CurrentState<=green_h;
+	else 
+	CurrentState=NextState;
+
+end
+assign  light_h = CurrentState;
+always @(NextState, CurrentState,enable_h,time_red,time_yellow) begin
+	NextState=CurrentState;
+	start_h=0;
+	enable_h=0;
+	case (CurrentState)
+		green_h : if(car==1 && T_out==1)
+		begin
+			NextState=yellow_h;
+			start_h=1;
+		end
+		yellow_h : if(time_out==1) // da chay het den vang
+		begin
+			NextState=red_h;
+			enable_r=1;
+		end
+		red_h : if(enable_h)
+		begin
+			NextState=green_h;
+			start_h= 1;
+		end
+		default: 
+	endcase
+	
+end
+
+
+
+endmodule

@@ -1,0 +1,149 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'hightway_controller:HW|CurrentState.yellow_h'
+Slack : -5.298
+TNS   : -5.298
+
+Type  : Slow 1200mV 85C Model Setup 'countryroad_controller:CR|CurrentState.green_r'
+Slack : -4.167
+TNS   : -4.167
+
+Type  : Slow 1200mV 85C Model Setup 'Debounce:DB|Qout'
+Slack : -3.915
+TNS   : -15.112
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -3.718
+TNS   : -100.102
+
+Type  : Slow 1200mV 85C Model Hold 'countryroad_controller:CR|CurrentState.green_r'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'hightway_controller:HW|CurrentState.yellow_h'
+Slack : 0.361
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Debounce:DB|Qout'
+Slack : 0.535
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -69.820
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'hightway_controller:HW|CurrentState.yellow_h'
+Slack : 0.373
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Debounce:DB|Qout'
+Slack : 0.413
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'countryroad_controller:CR|CurrentState.green_r'
+Slack : 0.455
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'hightway_controller:HW|CurrentState.yellow_h'
+Slack : -4.751
+TNS   : -4.751
+
+Type  : Slow 1200mV 0C Model Setup 'countryroad_controller:CR|CurrentState.green_r'
+Slack : -3.807
+TNS   : -3.807
+
+Type  : Slow 1200mV 0C Model Setup 'Debounce:DB|Qout'
+Slack : -3.572
+TNS   : -13.738
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -3.350
+TNS   : -85.356
+
+Type  : Slow 1200mV 0C Model Hold 'countryroad_controller:CR|CurrentState.green_r'
+Slack : 0.161
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'hightway_controller:HW|CurrentState.yellow_h'
+Slack : 0.352
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.353
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Debounce:DB|Qout'
+Slack : 0.504
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -69.820
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'hightway_controller:HW|CurrentState.yellow_h'
+Slack : 0.423
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Debounce:DB|Qout'
+Slack : 0.438
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'countryroad_controller:CR|CurrentState.green_r'
+Slack : 0.460
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'hightway_controller:HW|CurrentState.yellow_h'
+Slack : -2.305
+TNS   : -2.305
+
+Type  : Fast 1200mV 0C Model Setup 'countryroad_controller:CR|CurrentState.green_r'
+Slack : -1.910
+TNS   : -1.910
+
+Type  : Fast 1200mV 0C Model Setup 'Debounce:DB|Qout'
+Slack : -1.616
+TNS   : -5.811
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -1.499
+TNS   : -27.945
+
+Type  : Fast 1200mV 0C Model Hold 'countryroad_controller:CR|CurrentState.green_r'
+Slack : 0.064
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'hightway_controller:HW|CurrentState.yellow_h'
+Slack : 0.159
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.180
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Debounce:DB|Qout'
+Slack : 0.223
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -57.766
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Debounce:DB|Qout'
+Slack : 0.376
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'hightway_controller:HW|CurrentState.yellow_h'
+Slack : 0.397
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'countryroad_controller:CR|CurrentState.green_r'
+Slack : 0.407
+TNS   : 0.000
+
+------------------------------------------------------------

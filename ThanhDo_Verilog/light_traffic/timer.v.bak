@@ -1,0 +1,48 @@
+module timer(
+    input clk,          // Clock signal
+    input clk_1Hz,      // 1Hz clock signal for counting
+    input reset,        // Reset signal
+    input start,        // Start counting signal
+    output reg T_out,   // Output signal when time is up
+	output reg time_out, // Timeout flag
+    output reg [5:0] count // 6-bit count
+    
+);
+    // Declare internal register to handle timing and counting
+    reg [5:0] internal_count; 
+
+    always @(posedge clk or negedge reset) begin
+        if (~reset) begin
+            // Reset condition
+            internal_count <= 40;
+            count <= 40;
+            T_out <= 0;
+            time_out <= 0;
+        end else begin
+            if (start) begin
+                // Load the working count with the latest count
+                count <= internal_count;
+            end else begin
+                // When not started, make sure outputs are cleared
+                time_out <= 0;
+                T_out <= 0;
+            end
+        end
+    end
+
+    // Counting process controlled by 1Hz clock
+    always @(posedge clk_1Hz) begin
+        if (start && internal_count > 0) begin
+            internal_count <= internal_count - 1; // Decrement counter
+            // Check count ranges for timeout conditions
+            if (internal_count <= 20) begin
+                time_out <= 1; // Set time_out high when count drops below 20
+            end
+            if (internal_count == 0) begin
+                T_out <= 1;   // Indicate overall timeout
+                internal_count <= 40; // Reset the internal count
+            end
+        end
+    end
+
+endmodule

@@ -1,0 +1,660 @@
+Analysis & Synthesis report for IIR_fillter
+Sat Apr 13 08:30:38 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. General Register Statistics
+ 10. Parameter Settings for User Entity Instance: Top-level Entity: |IIR_fillter
+ 11. Parameter Settings for Inferred Entity Instance: multiply_fixed_point:multi_4|lpm_mult:Mult0
+ 12. Parameter Settings for Inferred Entity Instance: multiply_fixed_point:multi|lpm_mult:Mult0
+ 13. Parameter Settings for Inferred Entity Instance: multiply_fixed_point:multi_1|lpm_mult:Mult0
+ 14. Parameter Settings for Inferred Entity Instance: multiply_fixed_point:multi_2|lpm_mult:Mult0
+ 15. Parameter Settings for Inferred Entity Instance: multiply_fixed_point:multi_3|lpm_mult:Mult0
+ 16. lpm_mult Parameter Settings by Entity Instance
+ 17. Port Connectivity Checks: "multiply_fixed_point:multi_4"
+ 18. Port Connectivity Checks: "multiply_fixed_point:multi_3"
+ 19. Port Connectivity Checks: "multiply_fixed_point:multi_2"
+ 20. Port Connectivity Checks: "multiply_fixed_point:multi_1"
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Apr 13 08:30:38 2024          ;
+; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Revision Name                      ; IIR_fillter                                    ;
+; Top-level Entity Name              ; IIR_fillter                                    ;
+; Family                             ; Cyclone IV GX                                  ;
+; Total logic elements               ; 425                                            ;
+;     Total combinational functions  ; 377                                            ;
+;     Dedicated logic registers      ; 64                                             ;
+; Total registers                    ; 64                                             ;
+; Total pins                         ; 194                                            ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 20                                             ;
+; Total GXB Receiver Channel PCS     ; 0                                              ;
+; Total GXB Receiver Channel PMA     ; 0                                              ;
+; Total GXB Transmitter Channel PCS  ; 0                                              ;
+; Total GXB Transmitter Channel PMA  ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CGX150DF31C7    ;                    ;
+; Top-level entity name                                            ; IIR_fillter        ; IIR_fillter        ;
+; Family name                                                      ; Cyclone IV GX      ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                        ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                    ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
+; IIR_fillter.v                    ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/IIR_fillter.v          ;         ;
+; multiply_fixed_point.v           ; yes             ; User Verilog HDL File        ; C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/multiply_fixed_point.v ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mult.tdf          ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc        ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_add_sub.inc       ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/multcore.inc          ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/bypassff.inc          ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altshift.inc          ;         ;
+; db/mult_2at.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/db/mult_2at.tdf        ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary ;
++--------------------------+------------------+
+; Resource                 ; Usage            ;
++--------------------------+------------------+
+; I/O pins                 ; 194              ;
+;                          ;                  ;
+; DSP block 9-bit elements ; 20               ;
+;                          ;                  ;
+; Maximum fan-out node     ; clk~input        ;
+; Maximum fan-out          ; 64               ;
+; Total fan-out            ; 1743             ;
+; Average fan-out          ; 2.05             ;
++--------------------------+------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                ;
++------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+-----------+------+--------------+----------------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                              ; Entity Name          ; Library Name ;
++------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+-----------+------+--------------+----------------------------------------------------------------------------------+----------------------+--------------+
+; |IIR_fillter                       ; 377 (192)           ; 64 (64)                   ; 0           ; 20           ; 0       ; 10        ; 0         ; 194  ; 0            ; |IIR_fillter                                                                     ; IIR_fillter          ; work         ;
+;    |multiply_fixed_point:multi_1|  ; 37 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0         ; 0    ; 0            ; |IIR_fillter|multiply_fixed_point:multi_1                                        ; multiply_fixed_point ; work         ;
+;       |lpm_mult:Mult0|             ; 37 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0         ; 0    ; 0            ; |IIR_fillter|multiply_fixed_point:multi_1|lpm_mult:Mult0                         ; lpm_mult             ; work         ;
+;          |mult_2at:auto_generated| ; 37 (37)             ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0         ; 0    ; 0            ; |IIR_fillter|multiply_fixed_point:multi_1|lpm_mult:Mult0|mult_2at:auto_generated ; mult_2at             ; work         ;
+;    |multiply_fixed_point:multi_2|  ; 37 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0         ; 0    ; 0            ; |IIR_fillter|multiply_fixed_point:multi_2                                        ; multiply_fixed_point ; work         ;
+;       |lpm_mult:Mult0|             ; 37 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0         ; 0    ; 0            ; |IIR_fillter|multiply_fixed_point:multi_2|lpm_mult:Mult0                         ; lpm_mult             ; work         ;
+;          |mult_2at:auto_generated| ; 37 (37)             ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0         ; 0    ; 0            ; |IIR_fillter|multiply_fixed_point:multi_2|lpm_mult:Mult0|mult_2at:auto_generated ; mult_2at             ; work         ;
+;    |multiply_fixed_point:multi_3|  ; 37 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0         ; 0    ; 0            ; |IIR_fillter|multiply_fixed_point:multi_3                                        ; multiply_fixed_point ; work         ;
+;       |lpm_mult:Mult0|             ; 37 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0         ; 0    ; 0            ; |IIR_fillter|multiply_fixed_point:multi_3|lpm_mult:Mult0                         ; lpm_mult             ; work         ;
+;          |mult_2at:auto_generated| ; 37 (37)             ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0         ; 0    ; 0            ; |IIR_fillter|multiply_fixed_point:multi_3|lpm_mult:Mult0|mult_2at:auto_generated ; mult_2at             ; work         ;
+;    |multiply_fixed_point:multi_4|  ; 37 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0         ; 0    ; 0            ; |IIR_fillter|multiply_fixed_point:multi_4                                        ; multiply_fixed_point ; work         ;
+;       |lpm_mult:Mult0|             ; 37 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0         ; 0    ; 0            ; |IIR_fillter|multiply_fixed_point:multi_4|lpm_mult:Mult0                         ; lpm_mult             ; work         ;
+;          |mult_2at:auto_generated| ; 37 (37)             ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0         ; 0    ; 0            ; |IIR_fillter|multiply_fixed_point:multi_4|lpm_mult:Mult0|mult_2at:auto_generated ; mult_2at             ; work         ;
+;    |multiply_fixed_point:multi|    ; 37 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0         ; 0    ; 0            ; |IIR_fillter|multiply_fixed_point:multi                                          ; multiply_fixed_point ; work         ;
+;       |lpm_mult:Mult0|             ; 37 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0         ; 0    ; 0            ; |IIR_fillter|multiply_fixed_point:multi|lpm_mult:Mult0                           ; lpm_mult             ; work         ;
+;          |mult_2at:auto_generated| ; 37 (37)             ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0         ; 0    ; 0            ; |IIR_fillter|multiply_fixed_point:multi|lpm_mult:Mult0|mult_2at:auto_generated   ; mult_2at             ; work         ;
++------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+-----------+------+--------------+----------------------------------------------------------------------------------+----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 10          ;
+; Simple Multipliers (36-bit)           ; 0           ;
+; Multiply Accumulators (18-bit)        ; 0           ;
+; Two-Multipliers Adders (9-bit)        ; 0           ;
+; Two-Multipliers Adders (18-bit)       ; 0           ;
+; Four-Multipliers Adders (9-bit)       ; 0           ;
+; Four-Multipliers Adders (18-bit)      ; 0           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 20          ;
+; Signed Embedded Multipliers           ; 5           ;
+; Unsigned Embedded Multipliers         ; 0           ;
+; Mixed Sign Embedded Multipliers       ; 5           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 64    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 64    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |IIR_fillter ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                     ;
+; DATA_BIT_NUMK  ; 48    ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: multiply_fixed_point:multi_4|lpm_mult:Mult0 ;
++------------------------------------------------+---------------+-----------------------------+
+; Parameter Name                                 ; Value         ; Type                        ;
++------------------------------------------------+---------------+-----------------------------+
+; AUTO_CARRY_CHAINS                              ; ON            ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS                           ; OFF           ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                            ; ON            ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF           ; IGNORE_CASCADE              ;
+; LPM_WIDTHA                                     ; 16            ; Untyped                     ;
+; LPM_WIDTHB                                     ; 32            ; Untyped                     ;
+; LPM_WIDTHP                                     ; 48            ; Untyped                     ;
+; LPM_WIDTHR                                     ; 48            ; Untyped                     ;
+; LPM_WIDTHS                                     ; 1             ; Untyped                     ;
+; LPM_REPRESENTATION                             ; SIGNED        ; Untyped                     ;
+; LPM_PIPELINE                                   ; 0             ; Untyped                     ;
+; LATENCY                                        ; 0             ; Untyped                     ;
+; INPUT_A_IS_CONSTANT                            ; NO            ; Untyped                     ;
+; INPUT_B_IS_CONSTANT                            ; NO            ; Untyped                     ;
+; USE_EAB                                        ; OFF           ; Untyped                     ;
+; MAXIMIZE_SPEED                                 ; 5             ; Untyped                     ;
+; DEVICE_FAMILY                                  ; Cyclone IV GX ; Untyped                     ;
+; CARRY_CHAIN                                    ; MANUAL        ; Untyped                     ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT           ; TECH_MAPPER_APEX20K         ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO          ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0             ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0             ; Untyped                     ;
+; CBXI_PARAMETER                                 ; mult_2at      ; Untyped                     ;
+; INPUT_A_FIXED_VALUE                            ; Bx            ; Untyped                     ;
+; INPUT_B_FIXED_VALUE                            ; Bx            ; Untyped                     ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF           ; Untyped                     ;
++------------------------------------------------+---------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: multiply_fixed_point:multi|lpm_mult:Mult0 ;
++------------------------------------------------+---------------+---------------------------+
+; Parameter Name                                 ; Value         ; Type                      ;
++------------------------------------------------+---------------+---------------------------+
+; AUTO_CARRY_CHAINS                              ; ON            ; AUTO_CARRY                ;
+; IGNORE_CARRY_BUFFERS                           ; OFF           ; IGNORE_CARRY              ;
+; AUTO_CASCADE_CHAINS                            ; ON            ; AUTO_CASCADE              ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF           ; IGNORE_CASCADE            ;
+; LPM_WIDTHA                                     ; 16            ; Untyped                   ;
+; LPM_WIDTHB                                     ; 32            ; Untyped                   ;
+; LPM_WIDTHP                                     ; 48            ; Untyped                   ;
+; LPM_WIDTHR                                     ; 48            ; Untyped                   ;
+; LPM_WIDTHS                                     ; 1             ; Untyped                   ;
+; LPM_REPRESENTATION                             ; SIGNED        ; Untyped                   ;
+; LPM_PIPELINE                                   ; 0             ; Untyped                   ;
+; LATENCY                                        ; 0             ; Untyped                   ;
+; INPUT_A_IS_CONSTANT                            ; NO            ; Untyped                   ;
+; INPUT_B_IS_CONSTANT                            ; NO            ; Untyped                   ;
+; USE_EAB                                        ; OFF           ; Untyped                   ;
+; MAXIMIZE_SPEED                                 ; 5             ; Untyped                   ;
+; DEVICE_FAMILY                                  ; Cyclone IV GX ; Untyped                   ;
+; CARRY_CHAIN                                    ; MANUAL        ; Untyped                   ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT           ; TECH_MAPPER_APEX20K       ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO          ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0             ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0             ; Untyped                   ;
+; CBXI_PARAMETER                                 ; mult_2at      ; Untyped                   ;
+; INPUT_A_FIXED_VALUE                            ; Bx            ; Untyped                   ;
+; INPUT_B_FIXED_VALUE                            ; Bx            ; Untyped                   ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF           ; Untyped                   ;
++------------------------------------------------+---------------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: multiply_fixed_point:multi_1|lpm_mult:Mult0 ;
++------------------------------------------------+---------------+-----------------------------+
+; Parameter Name                                 ; Value         ; Type                        ;
++------------------------------------------------+---------------+-----------------------------+
+; AUTO_CARRY_CHAINS                              ; ON            ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS                           ; OFF           ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                            ; ON            ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF           ; IGNORE_CASCADE              ;
+; LPM_WIDTHA                                     ; 16            ; Untyped                     ;
+; LPM_WIDTHB                                     ; 32            ; Untyped                     ;
+; LPM_WIDTHP                                     ; 48            ; Untyped                     ;
+; LPM_WIDTHR                                     ; 48            ; Untyped                     ;
+; LPM_WIDTHS                                     ; 1             ; Untyped                     ;
+; LPM_REPRESENTATION                             ; SIGNED        ; Untyped                     ;
+; LPM_PIPELINE                                   ; 0             ; Untyped                     ;
+; LATENCY                                        ; 0             ; Untyped                     ;
+; INPUT_A_IS_CONSTANT                            ; NO            ; Untyped                     ;
+; INPUT_B_IS_CONSTANT                            ; NO            ; Untyped                     ;
+; USE_EAB                                        ; OFF           ; Untyped                     ;
+; MAXIMIZE_SPEED                                 ; 5             ; Untyped                     ;
+; DEVICE_FAMILY                                  ; Cyclone IV GX ; Untyped                     ;
+; CARRY_CHAIN                                    ; MANUAL        ; Untyped                     ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT           ; TECH_MAPPER_APEX20K         ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO          ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0             ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0             ; Untyped                     ;
+; CBXI_PARAMETER                                 ; mult_2at      ; Untyped                     ;
+; INPUT_A_FIXED_VALUE                            ; Bx            ; Untyped                     ;
+; INPUT_B_FIXED_VALUE                            ; Bx            ; Untyped                     ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF           ; Untyped                     ;
++------------------------------------------------+---------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: multiply_fixed_point:multi_2|lpm_mult:Mult0 ;
++------------------------------------------------+---------------+-----------------------------+
+; Parameter Name                                 ; Value         ; Type                        ;
++------------------------------------------------+---------------+-----------------------------+
+; AUTO_CARRY_CHAINS                              ; ON            ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS                           ; OFF           ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                            ; ON            ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF           ; IGNORE_CASCADE              ;
+; LPM_WIDTHA                                     ; 16            ; Untyped                     ;
+; LPM_WIDTHB                                     ; 32            ; Untyped                     ;
+; LPM_WIDTHP                                     ; 48            ; Untyped                     ;
+; LPM_WIDTHR                                     ; 48            ; Untyped                     ;
+; LPM_WIDTHS                                     ; 1             ; Untyped                     ;
+; LPM_REPRESENTATION                             ; SIGNED        ; Untyped                     ;
+; LPM_PIPELINE                                   ; 0             ; Untyped                     ;
+; LATENCY                                        ; 0             ; Untyped                     ;
+; INPUT_A_IS_CONSTANT                            ; NO            ; Untyped                     ;
+; INPUT_B_IS_CONSTANT                            ; NO            ; Untyped                     ;
+; USE_EAB                                        ; OFF           ; Untyped                     ;
+; MAXIMIZE_SPEED                                 ; 5             ; Untyped                     ;
+; DEVICE_FAMILY                                  ; Cyclone IV GX ; Untyped                     ;
+; CARRY_CHAIN                                    ; MANUAL        ; Untyped                     ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT           ; TECH_MAPPER_APEX20K         ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO          ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0             ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0             ; Untyped                     ;
+; CBXI_PARAMETER                                 ; mult_2at      ; Untyped                     ;
+; INPUT_A_FIXED_VALUE                            ; Bx            ; Untyped                     ;
+; INPUT_B_FIXED_VALUE                            ; Bx            ; Untyped                     ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF           ; Untyped                     ;
++------------------------------------------------+---------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: multiply_fixed_point:multi_3|lpm_mult:Mult0 ;
++------------------------------------------------+---------------+-----------------------------+
+; Parameter Name                                 ; Value         ; Type                        ;
++------------------------------------------------+---------------+-----------------------------+
+; AUTO_CARRY_CHAINS                              ; ON            ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS                           ; OFF           ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                            ; ON            ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF           ; IGNORE_CASCADE              ;
+; LPM_WIDTHA                                     ; 16            ; Untyped                     ;
+; LPM_WIDTHB                                     ; 32            ; Untyped                     ;
+; LPM_WIDTHP                                     ; 48            ; Untyped                     ;
+; LPM_WIDTHR                                     ; 48            ; Untyped                     ;
+; LPM_WIDTHS                                     ; 1             ; Untyped                     ;
+; LPM_REPRESENTATION                             ; SIGNED        ; Untyped                     ;
+; LPM_PIPELINE                                   ; 0             ; Untyped                     ;
+; LATENCY                                        ; 0             ; Untyped                     ;
+; INPUT_A_IS_CONSTANT                            ; NO            ; Untyped                     ;
+; INPUT_B_IS_CONSTANT                            ; NO            ; Untyped                     ;
+; USE_EAB                                        ; OFF           ; Untyped                     ;
+; MAXIMIZE_SPEED                                 ; 5             ; Untyped                     ;
+; DEVICE_FAMILY                                  ; Cyclone IV GX ; Untyped                     ;
+; CARRY_CHAIN                                    ; MANUAL        ; Untyped                     ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT           ; TECH_MAPPER_APEX20K         ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO          ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0             ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0             ; Untyped                     ;
+; CBXI_PARAMETER                                 ; mult_2at      ; Untyped                     ;
+; INPUT_A_FIXED_VALUE                            ; Bx            ; Untyped                     ;
+; INPUT_B_FIXED_VALUE                            ; Bx            ; Untyped                     ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF           ; Untyped                     ;
++------------------------------------------------+---------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                      ;
++---------------------------------------+---------------------------------------------+
+; Name                                  ; Value                                       ;
++---------------------------------------+---------------------------------------------+
+; Number of entity instances            ; 5                                           ;
+; Entity Instance                       ; multiply_fixed_point:multi_4|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 16                                          ;
+;     -- LPM_WIDTHB                     ; 32                                          ;
+;     -- LPM_WIDTHP                     ; 48                                          ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                      ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                          ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                          ;
+;     -- USE_EAB                        ; OFF                                         ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                        ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                          ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                          ;
+; Entity Instance                       ; multiply_fixed_point:multi|lpm_mult:Mult0   ;
+;     -- LPM_WIDTHA                     ; 16                                          ;
+;     -- LPM_WIDTHB                     ; 32                                          ;
+;     -- LPM_WIDTHP                     ; 48                                          ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                      ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                          ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                          ;
+;     -- USE_EAB                        ; OFF                                         ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                        ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                          ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                          ;
+; Entity Instance                       ; multiply_fixed_point:multi_1|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 16                                          ;
+;     -- LPM_WIDTHB                     ; 32                                          ;
+;     -- LPM_WIDTHP                     ; 48                                          ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                      ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                          ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                          ;
+;     -- USE_EAB                        ; OFF                                         ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                        ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                          ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                          ;
+; Entity Instance                       ; multiply_fixed_point:multi_2|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 16                                          ;
+;     -- LPM_WIDTHB                     ; 32                                          ;
+;     -- LPM_WIDTHP                     ; 48                                          ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                      ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                          ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                          ;
+;     -- USE_EAB                        ; OFF                                         ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                        ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                          ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                          ;
+; Entity Instance                       ; multiply_fixed_point:multi_3|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 16                                          ;
+;     -- LPM_WIDTHB                     ; 32                                          ;
+;     -- LPM_WIDTHP                     ; 48                                          ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                      ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                          ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                          ;
+;     -- USE_EAB                        ; OFF                                         ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                        ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                          ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                          ;
++---------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "multiply_fixed_point:multi_4"                                                                                                                                                               ;
++---------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type  ; Severity ; Details                                                                                                                                                                             ;
++---------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; integer_input ; Input ; Warning  ; Input port expression (48 bits) is wider than the input port (16 bits) it drives.  The 32 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "multiply_fixed_point:multi_3"                                                                                                                                                               ;
++---------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type  ; Severity ; Details                                                                                                                                                                             ;
++---------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; integer_input ; Input ; Warning  ; Input port expression (48 bits) is wider than the input port (16 bits) it drives.  The 32 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "multiply_fixed_point:multi_2"                                                                                                                                                               ;
++---------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type  ; Severity ; Details                                                                                                                                                                             ;
++---------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; integer_input ; Input ; Warning  ; Input port expression (48 bits) is wider than the input port (16 bits) it drives.  The 32 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "multiply_fixed_point:multi_1"                                                                                                                                                               ;
++---------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type  ; Severity ; Details                                                                                                                                                                             ;
++---------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; integer_input ; Input ; Warning  ; Input port expression (48 bits) is wider than the input port (16 bits) it drives.  The 32 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 194                         ;
+; cycloneiii_ff         ; 64                          ;
+;     CLR               ; 64                          ;
+; cycloneiii_lcell_comb ; 377                         ;
+;     arith             ; 362                         ;
+;         2 data inputs ; 95                          ;
+;         3 data inputs ; 267                         ;
+;     normal            ; 15                          ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 5                           ;
+; cycloneiii_mac_mult   ; 10                          ;
+; cycloneiii_mac_out    ; 10                          ;
+;                       ;                             ;
+; Max LUT depth         ; 8.30                        ;
+; Average LUT depth     ; 4.67                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Sat Apr 13 08:30:28 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off IIR_fillter -c IIR_fillter
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file iir_fillter.v
+    Info (12023): Found entity 1: IIR_fillter File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/IIR_fillter.v Line: 1
+Warning (10259): Verilog HDL error at multiply_fixed_point.v(67): constant value overflow File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/multiply_fixed_point.v Line: 67
+Warning (10259): Verilog HDL error at multiply_fixed_point.v(68): constant value overflow File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/multiply_fixed_point.v Line: 68
+Info (12021): Found 2 design units, including 2 entities, in source file multiply_fixed_point.v
+    Info (12023): Found entity 1: multiply_fixed_point File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/multiply_fixed_point.v Line: 2
+    Info (12023): Found entity 2: testbench File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/multiply_fixed_point.v Line: 21
+Info (12127): Elaborating entity "IIR_fillter" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at IIR_fillter.v(70): truncated value with size 20 to match size of target (16) File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/IIR_fillter.v Line: 70
+Info (12128): Elaborating entity "multiply_fixed_point" for hierarchy "multiply_fixed_point:multi" File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/IIR_fillter.v Line: 29
+Info (278001): Inferred 5 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "multiply_fixed_point:multi_4|Mult0" File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/multiply_fixed_point.v Line: 9
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "multiply_fixed_point:multi|Mult0" File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/multiply_fixed_point.v Line: 9
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "multiply_fixed_point:multi_1|Mult0" File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/multiply_fixed_point.v Line: 9
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "multiply_fixed_point:multi_2|Mult0" File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/multiply_fixed_point.v Line: 9
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "multiply_fixed_point:multi_3|Mult0" File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/multiply_fixed_point.v Line: 9
+Info (12130): Elaborated megafunction instantiation "multiply_fixed_point:multi_4|lpm_mult:Mult0" File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/multiply_fixed_point.v Line: 9
+Info (12133): Instantiated megafunction "multiply_fixed_point:multi_4|lpm_mult:Mult0" with the following parameter: File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/multiply_fixed_point.v Line: 9
+    Info (12134): Parameter "LPM_WIDTHA" = "16"
+    Info (12134): Parameter "LPM_WIDTHB" = "32"
+    Info (12134): Parameter "LPM_WIDTHP" = "48"
+    Info (12134): Parameter "LPM_WIDTHR" = "48"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_2at.tdf
+    Info (12023): Found entity 1: mult_2at File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/IIR/db/mult_2at.tdf Line: 31
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13014): Ignored 450 buffer(s)
+    Info (13019): Ignored 450 SOFT buffer(s)
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 639 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 178 input pins
+    Info (21059): Implemented 16 output pins
+    Info (21061): Implemented 425 logic cells
+    Info (21062): Implemented 20 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4929 megabytes
+    Info: Processing ended: Sat Apr 13 08:30:38 2024
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:08
+
+

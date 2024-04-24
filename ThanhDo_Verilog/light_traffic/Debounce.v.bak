@@ -1,0 +1,6 @@
+moudule Debounce
+(
+	input clk,
+	input in,
+	output out
+);

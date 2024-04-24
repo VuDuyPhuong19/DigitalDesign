@@ -78,7 +78,7 @@ SecondCounter sc(
 BinaryToBCD BCDsecond(
     .binary(seconds),
     .tens(tens_seconds),
-	 .ones(ones_seconds)
+	.ones(ones_seconds)
 );
 
 

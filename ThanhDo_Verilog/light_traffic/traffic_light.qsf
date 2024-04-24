@@ -1,0 +1,91 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2023  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+# Date created = 16:01:28  April 20, 2024
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		traffic_light_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Intel recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE115F29C7
+set_global_assignment -name TOP_LEVEL_ENTITY traffic_light
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.1STD.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:01:28  APRIL 20, 2024"
+set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+set_global_assignment -name VERILOG_FILE traffic_light.v
+set_global_assignment -name VERILOG_FILE hightway_controller.v
+set_global_assignment -name VERILOG_FILE countryroad_controller.v
+set_global_assignment -name VERILOG_FILE timer.v
+set_global_assignment -name VERILOG_FILE lights.v
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_Y2 -to clk
+set_location_assignment PIN_AB28 -to car
+set_location_assignment PIN_M23 -to reset
+set_location_assignment PIN_G18 -to seg_light_h[6]
+set_location_assignment PIN_F22 -to seg_light_h[5]
+set_location_assignment PIN_E17 -to seg_light_h[4]
+set_location_assignment PIN_L26 -to seg_light_h[3]
+set_location_assignment PIN_L25 -to seg_light_h[2]
+set_location_assignment PIN_J22 -to seg_light_h[1]
+set_location_assignment PIN_H22 -to seg_light_h[0]
+set_location_assignment PIN_AA25 -to seg_light_r[6]
+set_location_assignment PIN_AA26 -to seg_light_r[5]
+set_location_assignment PIN_Y25 -to seg_light_r[4]
+set_location_assignment PIN_W26 -to seg_light_r[3]
+set_location_assignment PIN_Y26 -to seg_light_r[2]
+set_location_assignment PIN_W27 -to seg_light_r[1]
+set_location_assignment PIN_W28 -to seg_light_r[0]
+set_location_assignment PIN_AA17 -to seg_unit[6]
+set_location_assignment PIN_AB16 -to seg_unit[5]
+set_location_assignment PIN_AA16 -to seg_unit[4]
+set_location_assignment PIN_AB17 -to seg_unit[3]
+set_location_assignment PIN_AB15 -to seg_unit[2]
+set_location_assignment PIN_AA15 -to seg_unit[1]
+set_location_assignment PIN_AC17 -to seg_unit[0]
+set_location_assignment PIN_AD17 -to seg_ten[6]
+set_location_assignment PIN_AE17 -to seg_ten[5]
+set_location_assignment PIN_AG17 -to seg_ten[4]
+set_location_assignment PIN_AH17 -to seg_ten[3]
+set_location_assignment PIN_AF17 -to seg_ten[2]
+set_location_assignment PIN_AG18 -to seg_ten[1]
+set_location_assignment PIN_AA14 -to seg_ten[0]
+set_global_assignment -name VERILOG_FILE Debounce.v
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

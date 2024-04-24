@@ -1,0 +1,125 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "seg_light_h[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_light_h[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_light_h[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_light_h[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_light_h[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_light_h[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_light_r[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_light_r[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_light_r[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_light_r[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_light_r[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_light_r[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_unit[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_unit[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_unit[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_unit[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_unit[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_unit[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_unit[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_ten[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_ten[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_ten[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_ten[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_ten[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_ten[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_ten[6]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "car",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

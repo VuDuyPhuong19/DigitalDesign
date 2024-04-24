@@ -1,0 +1,69 @@
+module lights #(
+	parameter segment_num = 7,
+	parameter n = 4
+)
+(
+	input clk,
+	input reset,
+	input [2:0] light_h,
+	input [2:0] light_r,
+	input [segment_num-1:0] value,
+	output reg [segment_num-1:0] seg_light_h, // hex0
+	output reg [segment_num-1:0] seg_light_r, // hex1
+	output reg [segment_num-1:0] seg_unit, //hex3
+	output reg [segment_num-1:0] seg_ten // hex4
+);
+reg [3:0] tens,ones;
+
+BinaryToBCD BCD(
+    .binary(value),
+    .tens(tens),
+    .ones(ones)
+);
+
+always @ (value) begin
+	case(tens)
+		0: seg_ten = 7'b0000001;
+		1: seg_ten = 7'b1001111;
+		2: seg_ten = 7'b0010010;
+		3: seg_ten = 7'b0000110;
+		4: seg_ten = 7'b1001100;
+		5: seg_ten = 7'b0100100;
+		6: seg_ten = 7'b0100000;
+		7: seg_ten = 7'b0001111;
+		8: seg_ten = 7'b0000000;
+		9: seg_ten = 7'b0000100;
+		default: seg_ten = 7'b1111111;
+	endcase
+	case(ones)
+		0: seg_unit = 7'b0000001;
+		1: seg_unit = 7'b1001111;
+		2: seg_unit = 7'b0010010;
+		3: seg_unit = 7'b0000110;
+		4: seg_unit = 7'b1001100;
+		5: seg_unit = 7'b0100100;
+		6: seg_unit = 7'b0100000;
+		7: seg_unit = 7'b0001111;
+		8: seg_unit = 7'b0000000;
+		9: seg_unit = 7'b0000100;
+		default: seg_unit = 7'b1111111;
+	endcase
+end
+always @ (light_h) begin
+	case(light_h)
+		3'b100: seg_light_h = 7'b0000001;
+		3'b010: seg_light_h = 7'b1001111;
+		3'b001: seg_light_h = 7'b0010010;
+		default: seg_light_h = 7'b1111111;
+	endcase
+end
+always @ (light_r) begin
+	case(light_r)
+		3'b100: seg_light_r = 7'b0000001;
+		3'b010: seg_light_r = 7'b1001111;
+		3'b001: seg_light_r = 7'b0010010;
+		default: seg_light_r = 7'b1111111;
+	endcase
+end
+endmodule
+

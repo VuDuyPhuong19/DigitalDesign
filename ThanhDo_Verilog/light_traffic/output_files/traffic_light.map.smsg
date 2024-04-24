@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at hightway_controller.v(17): always construct contains both blocking and non-blocking assignments File: C:/THANHDO_LAB_Verilog/DigitalDesign/ThanhDo_Verilog/light_traffic/hightway_controller.v Line: 17
