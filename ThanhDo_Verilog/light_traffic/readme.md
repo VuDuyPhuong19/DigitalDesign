@@ -1,4 +1,5 @@
 SPEC:
+
 đầu vào : cảm biến car sensor : 1- có xe ở country-road; 0- không có xe
 
 
