@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TrafficLight
-Tue Apr 23 16:09:18 2024
+Wed Apr 24 09:53:52 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -56,7 +56,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Apr 23 16:09:18 2024          ;
+; Analysis & Synthesis Status        ; Successful - Wed Apr 24 09:53:52 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; TrafficLight                                   ;
 ; Top-level Entity Name              ; TrafficLight                                   ;
@@ -420,7 +420,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -430,7 +430,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Tue Apr 23 16:09:11 2024
+    Info: Processing started: Wed Apr 24 09:53:40 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TrafficLight -c TrafficLight
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -497,9 +497,9 @@ Info (21057): Implemented 107 device resources after synthesis - the final resou
     Info (21061): Implemented 84 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 32 warnings
     Info: Peak virtual memory: 4774 megabytes
-    Info: Processing ended: Tue Apr 23 16:09:18 2024
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:07
+    Info: Processing ended: Wed Apr 24 09:53:52 2024
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:08
 
 
 +------------------------------------------+
