@@ -7,8 +7,8 @@
         {
             "type": "venus",
             "request": "launch",
-            "name": "Launch with all views",
-            "program": "${file}",
+            "name": "Launch CenturyClock.s",
+            "program": "D:/Verilog project/DigitalDesign/DigitalDesign/Lab5/CenturyClock.s",
             "stopOnEntry": true,
             "stopAtBreakpoints": true,
             "openViews": [

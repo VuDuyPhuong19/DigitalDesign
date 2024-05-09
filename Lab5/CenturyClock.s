@@ -11,7 +11,21 @@
 .equ YEAR_TEN, 10
 .equ YEAR_ONE, 11
 
-.data
+.data           # value, meaning_of_number
+second: .byte 0
+minute: .byte 0
+year_ten_s:     .byte 0, 0 
+year_one_s:     .byte 0, 0
+month_ten_s:    .byte 0, 0
+month_one_s:    .byte 0, 0  
+date_ten_s:     .byte 0, 0 
+date_one_s:     .byte 0, 0  
+hours_ten_s:    .byte 0, 0
+hours_one_s:    .byte 0, 0 
+minutes_ten_s:  .byte 0, 0
+minutes_one_s:  .byte 0, 0
+seconds_ten_s:  .byte 0, 0   
+seconds_one_s:  .byte 0, 0    
 rows:
 .word 0x00000000 # Row 0
 .word 0x00000001 # Row 1
@@ -262,58 +276,68 @@ year_one:
 .globl main
 
 main:
-loop:
-    jal count_second
+    li t6, 0 #second
     li a0, 0x100
     # Hour
-    li a3, 1    # Chọn số để hiển thị (ví dụ: 4)
+    li a3, 0  
     li s0, HOUR_TEN
     jal display_number
-    li a3, 2  
+    li a3, 0  
     li s0, HOUR_ONE
     jal display_number
     # Minute
-    li a3, 4  
+    li a3, 0  
     li s0, MINUTE_TEN
     jal display_number
-    li a3, 5  
+    li a3, 0  
     li s0, MINUTE_ONE
     jal display_number
     # Second
-    li a3, 5  
+    li a3, 0  
     li s0, SECOND_TEN
     jal display_number
-    li a3, 6  
+    li a3, 0  
     li s0, SECOND_ONE
     jal display_number
 
     # Day
-    li a3, 1    # Chọn số để hiển thị (ví dụ: 4)
+    li a3, 0    # Chọn số để hiển thị (ví dụ: 4)
     li s0, DAY_TEN
     jal display_number
-    li a3, 9  
+    li a3, 1  
     li s0, DAY_ONE
     jal display_number
     # Month
-    li a3, 1  
+    li a3, 0  
     li s0, MONTH_TEN
     jal display_number
-    li a3, 0  
+    li a3, 1  
     li s0, MONTH_ONE
     jal display_number
     # Year
-    li a3, 0  
+    li a3, 2  
     li s0, YEAR_TEN
     jal display_number
-    li a3, 3 
+    li a3, 4 
     li s0, YEAR_ONE
     jal display_number
+loop:
+    jal count_second
+    jal count_minute
+    # jal update_led_matrix
+
 
     j loop
 
     # # Kết thúc chương trình
     # li a0, 10
     # ecall
+# update_led_matrix:
+#     li a0, 0x100
+#     li a3, a0  
+#     li s0, HOUR_TEN
+#     jal display_number
+#     ret
 
 display_number:
     la a4, rows
@@ -488,16 +512,63 @@ loop_j:
 
     ret # return
 
-count_second:
-    li a1, 0
-    addi a1, a1, 1
-    li a2, 60
-    beq a1, a2, reset_second
-    mv a0, a1
-    ret # return
+count_second: 
+    li t3, 60
+    beq t6, t3, reset_second
+    li t3, 10
+
+    mv t4, ra
+    divu a3, t6, t3 # integer part
+    li s0, SECOND_TEN
+    li a0, 0x100
+    jal display_number
+
+    li t3, 10
+    remu a3, t6, t3 # decimal part 
+    li s0, SECOND_ONE
+    li a0, 0x100
+    jal display_number
+    la a1, second
+    sw t6, 0(a1)
+    addi t6, t6, 1 # second++
+    mv ra, t4
+    ret
 
 reset_second:
-    li a1, 0
-    mv a0, a1 # Output
+    li t6, 0
+    mv a0, t6 # Output
     ret #return 
+
+count_minute:
+    la a1, second
+    lw a2, 0(a1) # second
+    li t3, 59 
+    beq a2, t3, inc_minute
+    la a1, minute
+    lw a2, 0(a1) # minute
+    mv t4, ra
+    
+    li t3, 10
+    divu a3, a2, t3 # integer part
+    li s0, MINUTE_TEN
+    li a0, 0x100
+    jal display_number
+
+    li t3, 10
+    remu a3, a2, t3 # decimal part 
+    li s0, MINUTE_ONE
+    li a0, 0x100
+    jal display_number
+
+    mv ra, t4
+    ret
+
+
+inc_minute:
+    la a1, minute
+    lw a2, 0(a1)
+    addi a2, a2, 1 # minute++
+    sw a2, 0(a1)
+    ret 
+
 
