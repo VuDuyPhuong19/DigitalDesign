@@ -10,22 +10,17 @@
 .equ MONTH_ONE, 9
 .equ YEAR_TEN, 10
 .equ YEAR_ONE, 11
+.equ YEAR_HUNDRED 12
+.equ YEAR_THOUSAND 13
 
 .data           # value, meaning_of_number
-second: .byte 0
+hour:   .byte 0
 minute: .byte 0
-year_ten_s:     .byte 0, 0 
-year_one_s:     .byte 0, 0
-month_ten_s:    .byte 0, 0
-month_one_s:    .byte 0, 0  
-date_ten_s:     .byte 0, 0 
-date_one_s:     .byte 0, 0  
-hours_ten_s:    .byte 0, 0
-hours_one_s:    .byte 0, 0 
-minutes_ten_s:  .byte 0, 0
-minutes_one_s:  .byte 0, 0
-seconds_ten_s:  .byte 0, 0   
-seconds_one_s:  .byte 0, 0    
+second: .byte 0
+day:    .byte 0
+month:  .byte 0
+year:   .byte 0
+  
 rows:
 .word 0x00000000 # Row 0
 .word 0x00000001 # Row 1
@@ -271,12 +266,19 @@ year_ten:
 .byte 0x1B, 0x0B
 year_one:
 .byte 0x1F, 0x0B 
+year_hundred:
+.byte 0x17, 0x0B
+year_thousand:
+.byte 0x13, 0x0B
 
 .text
 .globl main
 
 main:
     li t6, 0 #second
+    # la a1, minute
+    # li a2, 58
+    # sb a2, 0(a1)
     li a0, 0x100
     # Hour
     li a3, 0  
@@ -316,6 +318,12 @@ main:
     jal display_number
     # Year
     li a3, 2  
+    li s0, YEAR_THOUSAND
+    jal display_number
+    li a3, 0 
+    li s0, YEAR_HUNDRED
+    jal display_number
+    li a3, 2  
     li s0, YEAR_TEN
     jal display_number
     li a3, 4 
@@ -324,8 +332,8 @@ main:
 loop:
     jal count_second
     jal count_minute
+    jal count_hour
     # jal update_led_matrix
-
 
     j loop
 
@@ -420,6 +428,10 @@ next_1:
     beq s0, t0, is_year_ten
     li t0, YEAR_ONE
     beq s0, t0, is_year_one
+    li t0, YEAR_HUNDRED
+    beq s0, t0, is_year_hundred
+    li t0, YEAR_THOUSAND
+    beq s0, t0, is_year_thousand
 
 is_hour_ten:
     la a7, hour_ten
@@ -456,6 +468,12 @@ is_year_ten:
     j next_2
 is_year_one:
     la a7, year_one
+    j next_2
+is_year_hundred:
+    la a7, year_hundred
+    j next_2
+is_year_thousand:
+    la a7, year_thousand
     j next_2
 
 next_2:
@@ -529,46 +547,108 @@ count_second:
     li a0, 0x100
     jal display_number
     la a1, second
-    sw t6, 0(a1)
+    sb t6, 0(a1)
     addi t6, t6, 1 # second++
     mv ra, t4
     ret
 
 reset_second:
     li t6, 0
-    mv a0, t6 # Output
+    la a1, second
+    sb t6, 0(a1)
+    # mv a0, t6 # Output
     ret #return 
 
 count_minute:
     la a1, second
-    lw a2, 0(a1) # second
+    lb a2, 0(a1) # second
     li t3, 59 
     beq a2, t3, inc_minute
-    la a1, minute
-    lw a2, 0(a1) # minute
+
     mv t4, ra
-    
+    la a1, minute 
+    lb a2, 0(a1) #minute
+    li t3, 59
+    beq a2, t3, reset_minute
+    mv ra, t4
+    ret
+
+reset_minute:
+    li a2, 0
+    la a1, minute
+    sb a2, 0(a1)
+    ret
+
+inc_minute:
+    la a1, minute
+    lb a2, 0(a1)
+    addi a2, a2, 1 # minute++
+    mv t4, ra
     li t3, 10
     divu a3, a2, t3 # integer part
+    mv s2, a2
     li s0, MINUTE_TEN
     li a0, 0x100
     jal display_number
 
     li t3, 10
+    mv a2, s2
     remu a3, a2, t3 # decimal part 
+    mv s2, a2
     li s0, MINUTE_ONE
     li a0, 0x100
     jal display_number
+    
+    la a1, minute
+    mv a2, s2
+    sb a2, 0(a1)
+    mv ra, t4
+    ret 
 
+count_hour:
+    la a1, minute
+    lb a2, 0(a1) # minute
+    li t3, 59 
+    beq a2, t3, inc_hour
+
+    mv t4, ra
+    la a1, hour 
+    lb a2, 0(a1) #minute
+    li t3, 23
+    beq a2, t3, reset_hour
     mv ra, t4
     ret
 
+reset_minute:
+    li a2, 0
+    la a1, hour
+    sb a2, 0(a1)
+    ret
 
-inc_minute:
-    la a1, minute
-    lw a2, 0(a1)
+inc_hour:
+    la a1, hour
+    lb a2, 0(a1)
     addi a2, a2, 1 # minute++
-    sw a2, 0(a1)
-    ret 
+    mv t4, ra
+    li t3, 10
+    divu a3, a2, t3 # integer part
+    mv s2, a2
+    li s0, HOUR_TEN
+    li a0, 0x100
+    jal display_number
+
+    li t3, 10
+    mv a2, s2
+    remu a3, a2, t3 # decimal part 
+    mv s2, a2
+    li s0, HOUR_ONE
+    li a0, 0x100
+    jal display_number
+    
+    la a1, hour
+    mv a2, s2
+    sb a2, 0(a1)
+    mv ra, t4
+    ret
 
 
