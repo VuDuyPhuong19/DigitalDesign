@@ -1,26 +1,40 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "venus",
+      "request": "launch",
+      "name": "Launch CenturyClock.s",
+      "program": "D:/Verilog project/DigitalDesign/DigitalDesign/Lab5/CenturyClock.s",
+      "stopOnEntry": true,
+      "stopAtBreakpoints": true,
+      "openViews": [
+        "LED Matrix",
+        "Memory"
+      ],
+      "ledMatrixSize": {
+        "x": 35,
+        "y": 20
+      }
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "d:/Verilog project/DigitalDesign/DigitalDesign/Lab5",
+      "program": "d:/Verilog project/DigitalDesign/DigitalDesign/Lab5/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
         {
-            "type": "venus",
-            "request": "launch",
-            "name": "Launch CenturyClock.s",
-            "program": "D:/Verilog project/DigitalDesign/DigitalDesign/Lab5/CenturyClock.s",
-            "stopOnEntry": true,
-            "stopAtBreakpoints": true,
-            "openViews": [
-                // "Robot",
-                "LED Matrix",
-                // "Seven Segment Board",
-                "Memory"
-            ],
-            "ledMatrixSize": {
-                "x": 35,
-                "y": 20
-            }
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
         }
-    ]
+      ]
+    }
+  ]
 }

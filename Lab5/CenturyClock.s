@@ -17,9 +17,9 @@
 hour:   .byte 0
 minute: .byte 0
 second: .byte 0
-day:    .byte 0
-month:  .byte 0
-year:   .byte 0
+year: .byte 0
+month: .byte 0        # Lưu trữ số giờ
+date: .byte 0      # Lưu trữ số giờ
   
 rows:
 .word 0x00000000 # Row 0
@@ -271,6 +271,7 @@ year_hundred:
 year_thousand:
 .byte 0x13, 0x0B
 
+
 .text
 .globl main
 
@@ -329,14 +330,214 @@ main:
     li a3, 4 
     li s0, YEAR_ONE
     jal display_number
-loop:
+
+    j day_counter
+# loop:
+#     jal count_second
+#     jal count_minute
+#     jal count_hour
+#     j day_counter
+#     j loop
+day_counter: 
+    la a2, date
+    lb a3, 0(a2)
+    li t3, 0
+check_count_day:
+    addi s5, ra, 0
+loop_inc_second:
     jal count_second
     jal count_minute
     jal count_hour
-    # jal update_led_matrix
 
-    j loop
+    la a1, hour
+    lb s4, 0(a1)
+    li a2, 24
+    beq s4, a2, inc_day
+    j loop_inc_second
+inc_day:
 
+    addi ra, s5, 0
+    la a2,date
+    lb a3,0(a2)
+    li t3,0
+    beq t5,t3, count_30_day
+    addi t3,t3,1
+    beq t5,t3, count_31_day
+    addi t3,t3,1
+    beq t5,t3, count_28_day
+    j count_29_day
+count_30_day:
+    li t3,30
+    beq a3,t3, update_month
+    j update_day
+count_31_day:
+    li t3,31
+    beq a3,t3, update_month
+    j update_day
+count_28_day:
+    li t3,28
+    beq a3,t3,update_month
+    j update_day
+count_29_day:
+    li t3,29
+    beq a3,t3,update_month
+    j update_day
+update_day:
+    addi sp,sp,-4
+    sw ra,0(sp)
+    addi sp,sp,-4
+    sw a2,0(sp)
+    addi a3,a3,1
+    li t0, 10
+    li a0, 0x100
+    addi t4,a3,0
+    divu a3, a3, t0 
+    li s0, DAY_TEN
+    jal ra, display_number
+    lw ra,0(sp)
+    addi sp,sp,4
+    addi a3,t4,0
+    li t0, 10
+    addi t4,a3,0
+    remu a3, a3, t0
+    li a0, 0x100
+    li s0, DAY_ONE
+    addi sp,sp,-4
+    sw ra,0(sp)
+    jal ra, display_number
+    lw ra,0(sp)
+    addi sp,sp,4
+    addi a3,t4,0
+    lw a2,0(sp)
+    addi sp,sp,4
+    sb a3,0(a2)
+    j check_count_day
+    #j end_counter_day
+update_month:
+    li a3,0
+    sb a3,0(a2)
+    addi sp,sp,-4
+    sw ra,0(sp)
+    jal ra,update_month_fun
+    lw ra,0(sp)
+    addi sp,sp,4
+end_counter_day:
+    j check_count_day
+update_month_fun:
+month_counter:
+    addi sp,sp,-4
+    sw ra,0(sp)
+    la a2,month
+    lb a3,0(a2)
+    addi a3,a3,1
+    li t6,13
+    beq a3,t6,update_year
+    li t3,12
+    beq a3,t3,update_flag_31
+    li t3,1 #ktra tháng 1
+    beq a3,t3,update_flag_31
+    li t3,2 #ktra tháng 2
+    la a6,year
+    lb a7,0(a2)
+    li t3,4
+    rem a7,a7,t3
+    li t3,0
+    beq a3,t3,update_flag_29
+    beq a3,t3,update_flag_30
+    li t3,3 #ktra tháng 3
+    beq a3,t3,update_flag_31
+    li t3,4 #ktra tháng 4
+    beq a3,t3,update_flag_30
+    li t3,5 #ktra tháng 5
+    beq a3,t3,update_flag_31
+    li t3,6 #ktra tháng 6
+    beq a3,t3,update_flag_30
+    li t3,7 #ktra tháng 7
+    beq a3,t3,update_flag_31
+    li t3,8 #ktra tháng 8
+    beq a3,t3,update_flag_31
+    li t3,9 #ktra tháng 9
+    beq a3,t3,update_flag_30
+    li t3,10 #ktra tháng 10
+    beq a3,t3,update_flag_31
+    li t3,11 #ktra tháng 11
+    beq a3,t3,update_flag_30
+    j update_flag_28
+complete_update_flag:
+    j up_month
+update_flag_30:
+    li t5,0
+    j complete_update_flag
+update_flag_31:
+    li t5,1
+    j complete_update_flag
+update_flag_28:
+    li t5,2
+    j complete_update_flag
+update_flag_29:
+    li t5,3
+    j complete_update_flag
+up_month:
+    addi sp,sp,-4
+    sw a2,0(sp)
+    li t0, 10
+    li a0, 0x100
+    addi t4,a3,0
+    divu a3, a3, t0 
+    li s0, MONTH_TEN
+    jal ra,display_number
+    addi a3,t4,0
+    li t0, 10
+    addi t4,a3,0
+    remu a3, a3, t0
+    li a0, 0x100
+    li s0, MONTH_ONE
+    jal ra, display_number
+    addi a3,t4,0
+    lw a2,0(sp)
+    addi sp,sp,4
+    lw ra,0(sp)
+    addi sp,sp,4
+    sb a3,0(a2)
+    j end_counter_month
+update_year:
+    addi sp,sp,-4
+    sw ra,0(sp)
+    j update_year_fun
+    lw ra,0(sp)
+    addi sp,sp,4
+    j up_month
+end_counter_month:
+ret
+update_year_fun:
+    li a3,1
+    sb a3,0(a2)
+    la a2,year
+    lb a3,0(a2)
+    addi a3,a3,1
+up_year:
+    addi sp,sp,-4
+    sw a2,0(sp)
+    li t0, 10
+    li a0, 0x100
+    addi t4,a3,0
+    divu a3, a3, t0 
+    li s0, YEAR_TEN
+    jal ra,display_number
+    addi a3,t4,0
+    li t0, 10
+    addi t4,a3,0
+    remu a3, a3, t0
+    li a0, 0x100
+    li s0, YEAR_ONE
+    jal ra, display_number
+    addi a3,t4,0
+    lw a2,0(sp)
+    addi sp,sp,4
+    lw ra,0(sp)
+    addi sp,sp,4
+    sb a3,0(a2)
+    j up_month
     # # Kết thúc chương trình
     # li a0, 10
     # ecall
@@ -619,7 +820,7 @@ count_hour:
     mv ra, t4
     ret
 
-reset_minute:
+reset_hour:
     li a2, 0
     la a1, hour
     sb a2, 0(a1)
