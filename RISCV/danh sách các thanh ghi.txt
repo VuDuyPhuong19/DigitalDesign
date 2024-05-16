@@ -1,0 +1,25 @@
+Danh sách các thanh ghi chung trong RISC-V:
+
+x0: Zero Register – Luôn luôn chứa giá trị 0.
+
+x1 (ra): Return Address – Lưu địa chỉ trở lại sau khi gọi hàm.
+
+x2 (sp): Stack Pointer – Con trỏ ngăn xếp, trỏ tới đỉnh hiện tại của ngăn xếp.
+
+x3 (gp): Global Pointer – Trỏ đến vùng bộ nhớ toàn cục.
+
+x4 (tp): Thread Pointer – Dùng cho hỗ trợ đa luồng.
+
+x5 - x7 (t0 - t2): Temporary Registers – Dùng cho các giá trị tạm thời.
+
+x8 (s0/fp): Frame Pointer – Dùng như là con trỏ khung hoặc một thanh ghi lưu.
+
+x9 (s1): Saved Register – Thanh ghi lưu.
+
+x10 - x11 (a0 - a1): Function Arguments/Return Values – Dùng để truyền đối số và giá trị trả về từ hàm.
+
+x12 - x17 (a2 - a7): Function Arguments – Dùng để truyền đối số cho hàm.
+
+x18 - x27 (s2 - s11): Saved Registers – Các thanh ghi lưu, giữ giá trị qua các lời gọi hàm.
+
+x28 - x31 (t3 - t6): Temporary Registers – Dùng cho các giá trị tạm thời, không được lưu giữ qua các lời gọi hàm.

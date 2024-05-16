@@ -1,0 +1,130 @@
+Sử dụng thanh ghi x1 (ra - return address)
+
+.text
+main:
+  addi sp, sp, -16     # Cấp phát không gian cho ngăn xếp
+  sw ra, 12(sp)        # Lưu địa chỉ trả về vào ngăn xếp
+  call function        # Gọi hàm
+  lw ra, 12(sp)        # Khôi phục địa chỉ trả về
+  addi sp, sp, 16      # Giải phóng ngăn xếp
+  ret                  # Trở về từ hàm main
+
+function:
+  # Thực hiện công việc gì đó
+  ret                  # Trở về từ hàm, sử dụng địa chỉ trong ra
+------------------------------------------------------------------------------------
+ Sử dụng thanh ghi x2 (sp - stack pointer)
+.text
+main:
+  addi sp, sp, -4      # Di chuyển con trỏ ngăn xếp xuống để tạo không gian
+  li t0, 10            # Đặt giá trị 10 vào t0
+  sw t0, 0(sp)         # Đẩy t0 vào ngăn xếp
+  lw t1, 0(sp)         # Lấy t0 ra từ ngăn xếp vào t1
+  addi sp, sp, 4       # Trả con trỏ ngăn xếp về vị trí ban đầu
+  ret                  # Kết thúc chương trình
+------------------------------------------------------------------------------------
+Sử dụng thanh ghi x8 (s0/fp - frame pointer)
+con trỏ khung để quản lý các biến cục bộ và tham số trong một khung ngăn xếp.
+.text
+main:
+  addi sp, sp, -20     # Cấp phát không gian cho ngăn xếp
+  addi s0, sp, 20      # Thiết lập con trỏ khung
+  sw ra, -4(s0)        # Lưu địa chỉ trả về
+  sw a0, -8(s0)        # Lưu tham số                  # sw - store word.. lưu trữ giá trị của ô có địa chỉ &s0 -4
+  li a0, 15            # Đặt một giá trị mới cho a0
+  call process         # Gọi hàm process
+  lw a0, -8(s0)        # Khôi phục giá trị cũ của a0
+  lw ra, -4(s0)        # Khôi phục địa chỉ trả về
+  addi sp, sp, 20      # Giải phóng ngăn xếp
+  ret                  # Kết thúc chương trình
+
+process:
+  # Giả sử chúng ta thực hiện một số tính toán ở đây
+  ret
+------------------------------------------------------------------------------------------
+Sử dụng thanh ghi x5 đến x7 (t0 đến t2) – Temporary Registers
+Chương trình này dùng các thanh ghi tạm để thực hiện các phép tính trung gian trong một hàm tính toán. 
+
+.text
+main:
+  li t0, 10            # Đặt giá trị 10 vào t0
+  li t1, 20            # Đặt giá trị 20 vào t1
+  call multiply        # Gọi hàm multiply
+  # Kết quả được trả về trong t2
+  ret
+
+multiply:
+  mul t2, t0, t1       # t2 = t0 * t1
+  ret                  # Trở về từ hàm
+-------------------------------------------------------------------------------------------
+
+Sử dụng thanh ghi x9 – Đăng ký tạm thời cho các mục đích đặc biệt
+Chương trình này dùng x9 để lưu trữ một giá trị tạm thời cho mục đích đặc biệt, ví dụ như tính một địa chỉ bộ nhớ.
+
+.text
+main:
+  la t0, data         # Tải địa chỉ của dữ liệu vào t0
+  li x9, 4            # Đặt giá trị offset vào x9
+  add t0, t0, x9      # Cộng địa chỉ và offset
+  lw a0, 0(t0)        # Nạp giá trị từ địa chỉ đã tính vào a0
+  ret                 # Kết thúc chương trình
+
+.data
+data:
+  .word 0x1, 0x2, 0x3, 0x4
+---------------------------------------------------------------------------------------------
+thanh ghi x10 đến x17 (tức là a0 đến a7 trong RISC-V) để truyền đối số cho hàm và nhận giá trị trả về. Ví dụ này sẽ tạo một hàm cộng các số và trả về tổng của chúng.
+.text
+.globl main
+
+main:
+    li a0, 1             # Đặt giá trị 1 vào a0
+    li a1, 2             # Đặt giá trị 2 vào a1
+    li a2, 3             # Đặt giá trị 3 vào a2
+    li a3, 4             # Đặt giá trị 4 vào a3
+    li a4, 5             # Đặt giá trị 5 vào a4
+    li a5, 6             # Đặt giá trị 6 vào a5
+    call sum_numbers     # Gọi hàm sum_numbers
+    # Kết quả sẽ được lưu trong a0 sau khi hàm sum_numbers trả về
+    ret                  # Kết thúc chương trình
+
+sum_numbers:
+    add a0, a0, a1       # a0 = a0 + a1
+    add a0, a0, a2       # a0 = a0 + a2
+    add a0, a0, a3       # a0 = a0 + a3
+    add a0, a0, a4       # a0 = a0 + a4
+    add a0, a0, a5       # a0 = a0 + a5
+    ret                  # Trả về từ hàm, kết quả ở a0
+			 # return về thanh ghi Ra để tiếp tục thực hiện lệnh tiếp theo
+----------------------------------------------------------------------------------------------
+Sử dụng Saved Registers (s2 - s11)
+Các thanh ghi lưu (s2 đến s11) được sử dụng để giữ các giá trị qua các lời gọi hàm. Điều này có nghĩa là các hàm bạn gọi có trách nhiệm bảo vệ và phục hồi giá trị của những thanh ghi này nếu chúng muốn sử dụng chúng
+
+.text
+.globl main
+
+main:
+    li s2, 10          # Load 10 vào thanh ghi s2
+    call increment     # Gọi hàm increment
+    # s2 vẫn giữ giá trị 11 sau khi hàm increment được gọi
+    ret
+
+increment:
+    addi s2, s2, 1     # Tăng giá trị trong s2 lên 1
+    ret                # Trở về từ hàm
+-----------------------------------------------------------------------------------------------
+Các thanh ghi tạm (t3 đến t6) được dùng cho các giá trị tạm thời mà không cần được giữ qua các lời gọi hàm. Các hàm có thể ghi đè lên các thanh ghi này mà không cần lưu hoặc phục hồi giá trị của chúng.
+
+.text
+.globl main
+
+main:
+    li t3, 5           # Load 5 vào t3
+    call double_value  # Gọi hàm double_value
+    # Giá trị trong t3 sau khi gọi hàm có thể đã bị thay đổi
+    ret
+
+double_value:
+    slli t4, t3, 1     # Dịch trái t3 một bit (nhân đôi giá trị của t3) và lưu vào t4
+    ret                # Trở về từ hàm
+

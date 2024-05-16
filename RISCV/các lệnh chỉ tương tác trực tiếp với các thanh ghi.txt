@@ -1,0 +1,20 @@
+1. Các Lệnh R-Type
+Các lệnh R-Type trong RISC-V là những lệnh sử dụng ba thanh ghi, với hai thanh ghi là nguồn và một thanh ghi là đích. Chúng thực hiện các phép toán trên dữ liệu từ hai thanh ghi nguồn và lưu kết quả vào thanh ghi đích.
+
+add rd, rs1, rs2: Cộng giá trị hai thanh ghi rs1 và rs2, kết quả lưu vào rd.
+sub rd, rs1, rs2: Trừ giá trị thanh ghi rs2 từ rs1, kết quả lưu vào rd.
+and rd, rs1, rs2: Thực hiện phép AND bit-wise giữa rs1 và rs2, kết quả lưu vào rd.
+or rd, rs1, rs2: Thực hiện phép OR bit-wise giữa rs1 và rs2, kết quả lưu vào rd.
+xor rd, rs1, rs2: Thực hiện phép XOR bit-wise giữa rs1 và rs2, kết quả lưu vào rd.
+slt rd, rs1, rs2: So sánh rs1 và rs2, nếu rs1 nhỏ hơn rs2 theo dấu, đặt 1 vào rd, ngược lại đặt 0.
+
+
+
+2. Các Lệnh I-Type
+Các lệnh I-Type trong RISC-V thực hiện các phép toán trên một thanh ghi nguồn và một giá trị ngay, và lưu kết quả vào một thanh ghi đích.
+
+addi rd, rs1, imm: Cộng giá trị trong thanh ghi rs1 với giá trị ngay imm, kết quả lưu vào rd.
+andi rd, rs1, imm: Thực hiện phép AND bit-wise giữa rs1 và giá trị ngay imm, kết quả lưu vào rd.
+ori rd, rs1, imm: Thực hiện phép OR bit-wise giữa rs1 và giá trị ngay imm, kết quả lưu vào rd.
+xori rd, rs1, imm: Thực hiện phép XOR bit-wise giữa rs1 và giá trị ngay imm, kết quả lưu vào rd.
+slti rd, rs1, imm: So sánh rs1 với giá trị ngay imm, nếu rs1 nhỏ hơn imm theo dấu, đặt 1 vào rd, ngược lại đặt 0.

@@ -1,0 +1,28 @@
+lw (Load Word)
+Mô tả: Tải một từ (word, thường là 32-bit) từ bộ nhớ vào một thanh ghi.
+Cú pháp: lw rd, offset(rs1)
+rd là thanh ghi đích nơi dữ liệu sẽ được lưu.
+offset(rs1) xác định địa chỉ bộ nhớ từ đó dữ liệu sẽ được tải, được tính bằng cách cộng một giá trị ngay (offset) với giá trị trong thanh ghi rs1.
+2. sw (Store Word)
+Mô tả: Ghi một từ từ một thanh ghi vào bộ nhớ.
+Cú pháp: sw rs2, offset(rs1)
+rs2 là thanh ghi nguồn chứa dữ liệu cần ghi vào bộ nhớ.
+offset(rs1) xác định địa chỉ bộ nhớ nơi dữ liệu sẽ được ghi, tính bằng cách cộng offset với giá trị trong thanh ghi rs1.
+3. lh (Load Halfword)
+Mô tả: Tải một nửa từ (halfword, 16-bit) từ bộ nhớ vào một thanh ghi, mở rộng dấu nếu cần.
+Cú pháp: lh rd, offset(rs1)
+4. sh (Store Halfword)
+Mô tả: Ghi một nửa từ từ một thanh ghi vào bộ nhớ.
+Cú pháp: sh rs2, offset(rs1)
+5. lb (Load Byte)
+Mô tả: Tải một byte từ bộ nhớ vào một thanh ghi, mở rộng dấu nếu cần.
+Cú pháp: lb rd, offset(rs1)
+6. sb (Store Byte)
+Mô tả: Ghi một byte từ một thanh ghi vào bộ nhớ.
+Cú pháp: sb rs2, offset(rs1)
+7. lbu (Load Byte Unsigned)
+Mô tả: Tải một byte từ bộ nhớ vào một thanh ghi mà không mở rộng dấu.
+Cú pháp: lbu rd, offset(rs1)
+8. lhu (Load Halfword Unsigned)
+Mô tả: Tải một nửa từ không dấu từ bộ nhớ vào một thanh ghi.
+Cú pháp: lhu rd, offset(rs1)
