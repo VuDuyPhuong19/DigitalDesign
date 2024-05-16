@@ -1,0 +1,8 @@
+module mux_fetch(
+    input [9:0] Sum;
+    input [9:0] add_normal;
+    input [1:0] control;
+    output [9:0] next_address
+)
+assign next_address=(control==0)?add_normal:Sum;
+endmodule

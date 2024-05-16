@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Fri Apr 12 21:48:29 2024
+Analysis & Synthesis Status : Successful - Sat Apr 13 03:26:18 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : LAB4
-Top-level Entity Name : iir_stage
+Top-level Entity Name : Equalizer
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 440
-Total pins : 50
+Total registers : 1056
+Total pins : 226
 Total virtual pins : 0
 Total block memory bits : 0
-Total DSP Blocks : 51
+Total DSP Blocks : 125
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0

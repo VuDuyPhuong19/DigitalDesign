@@ -1,5 +1,5 @@
 EDA Netlist Writer report for LAB4
-Fri Apr 12 21:49:41 2024
+Sat Apr 13 03:29:47 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -37,9 +37,9 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Fri Apr 12 21:49:41 2024 ;
+; EDA Netlist Writer Status ; Successful - Sat Apr 13 03:29:47 2024 ;
 ; Revision Name             ; LAB4                                  ;
-; Top-level Entity Name     ; iir_stage                             ;
+; Top-level Entity Name     ; Equalizer                             ;
 ; Family                    ; Cyclone V                             ;
 ; Simulation Files Creation ; Successful                            ;
 +---------------------------+---------------------------------------+
@@ -81,14 +81,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Fri Apr 12 21:49:39 2024
+    Info: Processing started: Sat Apr 13 03:29:44 2024
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off LAB4 -c LAB4
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file LAB4.vo in folder "C:/TKS/DigitalDesign/manhhung_1/LAB4/simulation/questa/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4767 megabytes
-    Info: Processing ended: Fri Apr 12 21:49:41 2024
-    Info: Elapsed time: 00:00:02
+    Info: Peak virtual memory: 4800 megabytes
+    Info: Processing ended: Sat Apr 13 03:29:47 2024
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:01
 
 

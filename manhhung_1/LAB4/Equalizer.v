@@ -1,50 +1,243 @@
-module Equalizer #(
-	parameter FILTER_NUM = 6,
-	parameter DATA_BIT = 16,
-	parameter GAIN_BIT = 5,
-	parameter COUNT_BIT_NUM = 5
-)(
+module Equalizer(
 	input clk,
-	input rst_n,
-	input [GAIN_BIT*FILTER_NUM-1:0] gain,
-	input signed [DATA_BIT-1:0] data_in,
-	output reg signed [DATA_BIT-1:0] data_out
+	input rst,
+	input signed [31:0] gain1,
+	input signed [31:0] gain2,
+	input signed [31:0] gain3,
+	input signed [31:0] gain4,
+	input signed [31:0] gain5,
+	input signed [31:0] gain6,
+	input signed [15:0] data_in,
+	output wire signed [15:0] data_out
 );
+wire signed [31:0] coeff_in_1_a=32'h000368fb, coeff_in_2_a=32'h0006d1f5, coeff_in_3_a=32'h000368fb, coeff_out_1_a=32'he12eabf5, coeff_out_2_a=32'h0edfe638;
+wire signed [31:0] coeff_in_1_1_a=32'h10000000 , coeff_in_2_1_a=32'he0000000, coeff_in_3_1_a=32'h10000000, coeff_out_1_1_a=32'he02a9027, coeff_out_2_1_a=32'h0fd5bd9d;
+wire signed [31:0] coeff_in_1_b=32'h0002fa85, coeff_in_2_b=32'h0005f50a, coeff_in_3_b=32'h0002fa85, coeff_out_1_b=32'he0ef4812, coeff_out_2_b=32'h0f430c85;
+wire signed [31:0] coeff_in_1_1_b=32'h10000000 , coeff_in_2_1_b=32'he0000000, coeff_in_3_1_b=32'h10000000, coeff_out_1_1_b=32'he09049c2, coeff_out_2_1_b=32'h0f84defa;
+wire signed [31:0] coeff_in_1_c=32'h000c478c, coeff_in_2_c=32'h00188f1b, coeff_in_3_c=32'h000c478c, coeff_out_1_c=32'he238e938, coeff_out_2_c=32'h0e7c1e49;
+wire signed [31:0] coeff_in_1_1_c=32'h10000000 , coeff_in_2_1_c=32'he0000000, coeff_in_3_1_c=32'h10000000, coeff_out_1_1_c=32'he13abd66, coeff_out_2_1_c=32'h0f0b6cfb;
+wire signed [31:0] coeff_in_1_d=32'h0016b3f7, coeff_in_2_d=32'h002d67ea, coeff_in_3_d=32'h0016b3f7, coeff_out_1_d=32'he3f3a234, coeff_out_2_d=32'h0e09ecd3;
+wire signed [31:0] coeff_in_1_1_d=32'h10000000 , coeff_in_2_1_d=32'he0000000, coeff_in_3_1_d=32'h10000000, coeff_out_1_1_d=32'he25f1603, coeff_out_2_1_d=32'h0e9a51b3;
+wire signed [31:0] coeff_in_1_e=32'h018fe599, coeff_in_2_e=32'h031fcb34, coeff_in_3_e=32'h018fe599, coeff_out_1_e=32'hf48f2796, coeff_out_2_e=32'h079841cb;
+wire signed [31:0] coeff_in_1_1_e=32'h10000000 , coeff_in_2_1_e=32'he0000000, coeff_in_3_1_e=32'h10000000, coeff_out_1_1_e=32'he7674ec9, coeff_out_2_1_e=32'h0b3c5f16;
+wire signed [31:0] coeff_in_1_f=32'h02fcb332, coeff_in_2_f=32'hfa06999a, coeff_in_3_f=32'h02fcb332, coeff_out_1_f=32'hf9e83a41, coeff_out_2_f=32'h06a87bbd;
+wire signed [31:0] coeff_in_1_1_f=32'h10000000 , coeff_in_2_1_f=32'he0000000, coeff_in_3_1_f=32'h10000000, coeff_out_1_1_f=32'h0f56cc0d, coeff_out_2_1_f=32'h0e9a51b3;
+wire signed [15:0] data_out_band_1;
+wire signed [15:0] data_out_band_1_gain;
+wire signed [15:0] data_out_band_2;
+wire signed [15:0] data_out_band_2_gain;
+wire signed [15:0] data_out_band_3;
+wire signed [15:0] data_out_band_3_gain;
+wire signed [15:0] data_out_band_4;
+wire signed [15:0] data_out_band_4_gain;
+wire signed [15:0] data_out_band_5;
+wire signed [15:0] data_out_band_5_gain;
+wire signed [15:0] data_out_band_6;
+wire signed [15:0] data_out_band_6_gain;
+multiply_fixed_point mul1(
+	.integer_input(gain1),
+	.real_input(data_out_band_1),
+	.result(data_out_band_1_gain)
+);
+multiply_fixed_point mul2(
+	.integer_input(gain2),
+	.real_input(data_out_band_2),
+	.result(data_out_band_2_gain)
+);
+multiply_fixed_point mul3(
+	.integer_input(gain3),
+	.real_input(data_out_band_3),
+	.result(data_out_band_3_gain)
+);
+multiply_fixed_point mul4(
+	.integer_input(gain4),
+	.real_input(data_out_band_4),
+	.result(data_out_band_4_gain)
+);
+multiply_fixed_point mul5(
+	.integer_input(gain5),
+	.real_input(data_out_band_5),
+	.result(data_out_band_5_gain)
+);
+multiply_fixed_point mul6(
+	.integer_input(gain6),
+	.real_input(data_out_band_6),
+	.result(data_out_band_6_gain)
+);
+iir_sum Band_1(
+	.clk(clk),
+	.rst(rst),
+	.data_in(data_in),
+	.data_out(data_out_band_1),
+	.coeff_in_1(coeff_in_1_a),
+	.coeff_in_2(coeff_in_2_a),
+	.coeff_in_3(coeff_in_3_a),
+	.coeff_out_1(coeff_out_1_a),
+	.coeff_out_2(coeff_out_2_a),
+	.coeff_in_1_1(coeff_in_1_1_a),
+	.coeff_in_2_1(coeff_in_2_1_a),
+	.coeff_in_3_1(coeff_in_3_1_a),
+	.coeff_out_1_1(coeff_out_1_1_a),
+	.coeff_out_2_1(coeff_out_2_1_a)
+);
+iir_sum Band_2(
+	.clk(clk),
+	.rst(rst),
+	.data_in(data_in),
+	.data_out(data_out_band_2),
+	.coeff_in_1(coeff_in_1_b),
+	.coeff_in_2(coeff_in_2_b),
+	.coeff_in_3(coeff_in_3_b),
+	.coeff_out_1(coeff_out_1_b),
+	.coeff_out_2(coeff_out_2_b),
+	.coeff_in_1_1(coeff_in_1_1_b),
+	.coeff_in_2_1(coeff_in_2_1_b),
+	.coeff_in_3_1(coeff_in_3_1_b),
+	.coeff_out_1_1(coeff_out_1_1_b),
+	.coeff_out_2_1(coeff_out_2_1_b)
+);
+iir_sum Band_3(
+	.clk(clk),
+	.rst(1),
+	.data_in(data_in),
+	.data_out(data_out_band_3),
+	.coeff_in_1(coeff_in_1_c),
+	.coeff_in_2(coeff_in_2_c),
+	.coeff_in_3(coeff_in_3_c),
+	.coeff_out_1(coeff_out_1_c),
+	.coeff_out_2(coeff_out_2_c),
+	.coeff_in_1_1(coeff_in_1_1_c),
+	.coeff_in_2_1(coeff_in_2_1_c),
+	.coeff_in_3_1(coeff_in_3_1_c),
+	.coeff_out_1_1(coeff_out_1_1_c),
+	.coeff_out_2_1(coeff_out_2_1_c)
+);
+iir_sum Band_4(
+	.clk(clk),
+	.rst(rst),
+	.data_in(data_in),
+	.data_out(data_out_band_4),
+	.coeff_in_1(coeff_in_1_d),
+	.coeff_in_2(coeff_in_2_d),
+	.coeff_in_3(coeff_in_3_d),
+	.coeff_out_1(coeff_out_1_d),
+	.coeff_out_2(coeff_out_2_d),
+	.coeff_in_1_1(coeff_in_1_1_d),
+	.coeff_in_2_1(coeff_in_2_1_d),
+	.coeff_in_3_1(coeff_in_3_1_d),
+	.coeff_out_1_1(coeff_out_1_1_d),
+	.coeff_out_2_1(coeff_out_2_1_d)
+);
+iir_sum Band_5(
+	.clk(clk),
+	.rst(rst),
+	.data_in(data_in),
+	.data_out(data_out_band_5),
+	.coeff_in_1(coeff_in_1_e),
+	.coeff_in_2(coeff_in_2_e),
+	.coeff_in_3(coeff_in_3_e),
+	.coeff_out_1(coeff_out_1_e),
+	.coeff_out_2(coeff_out_2_e),
+	.coeff_in_1_1(coeff_in_1_1_e),
+	.coeff_in_2_1(coeff_in_2_1_e),
+	.coeff_in_3_1(coeff_in_3_1_e),
+	.coeff_out_1_1(coeff_out_1_1_e),
+	.coeff_out_2_1(coeff_out_2_1_e)
+);
+iir_sum Band_6(
+	.clk(clk),
+	.rst(rst),
+	.data_in(data_in),
+	.data_out(data_out_band_6),
+	.coeff_in_1(coeff_in_1_f),
+	.coeff_in_2(coeff_in_2_f),
+	.coeff_in_3(coeff_in_3_f),
+	.coeff_out_1(coeff_out_1_f),
+	.coeff_out_2(coeff_out_2_f),
+	.coeff_in_1_1(coeff_in_1_1_f),
+	.coeff_in_2_1(coeff_in_2_1_f),
+	.coeff_in_3_1(coeff_in_3_1_f),
+	.coeff_out_1_1(coeff_out_1_1_f),
+	.coeff_out_2_1(coeff_out_2_1_f)
+);
+assign data_out = data_out_band_1_gain + data_out_band_2_gain + data_out_band_3_gain + data_out_band_4_gain + data_out_band_5_gain + data_out_band_6_gain;
+endmodule
+`timescale 1ns / 1ps
 
-wire [COUNT_BIT_NUM-1:0] count;
-wire calculated;
+module tb_Equalizer;
 
-counter counter(.clk(clk), .rst_n(rst_n), .count(count), .calculated(calculated));
-wire signed [DATA_BIT-1:0] filter_data_out [0:FILTER_NUM-1];
-reg signed [DATA_BIT-1:0] filter_data_in [0:FILTER_NUM-1]; // filter_data_in = data_in * gain
+  // Định nghĩa đầu vào và đầu ra
+  parameter SAMPLES = 1024;
+  reg [16-1:0] data_array [0:SAMPLES-1];
+  integer i;
+  reg clk;
+  reg rst_n;
+  reg signed [31:0] gain1;
+  reg signed [31:0] gain2;
+  reg signed [31:0] gain3;
+  reg signed [31:0] gain4;
+  reg signed [31:0] gain5;
+  reg signed [31:0] gain6;
+  reg signed [15:0] data_in;
+  wire signed [15:0] data_out;
 
+  // Khởi tạo Equalizer
+  Equalizer uut (
+    .clk(clk),
+    .rst(rst_n),
+    .gain1(gain1),
+    .gain2(gain2),
+    .gain3(gain3),
+    .gain4(gain4),
+    .gain5(gain5),
+    .gain6(gain6),
+    .data_in(data_in),
+    .data_out(data_out)
+  );
 
-generate
-	genvar filter_index;
-	for(filter_index = 0; filter_index < FILTER_NUM; filter_index = filter_index + 1) begin : filter_block 
-		iir_stage filter (
-			.clk(clk),
-			.rst_n(rst_n),
-//			.count(count),
-//			.calculated(calculated),
-			.data_in(filter_data_in[filter_index]),
-			.data_out(filter_data_out[filter_index])	
-		);
-	end
-endgenerate
+  // Tạo clock
+  initial begin
+    clk = 0;
+    forever #5 clk = ~clk; // Tạo clock với chu kỳ 10 ns
+  end
 
-integer filter_i;
+  // Khởi tạo các giá trị test
+  initial begin
+    rst_n = 0; // Reset active low
+    gain1 = 32'sd1;
+    gain2 = 32'sd1;
+    gain3 = 32'sd1;
+    gain4 = 32'sd1;
+    gain5 = 32'sd1;
+    gain6 = 32'sd1;
 
-always @ (posedge clk or negedge rst_n) begin
-	if (~rst_n) begin
-		data_out <= 0;
-	end
-	else begin
-		for (filter_i = 0; filter_i < FILTER_NUM; filter_i = filter_i + 1) begin
-			data_out <= data_out + filter_data_out[filter_i];
-		end		
-	end
-end
+    // Bắt đầu mô phỏng
+    #15;
+    rst_n = 1; // Release reset
+    #20;
+    
+    // Đặt các giá trị đầu vào
+	// Ví dụ đầu vào
+    gain1 = 32'd1;     // Đặt các gains
+    gain2 = 32'd1;
+    gain3 = 32'd1;
+    gain4 = 32'd1;
+    gain5 = 32'd1;
+    gain6 = 32'd1;
+    $readmemb("sin_noise.txt", data_array);
+    for (i = 0; i < SAMPLES; i = i + 1) begin
+        @ (posedge clk);
+        data_in = data_array[i];
+    end
+    // Thêm các trường hợp kiểm thử nếu cần
 
+    $finish; // Kết thúc mô phỏng
+  end
+
+  // Theo dõi kết quả đầu ra
+  initial begin
+    $monitor("At time %t, data_out = %d",
+              $time, data_out);
+  end
 
 endmodule

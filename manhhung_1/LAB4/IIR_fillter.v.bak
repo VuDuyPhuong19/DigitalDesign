@@ -12,16 +12,16 @@ module IIR_fillter #(
 	input signed [DATA_BIT_NUM-1:0] data_in,
 	output wire signed [DATA_BIT_NUM-1:0] data_out
 );
-wire signed [DATA_BIT_NUMK-1:0] delay_1_b;
-wire signed [DATA_BIT_NUMK-1:0] delay_2_b;
-reg signed [DATA_BIT_NUMK-1:0] delay_1_a;
-reg signed [DATA_BIT_NUMK-1:0] delay_2_a;
-wire signed [DATA_BIT_NUMK-1:0] data_in_coeff_1;
-wire signed [DATA_BIT_NUMK-1:0] data_in_coeff_2;
-wire signed [DATA_BIT_NUMK-1:0] data_in_coeff_3;
-wire signed [DATA_BIT_NUMK-1:0] data_out_coeff_1;
-wire signed [DATA_BIT_NUMK-1:0] data_out_coeff_2;
-wire signed [DATA_BIT_NUMK-1:0] data_out_pre;
+wire signed [DATA_BIT_NUM-1:0] delay_1_b;
+wire signed [DATA_BIT_NUM-1:0] delay_2_b;
+reg signed [DATA_BIT_NUM-1:0] delay_1_a;
+reg signed [DATA_BIT_NUM-1:0] delay_2_a;
+wire signed [DATA_BIT_NUM-1:0] data_in_coeff_1;
+wire signed [DATA_BIT_NUM-1:0] data_in_coeff_2;
+wire signed [DATA_BIT_NUM-1:0] data_in_coeff_3;
+wire signed [DATA_BIT_NUM-1:0] data_out_coeff_1;
+wire signed [DATA_BIT_NUM-1:0] data_out_coeff_2;
+wire signed [DATA_BIT_NUM-1:0] data_out_pre;
 multiply_fixed_point multi(
 	.integer_input(data_in),
 	.real_input(coeff_in_1),
@@ -59,9 +59,9 @@ always@(posedge clk or negedge rst_n) begin
 	delay_2_a<=delay_2_b;
 	end
 end
-assign data_out_pre=delay_1_a+data_in_coeff_1;
-wire signed [15:0] data_out_pre_1 = data_out_pre[47:28] + {{15{data_out_pre[27]}}, data_out_pre[27]};
-assign data_out=data_out_pre_1;
+assign data_out=delay_1_a+data_in_coeff_1;
+//wire signed [15:0] data_out_pre_1 = data_out_pre[47:28] + {{15{data_out_pre[27]}}, data_out_pre[27]};
+//assign data_out=data_out_pre_1;
 endmodule 
 `timescale 1ns / 1ps
 
@@ -110,11 +110,11 @@ module testbench_1;
     initial begin
         // Initialize Inputs
         rst_n = 0;
-        coeff_in_1 = 32'h007537fb; // 1.0 in fixed-point
-        coeff_in_2 = 32'h00000000; // 0.5 in fixed-point
-        coeff_in_3 = 32'hff8ac805; // 0.25 in fixed-point
-        coeff_out_1 = 32'he0ec8628; // -0.5 in fixed-point
-        coeff_out_2 = 32'h0f24c811; // -0.25 in fixed-point
+        coeff_in_1 = 32'h000000bb; // 1.0 in fixed-point
+        coeff_in_2 = 32'h00000176; // 0.5 in fixed-point
+        coeff_in_3 = 32'h000000bb; // 0.25 in fixed-point
+        coeff_out_1 = 32'he173bc58; // -0.5 in fixed-point
+        coeff_out_2 = 32'h0e978a34; // -0.25 in fixed-point
         data_in = 0;
 
         // Reset the system

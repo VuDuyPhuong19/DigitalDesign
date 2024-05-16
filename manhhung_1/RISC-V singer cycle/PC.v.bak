@@ -1,0 +1,17 @@
+module PC(
+    input [9:0]address;
+    output [9:0] next_address
+    input clk;
+    input rst_n
+);
+reg [9:0]reg_pc=0;
+always @(posedge clk or negedge rst_n ) begin
+    if(~rst_n) begin
+        next_address=0;
+        reg_pc=0;
+    end
+    else begin
+        next_address=reg_pc;
+        reg_pc=address;
+    end
+end

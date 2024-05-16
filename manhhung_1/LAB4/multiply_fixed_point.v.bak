@@ -9,7 +9,7 @@ wire signed [47:0] multiply_result = $signed(integer_input) * real_input;
 
 // Scale v�  l� m tròn kết quả để phù hợp với đầu ra 16-bit.
 // Lưu ý: Việc dịch 28 bit giúp loại bỏ phần thập phân, nhưng cần xem xét cẩn thận cách l� m tròn
-//wire signed [15:0] rounded_result = multiply_result[47:28] + {{15{multiply_result[27]}}, multiply_result[27]};
+wire signed [15:0] rounded_result = multiply_result[47:28] + {{15{multiply_result[27]}}, multiply_result[27]};
 
 assign result = rounded_result;
 

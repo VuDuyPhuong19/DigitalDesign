@@ -1,0 +1,26 @@
+module ALU_decoder(
+	input [1:0] ALUOp,
+    input [2:0] funct3,
+    input [6:0] funct7,
+    output [2:0] ALUControl
+);
+wire [9:0] get_fun;
+assign get_fun=funct3<<7+funct7;
+always @(get_fun) begin
+    case(get_fun) begin
+    10'b 0000000000: begin
+        ALUControl=000;
+    end
+    10'b 0000100000: begin
+        ALUControl=001;
+    end
+    10'b 1000000000: begin
+    end
+    10'b 1100000000:
+    10'b 1110000000:
+    10'b 1010000000:
+    10'b 1010100000:
+    10'b 0100000000:
+    10'b 0110000000:
+end
+end

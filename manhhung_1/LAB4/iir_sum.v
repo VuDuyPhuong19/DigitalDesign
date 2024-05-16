@@ -2,13 +2,20 @@ module iir_sum(
     input wire clk,
     input wire rst,
     input wire signed [15:0] data_in,    // Äáº§u vÃ o cá»§a bá» lá»c
-    output wire signed [15:0] data_out   // Äáº§u ra cá»§a bá» lá»c
+    output wire signed [15:0] data_out,   // Äáº§u ra cá»§a bá» lá»c
+    input wire signed [31:0] coeff_in_1,
+    input wire signed [31:0] coeff_in_2, 
+    input wire signed [31:0] coeff_in_3, 
+    input wire signed [31:0] coeff_out_1, 
+    input wire signed [31:0] coeff_out_2,
+    input wire signed [31:0] coeff_in_1_1,
+    input wire signed [31:0] coeff_in_2_1,
+    input wire signed [31:0] coeff_in_3_1,
+    input wire signed [31:0] coeff_out_1_1,
+    input wire signed [31:0] coeff_out_2_1
 );
 parameter DATA_BIT_NUM = 16;
 // CÃ¡c há» sá» bá» lá»c cho tá»«ng stage
-wire signed [31:0] coeff_in_1=32'h000368fb, coeff_in_2=32'h0006d1f5, coeff_in_3=32'h000368fb, coeff_out_1=32'he12eabf5, coeff_out_2=32'h0edfe638;
-wire signed [31:0] coeff_in_1_1=32'h10000000 , coeff_in_2_1=32'he0000000, coeff_in_3_1=32'h10000000, coeff_out_1_1=32'he02a9027, coeff_out_2_1=32'h0fd5bd9d;
-//wire signed [31:0] coeff_in_1_2=32'h10000000, coeff_in_2_2=32'he0000000, coeff_in_3_2=32'h10000000 , coeff_out_1_2=32'he0447f31, coeff_out_2_2=32'h0fbbe417;
 //wire signed [31:0] coeff_in_1_3=32'h10000000, coeff_in_2_3=32'he0000000, coeff_in_3_3=32'h10000000, coeff_out_1_3=32'he014790c, coeff_out_2_3=32'h0febca88;
 // ... Khai bÃ¡o giÃ¡ trá» thá»±c táº¿ cho cÃ¡c há» sá» cá»§a má»i stage
 
@@ -45,7 +52,6 @@ IIR_fillter #(
 	.coeff_out_1(coeff_out_1_1),
 	.coeff_out_2(coeff_out_2_1)
 );
-
 // Äáº§u ra cá»§a bá» lá»c chÃ­nh lÃ  Äáº§u ra cá»§a stage cuá»i cÃ¹ng
 assign data_out = stage_outputs[1];
 
@@ -108,3 +114,4 @@ module testbench_iir_sum;
     end
 
 endmodule
+

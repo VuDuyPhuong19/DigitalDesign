@@ -1,5 +1,5 @@
 Analysis & Synthesis report for LAB4
-Fri Apr 12 21:48:29 2024
+Sat Apr 13 03:26:18 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -16,19 +16,39 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   8. Analysis & Synthesis DSP Block Usage Summary
   9. Registers Removed During Synthesis
  10. General Register Statistics
- 11. Parameter Settings for User Entity Instance: IIR_fillter:biquad_1
- 12. Parameter Settings for User Entity Instance: IIR_fillter:biquad_2
- 13. Parameter Settings for User Entity Instance: IIR_fillter:biquad_3
- 14. Parameter Settings for User Entity Instance: IIR_fillter:biquad_4
- 15. Parameter Settings for User Entity Instance: IIR_fillter:biquad_5
- 16. Port Connectivity Checks: "IIR_fillter:biquad_5"
- 17. Port Connectivity Checks: "IIR_fillter:biquad_4"
- 18. Port Connectivity Checks: "IIR_fillter:biquad_3"
- 19. Port Connectivity Checks: "IIR_fillter:biquad_2"
- 20. Port Connectivity Checks: "IIR_fillter:biquad_1"
- 21. Post-Synthesis Netlist Statistics for Top Partition
- 22. Elapsed Time Per Partition
- 23. Analysis & Synthesis Messages
+ 11. Parameter Settings for User Entity Instance: iir_sum:Band_1
+ 12. Parameter Settings for User Entity Instance: iir_sum:Band_1|IIR_fillter:biquad_1
+ 13. Parameter Settings for User Entity Instance: iir_sum:Band_1|IIR_fillter:biquad_2
+ 14. Parameter Settings for User Entity Instance: iir_sum:Band_2
+ 15. Parameter Settings for User Entity Instance: iir_sum:Band_2|IIR_fillter:biquad_1
+ 16. Parameter Settings for User Entity Instance: iir_sum:Band_2|IIR_fillter:biquad_2
+ 17. Parameter Settings for User Entity Instance: iir_sum:Band_3
+ 18. Parameter Settings for User Entity Instance: iir_sum:Band_3|IIR_fillter:biquad_1
+ 19. Parameter Settings for User Entity Instance: iir_sum:Band_3|IIR_fillter:biquad_2
+ 20. Parameter Settings for User Entity Instance: iir_sum:Band_4
+ 21. Parameter Settings for User Entity Instance: iir_sum:Band_4|IIR_fillter:biquad_1
+ 22. Parameter Settings for User Entity Instance: iir_sum:Band_4|IIR_fillter:biquad_2
+ 23. Parameter Settings for User Entity Instance: iir_sum:Band_5
+ 24. Parameter Settings for User Entity Instance: iir_sum:Band_5|IIR_fillter:biquad_1
+ 25. Parameter Settings for User Entity Instance: iir_sum:Band_5|IIR_fillter:biquad_2
+ 26. Parameter Settings for User Entity Instance: iir_sum:Band_6
+ 27. Parameter Settings for User Entity Instance: iir_sum:Band_6|IIR_fillter:biquad_1
+ 28. Parameter Settings for User Entity Instance: iir_sum:Band_6|IIR_fillter:biquad_2
+ 29. Port Connectivity Checks: "iir_sum:Band_6"
+ 30. Port Connectivity Checks: "iir_sum:Band_5"
+ 31. Port Connectivity Checks: "iir_sum:Band_4"
+ 32. Port Connectivity Checks: "iir_sum:Band_3"
+ 33. Port Connectivity Checks: "iir_sum:Band_2"
+ 34. Port Connectivity Checks: "iir_sum:Band_1"
+ 35. Port Connectivity Checks: "multiply_fixed_point:mul6"
+ 36. Port Connectivity Checks: "multiply_fixed_point:mul5"
+ 37. Port Connectivity Checks: "multiply_fixed_point:mul4"
+ 38. Port Connectivity Checks: "multiply_fixed_point:mul3"
+ 39. Port Connectivity Checks: "multiply_fixed_point:mul2"
+ 40. Port Connectivity Checks: "multiply_fixed_point:mul1"
+ 41. Post-Synthesis Netlist Statistics for Top Partition
+ 42. Elapsed Time Per Partition
+ 43. Analysis & Synthesis Messages
 
 
 
@@ -55,17 +75,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Apr 12 21:48:29 2024          ;
+; Analysis & Synthesis Status     ; Successful - Sat Apr 13 03:26:18 2024          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; LAB4                                           ;
-; Top-level Entity Name           ; iir_stage                                      ;
+; Top-level Entity Name           ; Equalizer                                      ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 440                                            ;
-; Total pins                      ; 50                                             ;
+; Total registers                 ; 1056                                           ;
+; Total pins                      ; 226                                            ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
-; Total DSP Blocks                ; 51                                             ;
+; Total DSP Blocks                ; 125                                            ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
 ; Total HSSI TX PCSs              ; 0                                              ;
@@ -81,7 +101,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
-; Top-level entity name                                                           ; iir_stage          ; LAB4               ;
+; Top-level entity name                                                           ; Equalizer          ; LAB4               ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -188,7 +208,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------+-------------------------------------------------------------+---------+
 ; IIR_fillter.v                    ; yes             ; User Verilog HDL File  ; C:/TKS/DigitalDesign/manhhung_1/LAB4/IIR_fillter.v          ;         ;
 ; ../multiply_fixed_point.v        ; yes             ; User Verilog HDL File  ; C:/TKS/DigitalDesign/manhhung_1/LAB4/multiply_fixed_point.v ;         ;
-; iir_stage.v                      ; yes             ; User Verilog HDL File  ; C:/TKS/DigitalDesign/manhhung_1/LAB4/iir_stage.v            ;         ;
+; Equalizer.v                      ; yes             ; User Verilog HDL File  ; C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v            ;         ;
+; iir_sum.v                        ; yes             ; User Verilog HDL File  ; C:/TKS/DigitalDesign/manhhung_1/LAB4/iir_sum.v              ;         ;
 ; sin_noise.txt                    ; yes             ; Auto-Found File        ; C:/TKS/DigitalDesign/manhhung_1/LAB4/sin_noise.txt          ;         ;
 +----------------------------------+-----------------+------------------------+-------------------------------------------------------------+---------+
 
@@ -198,65 +219,117 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 373       ;
+; Estimate of Logic utilization (ALMs needed) ; 894       ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 745       ;
+; Combinational ALUT usage for logic          ; 1788      ;
 ;     -- 7 input functions                    ; 0         ;
 ;     -- 6 input functions                    ; 0         ;
 ;     -- 5 input functions                    ; 0         ;
 ;     -- 4 input functions                    ; 0         ;
-;     -- <=3 input functions                  ; 745       ;
+;     -- <=3 input functions                  ; 1788      ;
 ;                                             ;           ;
-; Dedicated logic registers                   ; 440       ;
+; Dedicated logic registers                   ; 1056      ;
 ;                                             ;           ;
-; I/O pins                                    ; 50        ;
+; I/O pins                                    ; 226       ;
 ;                                             ;           ;
-; Total DSP Blocks                            ; 51        ;
+; Total DSP Blocks                            ; 125       ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 440       ;
-; Total fan-out                               ; 4578      ;
-; Average fan-out                             ; 3.43      ;
+; Maximum fan-out                             ; 1056      ;
+; Total fan-out                               ; 11230     ;
+; Average fan-out                             ; 3.28      ;
 +---------------------------------------------+-----------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                ;
-+--------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------+----------------------+--------------+
-; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                          ; Entity Name          ; Library Name ;
-+--------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------+----------------------+--------------+
-; |iir_stage                           ; 745 (0)             ; 440 (0)                   ; 0                 ; 51         ; 50   ; 0            ; |iir_stage                                                   ; iir_stage            ; work         ;
-;    |IIR_fillter:biquad_1|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_1                              ; IIR_fillter          ; work         ;
-;       |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_1|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_1|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_1|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_1|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_1|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
-;    |IIR_fillter:biquad_2|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_2                              ; IIR_fillter          ; work         ;
-;       |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_2|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_2|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_2|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_2|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_2|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
-;    |IIR_fillter:biquad_3|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_3                              ; IIR_fillter          ; work         ;
-;       |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_3|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_3|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_3|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_3|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_3|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
-;    |IIR_fillter:biquad_4|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_4                              ; IIR_fillter          ; work         ;
-;       |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_4|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_4|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_4|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_4|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_4|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
-;    |IIR_fillter:biquad_5|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_5                              ; IIR_fillter          ; work         ;
-;       |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_5|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_5|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_5|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_5|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
-;       |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |iir_stage|IIR_fillter:biquad_5|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
-+--------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------+----------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                  ;
++-----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                         ; Entity Name          ; Library Name ;
++-----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+----------------------+--------------+
+; |Equalizer                              ; 1788 (0)            ; 1056 (0)                  ; 0                 ; 125        ; 226  ; 0            ; |Equalizer                                                                  ; Equalizer            ; work         ;
+;    |iir_sum:Band_1|                     ; 298 (0)             ; 176 (0)                   ; 0                 ; 20         ; 0    ; 0            ; |Equalizer|iir_sum:Band_1                                                   ; iir_sum              ; work         ;
+;       |IIR_fillter:biquad_1|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |Equalizer|iir_sum:Band_1|IIR_fillter:biquad_1                              ; IIR_fillter          ; work         ;
+;          |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_1|IIR_fillter:biquad_1|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_1|IIR_fillter:biquad_1|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_1|IIR_fillter:biquad_1|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_1|IIR_fillter:biquad_1|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_1|IIR_fillter:biquad_1|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
+;       |IIR_fillter:biquad_2|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |Equalizer|iir_sum:Band_1|IIR_fillter:biquad_2                              ; IIR_fillter          ; work         ;
+;          |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_1|IIR_fillter:biquad_2|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_1|IIR_fillter:biquad_2|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_1|IIR_fillter:biquad_2|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_1|IIR_fillter:biquad_2|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_1|IIR_fillter:biquad_2|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
+;    |iir_sum:Band_2|                     ; 298 (0)             ; 176 (0)                   ; 0                 ; 20         ; 0    ; 0            ; |Equalizer|iir_sum:Band_2                                                   ; iir_sum              ; work         ;
+;       |IIR_fillter:biquad_1|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |Equalizer|iir_sum:Band_2|IIR_fillter:biquad_1                              ; IIR_fillter          ; work         ;
+;          |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_2|IIR_fillter:biquad_1|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_2|IIR_fillter:biquad_1|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_2|IIR_fillter:biquad_1|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_2|IIR_fillter:biquad_1|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_2|IIR_fillter:biquad_1|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
+;       |IIR_fillter:biquad_2|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |Equalizer|iir_sum:Band_2|IIR_fillter:biquad_2                              ; IIR_fillter          ; work         ;
+;          |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_2|IIR_fillter:biquad_2|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_2|IIR_fillter:biquad_2|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_2|IIR_fillter:biquad_2|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_2|IIR_fillter:biquad_2|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_2|IIR_fillter:biquad_2|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
+;    |iir_sum:Band_3|                     ; 298 (0)             ; 176 (0)                   ; 0                 ; 20         ; 0    ; 0            ; |Equalizer|iir_sum:Band_3                                                   ; iir_sum              ; work         ;
+;       |IIR_fillter:biquad_1|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |Equalizer|iir_sum:Band_3|IIR_fillter:biquad_1                              ; IIR_fillter          ; work         ;
+;          |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_3|IIR_fillter:biquad_1|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_3|IIR_fillter:biquad_1|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_3|IIR_fillter:biquad_1|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_3|IIR_fillter:biquad_1|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_3|IIR_fillter:biquad_1|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
+;       |IIR_fillter:biquad_2|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |Equalizer|iir_sum:Band_3|IIR_fillter:biquad_2                              ; IIR_fillter          ; work         ;
+;          |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_3|IIR_fillter:biquad_2|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_3|IIR_fillter:biquad_2|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_3|IIR_fillter:biquad_2|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_3|IIR_fillter:biquad_2|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_3|IIR_fillter:biquad_2|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
+;    |iir_sum:Band_4|                     ; 298 (0)             ; 176 (0)                   ; 0                 ; 20         ; 0    ; 0            ; |Equalizer|iir_sum:Band_4                                                   ; iir_sum              ; work         ;
+;       |IIR_fillter:biquad_1|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |Equalizer|iir_sum:Band_4|IIR_fillter:biquad_1                              ; IIR_fillter          ; work         ;
+;          |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_4|IIR_fillter:biquad_1|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_4|IIR_fillter:biquad_1|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_4|IIR_fillter:biquad_1|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_4|IIR_fillter:biquad_1|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_4|IIR_fillter:biquad_1|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
+;       |IIR_fillter:biquad_2|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |Equalizer|iir_sum:Band_4|IIR_fillter:biquad_2                              ; IIR_fillter          ; work         ;
+;          |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_4|IIR_fillter:biquad_2|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_4|IIR_fillter:biquad_2|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_4|IIR_fillter:biquad_2|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_4|IIR_fillter:biquad_2|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_4|IIR_fillter:biquad_2|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
+;    |iir_sum:Band_5|                     ; 298 (0)             ; 176 (0)                   ; 0                 ; 20         ; 0    ; 0            ; |Equalizer|iir_sum:Band_5                                                   ; iir_sum              ; work         ;
+;       |IIR_fillter:biquad_1|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |Equalizer|iir_sum:Band_5|IIR_fillter:biquad_1                              ; IIR_fillter          ; work         ;
+;          |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_5|IIR_fillter:biquad_1|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_5|IIR_fillter:biquad_1|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_5|IIR_fillter:biquad_1|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_5|IIR_fillter:biquad_1|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_5|IIR_fillter:biquad_1|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
+;       |IIR_fillter:biquad_2|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |Equalizer|iir_sum:Band_5|IIR_fillter:biquad_2                              ; IIR_fillter          ; work         ;
+;          |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_5|IIR_fillter:biquad_2|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_5|IIR_fillter:biquad_2|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_5|IIR_fillter:biquad_2|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_5|IIR_fillter:biquad_2|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_5|IIR_fillter:biquad_2|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
+;    |iir_sum:Band_6|                     ; 298 (0)             ; 176 (0)                   ; 0                 ; 20         ; 0    ; 0            ; |Equalizer|iir_sum:Band_6                                                   ; iir_sum              ; work         ;
+;       |IIR_fillter:biquad_1|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |Equalizer|iir_sum:Band_6|IIR_fillter:biquad_1                              ; IIR_fillter          ; work         ;
+;          |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_6|IIR_fillter:biquad_1|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_6|IIR_fillter:biquad_1|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_6|IIR_fillter:biquad_1|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_6|IIR_fillter:biquad_1|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_6|IIR_fillter:biquad_1|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
+;       |IIR_fillter:biquad_2|            ; 149 (149)           ; 88 (88)                   ; 0                 ; 10         ; 0    ; 0            ; |Equalizer|iir_sum:Band_6|IIR_fillter:biquad_2                              ; IIR_fillter          ; work         ;
+;          |multiply_fixed_point:multi_1| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_6|IIR_fillter:biquad_2|multiply_fixed_point:multi_1 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_2| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_6|IIR_fillter:biquad_2|multiply_fixed_point:multi_2 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_3| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_6|IIR_fillter:biquad_2|multiply_fixed_point:multi_3 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi_4| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_6|IIR_fillter:biquad_2|multiply_fixed_point:multi_4 ; multiply_fixed_point ; work         ;
+;          |multiply_fixed_point:multi|   ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Equalizer|iir_sum:Band_6|IIR_fillter:biquad_2|multiply_fixed_point:multi   ; multiply_fixed_point ; work         ;
+;    |multiply_fixed_point:mul3|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 1          ; 0    ; 0            ; |Equalizer|multiply_fixed_point:mul3                                        ; multiply_fixed_point ; work         ;
+;    |multiply_fixed_point:mul4|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 1          ; 0    ; 0            ; |Equalizer|multiply_fixed_point:mul4                                        ; multiply_fixed_point ; work         ;
+;    |multiply_fixed_point:mul5|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 1          ; 0    ; 0            ; |Equalizer|multiply_fixed_point:mul5                                        ; multiply_fixed_point ; work         ;
+;    |multiply_fixed_point:mul6|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 1          ; 0    ; 0            ; |Equalizer|multiply_fixed_point:mul6                                        ; multiply_fixed_point ; work         ;
++-----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -265,32 +338,47 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------+-------------+
 ; Statistic                         ; Number Used ;
 +-----------------------------------+-------------+
-; Two Independent 18x18             ; 26          ;
-; Independent 18x18 plus 36         ; 25          ;
-; Total number of DSP blocks        ; 51          ;
+; Two Independent 18x18             ; 60          ;
+; Independent 18x18 plus 36         ; 64          ;
+; Sum of two 18x18                  ; 1           ;
+; Total number of DSP blocks        ; 125         ;
 ;                                   ;             ;
-; Fixed Point Signed Multiplier     ; 8           ;
-; Fixed Point Mixed Sign Multiplier ; 43          ;
+; Fixed Point Signed Multiplier     ; 18          ;
+; Fixed Point Mixed Sign Multiplier ; 108         ;
 +-----------------------------------+-------------+
 
 
-+-------------------------------------------------------------+
-; Registers Removed During Synthesis                          ;
-+----------------------------------------+--------------------+
-; Register name                          ; Reason for Removal ;
-+----------------------------------------+--------------------+
-; IIR_fillter:biquad_5|delay_1_a[44..47] ; Lost fanout        ;
-; IIR_fillter:biquad_4|delay_1_a[44..47] ; Lost fanout        ;
-; IIR_fillter:biquad_3|delay_1_a[44..47] ; Lost fanout        ;
-; IIR_fillter:biquad_2|delay_1_a[44..47] ; Lost fanout        ;
-; IIR_fillter:biquad_1|delay_1_a[44..47] ; Lost fanout        ;
-; IIR_fillter:biquad_5|delay_2_a[44..47] ; Lost fanout        ;
-; IIR_fillter:biquad_4|delay_2_a[44..47] ; Lost fanout        ;
-; IIR_fillter:biquad_3|delay_2_a[44..47] ; Lost fanout        ;
-; IIR_fillter:biquad_2|delay_2_a[44..47] ; Lost fanout        ;
-; IIR_fillter:biquad_1|delay_2_a[44..47] ; Lost fanout        ;
-; Total Number of Removed Registers = 40 ;                    ;
-+----------------------------------------+--------------------+
++----------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                         ;
++-------------------------------------------------------+--------------------+
+; Register name                                         ; Reason for Removal ;
++-------------------------------------------------------+--------------------+
+; iir_sum:Band_6|IIR_fillter:biquad_2|delay_1_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_6|IIR_fillter:biquad_1|delay_1_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_5|IIR_fillter:biquad_2|delay_1_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_5|IIR_fillter:biquad_1|delay_1_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_4|IIR_fillter:biquad_2|delay_1_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_4|IIR_fillter:biquad_1|delay_1_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_3|IIR_fillter:biquad_2|delay_1_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_3|IIR_fillter:biquad_1|delay_1_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_2|IIR_fillter:biquad_2|delay_1_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_2|IIR_fillter:biquad_1|delay_1_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_1|IIR_fillter:biquad_2|delay_1_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_1|IIR_fillter:biquad_1|delay_1_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_6|IIR_fillter:biquad_2|delay_2_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_6|IIR_fillter:biquad_1|delay_2_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_5|IIR_fillter:biquad_2|delay_2_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_5|IIR_fillter:biquad_1|delay_2_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_4|IIR_fillter:biquad_2|delay_2_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_4|IIR_fillter:biquad_1|delay_2_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_3|IIR_fillter:biquad_2|delay_2_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_3|IIR_fillter:biquad_1|delay_2_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_2|IIR_fillter:biquad_2|delay_2_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_2|IIR_fillter:biquad_1|delay_2_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_1|IIR_fillter:biquad_2|delay_2_a[44..47] ; Lost fanout        ;
+; iir_sum:Band_1|IIR_fillter:biquad_1|delay_2_a[44..47] ; Lost fanout        ;
+; Total Number of Removed Registers = 96                ;                    ;
++-------------------------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -298,274 +386,945 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 440   ;
+; Total registers                              ; 1056  ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 440   ;
+; Number of registers using Asynchronous Clear ; 880   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: IIR_fillter:biquad_1 ;
-+----------------+-------+------------------------------------------+
-; Parameter Name ; Value ; Type                                     ;
-+----------------+-------+------------------------------------------+
-; DATA_BIT_NUM   ; 16    ; Signed Integer                           ;
-; DATA_BIT_NUMK  ; 48    ; Signed Integer                           ;
-+----------------+-------+------------------------------------------+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_1 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                     ;
++----------------+-------+------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: IIR_fillter:biquad_2 ;
-+----------------+-------+------------------------------------------+
-; Parameter Name ; Value ; Type                                     ;
-+----------------+-------+------------------------------------------+
-; DATA_BIT_NUM   ; 16    ; Signed Integer                           ;
-; DATA_BIT_NUMK  ; 48    ; Signed Integer                           ;
-+----------------+-------+------------------------------------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_1|IIR_fillter:biquad_1 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                          ;
+; DATA_BIT_NUMK  ; 48    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: IIR_fillter:biquad_3 ;
-+----------------+-------+------------------------------------------+
-; Parameter Name ; Value ; Type                                     ;
-+----------------+-------+------------------------------------------+
-; DATA_BIT_NUM   ; 16    ; Signed Integer                           ;
-; DATA_BIT_NUMK  ; 48    ; Signed Integer                           ;
-+----------------+-------+------------------------------------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_1|IIR_fillter:biquad_2 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                          ;
+; DATA_BIT_NUMK  ; 48    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: IIR_fillter:biquad_4 ;
-+----------------+-------+------------------------------------------+
-; Parameter Name ; Value ; Type                                     ;
-+----------------+-------+------------------------------------------+
-; DATA_BIT_NUM   ; 16    ; Signed Integer                           ;
-; DATA_BIT_NUMK  ; 48    ; Signed Integer                           ;
-+----------------+-------+------------------------------------------+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_2 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                     ;
++----------------+-------+------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: IIR_fillter:biquad_5 ;
-+----------------+-------+------------------------------------------+
-; Parameter Name ; Value ; Type                                     ;
-+----------------+-------+------------------------------------------+
-; DATA_BIT_NUM   ; 16    ; Signed Integer                           ;
-; DATA_BIT_NUMK  ; 48    ; Signed Integer                           ;
-+----------------+-------+------------------------------------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_2|IIR_fillter:biquad_1 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                          ;
+; DATA_BIT_NUMK  ; 48    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------+
-; Port Connectivity Checks: "IIR_fillter:biquad_5"      ;
-+---------------------+-------+----------+--------------+
-; Port                ; Type  ; Severity ; Details      ;
-+---------------------+-------+----------+--------------+
-; coeff_in_1[31..29]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[27..0]   ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[28]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[31..29]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[21..20]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[14..13]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[5..2]    ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[28..22]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[17..15]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[10..6]   ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[1..0]    ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[19]      ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[18]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[12]      ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[11]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_3[27..22]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_3[17..13]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_3[11..10]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_3[6..4]    ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_3[2..0]    ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_3[31..28]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_3[21..20]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_3[9..7]    ; Input ; Info     ; Stuck at GND ;
-; coeff_in_3[19]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_3[18]      ; Input ; Info     ; Stuck at GND ;
-; coeff_in_3[12]      ; Input ; Info     ; Stuck at GND ;
-; coeff_in_3[3]       ; Input ; Info     ; Stuck at GND ;
-; coeff_out_1[31..29] ; Input ; Info     ; Stuck at GND ;
-; coeff_out_1[27..0]  ; Input ; Info     ; Stuck at GND ;
-; coeff_out_1[28]     ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[31..29] ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[28..0]  ; Input ; Info     ; Stuck at GND ;
-+---------------------+-------+----------+--------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_2|IIR_fillter:biquad_2 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                          ;
+; DATA_BIT_NUMK  ; 48    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------+
-; Port Connectivity Checks: "IIR_fillter:biquad_4"      ;
-+---------------------+-------+----------+--------------+
-; Port                ; Type  ; Severity ; Details      ;
-+---------------------+-------+----------+--------------+
-; coeff_in_1[31..29]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_1[23..21]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_1[19..18]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_1[10..9]   ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_1[28..24]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[17..16]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[14..11]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[8..6]    ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[2..0]    ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[20]      ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[15]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_1[5]       ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_1[4]       ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[3]       ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[27..24]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[16..15]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[31..28]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[23..21]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[14..13]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[11..4]   ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[2..1]    ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[20]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[19]      ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[18]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[17]      ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[12]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[3]       ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[0]       ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_3[31..29]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_3[27..0]   ; Input ; Info     ; Stuck at GND ;
-; coeff_in_3[28]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_1[31..29] ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_1[28..0]  ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[31..29] ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[27..0]  ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[28]     ; Input ; Info     ; Stuck at VCC ;
-+---------------------+-------+----------+--------------+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_3 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------+
-; Port Connectivity Checks: "IIR_fillter:biquad_3"      ;
-+---------------------+-------+----------+--------------+
-; Port                ; Type  ; Severity ; Details      ;
-+---------------------+-------+----------+--------------+
-; coeff_in_1[27..24]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_1[22..18]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_1[13..12]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_1[6..5]    ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_1[3..2]    ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_1[31..28]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[15..14]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[9..7]    ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[23]      ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[17]      ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[16]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_1[11]      ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[10]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_1[4]       ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[1]       ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[0]       ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[31..29]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[27..0]   ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[28]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_3          ; Input ; Info     ; Stuck at GND ;
-; coeff_out_1[31..28] ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_1[27..0]  ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[31..29] ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[27..0]  ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[28]     ; Input ; Info     ; Stuck at VCC ;
-+---------------------+-------+----------+--------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_3|IIR_fillter:biquad_1 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                          ;
+; DATA_BIT_NUMK  ; 48    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------+
-; Port Connectivity Checks: "IIR_fillter:biquad_2"      ;
-+---------------------+-------+----------+--------------+
-; Port                ; Type  ; Severity ; Details      ;
-+---------------------+-------+----------+--------------+
-; coeff_in_1[31..29]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[27..0]   ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[28]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[31..30]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[28..0]   ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[29]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_3[31..29]  ; Input ; Info     ; Stuck at GND ;
-; coeff_in_3[27..0]   ; Input ; Info     ; Stuck at GND ;
-; coeff_in_3[28]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_1[31..29] ; Input ; Info     ; Stuck at GND ;
-; coeff_out_1[27..0]  ; Input ; Info     ; Stuck at GND ;
-; coeff_out_1[28]     ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[31..29] ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[13..11] ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[7..3]   ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[1..0]   ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[28..24] ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[22..21] ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[17..14] ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[23]     ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[20]     ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[19]     ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[18]     ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[10]     ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[9]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[8]      ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[2]      ; Input ; Info     ; Stuck at GND ;
-+---------------------+-------+----------+--------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_3|IIR_fillter:biquad_2 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                          ;
+; DATA_BIT_NUMK  ; 48    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------+
-; Port Connectivity Checks: "IIR_fillter:biquad_1"      ;
-+---------------------+-------+----------+--------------+
-; Port                ; Type  ; Severity ; Details      ;
-+---------------------+-------+----------+--------------+
-; coeff_in_1[31..3]   ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[2]       ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_1[1]       ; Input ; Info     ; Stuck at GND ;
-; coeff_in_1[0]       ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[1..0]    ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[31..4]   ; Input ; Info     ; Stuck at GND ;
-; coeff_in_2[3]       ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_2[2]       ; Input ; Info     ; Stuck at GND ;
-; coeff_in_3[31..3]   ; Input ; Info     ; Stuck at GND ;
-; coeff_in_3[2]       ; Input ; Info     ; Stuck at VCC ;
-; coeff_in_3[1]       ; Input ; Info     ; Stuck at GND ;
-; coeff_in_3[0]       ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_1[31..29] ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_1[16..14] ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_1[10..9]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_1[7..6]   ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_1[28..25] ; Input ; Info     ; Stuck at GND ;
-; coeff_out_1[19..17] ; Input ; Info     ; Stuck at GND ;
-; coeff_out_1[13..11] ; Input ; Info     ; Stuck at GND ;
-; coeff_out_1[24]     ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_1[23]     ; Input ; Info     ; Stuck at GND ;
-; coeff_out_1[22]     ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_1[21]     ; Input ; Info     ; Stuck at GND ;
-; coeff_out_1[20]     ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_1[8]      ; Input ; Info     ; Stuck at GND ;
-; coeff_out_1[5]      ; Input ; Info     ; Stuck at GND ;
-; coeff_out_1[4]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_1[3]      ; Input ; Info     ; Stuck at GND ;
-; coeff_out_1[2]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_1[1]      ; Input ; Info     ; Stuck at GND ;
-; coeff_out_1[0]      ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[27..25] ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[21..19] ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[17..15] ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[10..9]  ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[5..2]   ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[31..28] ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[14..11] ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[8..6]   ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[24]     ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[23]     ; Input ; Info     ; Stuck at VCC ;
-; coeff_out_2[22]     ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[18]     ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[1]      ; Input ; Info     ; Stuck at GND ;
-; coeff_out_2[0]      ; Input ; Info     ; Stuck at VCC ;
-+---------------------+-------+----------+--------------+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_4 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_4|IIR_fillter:biquad_1 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                          ;
+; DATA_BIT_NUMK  ; 48    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_4|IIR_fillter:biquad_2 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                          ;
+; DATA_BIT_NUMK  ; 48    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_5 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_5|IIR_fillter:biquad_1 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                          ;
+; DATA_BIT_NUMK  ; 48    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_5|IIR_fillter:biquad_2 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                          ;
+; DATA_BIT_NUMK  ; 48    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_6 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_6|IIR_fillter:biquad_1 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                          ;
+; DATA_BIT_NUMK  ; 48    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iir_sum:Band_6|IIR_fillter:biquad_2 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; DATA_BIT_NUM   ; 16    ; Signed Integer                                          ;
+; DATA_BIT_NUMK  ; 48    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "iir_sum:Band_6"              ;
++-----------------------+-------+----------+--------------+
+; Port                  ; Type  ; Severity ; Details      ;
++-----------------------+-------+----------+--------------+
+; coeff_in_1[23..18]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[13..12]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[9..8]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[5..4]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[31..26]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[17..16]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[11..10]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[7..6]      ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[3..2]      ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[25]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[24]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[15]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[14]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[1]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[0]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[31..27]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[18..17]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[12..11]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[8..7]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[4..3]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[24..19]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[14..13]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[10..9]     ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[6..5]      ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[26]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[25]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[16]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[15]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[2]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[1]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[0]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[23..18]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[13..12]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[9..8]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[5..4]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[31..26]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[17..16]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[11..10]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[7..6]      ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[3..2]      ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[25]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[24]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[15]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[14]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[1]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[0]         ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[31..27]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[24..21]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[13..11]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[26..25]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[18..14]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[8..7]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[5..1]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[20]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[19]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[10]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[9]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[6]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[0]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[26..25]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[14..11]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[9..7]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[5..2]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[31..27]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[18..15]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[24]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[23]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[22]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[21]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[20]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[19]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[10]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[6]        ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[1]        ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[0]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1_1[31..29]  ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1_1[27..0]   ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1_1[28]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2_1[31..29]  ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2_1[28..0]   ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3_1[31..29]  ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3_1[27..0]   ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3_1[28]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[27..24] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[18..17] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[15..14] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[11..10] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[3..2]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[31..28] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[13..12] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[9..4]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[23]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[22]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[21]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[20]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[19]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[16]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[1]      ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[0]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[27..25] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[20..19] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[8..7]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[5..4]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[1..0]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[31..28] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[22..21] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[16..15] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[11..9]  ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[3..2]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[24]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[23]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[18]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[17]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[14]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[13]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[12]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[6]      ; Input ; Info     ; Stuck at GND ;
++-----------------------+-------+----------+--------------+
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "iir_sum:Band_5"              ;
++-----------------------+-------+----------+--------------+
+; Port                  ; Type  ; Severity ; Details      ;
++-----------------------+-------+----------+--------------+
+; coeff_in_1[24..23]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[19..13]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[8..7]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[4..3]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[31..25]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[22..20]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[12..11]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[6..5]      ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[2..1]      ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[10]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[9]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[0]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[25..24]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[20..14]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[9..8]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[5..4]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[31..26]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[23..21]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[13..12]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[7..6]      ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[1..0]      ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[11]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[10]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[3]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[2]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[24..23]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[19..13]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[8..7]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[4..3]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[31..25]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[22..20]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[12..11]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[6..5]      ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[2..1]      ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[10]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[9]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[0]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[31..28]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[19..16]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[10..7]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[2..1]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[25..24]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[22..20]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[15..14]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[12..11]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[6..5]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[27]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[26]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[23]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[13]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[4]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[3]        ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[0]        ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[26..23]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[20..19]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[8..6]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[1..0]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[31..27]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[22..21]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[18..15]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[13..9]    ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[5..4]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[14]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[3]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[2]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1_1[31..29]  ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1_1[27..0]   ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1_1[28]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2_1[31..29]  ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2_1[28..0]   ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3_1[31..29]  ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3_1[27..0]   ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3_1[28]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[31..29] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[26..24] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[22..21] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[18..16] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[11..9]  ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[7..6]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[28..27] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[20..19] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[13..12] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[5..4]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[2..1]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[23]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[15]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[14]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[8]      ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[3]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[0]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[25..24] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[21..18] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[12..8]  ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[2..1]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[31..28] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[23..22] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[17..15] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[7..5]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[27]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[26]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[14]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[13]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[4]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[3]      ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[0]      ; Input ; Info     ; Stuck at GND ;
++-----------------------+-------+----------+--------------+
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "iir_sum:Band_4"              ;
++-----------------------+-------+----------+--------------+
+; Port                  ; Type  ; Severity ; Details      ;
++-----------------------+-------+----------+--------------+
+; coeff_in_1[18..17]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[13..12]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[9..4]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[2..0]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[31..21]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[11..10]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[20]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[19]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[16]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[15]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[14]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[3]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[19..18]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[14..13]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[10..5]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[31..22]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[12..11]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[21]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[20]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[17]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[16]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[15]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[4]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[3]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[2]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[1]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[0]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[18..17]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[13..12]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[9..4]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[2..0]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[31..21]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[11..10]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[20]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[19]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[16]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[15]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[14]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[3]         ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[31..29]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[25..20]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[17..15]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[5..4]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[28..26]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[19..18]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[12..10]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[8..6]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[1..0]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[14]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[13]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[9]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[3]        ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[2]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[27..25]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[16..13]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[11..10]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[7..6]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[1..0]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[31..28]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[24..20]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[18..17]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[9..8]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[3..2]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[19]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[12]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[5]        ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[4]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1_1[31..29]  ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1_1[27..0]   ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1_1[28]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2_1[31..29]  ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2_1[28..0]   ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3_1[31..29]  ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3_1[27..0]   ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3_1[28]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[31..29] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[20..16] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[10..9]  ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[1..0]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[28..26] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[24..23] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[15..13] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[8..2]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[25]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[22]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[21]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[12]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[11]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[27..25] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[20..19] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[8..7]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[5..4]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[1..0]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[31..28] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[22..21] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[16..15] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[11..9]  ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[3..2]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[24]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[23]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[18]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[17]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[14]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[13]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[12]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[6]      ; Input ; Info     ; Stuck at GND ;
++-----------------------+-------+----------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "iir_sum:Band_3"                                                                                                                                                                                    ;
++-----------------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port                  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-----------------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; rst                   ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; rst[-1]               ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_1[19..18]    ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_1[10..7]     ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_1[3..2]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_1[31..20]    ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_1[17..15]    ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_1[13..11]    ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_1[6..4]      ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_1[1..0]      ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_1[14]        ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_2[20..19]    ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_2[11..8]     ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_2[4..3]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_2[1..0]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_2[31..21]    ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_2[18..16]    ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_2[14..12]    ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_2[7..5]      ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_2[15]        ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_2[2]         ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_3[19..18]    ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_3[10..7]     ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_3[3..2]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_3[31..20]    ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_3[17..15]    ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_3[13..11]    ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_3[6..4]      ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_3[1..0]      ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_3[14]        ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1[31..29]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1[21..19]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1[15..13]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1[5..3]     ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1[28..26]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_1[24..22]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_1[18..16]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_1[10..9]    ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_1[7..6]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_1[2..0]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_1[25]       ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1[12]       ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_1[11]       ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1[8]        ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_2[27..25]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_2[22..18]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_2[12..9]    ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_2[31..28]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_2[24..23]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_2[17..13]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_2[8..7]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_2[5..4]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_2[2..1]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_2[6]        ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_2[3]        ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_2[0]        ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_1_1[31..29]  ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_1_1[27..0]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_1_1[28]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_2_1[31..29]  ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_in_2_1[28..0]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_3_1[31..29]  ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_3_1[27..0]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_in_3_1[28]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1_1[31..29] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1_1[21..19] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1_1[13..10] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1_1[6..5]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1_1[2..1]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1_1[28..25] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_1_1[23..22] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_1_1[4..3]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_1_1[24]     ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1_1[18]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_1_1[17]     ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1_1[16]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_1_1[15]     ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1_1[14]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_1_1[9]      ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_1_1[8]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_1_1[7]      ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_1_1[0]      ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_2_1[27..24] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_2_1[17..16] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_2_1[14..13] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_2_1[11..10] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_2_1[7..3]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_2_1[1..0]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_2_1[31..28] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_2_1[23..20] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_2_1[9..8]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_2_1[19]     ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; coeff_out_2_1[18]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_2_1[15]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_2_1[12]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; coeff_out_2_1[2]      ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-----------------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "iir_sum:Band_2"              ;
++-----------------------+-------+----------+--------------+
+; Port                  ; Type  ; Severity ; Details      ;
++-----------------------+-------+----------+--------------+
+; coeff_in_1[15..11]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[31..18]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[6..3]      ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[17]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[16]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[10]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[9]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[8]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[7]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[2]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[1]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[0]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[16..12]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[31..19]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[7..4]      ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[18]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[17]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[11]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[10]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[9]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[8]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[3]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[2]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[1]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[0]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[15..11]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[31..18]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[6..3]      ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[17]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[16]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[10]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[9]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[8]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[7]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[2]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[1]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[0]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[31..29]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[23..21]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[19..16]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[28..24]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[13..12]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[10..5]    ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[3..2]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[20]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[15]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[14]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[11]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[4]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[1]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[0]        ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[27..24]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[17..16]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[11..10]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[31..28]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[21..18]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[15..12]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[9..8]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[6..3]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[23]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[22]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[7]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[2]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[1]        ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[0]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1_1[31..29]  ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1_1[27..0]   ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1_1[28]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2_1[31..29]  ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2_1[28..0]   ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3_1[31..29]  ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3_1[27..0]   ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3_1[28]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[31..29] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[8..6]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[28..24] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[22..21] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[19..15] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[13..12] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[10..9]  ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[5..2]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[23]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[20]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[14]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[11]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[1]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[0]      ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[27..23] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[15..14] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[12..9]  ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[7..3]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[31..28] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[22..19] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[17..16] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[18]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[13]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[8]      ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[2]      ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[1]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[0]      ; Input ; Info     ; Stuck at GND ;
++-----------------------+-------+----------+--------------+
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "iir_sum:Band_1"              ;
++-----------------------+-------+----------+--------------+
+; Port                  ; Type  ; Severity ; Details      ;
++-----------------------+-------+----------+--------------+
+; coeff_in_1[17..16]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[14..13]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[7..3]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[1..0]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[31..18]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[10..8]     ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[15]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[12]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1[11]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_1[2]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[18..17]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[15..14]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[8..4]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[31..19]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[11..9]     ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[16]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[13]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[12]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[3]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[2]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2[1]         ; Input ; Info     ; Stuck at GND ;
+; coeff_in_2[0]         ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[17..16]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[14..13]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[7..3]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[1..0]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[31..18]    ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[10..8]     ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[15]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[12]        ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3[11]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_3[2]         ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[31..29]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[19..17]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[9..4]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[28..25]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[23..22]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[24]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[21]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[20]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[16]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[15]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[14]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[13]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[12]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[11]       ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[10]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[3]        ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[2]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1[1]        ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1[0]        ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[27..25]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[23..22]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[20..13]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[10..9]    ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[5..3]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2[31..28]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[12..11]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[8..6]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[2..0]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[24]       ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2[21]       ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1_1[31..29]  ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1_1[27..0]   ; Input ; Info     ; Stuck at GND ;
+; coeff_in_1_1[28]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2_1[31..29]  ; Input ; Info     ; Stuck at VCC ;
+; coeff_in_2_1[28..0]   ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3_1[31..29]  ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3_1[27..0]   ; Input ; Info     ; Stuck at GND ;
+; coeff_in_3_1[28]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[31..29] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[2..0]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[28..22] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[14..13] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[11..6]  ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[4..3]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[21]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[20]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[19]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[18]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[17]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[16]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_1_1[15]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[12]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_1_1[5]      ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[27..22] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[16..15] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[13..10] ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[8..7]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[4..2]   ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[31..28] ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[6..5]   ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[21]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[20]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[19]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[18]     ; Input ; Info     ; Stuck at VCC ;
+; coeff_out_2_1[17]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[14]     ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[9]      ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[1]      ; Input ; Info     ; Stuck at GND ;
+; coeff_out_2_1[0]      ; Input ; Info     ; Stuck at VCC ;
++-----------------------+-------+----------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "multiply_fixed_point:mul6"                                                                                                                                                                   ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; integer_input ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (16 bits) it drives.  The 16 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; real_input    ; Input  ; Warning  ; Input port expression (16 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "real_input[31..16]" will be connected to GND.                              ;
+; result        ; Output ; Warning  ; Output or bidir port (48 bits) is wider than the port expression (16 bits) it drives; bit(s) "result[47..16]" have no fanouts                                                       ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "multiply_fixed_point:mul5"                                                                                                                                                                   ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; integer_input ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (16 bits) it drives.  The 16 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; real_input    ; Input  ; Warning  ; Input port expression (16 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "real_input[31..16]" will be connected to GND.                              ;
+; result        ; Output ; Warning  ; Output or bidir port (48 bits) is wider than the port expression (16 bits) it drives; bit(s) "result[47..16]" have no fanouts                                                       ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "multiply_fixed_point:mul4"                                                                                                                                                                   ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; integer_input ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (16 bits) it drives.  The 16 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; real_input    ; Input  ; Warning  ; Input port expression (16 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "real_input[31..16]" will be connected to GND.                              ;
+; result        ; Output ; Warning  ; Output or bidir port (48 bits) is wider than the port expression (16 bits) it drives; bit(s) "result[47..16]" have no fanouts                                                       ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "multiply_fixed_point:mul3"                                                                                                                                                                   ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; integer_input ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (16 bits) it drives.  The 16 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; real_input    ; Input  ; Warning  ; Input port expression (16 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "real_input[31..16]" will be connected to GND.                              ;
+; result        ; Output ; Warning  ; Output or bidir port (48 bits) is wider than the port expression (16 bits) it drives; bit(s) "result[47..16]" have no fanouts                                                       ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "multiply_fixed_point:mul2"                                                                                                                                                                   ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; integer_input ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (16 bits) it drives.  The 16 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; real_input    ; Input  ; Warning  ; Input port expression (16 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "real_input[31..16]" will be connected to GND.                              ;
+; result        ; Output ; Warning  ; Output or bidir port (48 bits) is wider than the port expression (16 bits) it drives; bit(s) "result[47..16]" have no fanouts                                                       ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "multiply_fixed_point:mul1"                                                                                                                                                                   ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; integer_input ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (16 bits) it drives.  The 16 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; real_input    ; Input  ; Warning  ; Input port expression (16 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "real_input[31..16]" will be connected to GND.                              ;
+; result        ; Output ; Warning  ; Output or bidir port (48 bits) is wider than the port expression (16 bits) it drives; bit(s) "result[47..16]" have no fanouts                                                       ;
++---------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -573,20 +1332,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 440                         ;
-;     CLR               ; 440                         ;
-; arriav_lcell_comb     ; 745                         ;
-;     arith             ; 300                         ;
-;         2 data inputs ; 300                         ;
-;     shared            ; 445                         ;
-;         0 data inputs ; 5                           ;
-;         2 data inputs ; 220                         ;
-;         3 data inputs ; 220                         ;
-; arriav_mac            ; 51                          ;
-; boundary_port         ; 50                          ;
+; arriav_ff             ; 1056                        ;
+;     CLR               ; 880                         ;
+;     plain             ; 176                         ;
+; arriav_lcell_comb     ; 1788                        ;
+;     arith             ; 720                         ;
+;         2 data inputs ; 720                         ;
+;     shared            ; 1068                        ;
+;         0 data inputs ; 12                          ;
+;         2 data inputs ; 528                         ;
+;         3 data inputs ; 528                         ;
+; arriav_mac            ; 125                         ;
+; boundary_port         ; 226                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.30                        ;
-; Average LUT depth     ; 3.51                        ;
+; Average LUT depth     ; 3.48                        ;
 +-----------------------+-----------------------------+
 
 
@@ -595,7 +1355,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -605,7 +1365,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Fri Apr 12 21:48:19 2024
+    Info: Processing started: Sat Apr 13 03:26:07 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LAB4 -c LAB4
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -618,28 +1378,134 @@ Info (12021): Found 2 design units, including 2 entities, in source file multipl
     Info (12023): Found entity 1: multiply_fixed_point File: C:/TKS/DigitalDesign/manhhung_1/LAB4/multiply_fixed_point.v Line: 1
     Info (12023): Found entity 2: testbench File: C:/TKS/DigitalDesign/manhhung_1/LAB4/multiply_fixed_point.v Line: 20
 Info (12021): Found 1 design units, including 1 entities, in source file iir_stage.v
-    Info (12023): Found entity 1: iir_stage File: C:/TKS/DigitalDesign/manhhung_1/LAB4/iir_stage.v Line: 2
+    Info (12023): Found entity 1: iir_stage File: C:/TKS/DigitalDesign/manhhung_1/LAB4/iir_stage.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file iir_filter_tb.v
     Info (12023): Found entity 1: iir_filter_tb File: C:/TKS/DigitalDesign/manhhung_1/LAB4/iir_filter_tb.v Line: 3
-Info (12021): Found 1 design units, including 1 entities, in source file equalizer.v
+Info (12021): Found 2 design units, including 2 entities, in source file equalizer.v
     Info (12023): Found entity 1: Equalizer File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 1
-Info (12127): Elaborating entity "iir_stage" for the top level hierarchy
-Info (12128): Elaborating entity "IIR_fillter" for hierarchy "IIR_fillter:biquad_1" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/iir_stage.v Line: 36
+    Info (12023): Found entity 2: tb_Equalizer File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 167
+Info (12021): Found 2 design units, including 2 entities, in source file iir_sum.v
+    Info (12023): Found entity 1: iir_sum File: C:/TKS/DigitalDesign/manhhung_1/LAB4/iir_sum.v Line: 1
+    Info (12023): Found entity 2: testbench_iir_sum File: C:/TKS/DigitalDesign/manhhung_1/LAB4/iir_sum.v Line: 61
+Info (12021): Found 2 design units, including 2 entities, in source file fixed_point_multiplier_gain.v
+    Info (12023): Found entity 1: fixed_point_multiplier File: C:/TKS/DigitalDesign/manhhung_1/LAB4/fixed_point_multiplier_gain.v Line: 1
+    Info (12023): Found entity 2: tb_fixed_point_multiplier File: C:/TKS/DigitalDesign/manhhung_1/LAB4/fixed_point_multiplier_gain.v Line: 15
+Info (12127): Elaborating entity "Equalizer" for the top level hierarchy
+Info (12128): Elaborating entity "multiply_fixed_point" for hierarchy "multiply_fixed_point:mul1" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 41
+Info (12128): Elaborating entity "iir_sum" for hierarchy "iir_sum:Band_1" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 82
+Info (12128): Elaborating entity "IIR_fillter" for hierarchy "iir_sum:Band_1|IIR_fillter:biquad_1" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/iir_sum.v Line: 41
 Warning (10230): Verilog HDL assignment warning at IIR_fillter.v(63): truncated value with size 20 to match size of target (16) File: C:/TKS/DigitalDesign/manhhung_1/LAB4/IIR_fillter.v Line: 63
-Info (12128): Elaborating entity "multiply_fixed_point" for hierarchy "IIR_fillter:biquad_1|multiply_fixed_point:multi" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/IIR_fillter.v Line: 29
+Warning (12241): 7 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 40 registers lost all their fanouts during netlist optimizations.
+Info (17049): 96 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 846 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 34 input pins
+Warning (21074): Design contains 96 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "gain1[16]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain1[17]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain1[18]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain1[19]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain1[20]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain1[21]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain1[22]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain1[23]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain1[24]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain1[25]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain1[26]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain1[27]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain1[28]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain1[29]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain1[30]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain1[31]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 4
+    Warning (15610): No output dependent on input pin "gain2[16]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain2[17]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain2[18]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain2[19]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain2[20]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain2[21]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain2[22]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain2[23]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain2[24]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain2[25]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain2[26]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain2[27]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain2[28]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain2[29]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain2[30]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain2[31]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 5
+    Warning (15610): No output dependent on input pin "gain3[16]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain3[17]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain3[18]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain3[19]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain3[20]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain3[21]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain3[22]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain3[23]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain3[24]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain3[25]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain3[26]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain3[27]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain3[28]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain3[29]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain3[30]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain3[31]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 6
+    Warning (15610): No output dependent on input pin "gain4[16]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain4[17]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain4[18]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain4[19]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain4[20]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain4[21]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain4[22]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain4[23]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain4[24]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain4[25]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain4[26]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain4[27]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain4[28]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain4[29]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain4[30]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain4[31]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 7
+    Warning (15610): No output dependent on input pin "gain5[16]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain5[17]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain5[18]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain5[19]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain5[20]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain5[21]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain5[22]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain5[23]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain5[24]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain5[25]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain5[26]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain5[27]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain5[28]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain5[29]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain5[30]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain5[31]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 8
+    Warning (15610): No output dependent on input pin "gain6[16]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain6[17]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain6[18]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain6[19]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain6[20]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain6[21]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain6[22]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain6[23]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain6[24]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain6[25]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain6[26]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain6[27]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain6[28]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain6[29]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain6[30]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+    Warning (15610): No output dependent on input pin "gain6[31]" File: C:/TKS/DigitalDesign/manhhung_1/LAB4/Equalizer.v Line: 9
+Info (21057): Implemented 2139 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 210 input pins
     Info (21059): Implemented 16 output pins
-    Info (21061): Implemented 745 logic cells
-    Info (21062): Implemented 51 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4873 megabytes
-    Info: Processing ended: Fri Apr 12 21:48:29 2024
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:07
+    Info (21061): Implemented 1788 logic cells
+    Info (21062): Implemented 125 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 102 warnings
+    Info: Peak virtual memory: 4901 megabytes
+    Info: Processing ended: Sat Apr 13 03:26:18 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:09
 
 
