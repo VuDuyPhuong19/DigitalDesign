@@ -2,6 +2,7 @@ module control_unit(
     input wire [6:0] opcode,
     input wire [6:0] funct7,
     input wire[2:0] funct3,
+	 input zero,
     output RegWrite,
     output wire [1:0] ImmSrc,
 	 output wire ALUSrc,
@@ -28,5 +29,5 @@ ALU_decoder decode_1(
     .funct7(funct7),
     .ALUControl(ALUControl)
 );
-assign PCSrc=0&Branch;
+assign PCSrc=zero&Branch;
 endmodule
