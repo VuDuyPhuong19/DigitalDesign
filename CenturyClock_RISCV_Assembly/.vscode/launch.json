@@ -5,7 +5,7 @@
       "type": "venus",
       "request": "launch",
       "name": "Launch CenturyClock.s",
-      "program": "D:/Verilog project/DigitalDesign/DigitalDesign/Lab5/CenturyClock.s",
+      "program": "D:/Verilog project/DigitalDesign/DigitalDesign/CenturyClock_RISCV_Assembly/CenturyClock.s",
       "stopOnEntry": true,
       "stopAtBreakpoints": true,
       "openViews": [

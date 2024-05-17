@@ -516,7 +516,7 @@ update_year_fun:
     lb a3,0(a2)
     addi a3,a3,1
 up_year:
-    addi sp,sp,-4
+    addi sp,sp,-36
     sw a2,0(sp)
     li t0, 10
     li a0, 0x100
@@ -538,15 +538,6 @@ up_year:
     addi sp,sp,4
     sb a3,0(a2)
     j up_month
-    # # Kết thúc chương trình
-    # li a0, 10
-    # ecall
-# update_led_matrix:
-#     li a0, 0x100
-#     li a3, a0  
-#     li s0, HOUR_TEN
-#     jal display_number
-#     ret
 
 display_number:
     la a4, rows
@@ -705,6 +696,7 @@ loop_j:
     lw a2, 0(s0) # Pixel values
     addi t2, t2, 1 # count++
 
+    # in 2 dấu 2 chấm 
     ecall
     li a1, 0x000C0003
     li a2, 0xF0F0F0 
