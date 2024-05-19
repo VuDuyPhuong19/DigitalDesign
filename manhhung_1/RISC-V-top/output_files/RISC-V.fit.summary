@@ -1,11 +1,11 @@
-Fitter Status : Successful - Sun May 19 18:15:58 2024
+Fitter Status : Successful - Sun May 19 20:41:01 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : RISC-V
 Top-level Entity Name : control_unit
 Family : Cyclone V
 Device : 5CGXFC7C7F23C8
 Timing Models : Final
-Logic utilization (in ALMs) : 46 / 56,480 ( < 1 % )
+Logic utilization (in ALMs) : 49 / 56,480 ( < 1 % )
 Total registers : 0
 Total pins : 28 / 268 ( 10 % )
 Total virtual pins : 0

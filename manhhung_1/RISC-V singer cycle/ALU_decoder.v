@@ -1,12 +1,15 @@
 module ALU_decoder#(
-    parameter ADD_ALU = 3'b 000,
-    parameter SUB_ALU = 3'b 001,
-    parameter AND_ALU = 3'b 010,
-    parameter OR_ALU = 3'b 011,
-    parameter XOR_ALU= 3'b 100,
-    parameter SLT_ALU= 3'b 101,
-    parameter SHL_ALU= 3'b 110,
-    parameter SHR_ALU= 3'b 111
+    parameter ADD_ALU = 3'b 0000,
+    parameter SUB_ALU = 3'b 0001,
+    parameter AND_ALU = 3'b 0010,
+    parameter OR_ALU = 3'b 0011,
+    parameter XOR_ALU= 3'b 0100,
+    parameter SLT_ALU= 3'b 0101,
+    parameter SHL_ALU= 3'b 0110,
+    parameter SHR_ALU= 3'b 0111,
+    parameter SGTe_ALU=3'b1000,
+    parameter EQUAL_ALU=3'b1001,
+    parameter NOT_EQUAL_ALU=3'b1010
 )
 (
 	input [1:0] ALUOp,
@@ -77,11 +80,26 @@ always@(get_fun) begin
             endcase
         end
         else begin
+             //.....................................S-type...............................
             if(ALUOp==2'b00) begin
-                ALUControl=3'b 000;
+                ALUControl=ADD_ALU;
             end
+            //.....................................B-type...............................
             else begin
-                ALUControl=3'b 101;
+                case(funct3)
+                    3'b 000: begin
+                        ALUControl=EQUAL_ALU;
+                    end
+                    3'b 001: begin
+                        ALUControl=NOT_EQUAL_ALU;
+                    end
+                    3'b 100: begin
+                        ALUControl=SLT_ALU;
+                    end
+                    3'b 101: begin
+                        ALUControl=SGTe_ALU;
+                    end
+                endcase
             end
         end
     end

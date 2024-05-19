@@ -44,16 +44,24 @@ case(opcode)
 		Branch=0;
 		ALUOp=2'b 00;
 	end
-	7'b 1100011: begin
+	7'b 1100011: begin //B-type
 		RegWrite=0;
 		ImmSrc=2'b 10;
 		ALUSrc=0;
 		Memwrite=0;
 		Branch=1;
-		ALUOp=11;
+		ALUOp=2'b 11;
 	end
-	/*7'b 1101111:
-	7'b 0110111:
+	7'b 1101111: begin //J-type
+		RegWrite=0;
+		ImmSrc=2'b 10;
+		ALUSrc=0;
+		Memwrite=0;
+		Branch=1;
+		ALUOp=2'b 10;
+	end
+  /*7'b 0110111: begin
+	end
 	7'b 0010111:
 	7'b 1110011: */
 endcase

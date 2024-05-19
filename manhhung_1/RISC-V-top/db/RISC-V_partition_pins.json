@@ -76,15 +76,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "funct3[0]",
+					"strict" : false
+				},
+				{
 					"name" : "funct3[1]",
 					"strict" : false
 				},
 				{
 					"name" : "funct3[2]",
-					"strict" : false
-				},
-				{
-					"name" : "funct3[0]",
 					"strict" : false
 				},
 				{
