@@ -16,13 +16,43 @@ case(opcode)
 		 Memwrite=0;
 		 ResultSrc=0;
 		 Branch=0;
-		 ALUOp=10;
+		 ALUOp=2'b 10;
 	end
-	/*7'b 0010011:
-	7'b 0000011:
-	7'b 0100011:
-	7'b 1100011:
-	7'b 1101111:
+	7'b 0010011: begin //I-type add
+		RegWrite=1;
+		ImmSrc=2'b 00;
+		ALUSrc=1;
+		Memwrite=0;
+		ResultSrc=0;
+		Branch=0;
+		ALUOp=2'b 01;
+	end
+	7'b 0000011: begin //I-type load
+		RegWrite=1;
+		ImmSrc=2'b 00;
+		ALUSrc=1;
+		Memwrite=0;
+		ResultSrc=1;
+		Branch=0;
+		ALUOp=2'b 00;
+	end
+	7'b 0100011: begin
+		RegWrite=0;
+		ImmSrc=2'b 01;
+		ALUSrc=1;
+		Memwrite=1;
+		Branch=0;
+		ALUOp=2'b 00;
+	end
+	7'b 1100011: begin
+		RegWrite=0;
+		ImmSrc=2'b 10;
+		ALUSrc=0;
+		Memwrite=0;
+		Branch=1;
+		ALUOp=11;
+	end
+	/*7'b 1101111:
 	7'b 0110111:
 	7'b 0010111:
 	7'b 1110011: */

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISC-V
-Sun May 19 16:43:21 2024
+Sun May 19 18:14:33 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -13,10 +13,13 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: ALU_decoder:decode_1
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -43,7 +46,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun May 19 16:43:21 2024          ;
+; Analysis & Synthesis Status     ; Successful - Sun May 19 18:14:33 2024          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; RISC-V                                         ;
 ; Top-level Entity Name           ; control_unit                                   ;
@@ -159,10 +162,11 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -177,41 +181,65 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 0         ;
-;                                             ;           ;
-; Combinational ALUT usage for logic          ; 0         ;
-;     -- 7 input functions                    ; 0         ;
-;     -- 6 input functions                    ; 0         ;
-;     -- 5 input functions                    ; 0         ;
-;     -- 4 input functions                    ; 0         ;
-;     -- <=3 input functions                  ; 0         ;
-;                                             ;           ;
-; Dedicated logic registers                   ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 28        ;
-;                                             ;           ;
-; Total DSP Blocks                            ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; opcode[0] ;
-; Maximum fan-out                             ; 1         ;
-; Total fan-out                               ; 28        ;
-; Average fan-out                             ; 0.50      ;
-+---------------------------------------------+-----------+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                               ;
++---------------------------------------------+-----------------------------+
+; Resource                                    ; Usage                       ;
++---------------------------------------------+-----------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 46                          ;
+;                                             ;                             ;
+; Combinational ALUT usage for logic          ; 73                          ;
+;     -- 7 input functions                    ; 0                           ;
+;     -- 6 input functions                    ; 19                          ;
+;     -- 5 input functions                    ; 13                          ;
+;     -- 4 input functions                    ; 13                          ;
+;     -- <=3 input functions                  ; 28                          ;
+;                                             ;                             ;
+; Dedicated logic registers                   ; 0                           ;
+;                                             ;                             ;
+; I/O pins                                    ; 28                          ;
+;                                             ;                             ;
+; Total DSP Blocks                            ; 0                           ;
+;                                             ;                             ;
+; Maximum fan-out node                        ; ALU_decoder:decode_1|Add0~1 ;
+; Maximum fan-out                             ; 13                          ;
+; Total fan-out                               ; 339                         ;
+; Average fan-out                             ; 2.63                        ;
++---------------------------------------------+-----------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                     ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+--------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name  ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+--------------+--------------+
-; |control_unit              ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 28   ; 0            ; |control_unit       ; control_unit ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+--------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------+--------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                ; Entity Name  ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------+--------------+--------------+
+; |control_unit              ; 73 (1)              ; 0 (0)                     ; 0                 ; 0          ; 28   ; 0            ; |control_unit                      ; control_unit ; work         ;
+;    |ALU_decoder:decode_1|  ; 50 (50)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |control_unit|ALU_decoder:decode_1 ; ALU_decoder  ; work         ;
+;    |Main_decoder:main|     ; 22 (22)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |control_unit|Main_decoder:main    ; Main_decoder ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                               ;
++-----------------------------------------------------+------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                ; Free of Timing Hazards ;
++-----------------------------------------------------+------------------------------------+------------------------+
+; Main_decoder:main|RegWrite                          ; Main_decoder:main|WideOr0          ; yes                    ;
+; Main_decoder:main|ImmSrc[0]                         ; Main_decoder:main|WideOr2          ; yes                    ;
+; Main_decoder:main|ImmSrc[1]                         ; Main_decoder:main|WideOr2          ; yes                    ;
+; Main_decoder:main|ALUSrc                            ; Main_decoder:main|WideOr0          ; yes                    ;
+; Main_decoder:main|Memwrite                          ; Main_decoder:main|WideOr0          ; yes                    ;
+; Main_decoder:main|ResultSrc                         ; Main_decoder:main|WideOr1          ; yes                    ;
+; ALU_decoder:decode_1|ALUControl[0]                  ; ALU_decoder:decode_1|ALUControl[0] ; yes                    ;
+; ALU_decoder:decode_1|ALUControl[1]                  ; ALU_decoder:decode_1|ALUControl[0] ; yes                    ;
+; ALU_decoder:decode_1|ALUControl[2]                  ; ALU_decoder:decode_1|ALUControl[0] ; yes                    ;
+; Main_decoder:main|Branch                            ; Main_decoder:main|WideOr0          ; yes                    ;
+; Main_decoder:main|ALUOp[1]                          ; Main_decoder:main|WideOr0          ; yes                    ;
+; Main_decoder:main|ALUOp[0]                          ; Main_decoder:main|WideOr0          ; yes                    ;
+; Number of user-specified and inferred latches = 12  ;                                    ;                        ;
++-----------------------------------------------------+------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -229,18 +257,55 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |control_unit|ALU_decoder:decode_1|ShiftLeft0    ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |control_unit|ALU_decoder:decode_1|ShiftLeft0    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |control_unit|ALU_decoder:decode_1|ShiftLeft0    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |control_unit|ALU_decoder:decode_1|ShiftLeft0    ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |control_unit|ALU_decoder:decode_1|ALUControl[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU_decoder:decode_1 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; ADD_ALU        ; 000   ; Unsigned Binary                          ;
+; SUB_ALU        ; 001   ; Unsigned Binary                          ;
+; AND_ALU        ; 010   ; Unsigned Binary                          ;
+; OR_ALU         ; 011   ; Unsigned Binary                          ;
+; XOR_ALU        ; 100   ; Unsigned Binary                          ;
+; SLT_ALU        ; 101   ; Unsigned Binary                          ;
+; SHL_ALU        ; 110   ; Unsigned Binary                          ;
+; SHR_ALU        ; 111   ; Unsigned Binary                          ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 2                           ;
-;     normal            ; 2                           ;
-;         0 data inputs ; 2                           ;
+; arriav_lcell_comb     ; 73                          ;
+;     arith             ; 8                           ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 7                           ;
+;     normal            ; 65                          ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 16                          ;
+;         4 data inputs ; 13                          ;
+;         5 data inputs ; 13                          ;
+;         6 data inputs ; 19                          ;
 ; boundary_port         ; 28                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 6.70                        ;
+; Average LUT depth     ; 4.77                        ;
 +-----------------------+-----------------------------+
 
 
@@ -259,7 +324,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Sun May 19 16:42:40 2024
+    Info: Processing started: Sun May 19 18:14:11 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISC-V -c RISC-V
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -283,76 +348,69 @@ Info (12021): Found 1 design units, including 1 entities, in source file /tks/di
     Info (12023): Found entity 1: ALU_decoder File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 1
 Info (12127): Elaborating entity "control_unit" for the top level hierarchy
 Info (12128): Elaborating entity "Main_decoder" for hierarchy "Main_decoder:main" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 25
-Warning (10230): Verilog HDL assignment warning at Main_decoder.v(19): truncated value with size 32 to match size of target (2) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 19
+Warning (10230): Verilog HDL assignment warning at Main_decoder.v(53): truncated value with size 32 to match size of target (2) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 53
 Warning (10270): Verilog HDL Case Statement warning at Main_decoder.v(12): incomplete case statement has no default case item File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 12
 Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(11): inferring latch(es) for variable "RegWrite", which holds its previous value in one or more paths through the always construct File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
+Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(11): inferring latch(es) for variable "ImmSrc", which holds its previous value in one or more paths through the always construct File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
 Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(11): inferring latch(es) for variable "ALUSrc", which holds its previous value in one or more paths through the always construct File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
 Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(11): inferring latch(es) for variable "Memwrite", which holds its previous value in one or more paths through the always construct File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
-Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(11): inferring latch(es) for variable "ResultSrc", which holds its previous value in one or more paths through the always construct File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
 Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(11): inferring latch(es) for variable "Branch", which holds its previous value in one or more paths through the always construct File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
 Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(11): inferring latch(es) for variable "ALUOp", which holds its previous value in one or more paths through the always construct File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
-Warning (10034): Output port "ImmSrc" at Main_decoder.v(4) has no driver File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 4
+Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(11): inferring latch(es) for variable "ResultSrc", which holds its previous value in one or more paths through the always construct File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
+Info (10041): Inferred latch for "ResultSrc" at Main_decoder.v(11) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
 Info (10041): Inferred latch for "ALUOp[0]" at Main_decoder.v(11) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
 Info (10041): Inferred latch for "ALUOp[1]" at Main_decoder.v(11) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
 Info (10041): Inferred latch for "Branch" at Main_decoder.v(11) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
-Info (10041): Inferred latch for "ResultSrc" at Main_decoder.v(11) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
 Info (10041): Inferred latch for "Memwrite" at Main_decoder.v(11) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
 Info (10041): Inferred latch for "ALUSrc" at Main_decoder.v(11) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
+Info (10041): Inferred latch for "ImmSrc[0]" at Main_decoder.v(11) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
+Info (10041): Inferred latch for "ImmSrc[1]" at Main_decoder.v(11) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
 Info (10041): Inferred latch for "RegWrite" at Main_decoder.v(11) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
 Info (12128): Elaborating entity "ALU_decoder" for hierarchy "ALU_decoder:decode_1" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 31
-Warning (10235): Verilog HDL Always Construct warning at ALU_decoder.v(11): variable "ALUOp" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 11
-Warning (10235): Verilog HDL Always Construct warning at ALU_decoder.v(36): variable "ALUOp" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 36
-Warning (10235): Verilog HDL Always Construct warning at ALU_decoder.v(37): variable "funct3" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 37
-Warning (10230): Verilog HDL assignment warning at ALU_decoder.v(42): truncated value with size 32 to match size of target (3) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 42
-Warning (10230): Verilog HDL assignment warning at ALU_decoder.v(45): truncated value with size 32 to match size of target (3) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 45
-Warning (10230): Verilog HDL assignment warning at ALU_decoder.v(48): truncated value with size 32 to match size of target (3) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 48
-Warning (10270): Verilog HDL Case Statement warning at ALU_decoder.v(37): incomplete case statement has no default case item File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 37
-Warning (10240): Verilog HDL Always Construct warning at ALU_decoder.v(10): inferring latch(es) for variable "ALUControl", which holds its previous value in one or more paths through the always construct File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 10
-Info (10041): Inferred latch for "ALUControl[0]" at ALU_decoder.v(36) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 36
-Info (10041): Inferred latch for "ALUControl[1]" at ALU_decoder.v(36) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 36
-Info (10041): Inferred latch for "ALUControl[2]" at ALU_decoder.v(36) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 36
-Warning (14025): LATCH primitive "ALU_decoder:decode_1|ALUControl[1]" is permanently disabled File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 36
-Warning (14025): LATCH primitive "ALU_decoder:decode_1|ALUControl[2]" is permanently disabled File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 36
-Warning (14025): LATCH primitive "ALU_decoder:decode_1|ALUControl[0]" is permanently disabled File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 36
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "RegWrite" is stuck at VCC File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 6
-    Warning (13410): Pin "ImmSrc[0]" is stuck at GND File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 7
-    Warning (13410): Pin "ImmSrc[1]" is stuck at GND File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 7
-    Warning (13410): Pin "ALUSrc" is stuck at GND File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 8
-    Warning (13410): Pin "Memwrite" is stuck at GND File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 9
-    Warning (13410): Pin "ResultSrc" is stuck at GND File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 10
-    Warning (13410): Pin "ALUControl[0]" is stuck at GND File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 11
-    Warning (13410): Pin "ALUControl[1]" is stuck at GND File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 11
-    Warning (13410): Pin "ALUControl[2]" is stuck at GND File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 11
-    Warning (13410): Pin "PCSrc" is stuck at GND File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 13
+Warning (10235): Verilog HDL Always Construct warning at ALU_decoder.v(21): variable "ALUOp" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 21
+Warning (10270): Verilog HDL Case Statement warning at ALU_decoder.v(22): incomplete case statement has no default case item File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 22
+Warning (10235): Verilog HDL Always Construct warning at ALU_decoder.v(51): variable "ALUOp" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 51
+Warning (10235): Verilog HDL Always Construct warning at ALU_decoder.v(52): variable "funct3" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 52
+Warning (10235): Verilog HDL Always Construct warning at ALU_decoder.v(80): variable "ALUOp" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 80
+Warning (10240): Verilog HDL Always Construct warning at ALU_decoder.v(20): inferring latch(es) for variable "ALUControl", which holds its previous value in one or more paths through the always construct File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 20
+Info (10041): Inferred latch for "ALUControl[0]" at ALU_decoder.v(51) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 51
+Info (10041): Inferred latch for "ALUControl[1]" at ALU_decoder.v(51) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 51
+Info (10041): Inferred latch for "ALUControl[2]" at ALU_decoder.v(51) File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 51
+Warning (13012): Latch Main_decoder:main|RegWrite has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 3
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2] File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
+Warning (13012): Latch Main_decoder:main|ImmSrc[0] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[0] File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
+Warning (13012): Latch Main_decoder:main|ImmSrc[1] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2] File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
+Warning (13012): Latch Main_decoder:main|ALUSrc has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2] File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
+Warning (13012): Latch Main_decoder:main|Memwrite has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 6
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[0] File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
+Warning (13012): Latch Main_decoder:main|ResultSrc has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 7
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[0] File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
+Warning (13012): Latch ALU_decoder:decode_1|ALUControl[0] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 51
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Main_decoder:main|ALUOp[0] File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
+Warning (13012): Latch ALU_decoder:decode_1|ALUControl[1] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 51
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Main_decoder:main|ALUOp[0] File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
+Warning (13012): Latch ALU_decoder:decode_1|ALUControl[2] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/ALU_decoder.v Line: 51
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Main_decoder:main|ALUOp[0] File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
+Warning (13012): Latch Main_decoder:main|Branch has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[0] File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
+Warning (13012): Latch Main_decoder:main|ALUOp[1] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2] File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
+Warning (13012): Latch Main_decoder:main|ALUOp[0] has unsafe behavior File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/Main_decoder.v Line: 11
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2] File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 18 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "opcode[0]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
-    Warning (15610): No output dependent on input pin "opcode[1]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
-    Warning (15610): No output dependent on input pin "opcode[2]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
-    Warning (15610): No output dependent on input pin "opcode[3]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
-    Warning (15610): No output dependent on input pin "opcode[4]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
-    Warning (15610): No output dependent on input pin "opcode[5]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
-    Warning (15610): No output dependent on input pin "opcode[6]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 2
-    Warning (15610): No output dependent on input pin "funct7[0]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 3
-    Warning (15610): No output dependent on input pin "funct7[1]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 3
-    Warning (15610): No output dependent on input pin "funct7[2]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 3
-    Warning (15610): No output dependent on input pin "funct7[3]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 3
-    Warning (15610): No output dependent on input pin "funct7[4]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 3
-    Warning (15610): No output dependent on input pin "funct7[5]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 3
-    Warning (15610): No output dependent on input pin "funct7[6]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 3
-    Warning (15610): No output dependent on input pin "funct3[0]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 4
-    Warning (15610): No output dependent on input pin "funct3[1]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 4
-    Warning (15610): No output dependent on input pin "funct3[2]" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 4
-    Warning (15610): No output dependent on input pin "zero" File: C:/TKS/DigitalDesign/manhhung_1/RISC-V singer cycle/control_unit.v Line: 5
-Info (21057): Implemented 28 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 101 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 10 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 52 warnings
-    Info: Peak virtual memory: 4871 megabytes
-    Info: Processing ended: Sun May 19 16:43:21 2024
-    Info: Elapsed time: 00:00:41
-    Info: Total CPU time (on all processors): 00:00:48
+    Info (21061): Implemented 73 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 41 warnings
+    Info: Peak virtual memory: 4862 megabytes
+    Info: Processing ended: Sun May 19 18:14:33 2024
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:29
 
 

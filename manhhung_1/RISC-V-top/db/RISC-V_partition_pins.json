@@ -2,7 +2,120 @@
 	"partitions" : [
 		{
 			"name" : "Top",
-			"pins" : []
+			"pins" : [
+				{
+					"name" : "RegWrite",
+					"strict" : false
+				},
+				{
+					"name" : "ImmSrc[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ImmSrc[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ALUSrc",
+					"strict" : false
+				},
+				{
+					"name" : "Memwrite",
+					"strict" : false
+				},
+				{
+					"name" : "ResultSrc",
+					"strict" : false
+				},
+				{
+					"name" : "ALUControl[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ALUControl[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ALUControl[2]",
+					"strict" : false
+				},
+				{
+					"name" : "PCSrc",
+					"strict" : false
+				},
+				{
+					"name" : "zero",
+					"strict" : false
+				},
+				{
+					"name" : "opcode[0]",
+					"strict" : false
+				},
+				{
+					"name" : "opcode[1]",
+					"strict" : false
+				},
+				{
+					"name" : "opcode[4]",
+					"strict" : false
+				},
+				{
+					"name" : "opcode[5]",
+					"strict" : false
+				},
+				{
+					"name" : "opcode[6]",
+					"strict" : false
+				},
+				{
+					"name" : "opcode[2]",
+					"strict" : false
+				},
+				{
+					"name" : "opcode[3]",
+					"strict" : false
+				},
+				{
+					"name" : "funct3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "funct3[2]",
+					"strict" : false
+				},
+				{
+					"name" : "funct3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "funct7[2]",
+					"strict" : false
+				},
+				{
+					"name" : "funct7[1]",
+					"strict" : false
+				},
+				{
+					"name" : "funct7[0]",
+					"strict" : false
+				},
+				{
+					"name" : "funct7[4]",
+					"strict" : false
+				},
+				{
+					"name" : "funct7[5]",
+					"strict" : false
+				},
+				{
+					"name" : "funct7[6]",
+					"strict" : false
+				},
+				{
+					"name" : "funct7[3]",
+					"strict" : false
+				}
+			]
 		}
 	]
 }

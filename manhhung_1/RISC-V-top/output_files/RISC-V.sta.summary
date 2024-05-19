@@ -2,4 +2,100 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1100mV 85C Model Setup 'funct3[0]'
+Slack : -13.452
+TNS   : -39.921
+
+Type  : Slow 1100mV 85C Model Setup 'opcode[0]'
+Slack : -10.353
+TNS   : -87.859
+
+Type  : Slow 1100mV 85C Model Hold 'funct3[0]'
+Slack : -1.496
+TNS   : -1.496
+
+Type  : Slow 1100mV 85C Model Hold 'opcode[0]'
+Slack : 2.539
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'funct3[0]'
+Slack : -0.934
+TNS   : -26.885
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'opcode[0]'
+Slack : 0.353
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'funct3[0]'
+Slack : -13.297
+TNS   : -39.212
+
+Type  : Slow 1100mV 0C Model Setup 'opcode[0]'
+Slack : -10.095
+TNS   : -86.094
+
+Type  : Slow 1100mV 0C Model Hold 'funct3[0]'
+Slack : -1.989
+TNS   : -2.410
+
+Type  : Slow 1100mV 0C Model Hold 'opcode[0]'
+Slack : 2.063
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'funct3[0]'
+Slack : -1.115
+TNS   : -32.955
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'opcode[0]'
+Slack : 0.365
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'funct3[0]'
+Slack : -7.150
+TNS   : -21.350
+
+Type  : Fast 1100mV 85C Model Setup 'opcode[0]'
+Slack : -4.813
+TNS   : -38.700
+
+Type  : Fast 1100mV 85C Model Hold 'funct3[0]'
+Slack : -0.467
+TNS   : -0.467
+
+Type  : Fast 1100mV 85C Model Hold 'opcode[0]'
+Slack : 1.219
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'funct3[0]'
+Slack : -0.553
+TNS   : -9.631
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'opcode[0]'
+Slack : -0.008
+TNS   : -0.008
+
+Type  : Fast 1100mV 0C Model Setup 'funct3[0]'
+Slack : -6.348
+TNS   : -18.924
+
+Type  : Fast 1100mV 0C Model Setup 'opcode[0]'
+Slack : -4.221
+TNS   : -34.024
+
+Type  : Fast 1100mV 0C Model Hold 'funct3[0]'
+Slack : -0.597
+TNS   : -0.597
+
+Type  : Fast 1100mV 0C Model Hold 'opcode[0]'
+Slack : 0.899
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'funct3[0]'
+Slack : -0.518
+TNS   : -8.685
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'opcode[0]'
+Slack : 0.002
+TNS   : 0.000
+
 ------------------------------------------------------------
