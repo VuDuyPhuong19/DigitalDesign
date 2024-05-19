@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at DataMemory.v(19): always construct contains both blocking and non-blocking assignments File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/DataMemory.v Line: 19

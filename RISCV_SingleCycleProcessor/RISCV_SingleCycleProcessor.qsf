@@ -58,3 +58,21 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name VERILOG_FILE Registers.v
 set_global_assignment -name VERILOG_FILE alu.v
 set_global_assignment -name VERILOG_FILE ImmGen.v
+set_global_assignment -name VERILOG_FILE Memory_instruction.v
+set_global_assignment -name VERILOG_FILE Add_Fetch.v
+set_global_assignment -name VERILOG_FILE ALU_decoder.v
+set_global_assignment -name VERILOG_FILE Main_decoder.v
+set_global_assignment -name VERILOG_FILE control_unit.v
+set_global_assignment -name VERILOG_FILE mux_fetch.v
+set_global_assignment -name VERILOG_FILE PC.v
+set_global_assignment -name VERILOG_FILE stage_IF.v
+set_global_assignment -name VERILOG_FILE stage_ID.v
+set_global_assignment -name VERILOG_FILE DataMemory.v
+set_global_assignment -name VERILOG_FILE stage_EX.v
+set_global_assignment -name VERILOG_FILE add_pc_imm.v
+set_global_assignment -name VERILOG_FILE RISCV_SingleCycleProcessor.v
+set_global_assignment -name VERILOG_FILE stage_WB.v
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
