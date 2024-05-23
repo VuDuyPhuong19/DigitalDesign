@@ -1,7 +1,7 @@
 module DataMemory #(
 	parameter ADDR_WIDTH = 32,
 	parameter DMEM_WIDTH = 32,
-	parameter DMEM_DEPTH = 1 << 32
+	parameter DMEM_DEPTH = 1 << 10 // 1 << 32
 )(
 	input clk, 
 	input rst_n,

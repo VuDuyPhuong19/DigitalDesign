@@ -5,7 +5,7 @@ module RISCV_SingleCycleProcessor #(
 	parameter REG_ADDR_WIDTH = $clog2(NUM_REG),
 	parameter REG_WIDTH = 32,
 	parameter IMM_WIDTH = 32,
-	parameter ALUControl_WIDTH = 3,
+	parameter ALUCONTROL_WIDTH = 4,
 	parameter IMMSRC_WIDTH = 2,
 	parameter ALU_RESULT_WIDTH = 32,
 	parameter ADDR_WIDTH = 32,
@@ -22,8 +22,6 @@ wire [PC_WIDTH-1:0] next_pc;
 wire [INST_WIDTH-1:0] Instruction;
 
 // Instruction Decode
-// wire [REG_ADDR_WIDTH-1:0] addr_rs1, addr_rs2, addr_rd;
-// wire [REG_WIDTH-1:0] data_rd;
 wire zero;
 wire [REG_WIDTH-1:0] data_rs1, data_rs2;
 wire [IMM_WIDTH-1:0] ImmExt;
@@ -31,7 +29,7 @@ wire [IMMSRC_WIDTH-1:0] ImmSrc;
 wire ALUSrc;
 wire MemWrite;
 wire [RESULTSRC_WIDTH-1:0] ResultSrc;
-wire [ALUControl_WIDTH-1:0] ALUControl;
+wire [ALUCONTROL_WIDTH-1:0] ALUControl;
 wire PCSrc;
 
 // Execute/Address calculation
@@ -57,14 +55,9 @@ stage_IF IF(.clk(clk),
 
 //------------------------------Instruction Decode------------------------------// 
 
-// assign data_rd = wb_result;
-
 stage_ID ID(.clk(clk),
 			.rst_n(rst_n),
 			.Instruction(Instruction),
-			// .addr_rs1(addr_rs1),
-			// .addr_rs2(addr_rs2),
-			// .addr_rd(addr_rd),
 			.data_rd(wb_result),
 			.zero(zero),
 			.data_rs1(data_rs1),

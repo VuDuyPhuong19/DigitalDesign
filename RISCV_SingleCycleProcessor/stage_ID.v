@@ -6,12 +6,20 @@ module stage_ID #(
 	parameter REG_WIDTH = 32,
 	parameter IMMSRC_WIDTH = 2,
 	parameter RESULTSRC_WIDTH = 2,
-	parameter ALU_CONTROL_WIDTH = 3
+	parameter ALUCONTROL_WIDTH = 4,
+	parameter OPCODE_WIDTH = 7,
+	parameter FUNCT7_WIDTH = 7,
+	parameter FUNCT3_WIDTH = 3,
+	parameter OPCODE_R_TYPE = 7'b0110011,
+	parameter OPCODE_I_TYPE = 7'b0010011,
+	parameter OPCODE_S_TYPE = 7'b0100011,
+	parameter OPCODE_L_TYPE = 7'b0000011,
+	parameter OPCODE_B_TYPE = 7'b1100011,
+	parameter OPCODE_J_TYPE = 7'b1101111
 )(
 	input clk, 
 	input rst_n,
 	input [INST_WIDTH-1:0] Instruction,
-	// input [REG_ADDR_WIDTH-1:0] addr_rs1, addr_rs2, addr_rd,
 	input [REG_WIDTH-1:0] data_rd,
 	input zero,
 	output [REG_WIDTH-1:0] data_rs1, data_rs2,
@@ -20,30 +28,63 @@ module stage_ID #(
 	output ALUSrc,
 	output MemWrite,
 	output [RESULTSRC_WIDTH-1:0] ResultSrc,
-    output [ALU_CONTROL_WIDTH-1:0] ALUControl,
+    output [ALUCONTROL_WIDTH-1:0] ALUControl,
     output PCSrc
 );
 
-parameter OPCODE_WIDTH = 7;
-parameter FUNCT7_WIDTH = 7;
-parameter FUNCT3_WIDTH = 3;
-
 wire [OPCODE_WIDTH-1:0] opcode;
-wire [FUNCT7_WIDTH-1:0] funct7;
-wire [FUNCT3_WIDTH-1:0] funct3;
+reg [FUNCT7_WIDTH-1:0] funct7;
+reg [FUNCT3_WIDTH-1:0] funct3;
 
-wire [REG_ADDR_WIDTH-1:0] addr_rs1;
-wire [REG_ADDR_WIDTH-1:0] addr_rs2;
-wire [REG_ADDR_WIDTH-1:0] addr_rd;
+reg [REG_ADDR_WIDTH-1:0] addr_rs1;
+reg [REG_ADDR_WIDTH-1:0] addr_rs2;
+reg [REG_ADDR_WIDTH-1:0] addr_rd;
 
 wire RegWrite;
 
 assign opcode = Instruction[6:0];
-assign funct3 = Instruction[14:12];
-assign funct7 = Instruction[31:25];
-assign addr_rs1 = Instruction[19:15];
-assign addr_rs2 = Instruction[24:20];
-assign addr_rd = Instruction[11:7];
+
+always @ (*) begin
+	case(opcode)
+		OPCODE_R_TYPE: begin
+			funct3 = Instruction[14:12];
+			funct7 = Instruction[31:25];
+			addr_rs1 = Instruction[19:15];
+			addr_rs2 = Instruction[24:20];
+			addr_rd = Instruction[11:7];
+		end
+		OPCODE_I_TYPE: begin
+			addr_rs1 = Instruction[19:15];
+			addr_rd = Instruction[11:7];
+			funct3 = Instruction[14:12];
+		end
+		OPCODE_L_TYPE: begin
+			addr_rs1 = Instruction[19:15];
+			addr_rd = Instruction[11:7];
+			funct3 = Instruction[14:12];
+		end
+		OPCODE_S_TYPE: begin
+			funct3 = Instruction[14:12];
+			addr_rs1 = Instruction[19:15];
+			addr_rs2 = Instruction[24:20];
+		end
+		OPCODE_B_TYPE: begin
+			funct3 = Instruction[14:12];
+			addr_rs1 = Instruction[19:15];
+			addr_rs2 = Instruction[24:20];
+		end
+		OPCODE_J_TYPE: begin
+			addr_rd = Instruction[11:7];
+		end
+		default: begin
+			funct3 = 0;
+			funct7 = 0;
+			addr_rs1 = 0;
+			addr_rs2 = 0;
+			addr_rd = 0;
+		end
+	endcase
+end
 
 ImmGen imm_gen(.Instruction(Instruction),
 			   .ImmExt(ImmExt));
@@ -94,15 +135,16 @@ wire [1:0] ImmSrc;
 wire ALUSrc;
 wire MemWrite;
 wire [RESULTSRC_WIDTH-1:0] ResultSrc;
-wire [2:0] ALUControl;
+wire [3:0] ALUControl;
 wire PCSrc;
 
 stage_ID uut(.clk(clk),
 			 .rst_n(rst_n),
 			 .Instruction(Instruction),
-			 .addr_rs1(addr_rs1),
-			 .addr_rs2(addr_rs2),
-			 .addr_rd(addr_rd),
+			 .data_rd(data_rd),
+			 // .addr_rs1(addr_rs1),
+			 // .addr_rs2(addr_rs2),
+			 // .addr_rd(addr_rd),
 			 .zero(zero),
 			 .data_rs1(data_rs1),
 			 .data_rs2(data_rs2),
@@ -123,10 +165,7 @@ end
 initial begin
 	rst_n = 0;
 	#3 rst_n = 1;
-	Instruction	= 32'b00000000001100010000000010110011;
-	// addr_rs1 = 5'b00010;
-	// addr_rs2 = 5'b00011;
-	// addr_rd = 5'b00001;
+	Instruction	= 32'b0000000_00110_00101_000_01000_1100011; // beq x5, x6, 4
 	data_rd = 32'd12;
 	zero = 0;
 	#1000 $finish();
