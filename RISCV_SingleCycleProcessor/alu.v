@@ -34,19 +34,11 @@ always @ (*) begin
 		AND_ALU: ALU_result = opA & opB;
 		// XOR
 		XOR_ALU: ALU_result = opA ^ opB;
-		// SLT
-		SLT_ALU: ALU_result = (opA < opB) ? 1 : 0;
 		// SHL
 		SHL_ALU: ALU_result = opA << opB;
 		// SHR
 		SHR_ALU: ALU_result = opA >> opB;
-		// SGTe
-		SGTe_ALU: ALU_result = (opA >= opB) ? 1 : 0;
-		// EQUAL
-		EQUAL_ALU: ALU_result = (opA == opB) ? 1 : 0;
-		// NOT_EQUAL
-		NOT_EQUAL_ALU: ALU_result = (opA != opB) ? 1 : 0;
-
+		
 		default: ALU_result = 0;
 	endcase
 end

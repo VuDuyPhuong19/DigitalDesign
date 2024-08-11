@@ -1,0 +1,388 @@
+m255
+K4
+z2
+13
+cModel Technology
+dC:/questasim64_10.2c/examples
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+T_opt
+!s110 1723395688
+VffIM7FjjlR>>aX]nUkU@Q2
+04 34 4 work RISCV_5StagePipelined_Processor_tb fast 0
+=27-586c2533cfc0-66b8ee68-2a9-449c
+o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+OL;O;10.2c;57
+vadder
+IGYK9mCDUeZJL[ni0_KTWX2
+Z0 V`JN@9S9cnhjKRR_L]QIcM3
+Z1 dD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor
+w1723197618
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/adder.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/adder.v
+L0 1
+Z2 OL;L;10.2c;57
+r1
+31
+Z3 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z4 !s110 1723395685
+!s100 A9>OFMH<5:@YcSHHfKKKo3
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/adder.v|
+!s108 1723395685.003000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/adder.v|
+!i10b 1
+!s85 0
+!i111 0
+valu
+R4
+ICV3R^eRPJ[[Hl>=lXHoDT0
+Z5 V`JN@9S9cnhjKRR_L]QIcM3
+R1
+w1723357741
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/alu.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/alu.v
+L0 1
+R2
+r1
+31
+R3
+!s100 IaCai3OK;D`<?afHTG1S50
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/alu.v|
+!s108 1723395685.058000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/alu.v|
+!i10b 1
+!s85 0
+!i111 0
+vALU_decoder
+R4
+Ie:i_n>TJY=YWzHzd^J5Mg1
+R5
+R1
+w1723168954
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v
+L0 1
+R2
+r1
+31
+R3
+n@a@l@u_decoder
+!s100 CYQ3iJJLURz3IRHbNZTId0
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v|
+!s108 1723395685.111000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v|
+!i10b 1
+!s85 0
+!i111 0
+vcontrol_unit
+R4
+IXE7zK[WzLLVFH]eJL1n102
+R5
+R1
+w1723168923
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/control_unit.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/control_unit.v
+L0 1
+R2
+r1
+31
+R3
+!s100 do7=Sk5LCkPW=cZ4_f>GF0
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/control_unit.v|
+!s108 1723395685.160000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/control_unit.v|
+!i10b 1
+!s85 0
+!i111 0
+vDMem
+R4
+I>cSXLkd]=I;UmE2UjnPG82
+R5
+R1
+w1723168366
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/DMem.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/DMem.v
+L0 1
+R2
+r1
+31
+R3
+n@d@mem
+!s100 hdVmjZDPVmBaD=VXRTNAK3
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/DMem.v|
+!s108 1723395685.205000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/DMem.v|
+!i10b 1
+!s85 0
+!i111 0
+vhazard_unit
+R4
+Io`6C1kb]`bJK2P9MSK5ci1
+R5
+R1
+w1723391867
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/hazard_unit.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/hazard_unit.v
+L0 1
+R2
+r1
+31
+R3
+!s100 FOSTjo70Phh4VHUI:_dP>2
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/hazard_unit.v|
+!s108 1723395685.251000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/hazard_unit.v|
+!i10b 1
+!s85 0
+!i111 0
+vIMem
+R4
+I20IOQKnGH[_:LIVFaLG@c1
+R5
+R1
+Z6 w1723394253
+Z7 8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v
+Z8 FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v
+L0 1
+R2
+r1
+31
+Z9 !s108 1723395685.299000
+Z10 !s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v|
+Z11 !s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v|
+R3
+n@i@mem
+!s100 aHkd26>Fli]N?UbXoOQha2
+!i10b 1
+!s85 0
+!i111 0
+vimm_ext
+R4
+I8_Dk7@i]dI1aEaNWzlaWH3
+R5
+R1
+w1723204676
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/imm_ext.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/imm_ext.v
+L0 1
+R2
+r1
+31
+R3
+!s100 H^XCP1;UYhL3o2JlCZ8gn3
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/imm_ext.v|
+!s108 1723395685.352000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/imm_ext.v|
+!i10b 1
+!s85 0
+!i111 0
+vmain_decoder
+R4
+IY0RWH?UhEXSkJe?S2<:j63
+R5
+R1
+w1723180040
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v
+L0 1
+R2
+r1
+31
+R3
+!s100 @bi:fH:AF`0ja3E:bBVE02
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v|
+!s108 1723395685.396000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v|
+!i10b 1
+!s85 0
+!i111 0
+vMemory_instruction_tb
+R4
+IWzL<I2CGl[<a0IoO3^hn[1
+R5
+R1
+R6
+R7
+R8
+L0 50
+R2
+r1
+31
+R9
+R10
+R11
+R3
+n@memory_instruction_tb
+!s100 T>g5WkYa:5Sdz7i2@7e^G2
+!i10b 1
+!s85 0
+!i111 0
+vmux_2
+R4
+Ifj<7^GZn7L9T>fF32Fz`R3
+R5
+R1
+w1723322581
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/mux_2.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/mux_2.v
+L0 1
+R2
+r1
+31
+R3
+!s100 K2odM`=U8DjOYU=^?:RL[3
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/mux_2.v|
+!s108 1723395685.440000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/mux_2.v|
+!i10b 1
+!s85 0
+!i111 0
+vreg_EX_MEM
+R4
+I;1TLK=7_UZ0]WNmB?U8;U3
+R5
+R1
+w1723358679
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_EX_MEM.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_EX_MEM.v
+L0 1
+R2
+r1
+31
+R3
+nreg_@e@x_@m@e@m
+!s100 @2POX>=Je^bfdb0G1NAl42
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_EX_MEM.v|
+!s108 1723395685.483000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_EX_MEM.v|
+!i10b 1
+!s85 0
+!i111 0
+vreg_file
+R4
+I>`>Cg9Xl02LzE9Q7iSZ>J1
+R5
+R1
+w1723359985
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_file.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_file.v
+L0 1
+R2
+r1
+31
+R3
+!s100 2IMPl[U3OM4eN5i8>=0of1
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_file.v|
+!s108 1723395685.539000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_file.v|
+!i10b 1
+!s85 0
+!i111 0
+vreg_ID_EX
+R4
+I7__Z;VVYMe8QbWKII;3C?1
+R5
+R1
+w1723332698
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_ID_EX.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_ID_EX.v
+L0 1
+R2
+r1
+31
+R3
+nreg_@i@d_@e@x
+!s100 M?HHmBfe[nLPXA34P:m^>1
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_ID_EX.v|
+!s108 1723395685.584000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_ID_EX.v|
+!i10b 1
+!s85 0
+!i111 0
+vreg_IF_ID
+R4
+IBT`9ZML2P`ZU;GlW^XU@a0
+R5
+R1
+w1723390144
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_IF_ID.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_IF_ID.v
+L0 1
+R2
+r1
+31
+R3
+nreg_@i@f_@i@d
+!s100 VVLKOn[ThbL[ZARcoUYn:2
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_IF_ID.v|
+!s108 1723395685.628000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_IF_ID.v|
+!i10b 1
+!s85 0
+!i111 0
+vreg_MEM_WB
+R4
+Ib<JClOJ:L=mKzl=GM?jgB0
+R5
+R1
+w1723318802
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_MEM_WB.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_MEM_WB.v
+L0 1
+R2
+r1
+31
+R3
+nreg_@m@e@m_@w@b
+!s100 S`R5LF;d9n>6g5lVVW^<S3
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_MEM_WB.v|
+!s108 1723395685.671000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_MEM_WB.v|
+!i10b 1
+!s85 0
+!i111 0
+vRISCV_5StagePipelined_Processor
+R4
+I2l5ORg2FfPEJgF14nn4Nn2
+R5
+R1
+w1723357826
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v
+L0 1
+R2
+r1
+31
+R3
+n@r@i@s@c@v_5@stage@pipelined_@processor
+!s100 GG=0Yk0Ya^76V^cXiI^4?2
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v|
+!i10b 1
+!s85 0
+!s108 1723395685.715000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v|
+!i111 0
+vRISCV_5StagePipelined_Processor_tb
+I0_omLb[=KLTfj3Zcl4L6e1
+R5
+R1
+w1723395654
+8D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor_tb.v
+FD:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor_tb.v
+L0 2
+R2
+r1
+31
+R3
+n@r@i@s@c@v_5@stage@pipelined_@processor_tb
+!s90 -reportprogress|300|-work|work|-vopt|D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor_tb.v|
+!s110 1723395684
+!s100 QJjVm9hfK8DCnIL@JBzHM0
+!s108 1723395684.955000
+!s107 D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor_tb.v|
+!i10b 1
+!s85 0
+!i111 0

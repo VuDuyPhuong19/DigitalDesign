@@ -25,7 +25,7 @@ module ALU_decoder#(
 wire [FUNCT3_WIDTH+FUNCT7_WIDTH-1:0] get_fun;
 assign get_fun = {funct3, funct7};
 
-always@(*) begin // sai ở chỗ alway @ (get_fun)
+always@(*) begin
 //-----------------------------------R-Type-----------------------------------//
     if(ALUOp == 2'b10) begin
         case(get_fun)  

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISCV_SingleCycleProcessor
-Sun May 19 15:32:24 2024
+Fri Jun  7 20:19:20 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -24,17 +24,18 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
  16. Parameter Settings for User Entity Instance: stage_ID:ID|ImmGen:imm_gen
  17. Parameter Settings for User Entity Instance: stage_ID:ID|Registers:regs
  18. Parameter Settings for User Entity Instance: stage_ID:ID|control_unit:control_unit
- 19. Parameter Settings for User Entity Instance: stage_ID:ID|control_unit:control_unit|Main_decoder:main
- 20. Parameter Settings for User Entity Instance: stage_EX:EX
- 21. Parameter Settings for User Entity Instance: stage_EX:EX|alu:alu
- 22. Parameter Settings for User Entity Instance: stage_EX:EX|add_pc_imm:adder
- 23. Parameter Settings for User Entity Instance: DataMemory:MEM
- 24. Parameter Settings for User Entity Instance: stage_WB:WB
- 25. Port Connectivity Checks: "stage_ID:ID"
- 26. Post-Synthesis Netlist Statistics for Top Partition
- 27. Elapsed Time Per Partition
- 28. Analysis & Synthesis Messages
- 29. Analysis & Synthesis Suppressed Messages
+ 19. Parameter Settings for User Entity Instance: stage_ID:ID|control_unit:control_unit|Main_decoder:main_decoder
+ 20. Parameter Settings for User Entity Instance: stage_ID:ID|control_unit:control_unit|ALU_decoder:decode_1
+ 21. Parameter Settings for User Entity Instance: stage_EX:EX
+ 22. Parameter Settings for User Entity Instance: stage_EX:EX|alu:alu
+ 23. Parameter Settings for User Entity Instance: stage_EX:EX|add_pc_imm:adder
+ 24. Parameter Settings for User Entity Instance: DataMemory:MEM
+ 25. Parameter Settings for User Entity Instance: stage_WB:WB
+ 26. Port Connectivity Checks: "stage_ID:ID"
+ 27. Post-Synthesis Netlist Statistics for Top Partition
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
+ 30. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -61,7 +62,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May 19 15:32:24 2024          ;
+; Analysis & Synthesis Status        ; Successful - Fri Jun  7 20:19:20 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; RISCV_SingleCycleProcessor                     ;
 ; Top-level Entity Name              ; RISCV_SingleCycleProcessor                     ;
@@ -272,7 +273,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; REG_ADDR_WIDTH   ; 5     ; Signed Integer                                                  ;
 ; REG_WIDTH        ; 32    ; Signed Integer                                                  ;
 ; IMM_WIDTH        ; 32    ; Signed Integer                                                  ;
-; ALUControl_WIDTH ; 3     ; Signed Integer                                                  ;
+; ALUCONTROL_WIDTH ; 4     ; Signed Integer                                                  ;
 ; IMMSRC_WIDTH     ; 2     ; Signed Integer                                                  ;
 ; ALU_RESULT_WIDTH ; 32    ; Signed Integer                                                  ;
 ; ADDR_WIDTH       ; 32    ; Signed Integer                                                  ;
@@ -331,25 +332,34 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+------------------------------------------------------------+
 ; ADDR_WIDTH     ; 32    ; Signed Integer                                             ;
 ; INST_WIDTH     ; 32    ; Signed Integer                                             ;
-; IMEM_DEPTH     ; 1     ; Signed Integer                                             ;
+; IMEM_DEPTH     ; 1024  ; Signed Integer                                             ;
 +----------------+-------+------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +----------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: stage_ID:ID ;
-+-------------------+-------+------------------------------+
-; Parameter Name    ; Value ; Type                         ;
-+-------------------+-------+------------------------------+
-; INST_WIDTH        ; 32    ; Signed Integer               ;
-; IMM_WIDTH         ; 32    ; Signed Integer               ;
-; NUM_REG           ; 32    ; Signed Integer               ;
-; REG_ADDR_WIDTH    ; 5     ; Signed Integer               ;
-; REG_WIDTH         ; 32    ; Signed Integer               ;
-; IMMSRC_WIDTH      ; 2     ; Signed Integer               ;
-; RESULTSRC_WIDTH   ; 2     ; Signed Integer               ;
-; ALU_CONTROL_WIDTH ; 3     ; Signed Integer               ;
-+-------------------+-------+------------------------------+
++------------------+---------+-----------------------------+
+; Parameter Name   ; Value   ; Type                        ;
++------------------+---------+-----------------------------+
+; INST_WIDTH       ; 32      ; Signed Integer              ;
+; IMM_WIDTH        ; 32      ; Signed Integer              ;
+; NUM_REG          ; 32      ; Signed Integer              ;
+; REG_ADDR_WIDTH   ; 5       ; Signed Integer              ;
+; REG_WIDTH        ; 32      ; Signed Integer              ;
+; IMMSRC_WIDTH     ; 2       ; Signed Integer              ;
+; RESULTSRC_WIDTH  ; 2       ; Signed Integer              ;
+; ALUCONTROL_WIDTH ; 4       ; Signed Integer              ;
+; OPCODE_WIDTH     ; 7       ; Signed Integer              ;
+; FUNCT7_WIDTH     ; 7       ; Signed Integer              ;
+; FUNCT3_WIDTH     ; 3       ; Signed Integer              ;
+; OPCODE_R_TYPE    ; 0110011 ; Unsigned Binary             ;
+; OPCODE_I_TYPE    ; 0010011 ; Unsigned Binary             ;
+; OPCODE_S_TYPE    ; 0100011 ; Unsigned Binary             ;
+; OPCODE_L_TYPE    ; 0000011 ; Unsigned Binary             ;
+; OPCODE_B_TYPE    ; 1100011 ; Unsigned Binary             ;
+; OPCODE_J_TYPE    ; 1101111 ; Unsigned Binary             ;
++------------------+---------+-----------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -378,21 +388,52 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: stage_ID:ID|control_unit:control_unit ;
-+-----------------+-------+----------------------------------------------------------+
-; Parameter Name  ; Value ; Type                                                     ;
-+-----------------+-------+----------------------------------------------------------+
-; RESULTSRC_WIDTH ; 2     ; Signed Integer                                           ;
-+-----------------+-------+----------------------------------------------------------+
++------------------+-------+---------------------------------------------------------+
+; Parameter Name   ; Value ; Type                                                    ;
++------------------+-------+---------------------------------------------------------+
+; RESULTSRC_WIDTH  ; 2     ; Signed Integer                                          ;
+; ALUCONTROL_WIDTH ; 4     ; Signed Integer                                          ;
+; OPCODE_WIDTH     ; 7     ; Signed Integer                                          ;
+; FUNCT7_WIDTH     ; 7     ; Signed Integer                                          ;
+; FUNCT3_WIDTH     ; 3     ; Signed Integer                                          ;
++------------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: stage_ID:ID|control_unit:control_unit|Main_decoder:main ;
-+-----------------+-------+----------------------------------------------------------------------------+
-; Parameter Name  ; Value ; Type                                                                       ;
-+-----------------+-------+----------------------------------------------------------------------------+
-; RESULTSRC_WIDTH ; 2     ; Signed Integer                                                             ;
-+-----------------+-------+----------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: stage_ID:ID|control_unit:control_unit|Main_decoder:main_decoder ;
++-----------------+-------+------------------------------------------------------------------------------------+
+; Parameter Name  ; Value ; Type                                                                               ;
++-----------------+-------+------------------------------------------------------------------------------------+
+; RESULTSRC_WIDTH ; 2     ; Signed Integer                                                                     ;
+; OPCODE_WIDTH    ; 7     ; Signed Integer                                                                     ;
+; IMM_SRC_WIDTH   ; 2     ; Signed Integer                                                                     ;
+; ALU_OP_WIDTH    ; 2     ; Signed Integer                                                                     ;
++-----------------+-------+------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: stage_ID:ID|control_unit:control_unit|ALU_decoder:decode_1 ;
++------------------+-------+------------------------------------------------------------------------------+
+; Parameter Name   ; Value ; Type                                                                         ;
++------------------+-------+------------------------------------------------------------------------------+
+; ADD_ALU          ; 0000  ; Unsigned Binary                                                              ;
+; SUB_ALU          ; 0001  ; Unsigned Binary                                                              ;
+; AND_ALU          ; 0010  ; Unsigned Binary                                                              ;
+; OR_ALU           ; 0011  ; Unsigned Binary                                                              ;
+; XOR_ALU          ; 0100  ; Unsigned Binary                                                              ;
+; SLT_ALU          ; 0101  ; Unsigned Binary                                                              ;
+; SHL_ALU          ; 0110  ; Unsigned Binary                                                              ;
+; SHR_ALU          ; 0111  ; Unsigned Binary                                                              ;
+; SGTe_ALU         ; 1000  ; Unsigned Binary                                                              ;
+; EQUAL_ALU        ; 1001  ; Unsigned Binary                                                              ;
+; NOT_EQUAL_ALU    ; 1010  ; Unsigned Binary                                                              ;
+; ALUCONTROL_WIDTH ; 4     ; Signed Integer                                                               ;
+; FUNCT3_WIDTH     ; 3     ; Signed Integer                                                               ;
+; FUNCT7_WIDTH     ; 7     ; Signed Integer                                                               ;
+; ALU_OP_WIDTH     ; 2     ; Signed Integer                                                               ;
++------------------+-------+------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -403,9 +444,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+-------+-------------------------------+
 ; REG_WIDTH        ; 32    ; Signed Integer                ;
 ; IMM_WIDTH        ; 32    ; Signed Integer                ;
-; ALUControl_WIDTH ; 3     ; Signed Integer                ;
+; ALUCONTROL_WIDTH ; 4     ; Signed Integer                ;
 ; ALU_RESULT_WIDTH ; 32    ; Signed Integer                ;
 ; PC_WIDTH         ; 32    ; Signed Integer                ;
+; OP_WIDTH         ; 32    ; Signed Integer                ;
 +------------------+-------+-------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -416,8 +458,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Parameter Name   ; Value ; Type                                  ;
 +------------------+-------+---------------------------------------+
 ; OP_WIDTH         ; 32    ; Signed Integer                        ;
-; ALUControl_WIDTH ; 3     ; Signed Integer                        ;
+; ALUCONTROL_WIDTH ; 4     ; Signed Integer                        ;
 ; ALU_RESULT_WIDTH ; 32    ; Signed Integer                        ;
+; ADD_ALU          ; 000   ; Unsigned Binary                       ;
+; SUB_ALU          ; 001   ; Unsigned Binary                       ;
+; AND_ALU          ; 010   ; Unsigned Binary                       ;
+; OR_ALU           ; 011   ; Unsigned Binary                       ;
+; XOR_ALU          ; 100   ; Unsigned Binary                       ;
+; SLT_ALU          ; 101   ; Unsigned Binary                       ;
+; SHL_ALU          ; 110   ; Unsigned Binary                       ;
+; SHR_ALU          ; 111   ; Unsigned Binary                       ;
+; SGTe_ALU         ; 000   ; Unsigned Binary                       ;
+; EQUAL_ALU        ; 001   ; Unsigned Binary                       ;
+; NOT_EQUAL_ALU    ; 010   ; Unsigned Binary                       ;
 +------------------+-------+---------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -440,7 +493,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+------------------------------------+
 ; ADDR_WIDTH     ; 32    ; Signed Integer                     ;
 ; DMEM_WIDTH     ; 32    ; Signed Integer                     ;
-; DMEM_DEPTH     ; 1     ; Signed Integer                     ;
+; DMEM_DEPTH     ; 1024  ; Signed Integer                     ;
 +----------------+-------+------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -495,18 +548,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Sun May 19 15:32:16 2024
+    Info: Processing started: Fri Jun  7 20:19:07 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISCV_SingleCycleProcessor -c RISCV_SingleCycleProcessor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file registers.v
     Info (12023): Found entity 1: Registers File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Registers.v Line: 1
+Warning (10229): Verilog HDL Expression warning at alu.v(13): truncated literal to match 3 bits File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/alu.v Line: 13
+Warning (10229): Verilog HDL Expression warning at alu.v(14): truncated literal to match 3 bits File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/alu.v Line: 14
+Warning (10229): Verilog HDL Expression warning at alu.v(15): truncated literal to match 3 bits File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/alu.v Line: 15
 Info (12021): Found 1 design units, including 1 entities, in source file alu.v
     Info (12023): Found entity 1: alu File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/alu.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file immgen.v
     Info (12023): Found entity 1: ImmGen File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/ImmGen.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file memory_instruction.v
+Info (12021): Found 2 design units, including 2 entities, in source file memory_instruction.v
     Info (12023): Found entity 1: Memory_instruction File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Memory_instruction.v Line: 1
+    Info (12023): Found entity 2: Memory_instruction_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Memory_instruction.v Line: 47
 Info (12021): Found 1 design units, including 1 entities, in source file add_fetch.v
     Info (12023): Found entity 1: Add_Fetch File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Add_Fetch.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file alu_decoder.v
@@ -523,71 +580,99 @@ Info (12021): Found 1 design units, including 1 entities, in source file stage_i
     Info (12023): Found entity 1: stage_IF File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_IF.v Line: 1
 Info (12021): Found 2 design units, including 2 entities, in source file stage_id.v
     Info (12023): Found entity 1: stage_ID File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 1
-    Info (12023): Found entity 2: stage_ID_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 75
+    Info (12023): Found entity 2: stage_ID_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 116
 Info (12021): Found 1 design units, including 1 entities, in source file datamemory.v
     Info (12023): Found entity 1: DataMemory File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/DataMemory.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file stage_ex.v
+Info (12021): Found 2 design units, including 2 entities, in source file stage_ex.v
     Info (12023): Found entity 1: stage_EX File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_EX.v Line: 1
+    Info (12023): Found entity 2: stage_EX_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_EX.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file add_pc_imm.v
     Info (12023): Found entity 1: add_pc_imm File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/add_pc_imm.v Line: 1
 Info (12021): Found 2 design units, including 2 entities, in source file riscv_singlecycleprocessor.v
     Info (12023): Found entity 1: RISCV_SingleCycleProcessor File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/RISCV_SingleCycleProcessor.v Line: 1
-    Info (12023): Found entity 2: RISCV_SingleCycleProcessor_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/RISCV_SingleCycleProcessor.v Line: 112
+    Info (12023): Found entity 2: RISCV_SingleCycleProcessor_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/RISCV_SingleCycleProcessor.v Line: 107
 Info (12021): Found 1 design units, including 1 entities, in source file stage_wb.v
     Info (12023): Found entity 1: stage_WB File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_WB.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at stage_ID.v(103): created implicit net for "addr_rs1" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 103
-Warning (10236): Verilog HDL Implicit Net warning at stage_ID.v(104): created implicit net for "addr_rs2" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 104
-Warning (10236): Verilog HDL Implicit Net warning at stage_ID.v(105): created implicit net for "addr_rd" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 105
-Warning (10222): Verilog HDL Parameter Declaration warning at stage_ID.v(27): Parameter Declaration in module "stage_ID" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 27
-Warning (10222): Verilog HDL Parameter Declaration warning at stage_ID.v(28): Parameter Declaration in module "stage_ID" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 28
-Warning (10222): Verilog HDL Parameter Declaration warning at stage_ID.v(29): Parameter Declaration in module "stage_ID" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 29
-Warning (10222): Verilog HDL Parameter Declaration warning at stage_EX.v(19): Parameter Declaration in module "stage_EX" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_EX.v Line: 19
 Info (12127): Elaborating entity "RISCV_SingleCycleProcessor" for the top level hierarchy
-Info (12128): Elaborating entity "stage_IF" for hierarchy "stage_IF:IF" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/RISCV_SingleCycleProcessor.v Line: 56
+Info (12128): Elaborating entity "stage_IF" for hierarchy "stage_IF:IF" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/RISCV_SingleCycleProcessor.v Line: 54
 Info (12128): Elaborating entity "Add_Fetch" for hierarchy "stage_IF:IF|Add_Fetch:add1" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_IF.v Line: 19
 Info (12128): Elaborating entity "mux_fetch" for hierarchy "stage_IF:IF|mux_fetch:mux_1" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_IF.v Line: 25
 Info (12128): Elaborating entity "PC" for hierarchy "stage_IF:IF|PC:pc_1" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_IF.v Line: 31
 Info (12128): Elaborating entity "Memory_instruction" for hierarchy "stage_IF:IF|Memory_instruction:mem_ins" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_IF.v Line: 35
 Warning (10030): Net "memory_ins.data_a" at Memory_instruction.v(9) has no driver or initial value, using a default initial value '0' File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Memory_instruction.v Line: 9
-Warning (10030): Net "memory_ins.waddr_a[0]" at Memory_instruction.v(9) has no driver or initial value, using a default initial value '0' File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Memory_instruction.v Line: 9
+Warning (10030): Net "memory_ins.waddr_a" at Memory_instruction.v(9) has no driver or initial value, using a default initial value '0' File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Memory_instruction.v Line: 9
 Warning (10030): Net "memory_ins.we_a" at Memory_instruction.v(9) has no driver or initial value, using a default initial value '0' File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Memory_instruction.v Line: 9
-Info (12128): Elaborating entity "stage_ID" for hierarchy "stage_ID:ID" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/RISCV_SingleCycleProcessor.v Line: 76
-Info (12128): Elaborating entity "ImmGen" for hierarchy "stage_ID:ID|ImmGen:imm_gen" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 49
-Info (12128): Elaborating entity "Registers" for hierarchy "stage_ID:ID|Registers:regs" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 59
+Info (12128): Elaborating entity "stage_ID" for hierarchy "stage_ID:ID" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/RISCV_SingleCycleProcessor.v Line: 71
+Warning (10240): Verilog HDL Always Construct warning at stage_ID.v(48): inferring latch(es) for variable "funct3", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Warning (10240): Verilog HDL Always Construct warning at stage_ID.v(48): inferring latch(es) for variable "funct7", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Warning (10240): Verilog HDL Always Construct warning at stage_ID.v(48): inferring latch(es) for variable "addr_rs1", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Warning (10240): Verilog HDL Always Construct warning at stage_ID.v(48): inferring latch(es) for variable "addr_rs2", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Warning (10240): Verilog HDL Always Construct warning at stage_ID.v(48): inferring latch(es) for variable "addr_rd", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "addr_rd[0]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "addr_rd[1]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "addr_rd[2]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "addr_rd[3]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "addr_rd[4]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "addr_rs2[0]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "addr_rs2[1]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "addr_rs2[2]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "addr_rs2[3]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "addr_rs2[4]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "addr_rs1[0]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "addr_rs1[1]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "addr_rs1[2]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "addr_rs1[3]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "addr_rs1[4]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "funct7[0]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "funct7[1]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "funct7[2]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "funct7[3]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "funct7[4]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "funct7[5]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "funct7[6]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "funct3[0]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "funct3[1]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (10041): Inferred latch for "funct3[2]" at stage_ID.v(48) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 48
+Info (12128): Elaborating entity "ImmGen" for hierarchy "stage_ID:ID|ImmGen:imm_gen" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 90
+Info (12128): Elaborating entity "Registers" for hierarchy "stage_ID:ID|Registers:regs" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 100
 Warning (10240): Verilog HDL Always Construct warning at Registers.v(17): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Registers.v Line: 17
-Info (12128): Elaborating entity "control_unit" for hierarchy "stage_ID:ID|control_unit:control_unit" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 71
-Info (12128): Elaborating entity "Main_decoder" for hierarchy "stage_ID:ID|control_unit:control_unit|Main_decoder:main" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/control_unit.v Line: 27
-Warning (10230): Verilog HDL assignment warning at Main_decoder.v(22): truncated value with size 32 to match size of target (2) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 22
-Warning (10270): Verilog HDL Case Statement warning at Main_decoder.v(14): incomplete case statement has no default case item File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 14
-Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(13): inferring latch(es) for variable "RegWrite", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(13): inferring latch(es) for variable "ImmSrc", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(13): inferring latch(es) for variable "ALUSrc", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(13): inferring latch(es) for variable "MemWrite", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(13): inferring latch(es) for variable "ResultSrc", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(13): inferring latch(es) for variable "Branch", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(13): inferring latch(es) for variable "ALUOp", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Info (10041): Inferred latch for "ALUOp[0]" at Main_decoder.v(13) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Info (10041): Inferred latch for "ALUOp[1]" at Main_decoder.v(13) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Info (10041): Inferred latch for "Branch" at Main_decoder.v(13) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Info (10041): Inferred latch for "ResultSrc[0]" at Main_decoder.v(13) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Info (10041): Inferred latch for "ResultSrc[1]" at Main_decoder.v(13) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Info (10041): Inferred latch for "MemWrite" at Main_decoder.v(13) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Info (10041): Inferred latch for "ALUSrc" at Main_decoder.v(13) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Info (10041): Inferred latch for "ImmSrc[0]" at Main_decoder.v(13) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Info (10041): Inferred latch for "ImmSrc[1]" at Main_decoder.v(13) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Info (10041): Inferred latch for "RegWrite" at Main_decoder.v(13) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 13
-Info (12128): Elaborating entity "ALU_decoder" for hierarchy "stage_ID:ID|control_unit:control_unit|ALU_decoder:decode_1" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/control_unit.v Line: 33
-Warning (10270): Verilog HDL Case Statement warning at ALU_decoder.v(10): incomplete case statement has no default case item File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/ALU_decoder.v Line: 10
-Warning (10240): Verilog HDL Always Construct warning at ALU_decoder.v(9): inferring latch(es) for variable "ALUControl", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/ALU_decoder.v Line: 9
-Info (10041): Inferred latch for "ALUControl[0]" at ALU_decoder.v(9) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/ALU_decoder.v Line: 9
-Info (10041): Inferred latch for "ALUControl[1]" at ALU_decoder.v(9) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/ALU_decoder.v Line: 9
-Info (10041): Inferred latch for "ALUControl[2]" at ALU_decoder.v(9) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/ALU_decoder.v Line: 9
-Info (12128): Elaborating entity "stage_EX" for hierarchy "stage_EX:EX" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/RISCV_SingleCycleProcessor.v Line: 88
+Info (12128): Elaborating entity "control_unit" for hierarchy "stage_ID:ID|control_unit:control_unit" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_ID.v Line: 112
+Info (12128): Elaborating entity "Main_decoder" for hierarchy "stage_ID:ID|control_unit:control_unit|Main_decoder:main_decoder" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/control_unit.v Line: 33
+Warning (10270): Verilog HDL Case Statement warning at Main_decoder.v(18): incomplete case statement has no default case item File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(18): inferring latch(es) for variable "RegWrite", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(18): inferring latch(es) for variable "ImmSrc", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(18): inferring latch(es) for variable "ALUSrc", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(18): inferring latch(es) for variable "MemWrite", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(18): inferring latch(es) for variable "Branch", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(18): inferring latch(es) for variable "ALUOp", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(18): inferring latch(es) for variable "ResultSrc", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Warning (10240): Verilog HDL Always Construct warning at Main_decoder.v(18): inferring latch(es) for variable "Jump", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Info (10041): Inferred latch for "Jump" at Main_decoder.v(18) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Info (10041): Inferred latch for "ResultSrc[0]" at Main_decoder.v(18) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Info (10041): Inferred latch for "ResultSrc[1]" at Main_decoder.v(18) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Info (10041): Inferred latch for "ALUOp[0]" at Main_decoder.v(18) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Info (10041): Inferred latch for "ALUOp[1]" at Main_decoder.v(18) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Info (10041): Inferred latch for "Branch" at Main_decoder.v(18) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Info (10041): Inferred latch for "MemWrite" at Main_decoder.v(18) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Info (10041): Inferred latch for "ALUSrc" at Main_decoder.v(18) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Info (10041): Inferred latch for "ImmSrc[0]" at Main_decoder.v(18) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Info (10041): Inferred latch for "ImmSrc[1]" at Main_decoder.v(18) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Info (10041): Inferred latch for "RegWrite" at Main_decoder.v(18) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/Main_decoder.v Line: 18
+Info (12128): Elaborating entity "ALU_decoder" for hierarchy "stage_ID:ID|control_unit:control_unit|ALU_decoder:decode_1" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/control_unit.v Line: 39
+Warning (10270): Verilog HDL Case Statement warning at ALU_decoder.v(31): incomplete case statement has no default case item File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/ALU_decoder.v Line: 31
+Warning (10270): Verilog HDL Case Statement warning at ALU_decoder.v(69): incomplete case statement has no default case item File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/ALU_decoder.v Line: 69
+Warning (10270): Verilog HDL Case Statement warning at ALU_decoder.v(110): incomplete case statement has no default case item File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/ALU_decoder.v Line: 110
+Warning (10240): Verilog HDL Always Construct warning at ALU_decoder.v(30): inferring latch(es) for variable "ALUControl", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/ALU_decoder.v Line: 30
+Info (10041): Inferred latch for "ALUControl[0]" at ALU_decoder.v(68) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/ALU_decoder.v Line: 68
+Info (10041): Inferred latch for "ALUControl[1]" at ALU_decoder.v(68) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/ALU_decoder.v Line: 68
+Info (10041): Inferred latch for "ALUControl[2]" at ALU_decoder.v(68) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/ALU_decoder.v Line: 68
+Info (10041): Inferred latch for "ALUControl[3]" at ALU_decoder.v(68) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/ALU_decoder.v Line: 68
+Info (12128): Elaborating entity "stage_EX" for hierarchy "stage_EX:EX" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/RISCV_SingleCycleProcessor.v Line: 83
 Info (12128): Elaborating entity "alu" for hierarchy "stage_EX:EX|alu:alu" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_EX.v Line: 29
 Info (12128): Elaborating entity "add_pc_imm" for hierarchy "stage_EX:EX|add_pc_imm:adder" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/stage_EX.v Line: 34
-Info (12128): Elaborating entity "DataMemory" for hierarchy "DataMemory:MEM" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/RISCV_SingleCycleProcessor.v Line: 97
+Info (12128): Elaborating entity "DataMemory" for hierarchy "DataMemory:MEM" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/RISCV_SingleCycleProcessor.v Line: 92
 Warning (10240): Verilog HDL Always Construct warning at DataMemory.v(19): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/DataMemory.v Line: 19
-Info (12128): Elaborating entity "stage_WB" for hierarchy "stage_WB:WB" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/RISCV_SingleCycleProcessor.v Line: 107
+Info (12128): Elaborating entity "stage_WB" for hierarchy "stage_WB:WB" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/RISCV_SingleCycleProcessor.v Line: 102
 Info (144001): Generated suppressed messages file D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_SingleCycleProcessor/output_files/RISCV_SingleCycleProcessor.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -597,11 +682,11 @@ Warning (21074): Design contains 2 input pin(s) that do not drive logic
 Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 0 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 27 warnings
-    Info: Peak virtual memory: 4761 megabytes
-    Info: Processing ended: Sun May 19 15:32:24 2024
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:06
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 30 warnings
+    Info: Peak virtual memory: 4794 megabytes
+    Info: Processing ended: Fri Jun  7 20:19:20 2024
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:13
 
 
 +------------------------------------------+
