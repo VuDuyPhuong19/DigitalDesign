@@ -5,11 +5,14 @@ module ALU_decoder#(
     parameter OR_ALU = 4'b0011,
     parameter XOR_ALU = 4'b0100,
     parameter SLT_ALU = 4'b0101,
-    parameter SHL_ALU = 4'b0110,
-    parameter SHR_ALU = 4'b0111,
+    parameter SLL_ALU = 4'b0110,
+    parameter SRA_ALU = 4'b0111,
     parameter SGTe_ALU = 4'b1000,
     parameter EQUAL_ALU = 4'b1001,
     parameter NOT_EQUAL_ALU = 4'b1010,
+    parameter SRL_ALU = 4'b1011, // srl
+    parameter SLTU_ALU = 4'b1100, //sltu
+    parameter SGTeU_ALU = 4'b1101, // bgeu
     parameter ALUCONTROL_WIDTH = 4,
     parameter FUNCT3_WIDTH = 3,
     parameter FUNCT7_WIDTH = 7,
@@ -25,7 +28,7 @@ module ALU_decoder#(
 wire [FUNCT3_WIDTH+FUNCT7_WIDTH-1:0] get_fun;
 assign get_fun = {funct3, funct7};
 
-always@(*) begin // sai ở chỗ alway @ (get_fun)
+always @ (*) begin // sai ở chỗ alway @ (get_fun)
 //-----------------------------------R-Type-----------------------------------//
     if(ALUOp == 2'b10) begin
         case(get_fun)  
@@ -49,17 +52,26 @@ always@(*) begin // sai ở chỗ alway @ (get_fun)
             10'b1110000000: begin 
                 ALUControl = AND_ALU;
             end
-            // shift_left
+            // shift_left (sll)
             10'b0010000000: begin 
-                ALUControl = SHL_ALU;
+                ALUControl = SLL_ALU;
             end
-            // shift_right
+            // shift_right (sra)
             10'b1010100000: begin 
-                ALUControl = SHR_ALU;
+                ALUControl = SRA_ALU;
             end
-            // less_than
-            10'b0100000000: 
+            // shift_right (srl)
+            10'b1010000000: begin 
+                ALUControl = SRL_ALU;
+            end
+            // set less than (slt)
+            10'b0100000000: begin
                 ALUControl = SLT_ALU;
+            end
+            // set less than unsigned (sltu)
+            10'b0110000000: begin
+                ALUControl = SLTU_ALU;
+            end                
         endcase
     end
 
@@ -67,33 +79,41 @@ always@(*) begin // sai ở chỗ alway @ (get_fun)
     
     else if(ALUOp == 2'b01) begin
             case(funct3)
-            // add
+            // addi
             3'b000: begin 
                 ALUControl = ADD_ALU;
             end
-            // xor
+            // xori
             3'b100: begin 
                 ALUControl = XOR_ALU;
             end
-            // or
+            // ori
             3'b110: begin 
                 ALUControl = OR_ALU;
             end
-            // and
+            // andi
             3'b111: begin 
                 ALUControl = AND_ALU;
             end
-            // shift_left
+            // slli
             3'b001: begin 
-                ALUControl = SHL_ALU;
+                ALUControl = SLL_ALU;
             end
-            // shift_right
             3'b101: begin 
-                ALUControl = SHR_ALU;
+                if (funct7 == 7'b0100000) begin // srai
+                    ALUControl = SRA_ALU;
+                end
+                else begin
+                   ALUControl = SRL_ALU;  // srli
+                end
             end
-            // less_than
+            // slti
             3'b010: begin 
                 ALUControl = SLT_ALU;
+            end
+            // sltiu
+            3'b011: begin 
+                ALUControl = SLTU_ALU;
             end
             endcase
     end
@@ -108,17 +128,29 @@ always@(*) begin // sai ở chỗ alway @ (get_fun)
 
     else begin
         case(funct3)
+            // beq
             3'b000: begin
                 ALUControl = SUB_ALU;
             end
+            // bne
             3'b001: begin
                 ALUControl = NOT_EQUAL_ALU;
             end
+            // blt
             3'b100: begin
                 ALUControl = SLT_ALU;
             end
+            // bltu
+            3'b110: begin
+                ALUControl = SLTU_ALU;
+            end
+            // bge
             3'b101: begin
                 ALUControl = SGTe_ALU;
+            end
+            // bgeu
+            3'b111: begin
+                ALUControl = SGTeU_ALU;
             end
         endcase
     end

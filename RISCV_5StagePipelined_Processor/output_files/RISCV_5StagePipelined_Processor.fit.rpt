@@ -1,5 +1,5 @@
 Fitter report for RISCV_5StagePipelined_Processor
-Sun Aug 11 04:41:56 2024
+Mon Aug 12 10:35:02 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -58,7 +58,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                      ;
 +------------------------------------+------------------------------------------------+
-; Fitter Status                      ; Successful - Sun Aug 11 04:41:56 2024          ;
+; Fitter Status                      ; Successful - Mon Aug 12 10:35:02 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; RISCV_5StagePipelined_Processor                ;
 ; Top-level Entity Name              ; RISCV_5StagePipelined_Processor                ;
@@ -1378,7 +1378,7 @@ Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.04 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.03 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1386,10 +1386,10 @@ Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Info (144001): Generated suppressed messages file D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/output_files/RISCV_5StagePipelined_Processor.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 5673 megabytes
-    Info: Processing ended: Sun Aug 11 04:41:56 2024
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:08
+    Info: Peak virtual memory: 5677 megabytes
+    Info: Processing ended: Mon Aug 12 10:35:02 2024
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:07
 
 
 +----------------------------+

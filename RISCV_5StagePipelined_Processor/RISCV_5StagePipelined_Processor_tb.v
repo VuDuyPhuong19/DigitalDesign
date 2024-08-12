@@ -44,7 +44,7 @@ module RISCV_5StagePipelined_Processor_tb();
       // Giám sát đầu ra
     always @(posedge clk) begin
 
-        $display("i = %d, %0t: PC_F = %d, PCtarget_E = %d, PCplus4_W = %d, instruction: %h, ImmExt_D = %h, rd_D = %h, rd_E = %h, rs1_D = %h, rs2_D = %h, rd1_D = %h, rd1_E = %h, rd2_D = %h, rd2_E = %h, ALUSrc_E = %h, WriteData_E = %h, WriteData_M = %h, MemWrite_M = %h, Stall_D = %h, Stall_F = %h, zero_E = %h, Flush_D = %h, Flush_E = %h, ResultSrc_E = %h, PCSrc_E = %h, rs1_E = %h, rs2_E = %h, rd_M = %h, rd_W = %h, RegWrite_M = %h, RegWrite_W = %h, ALU_result_M = %h, ALU_result_W = %h, ReadData_M = %h, result_W = %h, ResultSrc_W = %h, ForwardA_E = %h, ForwardB_E = %h, SrcA_E= %h, SrcB_E = %h, ALU_result_E: %d \n", 
+        $display("i = %d, %0t: PC_F = %d, PCtarget_E = %d, PCplus4_W = %d, instruction: %h, ImmExt_D = %h, rd_D = %h, rd_E = %h, rs1_D = %h, rs2_D = %h, rd1_D = %h, rd1_E = %h, rd2_D = %h, rd2_E = %h, ALUSrc_E = %h, WriteData_E = %h, WriteData_M = %h, MemWrite_M = %h, Stall_D = %h, Stall_F = %h, zero_E = %h, Flush_D = %h, Flush_E = %h, ResultSrc_E = %h, PCSrc_E = %h, rs1_E = %h, rs2_E = %h, rd_M = %h, rd_W = %h, RegWrite_M = %h, RegWrite_W = %h, ALU_result_M = %h, ALU_result_W = %h, ReadData_M = %h, ReadData_W = %h, result_W = %h, ResultSrc_W = %h, ForwardA_E = %h, ForwardB_E = %h, SrcA_E= %h, SrcB_E = %h, ALU_result_E: %d \n", 
              i,
              $time,
              dut.PC_F, 
@@ -80,6 +80,7 @@ module RISCV_5StagePipelined_Processor_tb();
              dut.ALU_result_M,
              dut.ALU_result_W,
              dut.ReadData_M,
+             dut.ReadData_W,
              dut.result_W,
              dut.ResultSrc_W,
              dut.ForwardA_E,

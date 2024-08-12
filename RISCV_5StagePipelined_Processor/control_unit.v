@@ -16,22 +16,29 @@ module control_unit #(
     output Jump_D,
     output Branch_D,
     output [ALUCONTROL_WIDTH-1:0] ALUControl_D,
-    output ALUSrc_D,
-    output [IMMSRC_WIDTH-1:0] ImmSrc_D
+    output [1:0] ALUSrcA_D,
+    output ALUSrcB_D,
+    output [IMMSRC_WIDTH-1:0] ImmSrc_D,
+    output PCJalSrc_D,
+    output [1:0] write_type_D
     // output PCSrc
 );
 wire [1:0] ALUOp;
 
 main_decoder main_decoder(
     .opcode(opcode),
+    .funct3(funct3),
     .ImmSrc(ImmSrc_D),
-    .ALUSrc(ALUSrc_D),
+    .ALUSrcB(ALUSrcB_D),
+    .ALUSrcA(ALUSrcA_D),
     .MemWrite(MemWrite_D),
     .ResultSrc(ResultSrc_D),
     .Branch(Branch_D),
     .Jump(Jump_D),
     .ALUOp(ALUOp),
-    .RegWrite(RegWrite_D)
+    .RegWrite(RegWrite_D),
+    .PCJalSrc_D(PCJalSrc_D),
+    .write_type_D(write_type_D)
 );
 
 ALU_decoder alu_decoder(

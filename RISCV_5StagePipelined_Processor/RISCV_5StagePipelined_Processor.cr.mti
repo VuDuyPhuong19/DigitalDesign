@@ -12,6 +12,20 @@ QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 Top level modules:
 	reg_file
 
+} {} {}} {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v} {1 {vlog -work work -vopt {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v}
+QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+-- Compiling module ALU_decoder
+
+Top level modules:
+	ALU_decoder
+
+} {} {}} {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_EX_MEM.v} {1 {vlog -work work -vopt {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_EX_MEM.v}
+QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+-- Compiling module reg_EX_MEM
+
+Top level modules:
+	reg_EX_MEM
+
 } {} {}} {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v} {2 {vlog -work work -vopt {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v}
 QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 -- Compiling module IMem
@@ -27,20 +41,6 @@ Top level modules:
 	IMem
 	Memory_instruction_tb
 
-} {} {}} {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_EX_MEM.v} {1 {vlog -work work -vopt {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_EX_MEM.v}
-QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
--- Compiling module reg_EX_MEM
-
-Top level modules:
-	reg_EX_MEM
-
-} {} {}} {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v} {1 {vlog -work work -vopt {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v}
-QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
--- Compiling module RISCV_5StagePipelined_Processor
-
-Top level modules:
-	RISCV_5StagePipelined_Processor
-
 } {} {}} {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/adder.v} {1 {vlog -work work -vopt {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/adder.v}
 QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 -- Compiling module adder
@@ -48,19 +48,19 @@ QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 Top level modules:
 	adder
 
-} {} {}} {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/control_unit.v} {1 {vlog -work work -vopt {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/control_unit.v}
-QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
--- Compiling module control_unit
-
-Top level modules:
-	control_unit
-
 } {} {}} {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/hazard_unit.v} {1 {vlog -work work -vopt {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/hazard_unit.v}
 QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 -- Compiling module hazard_unit
 
 Top level modules:
 	hazard_unit
+
+} {} {}} {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v} {1 {vlog -work work -vopt {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v}
+QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+-- Compiling module main_decoder
+
+Top level modules:
+	main_decoder
 
 } {} {}} {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/DMem.v} {1 {vlog -work work -vopt {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/DMem.v}
 QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
@@ -75,6 +75,13 @@ QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 
 Top level modules:
 	mux_2
+
+} {} {}} {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor_tb.v} {1 {vlog -work work -vopt {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor_tb.v}
+QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+-- Compiling module RISCV_5StagePipelined_Processor_tb
+
+Top level modules:
+	RISCV_5StagePipelined_Processor_tb
 
 } {} {}} {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_ID_EX.v} {1 {vlog -work work -vopt {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_ID_EX.v}
 QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
@@ -96,12 +103,5 @@ QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 
 Top level modules:
 	alu
-
-} {} {}} {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/imm_ext.v} {1 {vlog -work work -vopt {D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/imm_ext.v}
-QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
--- Compiling module imm_ext
-
-Top level modules:
-	imm_ext
 
 } {} {}}

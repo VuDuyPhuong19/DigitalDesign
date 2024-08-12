@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISCV_5StagePipelined_Processor
-Sun Aug 11 04:41:43 2024
+Mon Aug 12 10:34:52 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -15,30 +15,29 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
   9. Parameter Settings for User Entity Instance: Top-level Entity: |RISCV_5StagePipelined_Processor
- 10. Parameter Settings for User Entity Instance: mux_2:mux_pc_IF
- 11. Parameter Settings for User Entity Instance: IMem:instruction_memory
- 12. Parameter Settings for User Entity Instance: reg_IF_ID:reg_IF_ID
- 13. Parameter Settings for User Entity Instance: adder:adder
- 14. Parameter Settings for User Entity Instance: control_unit:control_unit
- 15. Parameter Settings for User Entity Instance: control_unit:control_unit|main_decoder:main_decoder
- 16. Parameter Settings for User Entity Instance: control_unit:control_unit|ALU_decoder:alu_decoder
- 17. Parameter Settings for User Entity Instance: reg_file:reg_file
- 18. Parameter Settings for User Entity Instance: imm_ext:imm_ext
- 19. Parameter Settings for User Entity Instance: reg_ID_EX:reg_ID_EX
- 20. Parameter Settings for User Entity Instance: alu:alu
- 21. Parameter Settings for User Entity Instance: reg_EX_MEM:reg_EX_MEM
- 22. Parameter Settings for User Entity Instance: DMem:dmem
- 23. Parameter Settings for User Entity Instance: reg_MEM_WB:reg_MEM_WB
- 24. Parameter Settings for User Entity Instance: hazard_unit:hazard_unit
- 25. Port Connectivity Checks: "hazard_unit:hazard_unit"
- 26. Port Connectivity Checks: "reg_MEM_WB:reg_MEM_WB"
- 27. Port Connectivity Checks: "reg_ID_EX:reg_ID_EX"
- 28. Port Connectivity Checks: "control_unit:control_unit"
- 29. Port Connectivity Checks: "adder:adder"
- 30. Post-Synthesis Netlist Statistics for Top Partition
- 31. Elapsed Time Per Partition
- 32. Analysis & Synthesis Messages
- 33. Analysis & Synthesis Suppressed Messages
+ 10. Parameter Settings for User Entity Instance: mux_2:mux_pctarget_or_pc_jalr
+ 11. Parameter Settings for User Entity Instance: mux_2:mux_pc_IF
+ 12. Parameter Settings for User Entity Instance: IMem:instruction_memory
+ 13. Parameter Settings for User Entity Instance: reg_IF_ID:reg_IF_ID
+ 14. Parameter Settings for User Entity Instance: adder:adder
+ 15. Parameter Settings for User Entity Instance: control_unit:control_unit
+ 16. Parameter Settings for User Entity Instance: control_unit:control_unit|main_decoder:main_decoder
+ 17. Parameter Settings for User Entity Instance: control_unit:control_unit|ALU_decoder:alu_decoder
+ 18. Parameter Settings for User Entity Instance: reg_file:reg_file
+ 19. Parameter Settings for User Entity Instance: imm_ext:imm_ext
+ 20. Parameter Settings for User Entity Instance: reg_ID_EX:reg_ID_EX
+ 21. Parameter Settings for User Entity Instance: alu:alu
+ 22. Parameter Settings for User Entity Instance: reg_EX_MEM:reg_EX_MEM
+ 23. Parameter Settings for User Entity Instance: DMem:dmem
+ 24. Parameter Settings for User Entity Instance: reg_MEM_WB:reg_MEM_WB
+ 25. Parameter Settings for User Entity Instance: hazard_unit:hazard_unit
+ 26. Port Connectivity Checks: "reg_EX_MEM:reg_EX_MEM"
+ 27. Port Connectivity Checks: "control_unit:control_unit"
+ 28. Port Connectivity Checks: "adder:adder"
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
+ 32. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -65,7 +64,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Aug 11 04:41:43 2024          ;
+; Analysis & Synthesis Status        ; Successful - Mon Aug 12 10:34:52 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; RISCV_5StagePipelined_Processor                ;
 ; Top-level Entity Name              ; RISCV_5StagePipelined_Processor                ;
@@ -266,40 +265,60 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 +-------------------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: Top-level Entity: |RISCV_5StagePipelined_Processor ;
-+------------------+-------+----------------------------------------------------------------------+
-; Parameter Name   ; Value ; Type                                                                 ;
-+------------------+-------+----------------------------------------------------------------------+
-; PC_WIDTH         ; 32    ; Signed Integer                                                       ;
-; ADDR_WIDTH       ; 32    ; Signed Integer                                                       ;
-; INST_WIDTH       ; 32    ; Signed Integer                                                       ;
-; IMEM_DEPTH       ; 1024  ; Signed Integer                                                       ;
-; RESULTSRC_WIDTH  ; 2     ; Signed Integer                                                       ;
-; ALUCONTROL_WIDTH ; 4     ; Signed Integer                                                       ;
-; IMMSRC_WIDTH     ; 2     ; Signed Integer                                                       ;
-; OPCODE_WIDTH     ; 7     ; Signed Integer                                                       ;
-; FUNCT7_WIDTH     ; 7     ; Signed Integer                                                       ;
-; FUNCT3_WIDTH     ; 3     ; Signed Integer                                                       ;
-; NUM_REG          ; 32    ; Signed Integer                                                       ;
-; REG_ADDR_WIDTH   ; 5     ; Signed Integer                                                       ;
-; REG_WIDTH        ; 32    ; Signed Integer                                                       ;
-; IMM_WIDTH        ; 32    ; Signed Integer                                                       ;
-; OP_WIDTH         ; 32    ; Signed Integer                                                       ;
-; ALU_RESULT_WIDTH ; 32    ; Signed Integer                                                       ;
-; ADD_ALU          ; 0000  ; Unsigned Binary                                                      ;
-; SUB_ALU          ; 0001  ; Unsigned Binary                                                      ;
-; AND_ALU          ; 0010  ; Unsigned Binary                                                      ;
-; OR_ALU           ; 0011  ; Unsigned Binary                                                      ;
-; XOR_ALU          ; 0100  ; Unsigned Binary                                                      ;
-; SLT_ALU          ; 0101  ; Unsigned Binary                                                      ;
-; SHL_ALU          ; 0110  ; Unsigned Binary                                                      ;
-; SHR_ALU          ; 0111  ; Unsigned Binary                                                      ;
-; SGTe_ALU         ; 1000  ; Unsigned Binary                                                      ;
-; EQUAL_ALU        ; 1001  ; Unsigned Binary                                                      ;
-; NOT_EQUAL_ALU    ; 1010  ; Unsigned Binary                                                      ;
-; DATA_WIDTH       ; 32    ; Signed Integer                                                       ;
-; DMEM_WIDTH       ; 32    ; Signed Integer                                                       ;
-; DMEM_DEPTH       ; 1024  ; Signed Integer                                                       ;
-+------------------+-------+----------------------------------------------------------------------+
++------------------+---------+--------------------------------------------------------------------+
+; Parameter Name   ; Value   ; Type                                                               ;
++------------------+---------+--------------------------------------------------------------------+
+; PC_WIDTH         ; 32      ; Signed Integer                                                     ;
+; ADDR_WIDTH       ; 32      ; Signed Integer                                                     ;
+; INST_WIDTH       ; 32      ; Signed Integer                                                     ;
+; IMEM_DEPTH       ; 1024    ; Signed Integer                                                     ;
+; OPCODE_R_TYPE    ; 0110011 ; Unsigned Binary                                                    ;
+; OPCODE_I_TYPE    ; 0010011 ; Unsigned Binary                                                    ;
+; OPCODE_S_TYPE    ; 0100011 ; Unsigned Binary                                                    ;
+; OPCODE_L_TYPE    ; 0000011 ; Unsigned Binary                                                    ;
+; OPCODE_B_TYPE    ; 1100011 ; Unsigned Binary                                                    ;
+; OPCODE_J_TYPE    ; 1101111 ; Unsigned Binary                                                    ;
+; OPCODE_JALR_TYPE ; 1100111 ; Unsigned Binary                                                    ;
+; RESULTSRC_WIDTH  ; 2       ; Signed Integer                                                     ;
+; ALUCONTROL_WIDTH ; 4       ; Signed Integer                                                     ;
+; IMMSRC_WIDTH     ; 2       ; Signed Integer                                                     ;
+; OPCODE_WIDTH     ; 7       ; Signed Integer                                                     ;
+; FUNCT7_WIDTH     ; 7       ; Signed Integer                                                     ;
+; FUNCT3_WIDTH     ; 3       ; Signed Integer                                                     ;
+; NUM_REG          ; 32      ; Signed Integer                                                     ;
+; REG_ADDR_WIDTH   ; 5       ; Signed Integer                                                     ;
+; REG_WIDTH        ; 32      ; Signed Integer                                                     ;
+; IMM_WIDTH        ; 32      ; Signed Integer                                                     ;
+; OP_WIDTH         ; 32      ; Signed Integer                                                     ;
+; ALU_RESULT_WIDTH ; 32      ; Signed Integer                                                     ;
+; ADD_ALU          ; 0000    ; Unsigned Binary                                                    ;
+; SUB_ALU          ; 0001    ; Unsigned Binary                                                    ;
+; AND_ALU          ; 0010    ; Unsigned Binary                                                    ;
+; OR_ALU           ; 0011    ; Unsigned Binary                                                    ;
+; XOR_ALU          ; 0100    ; Unsigned Binary                                                    ;
+; SLT_ALU          ; 0101    ; Unsigned Binary                                                    ;
+; SLL_ALU          ; 0110    ; Unsigned Binary                                                    ;
+; SRA_ALU          ; 0111    ; Unsigned Binary                                                    ;
+; SGTe_ALU         ; 1000    ; Unsigned Binary                                                    ;
+; EQUAL_ALU        ; 1001    ; Unsigned Binary                                                    ;
+; NOT_EQUAL_ALU    ; 1010    ; Unsigned Binary                                                    ;
+; SRL_ALU          ; 1011    ; Unsigned Binary                                                    ;
+; SLTU_ALU         ; 1100    ; Unsigned Binary                                                    ;
+; SGTeU_ALU        ; 1101    ; Unsigned Binary                                                    ;
+; DATA_WIDTH       ; 32      ; Signed Integer                                                     ;
+; DMEM_WIDTH       ; 32      ; Signed Integer                                                     ;
+; DMEM_DEPTH       ; 64      ; Signed Integer                                                     ;
++------------------+---------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux_2:mux_pctarget_or_pc_jalr ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; MUX_DATA_WIDTH ; 32    ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -385,11 +404,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; OR_ALU           ; 0011  ; Unsigned Binary                                                     ;
 ; XOR_ALU          ; 0100  ; Unsigned Binary                                                     ;
 ; SLT_ALU          ; 0101  ; Unsigned Binary                                                     ;
-; SHL_ALU          ; 0110  ; Unsigned Binary                                                     ;
-; SHR_ALU          ; 0111  ; Unsigned Binary                                                     ;
+; SLL_ALU          ; 0110  ; Unsigned Binary                                                     ;
+; SRA_ALU          ; 0111  ; Unsigned Binary                                                     ;
 ; SGTe_ALU         ; 1000  ; Unsigned Binary                                                     ;
 ; EQUAL_ALU        ; 1001  ; Unsigned Binary                                                     ;
 ; NOT_EQUAL_ALU    ; 1010  ; Unsigned Binary                                                     ;
+; SRL_ALU          ; 1011  ; Unsigned Binary                                                     ;
+; SLTU_ALU         ; 1100  ; Unsigned Binary                                                     ;
+; SGTeU_ALU        ; 1101  ; Unsigned Binary                                                     ;
 ; ALUCONTROL_WIDTH ; 4     ; Signed Integer                                                      ;
 ; FUNCT3_WIDTH     ; 3     ; Signed Integer                                                      ;
 ; FUNCT7_WIDTH     ; 7     ; Signed Integer                                                      ;
@@ -417,6 +439,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+-------------------------------------+
 ; INST_WIDTH     ; 32    ; Signed Integer                      ;
 ; IMM_WIDTH      ; 32    ; Signed Integer                      ;
+; FUNCT3_WIDTH   ; 3     ; Signed Integer                      ;
 +----------------+-------+-------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -433,6 +456,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; REG_WIDTH        ; 32    ; Signed Integer                        ;
 ; IMM_WIDTH        ; 32    ; Signed Integer                        ;
 ; PC_WIDTH         ; 32    ; Signed Integer                        ;
+; OPCODE_WIDTH     ; 7     ; Signed Integer                        ;
+; FUNCT7_WIDTH     ; 7     ; Signed Integer                        ;
+; FUNCT3_WIDTH     ; 3     ; Signed Integer                        ;
 +------------------+-------+---------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -451,11 +477,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; OR_ALU           ; 0011  ; Unsigned Binary           ;
 ; XOR_ALU          ; 0100  ; Unsigned Binary           ;
 ; SLT_ALU          ; 0101  ; Unsigned Binary           ;
-; SHL_ALU          ; 0110  ; Unsigned Binary           ;
-; SHR_ALU          ; 0111  ; Unsigned Binary           ;
+; SLL_ALU          ; 0110  ; Unsigned Binary           ;
+; SRA_ALU          ; 0111  ; Unsigned Binary           ;
 ; SGTe_ALU         ; 1000  ; Unsigned Binary           ;
 ; EQUAL_ALU        ; 1001  ; Unsigned Binary           ;
 ; NOT_EQUAL_ALU    ; 1010  ; Unsigned Binary           ;
+; SRL_ALU          ; 1011  ; Unsigned Binary           ;
+; SLTU_ALU         ; 1100  ; Unsigned Binary           ;
+; SGTeU_ALU        ; 1101  ; Unsigned Binary           ;
 +------------------+-------+---------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -470,6 +499,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; REG_ADDR_WIDTH   ; 5     ; Signed Integer                          ;
 ; PC_WIDTH         ; 32    ; Signed Integer                          ;
 ; DATA_WIDTH       ; 32    ; Signed Integer                          ;
+; OPCODE_WIDTH     ; 7     ; Signed Integer                          ;
+; FUNCT7_WIDTH     ; 7     ; Signed Integer                          ;
+; FUNCT3_WIDTH     ; 3     ; Signed Integer                          ;
 +------------------+-------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -481,7 +513,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+-------------------------------+
 ; ADDR_WIDTH     ; 32    ; Signed Integer                ;
 ; DMEM_WIDTH     ; 32    ; Signed Integer                ;
-; DMEM_DEPTH     ; 1024  ; Signed Integer                ;
+; DMEM_DEPTH     ; 64    ; Signed Integer                ;
 +----------------+-------+-------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -496,6 +528,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ALU_RESULT_WIDTH ; 32    ; Signed Integer                          ;
 ; DATA_WIDTH       ; 32    ; Signed Integer                          ;
 ; PC_WIDTH         ; 32    ; Signed Integer                          ;
+; OPCODE_WIDTH     ; 7     ; Signed Integer                          ;
+; FUNCT3_WIDTH     ; 3     ; Signed Integer                          ;
 +------------------+-------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -511,36 +545,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "hazard_unit:hazard_unit"                                                                  ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; ForwardB_E ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "reg_MEM_WB:reg_MEM_WB"                                                                      ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port         ; Type   ; Severity ; Details                                                                             ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; ResultSrc_W  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; ALU_result_W ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; ReadData_W   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; PCplus4_W    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "reg_ID_EX:reg_ID_EX"                                                                                                                                 ;
-+--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port         ; Type   ; Severity ; Details                                                                                                                                      ;
-+--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; rd2_E[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
-; clk          ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-; rst_n        ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "reg_EX_MEM:reg_EX_MEM"                                                                  ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; funct7_M ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -589,27 +600,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Sun Aug 11 04:41:22 2024
+    Info: Processing started: Mon Aug 12 10:34:43 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISCV_5StagePipelined_Processor -c RISCV_5StagePipelined_Processor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file imem.v
     Info (12023): Found entity 1: IMem File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v Line: 1
-    Info (12023): Found entity 2: Memory_instruction_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v Line: 47
+    Info (12023): Found entity 2: Memory_instruction_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v Line: 50
 Info (12021): Found 1 design units, including 1 entities, in source file dmem.v
     Info (12023): Found entity 1: DMem File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/DMem.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file hazard_unit.v
     Info (12023): Found entity 1: hazard_unit File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/hazard_unit.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file stage_if.v
-    Info (12023): Found entity 1: stage_IF File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/stage_IF.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file stage_id.v
-    Info (12023): Found entity 1: stage_ID File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/stage_ID.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file stage_ex.v
-    Info (12023): Found entity 1: stage_EX File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/stage_EX.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file stage_mem.v
-    Info (12023): Found entity 1: stage_MEM File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/stage_MEM.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file stage_wb.v
-    Info (12023): Found entity 1: stage_WB File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/stage_WB.v Line: 1
+Warning (12019): Can't analyze file -- file stage_IF.v is missing
+Warning (12019): Can't analyze file -- file stage_ID.v is missing
+Warning (12019): Can't analyze file -- file stage_EX.v is missing
+Warning (12019): Can't analyze file -- file stage_MEM.v is missing
+Warning (12019): Can't analyze file -- file stage_WB.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file reg_file.v
     Info (12023): Found entity 1: reg_file File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_file.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file reg_if_id.v
@@ -637,112 +643,69 @@ Info (12021): Found 1 design units, including 1 entities, in source file mux_2.v
 Info (12021): Found 1 design units, including 1 entities, in source file adder.v
     Info (12023): Found entity 1: adder File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/adder.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file riscv_5stagepipelined_processor_tb.v
-    Info (12023): Found entity 1: RISCV_5StagePipelined_Processor_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor_tb.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at RISCV_5StagePipelined_Processor.v(306): created implicit net for "WriteDataE" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 306
-Warning (10236): Verilog HDL Implicit Net warning at RISCV_5StagePipelined_Processor.v(388): created implicit net for "RegWrite_W" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 388
-Warning (10236): Verilog HDL Implicit Net warning at RISCV_5StagePipelined_Processor.v(398): created implicit net for "Result_W" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 398
+    Info (12023): Found entity 1: RISCV_5StagePipelined_Processor_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor_tb.v Line: 2
 Info (12127): Elaborating entity "RISCV_5StagePipelined_Processor" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at RISCV_5StagePipelined_Processor.v(398): object "Result_W" assigned a value but never read File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 398
-Warning (10230): Verilog HDL assignment warning at RISCV_5StagePipelined_Processor.v(306): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 306
-Warning (10230): Verilog HDL assignment warning at RISCV_5StagePipelined_Processor.v(398): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 398
-Info (12128): Elaborating entity "mux_2" for hierarchy "mux_2:mux_pc_IF" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 146
-Info (12128): Elaborating entity "IMem" for hierarchy "IMem:instruction_memory" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 175
+Warning (10240): Verilog HDL Always Construct warning at RISCV_5StagePipelined_Processor.v(242): inferring latch(es) for variable "funct3", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Warning (10240): Verilog HDL Always Construct warning at RISCV_5StagePipelined_Processor.v(242): inferring latch(es) for variable "funct7", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Warning (10240): Verilog HDL Always Construct warning at RISCV_5StagePipelined_Processor.v(242): inferring latch(es) for variable "rs1_D", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Warning (10240): Verilog HDL Always Construct warning at RISCV_5StagePipelined_Processor.v(242): inferring latch(es) for variable "rs2_D", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Warning (10240): Verilog HDL Always Construct warning at RISCV_5StagePipelined_Processor.v(242): inferring latch(es) for variable "rd_D", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Warning (10230): Verilog HDL assignment warning at RISCV_5StagePipelined_Processor.v(396): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 396
+Info (10041): Inferred latch for "rd_D[0]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "rd_D[1]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "rd_D[2]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "rd_D[3]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "rd_D[4]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "rs2_D[0]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "rs2_D[1]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "rs2_D[2]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "rs2_D[3]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "rs2_D[4]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "rs1_D[0]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "rs1_D[1]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "rs1_D[2]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "rs1_D[3]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "rs1_D[4]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "funct7[0]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "funct7[1]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "funct7[2]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "funct7[3]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "funct7[4]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "funct7[5]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "funct7[6]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "funct3[0]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "funct3[1]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (10041): Inferred latch for "funct3[2]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
+Info (12128): Elaborating entity "mux_2" for hierarchy "mux_2:mux_pctarget_or_pc_jalr" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 170
+Info (12128): Elaborating entity "IMem" for hierarchy "IMem:instruction_memory" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 208
 Warning (10030): Net "memory_ins.data_a" at IMem.v(9) has no driver or initial value, using a default initial value '0' File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v Line: 9
 Warning (10030): Net "memory_ins.waddr_a" at IMem.v(9) has no driver or initial value, using a default initial value '0' File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v Line: 9
 Warning (10030): Net "memory_ins.we_a" at IMem.v(9) has no driver or initial value, using a default initial value '0' File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v Line: 9
-Info (12128): Elaborating entity "reg_IF_ID" for hierarchy "reg_IF_ID:reg_IF_ID" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 191
-Info (12128): Elaborating entity "adder" for hierarchy "adder:adder" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 199
-Info (12128): Elaborating entity "control_unit" for hierarchy "control_unit:control_unit" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 225
-Info (12128): Elaborating entity "main_decoder" for hierarchy "control_unit:control_unit|main_decoder:main_decoder" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/control_unit.v Line: 35
-Warning (10240): Verilog HDL Always Construct warning at main_decoder.v(18): inferring latch(es) for variable "ResultSrc", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v Line: 18
-Info (10041): Inferred latch for "ResultSrc[0]" at main_decoder.v(18) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v Line: 18
-Info (10041): Inferred latch for "ResultSrc[1]" at main_decoder.v(18) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v Line: 18
-Info (12128): Elaborating entity "ALU_decoder" for hierarchy "control_unit:control_unit|ALU_decoder:alu_decoder" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/control_unit.v Line: 42
-Warning (10270): Verilog HDL Case Statement warning at ALU_decoder.v(31): incomplete case statement has no default case item File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 31
-Warning (10270): Verilog HDL Case Statement warning at ALU_decoder.v(69): incomplete case statement has no default case item File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 69
-Warning (10270): Verilog HDL Case Statement warning at ALU_decoder.v(110): incomplete case statement has no default case item File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 110
-Warning (10240): Verilog HDL Always Construct warning at ALU_decoder.v(30): inferring latch(es) for variable "ALUControl", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 30
-Info (10041): Inferred latch for "ALUControl[0]" at ALU_decoder.v(68) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 68
-Info (10041): Inferred latch for "ALUControl[1]" at ALU_decoder.v(68) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 68
-Info (10041): Inferred latch for "ALUControl[2]" at ALU_decoder.v(68) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 68
-Info (10041): Inferred latch for "ALUControl[3]" at ALU_decoder.v(68) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 68
-Info (12128): Elaborating entity "reg_file" for hierarchy "reg_file:reg_file" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 241
-Warning (10240): Verilog HDL Always Construct warning at reg_file.v(24): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_file.v Line: 24
-Info (12128): Elaborating entity "imm_ext" for hierarchy "imm_ext:imm_ext" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 249
-Info (12128): Elaborating entity "reg_ID_EX" for hierarchy "reg_ID_EX:reg_ID_EX" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 292
-Info (12128): Elaborating entity "alu" for hierarchy "alu:alu" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 330
-Info (12128): Elaborating entity "reg_EX_MEM" for hierarchy "reg_EX_MEM:reg_EX_MEM" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 355
-Info (12128): Elaborating entity "DMem" for hierarchy "DMem:dmem" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 371
+Info (12128): Elaborating entity "reg_IF_ID" for hierarchy "reg_IF_ID:reg_IF_ID" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 224
+Info (12128): Elaborating entity "adder" for hierarchy "adder:adder" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 232
+Info (12128): Elaborating entity "control_unit" for hierarchy "control_unit:control_unit" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 309
+Info (12128): Elaborating entity "main_decoder" for hierarchy "control_unit:control_unit|main_decoder:main_decoder" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/control_unit.v Line: 37
+Warning (10240): Verilog HDL Always Construct warning at main_decoder.v(19): inferring latch(es) for variable "ResultSrc", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v Line: 19
+Info (10041): Inferred latch for "ResultSrc[0]" at main_decoder.v(19) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v Line: 19
+Info (10041): Inferred latch for "ResultSrc[1]" at main_decoder.v(19) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v Line: 19
+Info (12128): Elaborating entity "ALU_decoder" for hierarchy "control_unit:control_unit|ALU_decoder:alu_decoder" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/control_unit.v Line: 44
+Warning (10270): Verilog HDL Case Statement warning at ALU_decoder.v(34): incomplete case statement has no default case item File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 34
+Warning (10270): Verilog HDL Case Statement warning at ALU_decoder.v(130): incomplete case statement has no default case item File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 130
+Warning (10240): Verilog HDL Always Construct warning at ALU_decoder.v(33): inferring latch(es) for variable "ALUControl", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 33
+Info (10041): Inferred latch for "ALUControl[0]" at ALU_decoder.v(80) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 80
+Info (10041): Inferred latch for "ALUControl[1]" at ALU_decoder.v(80) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 80
+Info (10041): Inferred latch for "ALUControl[2]" at ALU_decoder.v(80) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 80
+Info (10041): Inferred latch for "ALUControl[3]" at ALU_decoder.v(80) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 80
+Info (12128): Elaborating entity "reg_file" for hierarchy "reg_file:reg_file" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 325
+Warning (10240): Verilog HDL Always Construct warning at reg_file.v(32): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_file.v Line: 32
+Info (12128): Elaborating entity "imm_ext" for hierarchy "imm_ext:imm_ext" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 334
+Info (12128): Elaborating entity "reg_ID_EX" for hierarchy "reg_ID_EX:reg_ID_EX" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 390
+Info (12128): Elaborating entity "alu" for hierarchy "alu:alu" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 429
+Info (12128): Elaborating entity "reg_EX_MEM" for hierarchy "reg_EX_MEM:reg_EX_MEM" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 464
+Info (12128): Elaborating entity "DMem" for hierarchy "DMem:dmem" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 480
 Warning (10240): Verilog HDL Always Construct warning at DMem.v(19): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/DMem.v Line: 19
-Info (12128): Elaborating entity "reg_MEM_WB" for hierarchy "reg_MEM_WB:reg_MEM_WB" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 394
-Info (12128): Elaborating entity "hazard_unit" for hierarchy "hazard_unit:hazard_unit" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 424
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "rs1_D[4]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[3]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[2]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[1]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[0]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs2_D[4]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[3]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[2]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[1]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[0]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "rs1_D[4]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[3]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[2]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[1]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[0]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs2_D[4]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[3]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[2]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[1]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[0]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "rs1_D[4]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[3]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[2]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[1]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[0]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs2_D[4]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[3]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[2]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[1]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[0]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "rs1_D[4]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[3]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[2]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[1]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[0]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs2_D[4]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[3]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[2]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[1]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[0]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "rs1_D[4]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[3]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[2]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[1]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[0]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs2_D[4]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[3]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[2]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[1]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[0]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "rs1_D[4]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[3]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[2]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[1]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs1_D[0]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 78
-    Warning (12110): Net "rs2_D[4]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[3]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[2]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[1]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-    Warning (12110): Net "rs2_D[0]" is missing source, defaulting to GND File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 79
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (12128): Elaborating entity "reg_MEM_WB" for hierarchy "reg_MEM_WB:reg_MEM_WB" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 505
+Info (12128): Elaborating entity "hazard_unit" for hierarchy "hazard_unit:hazard_unit" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 535
 Info (144001): Generated suppressed messages file D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/output_files/RISCV_5StagePipelined_Processor.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -752,10 +715,10 @@ Warning (21074): Design contains 2 input pin(s) that do not drive logic
 Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 0 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 87 warnings
-    Info: Peak virtual memory: 4794 megabytes
-    Info: Processing ended: Sun Aug 11 04:41:43 2024
-    Info: Elapsed time: 00:00:21
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 24 warnings
+    Info: Peak virtual memory: 4759 megabytes
+    Info: Processing ended: Mon Aug 12 10:34:52 2024
+    Info: Elapsed time: 00:00:09
     Info: Total CPU time (on all processors): 00:00:08
 
 
