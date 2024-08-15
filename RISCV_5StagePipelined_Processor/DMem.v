@@ -32,7 +32,7 @@
 module DMem #(
     parameter ADDR_WIDTH = 32,
     parameter DMEM_WIDTH = 32,
-    parameter DMEM_DEPTH = 1 << 6 // 64 words
+    parameter DMEM_DEPTH = 1 << 10 // 64 words
 ) (
     input clk,
     input rst_n,
@@ -40,19 +40,21 @@ module DMem #(
     input [ADDR_WIDTH-1:0] addr,
     input [DMEM_WIDTH-1:0] write_data,
     input [1:0] write_type_M, // 00: byte, 01: halfword, 10: word
-    output reg [DMEM_WIDTH-1:0] read_data
+    output [DMEM_WIDTH-1:0] read_data
 );
 
 reg [DMEM_WIDTH-1:0] memory [DMEM_DEPTH-1:0];
 integer i;
 
-always @(posedge clk or negedge rst_n) begin
-    if (!rst_n) begin
-        read_data <= 32'b0;
-    end else begin
-        read_data <= memory[addr >> 2];
-    end
-end
+// always @(posedge clk or negedge rst_n) begin
+//     if (!rst_n) begin
+//         read_data <= 32'b0;
+//     end else begin
+//         read_data <= memory[addr >> 2];
+//     end
+// end
+
+assign read_data = (!MemWrite) ? memory[addr >> 2] : 32'b0;
 
 always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin

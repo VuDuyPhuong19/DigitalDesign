@@ -95,7 +95,7 @@ always @ (*) begin
 			ALUSrcA = 2'b01;
 			MemWrite = 0;
 			Branch = 0;
-			ALUOp = 2'b10; 
+			ALUOp = 2'b01; 
 			// ResultSrc = 2'b00;
 			ResultSrc = 2'b10;
 			Jump = 1;
@@ -104,7 +104,7 @@ always @ (*) begin
 
 		7'b1100111: begin // JALR
 			RegWrite = 1;
-			ImmSrc = 2'b00;
+			ImmSrc = 2'b10;
 			ALUSrcB = 1;
 			ALUSrcA = 2'b01;
 			MemWrite = 0;
@@ -148,6 +148,7 @@ always @ (*) begin
 			RegWrite = 1;
 			ImmSrc = 2'b00;
 			ALUSrcB = 0;
+			ALUSrcA = 0;
 			MemWrite = 0;
 			// ResultSrc = 2'b01;
 			ResultSrc = 2'b00;

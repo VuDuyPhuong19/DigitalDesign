@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISCV_5StagePipelined_Processor
-Mon Aug 12 10:34:52 2024
+Wed Aug 14 02:53:52 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -10,34 +10,8 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: Top-level Entity: |RISCV_5StagePipelined_Processor
- 10. Parameter Settings for User Entity Instance: mux_2:mux_pctarget_or_pc_jalr
- 11. Parameter Settings for User Entity Instance: mux_2:mux_pc_IF
- 12. Parameter Settings for User Entity Instance: IMem:instruction_memory
- 13. Parameter Settings for User Entity Instance: reg_IF_ID:reg_IF_ID
- 14. Parameter Settings for User Entity Instance: adder:adder
- 15. Parameter Settings for User Entity Instance: control_unit:control_unit
- 16. Parameter Settings for User Entity Instance: control_unit:control_unit|main_decoder:main_decoder
- 17. Parameter Settings for User Entity Instance: control_unit:control_unit|ALU_decoder:alu_decoder
- 18. Parameter Settings for User Entity Instance: reg_file:reg_file
- 19. Parameter Settings for User Entity Instance: imm_ext:imm_ext
- 20. Parameter Settings for User Entity Instance: reg_ID_EX:reg_ID_EX
- 21. Parameter Settings for User Entity Instance: alu:alu
- 22. Parameter Settings for User Entity Instance: reg_EX_MEM:reg_EX_MEM
- 23. Parameter Settings for User Entity Instance: DMem:dmem
- 24. Parameter Settings for User Entity Instance: reg_MEM_WB:reg_MEM_WB
- 25. Parameter Settings for User Entity Instance: hazard_unit:hazard_unit
- 26. Port Connectivity Checks: "reg_EX_MEM:reg_EX_MEM"
- 27. Port Connectivity Checks: "control_unit:control_unit"
- 28. Port Connectivity Checks: "adder:adder"
- 29. Post-Synthesis Netlist Statistics for Top Partition
- 30. Elapsed Time Per Partition
- 31. Analysis & Synthesis Messages
- 32. Analysis & Synthesis Suppressed Messages
+  5. Analysis & Synthesis Messages
+  6. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -64,20 +38,20 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Aug 12 10:34:52 2024          ;
+; Analysis & Synthesis Status        ; Failed - Wed Aug 14 02:53:52 2024              ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; RISCV_5StagePipelined_Processor                ;
 ; Top-level Entity Name              ; RISCV_5StagePipelined_Processor                ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 0                                              ;
-;     Total combinational functions  ; 0                                              ;
-;     Dedicated logic registers      ; 0                                              ;
-; Total registers                    ; 0                                              ;
-; Total pins                         ; 2                                              ;
-; Total virtual pins                 ; 0                                              ;
-; Total memory bits                  ; 0                                              ;
-; Embedded Multiplier 9-bit elements ; 0                                              ;
-; Total PLLs                         ; 0                                              ;
+; Total logic elements               ; N/A until Partition Merge                      ;
+;     Total combinational functions  ; N/A until Partition Merge                      ;
+;     Dedicated logic registers      ; N/A until Partition Merge                      ;
+; Total registers                    ; N/A until Partition Merge                      ;
+; Total pins                         ; N/A until Partition Merge                      ;
+; Total virtual pins                 ; N/A until Partition Merge                      ;
+; Total memory bits                  ; N/A until Partition Merge                      ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                      ;
+; Total PLLs                         ; N/A until Partition Merge                      ;
 +------------------------------------+------------------------------------------------+
 
 
@@ -183,432 +157,21 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                    ;
-+-----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path  ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                                     ; Library ;
-+-----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------+---------+
-; IMem.v                            ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v                            ;         ;
-; DMem.v                            ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/DMem.v                            ;         ;
-; hazard_unit.v                     ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/hazard_unit.v                     ;         ;
-; reg_file.v                        ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_file.v                        ;         ;
-; reg_IF_ID.v                       ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_IF_ID.v                       ;         ;
-; reg_ID_EX.v                       ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_ID_EX.v                       ;         ;
-; reg_EX_MEM.v                      ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_EX_MEM.v                      ;         ;
-; reg_MEM_WB.v                      ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_MEM_WB.v                      ;         ;
-; control_unit.v                    ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/control_unit.v                    ;         ;
-; ALU_decoder.v                     ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v                     ;         ;
-; main_decoder.v                    ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v                    ;         ;
-; imm_ext.v                         ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/imm_ext.v                         ;         ;
-; alu.v                             ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/alu.v                             ;         ;
-; RISCV_5StagePipelined_Processor.v ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v ;         ;
-; mux_2.v                           ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/mux_2.v                           ;         ;
-; adder.v                           ; yes             ; User Verilog HDL File  ; D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/adder.v                           ;         ;
-+-----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------+---------+
-
-
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-;                                             ;       ;
-; Total combinational functions               ; 0     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 2     ;
-;                                             ;       ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 2     ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                             ;
-+----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+---------------------------------+--------------+
-; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name              ; Entity Name                     ; Library Name ;
-+----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+---------------------------------+--------------+
-; |RISCV_5StagePipelined_Processor ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 2    ; 0            ; |RISCV_5StagePipelined_Processor ; RISCV_5StagePipelined_Processor ; work         ;
-+----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+---------------------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |RISCV_5StagePipelined_Processor ;
-+------------------+---------+--------------------------------------------------------------------+
-; Parameter Name   ; Value   ; Type                                                               ;
-+------------------+---------+--------------------------------------------------------------------+
-; PC_WIDTH         ; 32      ; Signed Integer                                                     ;
-; ADDR_WIDTH       ; 32      ; Signed Integer                                                     ;
-; INST_WIDTH       ; 32      ; Signed Integer                                                     ;
-; IMEM_DEPTH       ; 1024    ; Signed Integer                                                     ;
-; OPCODE_R_TYPE    ; 0110011 ; Unsigned Binary                                                    ;
-; OPCODE_I_TYPE    ; 0010011 ; Unsigned Binary                                                    ;
-; OPCODE_S_TYPE    ; 0100011 ; Unsigned Binary                                                    ;
-; OPCODE_L_TYPE    ; 0000011 ; Unsigned Binary                                                    ;
-; OPCODE_B_TYPE    ; 1100011 ; Unsigned Binary                                                    ;
-; OPCODE_J_TYPE    ; 1101111 ; Unsigned Binary                                                    ;
-; OPCODE_JALR_TYPE ; 1100111 ; Unsigned Binary                                                    ;
-; RESULTSRC_WIDTH  ; 2       ; Signed Integer                                                     ;
-; ALUCONTROL_WIDTH ; 4       ; Signed Integer                                                     ;
-; IMMSRC_WIDTH     ; 2       ; Signed Integer                                                     ;
-; OPCODE_WIDTH     ; 7       ; Signed Integer                                                     ;
-; FUNCT7_WIDTH     ; 7       ; Signed Integer                                                     ;
-; FUNCT3_WIDTH     ; 3       ; Signed Integer                                                     ;
-; NUM_REG          ; 32      ; Signed Integer                                                     ;
-; REG_ADDR_WIDTH   ; 5       ; Signed Integer                                                     ;
-; REG_WIDTH        ; 32      ; Signed Integer                                                     ;
-; IMM_WIDTH        ; 32      ; Signed Integer                                                     ;
-; OP_WIDTH         ; 32      ; Signed Integer                                                     ;
-; ALU_RESULT_WIDTH ; 32      ; Signed Integer                                                     ;
-; ADD_ALU          ; 0000    ; Unsigned Binary                                                    ;
-; SUB_ALU          ; 0001    ; Unsigned Binary                                                    ;
-; AND_ALU          ; 0010    ; Unsigned Binary                                                    ;
-; OR_ALU           ; 0011    ; Unsigned Binary                                                    ;
-; XOR_ALU          ; 0100    ; Unsigned Binary                                                    ;
-; SLT_ALU          ; 0101    ; Unsigned Binary                                                    ;
-; SLL_ALU          ; 0110    ; Unsigned Binary                                                    ;
-; SRA_ALU          ; 0111    ; Unsigned Binary                                                    ;
-; SGTe_ALU         ; 1000    ; Unsigned Binary                                                    ;
-; EQUAL_ALU        ; 1001    ; Unsigned Binary                                                    ;
-; NOT_EQUAL_ALU    ; 1010    ; Unsigned Binary                                                    ;
-; SRL_ALU          ; 1011    ; Unsigned Binary                                                    ;
-; SLTU_ALU         ; 1100    ; Unsigned Binary                                                    ;
-; SGTeU_ALU        ; 1101    ; Unsigned Binary                                                    ;
-; DATA_WIDTH       ; 32      ; Signed Integer                                                     ;
-; DMEM_WIDTH       ; 32      ; Signed Integer                                                     ;
-; DMEM_DEPTH       ; 64      ; Signed Integer                                                     ;
-+------------------+---------+--------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: mux_2:mux_pctarget_or_pc_jalr ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; MUX_DATA_WIDTH ; 32    ; Signed Integer                                    ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: mux_2:mux_pc_IF ;
-+----------------+-------+-------------------------------------+
-; Parameter Name ; Value ; Type                                ;
-+----------------+-------+-------------------------------------+
-; MUX_DATA_WIDTH ; 32    ; Signed Integer                      ;
-+----------------+-------+-------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: IMem:instruction_memory ;
-+----------------+-------+---------------------------------------------+
-; Parameter Name ; Value ; Type                                        ;
-+----------------+-------+---------------------------------------------+
-; ADDR_WIDTH     ; 32    ; Signed Integer                              ;
-; INST_WIDTH     ; 32    ; Signed Integer                              ;
-; IMEM_DEPTH     ; 1024  ; Signed Integer                              ;
-+----------------+-------+---------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: reg_IF_ID:reg_IF_ID ;
-+----------------+-------+-----------------------------------------+
-; Parameter Name ; Value ; Type                                    ;
-+----------------+-------+-----------------------------------------+
-; INST_WIDTH     ; 32    ; Signed Integer                          ;
-; PC_WIDTH       ; 32    ; Signed Integer                          ;
-+----------------+-------+-----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------+
-; Parameter Settings for User Entity Instance: adder:adder ;
-+------------------+-------+-------------------------------+
-; Parameter Name   ; Value ; Type                          ;
-+------------------+-------+-------------------------------+
-; ADDER_DATA_WIDTH ; 32    ; Signed Integer                ;
-+------------------+-------+-------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: control_unit:control_unit ;
-+------------------+-------+---------------------------------------------+
-; Parameter Name   ; Value ; Type                                        ;
-+------------------+-------+---------------------------------------------+
-; RESULTSRC_WIDTH  ; 2     ; Signed Integer                              ;
-; ALUCONTROL_WIDTH ; 4     ; Signed Integer                              ;
-; IMMSRC_WIDTH     ; 2     ; Signed Integer                              ;
-; OPCODE_WIDTH     ; 7     ; Signed Integer                              ;
-; FUNCT7_WIDTH     ; 7     ; Signed Integer                              ;
-; FUNCT3_WIDTH     ; 3     ; Signed Integer                              ;
-+------------------+-------+---------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: control_unit:control_unit|main_decoder:main_decoder ;
-+-----------------+-------+------------------------------------------------------------------------+
-; Parameter Name  ; Value ; Type                                                                   ;
-+-----------------+-------+------------------------------------------------------------------------+
-; RESULTSRC_WIDTH ; 2     ; Signed Integer                                                         ;
-; OPCODE_WIDTH    ; 7     ; Signed Integer                                                         ;
-; IMM_SRC_WIDTH   ; 2     ; Signed Integer                                                         ;
-; ALU_OP_WIDTH    ; 2     ; Signed Integer                                                         ;
-+-----------------+-------+------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: control_unit:control_unit|ALU_decoder:alu_decoder ;
-+------------------+-------+---------------------------------------------------------------------+
-; Parameter Name   ; Value ; Type                                                                ;
-+------------------+-------+---------------------------------------------------------------------+
-; ADD_ALU          ; 0000  ; Unsigned Binary                                                     ;
-; SUB_ALU          ; 0001  ; Unsigned Binary                                                     ;
-; AND_ALU          ; 0010  ; Unsigned Binary                                                     ;
-; OR_ALU           ; 0011  ; Unsigned Binary                                                     ;
-; XOR_ALU          ; 0100  ; Unsigned Binary                                                     ;
-; SLT_ALU          ; 0101  ; Unsigned Binary                                                     ;
-; SLL_ALU          ; 0110  ; Unsigned Binary                                                     ;
-; SRA_ALU          ; 0111  ; Unsigned Binary                                                     ;
-; SGTe_ALU         ; 1000  ; Unsigned Binary                                                     ;
-; EQUAL_ALU        ; 1001  ; Unsigned Binary                                                     ;
-; NOT_EQUAL_ALU    ; 1010  ; Unsigned Binary                                                     ;
-; SRL_ALU          ; 1011  ; Unsigned Binary                                                     ;
-; SLTU_ALU         ; 1100  ; Unsigned Binary                                                     ;
-; SGTeU_ALU        ; 1101  ; Unsigned Binary                                                     ;
-; ALUCONTROL_WIDTH ; 4     ; Signed Integer                                                      ;
-; FUNCT3_WIDTH     ; 3     ; Signed Integer                                                      ;
-; FUNCT7_WIDTH     ; 7     ; Signed Integer                                                      ;
-; ALU_OP_WIDTH     ; 2     ; Signed Integer                                                      ;
-+------------------+-------+---------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: reg_file:reg_file ;
-+----------------+-------+---------------------------------------+
-; Parameter Name ; Value ; Type                                  ;
-+----------------+-------+---------------------------------------+
-; NUM_REG        ; 32    ; Signed Integer                        ;
-; REG_ADDR_WIDTH ; 5     ; Signed Integer                        ;
-; REG_WIDTH      ; 32    ; Signed Integer                        ;
-+----------------+-------+---------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: imm_ext:imm_ext ;
-+----------------+-------+-------------------------------------+
-; Parameter Name ; Value ; Type                                ;
-+----------------+-------+-------------------------------------+
-; INST_WIDTH     ; 32    ; Signed Integer                      ;
-; IMM_WIDTH      ; 32    ; Signed Integer                      ;
-; FUNCT3_WIDTH   ; 3     ; Signed Integer                      ;
-+----------------+-------+-------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: reg_ID_EX:reg_ID_EX ;
-+------------------+-------+---------------------------------------+
-; Parameter Name   ; Value ; Type                                  ;
-+------------------+-------+---------------------------------------+
-; RESULTSRC_WIDTH  ; 2     ; Signed Integer                        ;
-; ALUCONTROL_WIDTH ; 4     ; Signed Integer                        ;
-; IMMSRC_WIDTH     ; 2     ; Signed Integer                        ;
-; REG_ADDR_WIDTH   ; 5     ; Signed Integer                        ;
-; REG_WIDTH        ; 32    ; Signed Integer                        ;
-; IMM_WIDTH        ; 32    ; Signed Integer                        ;
-; PC_WIDTH         ; 32    ; Signed Integer                        ;
-; OPCODE_WIDTH     ; 7     ; Signed Integer                        ;
-; FUNCT7_WIDTH     ; 7     ; Signed Integer                        ;
-; FUNCT3_WIDTH     ; 3     ; Signed Integer                        ;
-+------------------+-------+---------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------+
-; Parameter Settings for User Entity Instance: alu:alu ;
-+------------------+-------+---------------------------+
-; Parameter Name   ; Value ; Type                      ;
-+------------------+-------+---------------------------+
-; OP_WIDTH         ; 32    ; Signed Integer            ;
-; ALUCONTROL_WIDTH ; 4     ; Signed Integer            ;
-; ALU_RESULT_WIDTH ; 32    ; Signed Integer            ;
-; ADD_ALU          ; 0000  ; Unsigned Binary           ;
-; SUB_ALU          ; 0001  ; Unsigned Binary           ;
-; AND_ALU          ; 0010  ; Unsigned Binary           ;
-; OR_ALU           ; 0011  ; Unsigned Binary           ;
-; XOR_ALU          ; 0100  ; Unsigned Binary           ;
-; SLT_ALU          ; 0101  ; Unsigned Binary           ;
-; SLL_ALU          ; 0110  ; Unsigned Binary           ;
-; SRA_ALU          ; 0111  ; Unsigned Binary           ;
-; SGTe_ALU         ; 1000  ; Unsigned Binary           ;
-; EQUAL_ALU        ; 1001  ; Unsigned Binary           ;
-; NOT_EQUAL_ALU    ; 1010  ; Unsigned Binary           ;
-; SRL_ALU          ; 1011  ; Unsigned Binary           ;
-; SLTU_ALU         ; 1100  ; Unsigned Binary           ;
-; SGTeU_ALU        ; 1101  ; Unsigned Binary           ;
-+------------------+-------+---------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: reg_EX_MEM:reg_EX_MEM ;
-+------------------+-------+-----------------------------------------+
-; Parameter Name   ; Value ; Type                                    ;
-+------------------+-------+-----------------------------------------+
-; RESULTSRC_WIDTH  ; 2     ; Signed Integer                          ;
-; ALU_RESULT_WIDTH ; 32    ; Signed Integer                          ;
-; REG_ADDR_WIDTH   ; 5     ; Signed Integer                          ;
-; PC_WIDTH         ; 32    ; Signed Integer                          ;
-; DATA_WIDTH       ; 32    ; Signed Integer                          ;
-; OPCODE_WIDTH     ; 7     ; Signed Integer                          ;
-; FUNCT7_WIDTH     ; 7     ; Signed Integer                          ;
-; FUNCT3_WIDTH     ; 3     ; Signed Integer                          ;
-+------------------+-------+-----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------+
-; Parameter Settings for User Entity Instance: DMem:dmem ;
-+----------------+-------+-------------------------------+
-; Parameter Name ; Value ; Type                          ;
-+----------------+-------+-------------------------------+
-; ADDR_WIDTH     ; 32    ; Signed Integer                ;
-; DMEM_WIDTH     ; 32    ; Signed Integer                ;
-; DMEM_DEPTH     ; 64    ; Signed Integer                ;
-+----------------+-------+-------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: reg_MEM_WB:reg_MEM_WB ;
-+------------------+-------+-----------------------------------------+
-; Parameter Name   ; Value ; Type                                    ;
-+------------------+-------+-----------------------------------------+
-; RESULTSRC_WIDTH  ; 2     ; Signed Integer                          ;
-; REG_ADDR_WIDTH   ; 5     ; Signed Integer                          ;
-; ALU_RESULT_WIDTH ; 32    ; Signed Integer                          ;
-; DATA_WIDTH       ; 32    ; Signed Integer                          ;
-; PC_WIDTH         ; 32    ; Signed Integer                          ;
-; OPCODE_WIDTH     ; 7     ; Signed Integer                          ;
-; FUNCT3_WIDTH     ; 3     ; Signed Integer                          ;
-+------------------+-------+-----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: hazard_unit:hazard_unit ;
-+-----------------+-------+--------------------------------------------+
-; Parameter Name  ; Value ; Type                                       ;
-+-----------------+-------+--------------------------------------------+
-; REG_ADDR_WIDTH  ; 5     ; Signed Integer                             ;
-; RESULTSRC_WIDTH ; 2     ; Signed Integer                             ;
-+-----------------+-------+--------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "reg_EX_MEM:reg_EX_MEM"                                                                  ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; funct7_M ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "control_unit:control_unit"                                                              ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; ImmSrc_D ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------+
-; Port Connectivity Checks: "adder:adder"      ;
-+------------+-------+----------+--------------+
-; Port       ; Type  ; Severity ; Details      ;
-+------------+-------+----------+--------------+
-; opB[31..1] ; Input ; Info     ; Stuck at GND ;
-; opB[0]     ; Input ; Info     ; Stuck at VCC ;
-+------------+-------+----------+--------------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-------------------+---------------------------------+
-; Type              ; Count                           ;
-+-------------------+---------------------------------+
-; boundary_port     ; 2                               ;
-;                   ;                                 ;
-; Max LUT depth     ; 0.00                            ;
-; Average LUT depth ; 0.00                            ;
-+-------------------+---------------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
-
-
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Mon Aug 12 10:34:43 2024
+    Info: Processing started: Wed Aug 14 02:53:45 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISCV_5StagePipelined_Processor -c RISCV_5StagePipelined_Processor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file imem.v
     Info (12023): Found entity 1: IMem File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v Line: 1
-    Info (12023): Found entity 2: Memory_instruction_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v Line: 50
+    Info (12023): Found entity 2: Memory_instruction_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v Line: 55
 Info (12021): Found 1 design units, including 1 entities, in source file dmem.v
-    Info (12023): Found entity 1: DMem File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/DMem.v Line: 1
+    Info (12023): Found entity 1: DMem File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/DMem.v Line: 32
 Info (12021): Found 1 design units, including 1 entities, in source file hazard_unit.v
     Info (12023): Found entity 1: hazard_unit File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/hazard_unit.v Line: 1
 Warning (12019): Can't analyze file -- file stage_IF.v is missing
@@ -644,82 +207,35 @@ Info (12021): Found 1 design units, including 1 entities, in source file adder.v
     Info (12023): Found entity 1: adder File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/adder.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file riscv_5stagepipelined_processor_tb.v
     Info (12023): Found entity 1: RISCV_5StagePipelined_Processor_tb File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor_tb.v Line: 2
-Info (12127): Elaborating entity "RISCV_5StagePipelined_Processor" for the top level hierarchy
-Warning (10240): Verilog HDL Always Construct warning at RISCV_5StagePipelined_Processor.v(242): inferring latch(es) for variable "funct3", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Warning (10240): Verilog HDL Always Construct warning at RISCV_5StagePipelined_Processor.v(242): inferring latch(es) for variable "funct7", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Warning (10240): Verilog HDL Always Construct warning at RISCV_5StagePipelined_Processor.v(242): inferring latch(es) for variable "rs1_D", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Warning (10240): Verilog HDL Always Construct warning at RISCV_5StagePipelined_Processor.v(242): inferring latch(es) for variable "rs2_D", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Warning (10240): Verilog HDL Always Construct warning at RISCV_5StagePipelined_Processor.v(242): inferring latch(es) for variable "rd_D", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Warning (10230): Verilog HDL assignment warning at RISCV_5StagePipelined_Processor.v(396): truncated value with size 32 to match size of target (1) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 396
-Info (10041): Inferred latch for "rd_D[0]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "rd_D[1]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "rd_D[2]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "rd_D[3]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "rd_D[4]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "rs2_D[0]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "rs2_D[1]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "rs2_D[2]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "rs2_D[3]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "rs2_D[4]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "rs1_D[0]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "rs1_D[1]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "rs1_D[2]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "rs1_D[3]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "rs1_D[4]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "funct7[0]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "funct7[1]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "funct7[2]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "funct7[3]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "funct7[4]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "funct7[5]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "funct7[6]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "funct3[0]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "funct3[1]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (10041): Inferred latch for "funct3[2]" at RISCV_5StagePipelined_Processor.v(242) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 242
-Info (12128): Elaborating entity "mux_2" for hierarchy "mux_2:mux_pctarget_or_pc_jalr" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 170
-Info (12128): Elaborating entity "IMem" for hierarchy "IMem:instruction_memory" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 208
-Warning (10030): Net "memory_ins.data_a" at IMem.v(9) has no driver or initial value, using a default initial value '0' File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v Line: 9
-Warning (10030): Net "memory_ins.waddr_a" at IMem.v(9) has no driver or initial value, using a default initial value '0' File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v Line: 9
-Warning (10030): Net "memory_ins.we_a" at IMem.v(9) has no driver or initial value, using a default initial value '0' File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/IMem.v Line: 9
-Info (12128): Elaborating entity "reg_IF_ID" for hierarchy "reg_IF_ID:reg_IF_ID" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 224
-Info (12128): Elaborating entity "adder" for hierarchy "adder:adder" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 232
-Info (12128): Elaborating entity "control_unit" for hierarchy "control_unit:control_unit" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 309
-Info (12128): Elaborating entity "main_decoder" for hierarchy "control_unit:control_unit|main_decoder:main_decoder" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/control_unit.v Line: 37
-Warning (10240): Verilog HDL Always Construct warning at main_decoder.v(19): inferring latch(es) for variable "ResultSrc", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v Line: 19
-Info (10041): Inferred latch for "ResultSrc[0]" at main_decoder.v(19) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v Line: 19
-Info (10041): Inferred latch for "ResultSrc[1]" at main_decoder.v(19) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/main_decoder.v Line: 19
-Info (12128): Elaborating entity "ALU_decoder" for hierarchy "control_unit:control_unit|ALU_decoder:alu_decoder" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/control_unit.v Line: 44
-Warning (10270): Verilog HDL Case Statement warning at ALU_decoder.v(34): incomplete case statement has no default case item File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 34
-Warning (10270): Verilog HDL Case Statement warning at ALU_decoder.v(130): incomplete case statement has no default case item File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 130
-Warning (10240): Verilog HDL Always Construct warning at ALU_decoder.v(33): inferring latch(es) for variable "ALUControl", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 33
-Info (10041): Inferred latch for "ALUControl[0]" at ALU_decoder.v(80) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 80
-Info (10041): Inferred latch for "ALUControl[1]" at ALU_decoder.v(80) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 80
-Info (10041): Inferred latch for "ALUControl[2]" at ALU_decoder.v(80) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 80
-Info (10041): Inferred latch for "ALUControl[3]" at ALU_decoder.v(80) File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/ALU_decoder.v Line: 80
-Info (12128): Elaborating entity "reg_file" for hierarchy "reg_file:reg_file" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 325
-Warning (10240): Verilog HDL Always Construct warning at reg_file.v(32): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/reg_file.v Line: 32
-Info (12128): Elaborating entity "imm_ext" for hierarchy "imm_ext:imm_ext" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 334
-Info (12128): Elaborating entity "reg_ID_EX" for hierarchy "reg_ID_EX:reg_ID_EX" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 390
-Info (12128): Elaborating entity "alu" for hierarchy "alu:alu" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 429
-Info (12128): Elaborating entity "reg_EX_MEM" for hierarchy "reg_EX_MEM:reg_EX_MEM" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 464
-Info (12128): Elaborating entity "DMem" for hierarchy "DMem:dmem" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 480
-Warning (10240): Verilog HDL Always Construct warning at DMem.v(19): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/DMem.v Line: 19
-Info (12128): Elaborating entity "reg_MEM_WB" for hierarchy "reg_MEM_WB:reg_MEM_WB" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 505
-Info (12128): Elaborating entity "hazard_unit" for hierarchy "hazard_unit:hazard_unit" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 535
+Error (10170): Verilog HDL syntax error at load_store_unit.sv(335) near text: "if";  expecting "endmodule". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 335
+Error (10170): Verilog HDL syntax error at load_store_unit.sv(353) near text: "end";  expecting "endmodule". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 353
+Error (10170): Verilog HDL syntax error at load_store_unit.sv(529) near text: "if";  expecting "endmodule". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 529
+Error (10170): Verilog HDL syntax error at load_store_unit.sv(571) near text: "inside";  expecting ";". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 571
+Error (10170): Verilog HDL syntax error at load_store_unit.sv(574) near text: "inside";  expecting ";". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 574
+Critical Warning (10191): Verilog HDL Compiler Directive warning at load_store_unit.sv(595): text macro "DV_FCOV_SIGNAL" is undefined File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 595
+Error (10170): Verilog HDL syntax error at load_store_unit.sv(595) near text: "(";  expecting "endmodule". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 595
+Error (10170): Verilog HDL syntax error at load_store_unit.sv(595) near text: "(";  expecting an identifier. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 595
+Error (10170): Verilog HDL syntax error at load_store_unit.sv(596) near text: "(";  expecting an identifier. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 596
+Error (10759): Verilog HDL error at load_store_unit.sv(597): object lsu_req_i declared in a list of port declarations cannot be redeclared within the module body File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 597
+Error (10170): Verilog HDL syntax error at load_store_unit.sv(597) near text: "&";  expecting ";". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 597
+Error (10170): Verilog HDL syntax error at load_store_unit.sv(599) near text: "(";  expecting an identifier. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 599
+Error (10170): Verilog HDL syntax error at load_store_unit.sv(601) near text: "(";  expecting an identifier. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 601
+Error (10149): Verilog HDL Declaration error at load_store_unit.sv(601): identifier "WAIT_GNT_MIS" is already declared in the present scope File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 601
+Error (10170): Verilog HDL syntax error at load_store_unit.sv(603) near text: "(";  expecting an identifier. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 603
+Error (10149): Verilog HDL Declaration error at load_store_unit.sv(603): identifier "WAIT_RVALID_MIS_GNTS_DONE" is already declared in the present scope File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 603
+Critical Warning (10191): Verilog HDL Compiler Directive warning at load_store_unit.sv(610): text macro "ASSERT" is undefined File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 610
+Critical Warning (10191): Verilog HDL Compiler Directive warning at load_store_unit.sv(612): text macro "ASSERT_KNOWN" is undefined File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 612
+Error (10149): Verilog HDL Declaration error at load_store_unit.sv(612): identifier "rdata_offset_q" is already declared in the present scope File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 612
+Error (10149): Verilog HDL Declaration error at load_store_unit.sv(613): identifier "data_type_q" is already declared in the present scope File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 613
+Error (10149): Verilog HDL Declaration error at load_store_unit.sv(614): identifier "ls_fsm_cs" is already declared in the present scope File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 614
+Error (10149): Verilog HDL Declaration error at load_store_unit.sv(615): identifier "WAIT_GNT_MIS" is already declared in the present scope File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/load_store_unit.sv Line: 615
+Info (12021): Found 0 design units, including 0 entities, in source file load_store_unit.sv
 Info (144001): Generated suppressed messages file D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/output_files/RISCV_5StagePipelined_Processor.map.smsg
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 2
-    Warning (15610): No output dependent on input pin "rst_n" File: D:/Verilog project/DigitalDesign/DigitalDesign/RISCV_5StagePipelined_Processor/RISCV_5StagePipelined_Processor.v Line: 4
-Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 0 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 24 warnings
-    Info: Peak virtual memory: 4759 megabytes
-    Info: Processing ended: Mon Aug 12 10:34:52 2024
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:08
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 19 errors, 9 warnings
+    Error: Peak virtual memory: 4727 megabytes
+    Error: Processing ended: Wed Aug 14 02:53:52 2024
+    Error: Elapsed time: 00:00:07
+    Error: Total CPU time (on all processors): 00:00:07
 
 
 +------------------------------------------+

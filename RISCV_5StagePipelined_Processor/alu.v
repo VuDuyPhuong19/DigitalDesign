@@ -1,5 +1,7 @@
 module alu #(
 	parameter OP_WIDTH = 32,
+	parameter OPCODE_WIDTH = 7,
+	parameter FUNCT3_WIDTH = 3,
 	parameter ALUCONTROL_WIDTH = 4,
 	parameter ALU_RESULT_WIDTH = 32,
     parameter ADD_ALU = 4'b0000,
@@ -15,16 +17,19 @@ module alu #(
     parameter NOT_EQUAL_ALU = 4'b1010,
     parameter SRL_ALU = 4'b1011, // srl
     parameter SLTU_ALU = 4'b1100, //sltu
-    parameter SGTeU_ALU = 4'b1101 // bgeu
+    parameter SGTeU_ALU = 4'b1101, // bgeu
+    parameter JALR_ALU = 4'b1110 // jalr
 )(
 	input [OP_WIDTH-1:0] opA,
 	input [OP_WIDTH-1:0] opB,
 	input [ALUCONTROL_WIDTH-1:0] ALUControl_E,
+	input [OPCODE_WIDTH-1:0] opcode_E,
+	input [FUNCT3_WIDTH-1:0] funct3_E, 
 	output zero_E,
 	output reg signed [ALU_RESULT_WIDTH-1:0] ALU_result_E
 );
 
-assign zero_E = (ALU_result_E == 32'b0);
+assign zero_E = (ALU_result_E == 32'b0) & (opcode_E == 7'b1100011) & (funct3_E == 3'b000);
    
 always @ (*) begin
 	case(ALUControl_E)
@@ -56,6 +61,8 @@ always @ (*) begin
 		SLTU_ALU: ALU_result_E = (opA < opB) ? 1 : 0;
 		// SGTeU
 		SGTeU_ALU: ALU_result_E = (opA >= opB) ? 1 : 0;
+		// JALR
+		JALR_ALU: ALU_result_E = (opA + opB) & ~1;
 
 		default: ALU_result_E = 0;
 	endcase

@@ -23,8 +23,8 @@ module reg_ID_EX #(
 	input Jump_D,
 	input Branch_D,
 	input [ALUCONTROL_WIDTH-1:0] ALUControl_D,
-	input [1:0] ALUSrcB_D,
-	input ALUSrcA_D,
+	input ALUSrcB_D,
+	input [1:0] ALUSrcA_D,
 	input [REG_ADDR_WIDTH-1:0] rs1_D, 
 	input [REG_ADDR_WIDTH-1:0] rs2_D,
 	input [REG_ADDR_WIDTH-1:0] rd_D,
@@ -45,8 +45,8 @@ module reg_ID_EX #(
 	output reg Jump_E,
 	output reg Branch_E,
 	output reg [ALUCONTROL_WIDTH-1:0] ALUControl_E,
-	output reg [1:0] ALUSrcB_E,
-	output reg ALUSrcA_E,
+	output reg ALUSrcB_E,
+	output reg [1:0] ALUSrcA_E,
 	output reg [REG_ADDR_WIDTH-1:0] rs1_E, 
 	output reg [REG_ADDR_WIDTH-1:0] rs2_E,
 	output reg [REG_ADDR_WIDTH-1:0] rd_E,
@@ -71,6 +71,7 @@ always @ (posedge clk or negedge rst_n) begin
 		Branch_E <= 0;
 		ALUControl_E <= 0;
 		ALUSrcB_E <= 0;
+		ALUSrcA_E <= 0;
 		rs1_E <= 0;
 		rs2_E <= 0;
 		rd_E <= 0;
@@ -80,6 +81,7 @@ always @ (posedge clk or negedge rst_n) begin
 		PCplus4_E <= 0;
 		PC_E <= 0;
 		PCJalSrc_E <= 0;
+		write_type_E <= 0;
 	end
 	else begin
 		if (!Flush_E) begin
@@ -93,6 +95,7 @@ always @ (posedge clk or negedge rst_n) begin
 			Branch_E <= Branch_D;
 			ALUControl_E <= ALUControl_D;
 			ALUSrcB_E <= ALUSrcB_D;
+			ALUSrcA_E <= ALUSrcA_D;
 			rs1_E <= rs1_D;
 			rs2_E <= rs2_D;
 			rd_E <= rd_D;
@@ -102,6 +105,7 @@ always @ (posedge clk or negedge rst_n) begin
 			PCplus4_E <= PCplus4_D;
 			PC_E <= PC_D;
 			PCJalSrc_E <= PCJalSrc_D;
+			write_type_E <= write_type_D;
 		end
 		else begin
 			opcode_E <= 0;
@@ -114,6 +118,7 @@ always @ (posedge clk or negedge rst_n) begin
 			Branch_E <= 0;
 			ALUControl_E <= 0;
 			ALUSrcB_E <= 0;
+			ALUSrcA_E <= 0;
 			rs1_E <= 0;
 			rs2_E <= 0;
 			rd_E <= 0;
@@ -123,6 +128,7 @@ always @ (posedge clk or negedge rst_n) begin
 			PCplus4_E <= 0;
 			PC_E <= 0;
 			PCJalSrc_E <= 0;
+			write_type_E <= 0;
 		end
 	end
 end

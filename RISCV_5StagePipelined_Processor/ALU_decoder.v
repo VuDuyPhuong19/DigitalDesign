@@ -13,12 +13,15 @@ module ALU_decoder#(
     parameter SRL_ALU = 4'b1011, // srl
     parameter SLTU_ALU = 4'b1100, //sltu
     parameter SGTeU_ALU = 4'b1101, // bgeu
+    parameter JALR_ALU = 4'b1110, // jalr
     parameter ALUCONTROL_WIDTH = 4,
     parameter FUNCT3_WIDTH = 3,
     parameter FUNCT7_WIDTH = 7,
-    parameter ALU_OP_WIDTH = 2
+    parameter ALU_OP_WIDTH = 2,
+    parameter OPCODE_WIDTH = 7
 )
 (
+    input  [OPCODE_WIDTH-1:0] opcode,
     input [ALU_OP_WIDTH-1:0] ALUOp,
     input [FUNCT3_WIDTH-1:0] funct3,
     input [FUNCT7_WIDTH-1:0] funct7,
@@ -72,6 +75,9 @@ always @ (*) begin // sai ở chỗ alway @ (get_fun)
             10'b0110000000: begin
                 ALUControl = SLTU_ALU;
             end                
+            default: begin
+                ALUControl = ADD_ALU; 
+            end
         endcase
     end
 
@@ -79,9 +85,15 @@ always @ (*) begin // sai ở chỗ alway @ (get_fun)
     
     else if(ALUOp == 2'b01) begin
             case(funct3)
-            // addi
+            
             3'b000: begin 
-                ALUControl = ADD_ALU;
+                if (opcode == 7'b1100111) begin 
+                    ALUControl = JALR_ALU;      // jalr
+                end
+                else begin
+                   ALUControl = ADD_ALU;        // addi
+                end
+                
             end
             // xori
             3'b100: begin 
@@ -114,6 +126,9 @@ always @ (*) begin // sai ở chỗ alway @ (get_fun)
             // sltiu
             3'b011: begin 
                 ALUControl = SLTU_ALU;
+            end
+            default: begin 
+                ALUControl = ADD_ALU;
             end
             endcase
     end
@@ -151,6 +166,9 @@ always @ (*) begin // sai ở chỗ alway @ (get_fun)
             // bgeu
             3'b111: begin
                 ALUControl = SGTeU_ALU;
+            end
+            default: begin 
+                ALUControl = ADD_ALU;
             end
         endcase
     end

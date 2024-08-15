@@ -1,13 +1,37 @@
-module RISCV_5StagePipelined_Processor (
+module RISCV_5StagePipelined_Processor #(
+	parameter ADDR_WIDTH = 32
+)(
 	input clk,
 	input rst_n
+
+	// input instr_gnt_i,
+	// input instr_rvaild_i,
+	// input [31:0] instr_rdata_i,
+	// input [6:0] instr_rdata_intg_i,
+	// input instr_err_i,
+
+	// input data_gnt_i,
+	// input data_rvaild_i,
+	// input [31:0] data_rdata_i,
+	// input [6:0] data_rdata_intg_i,
+	// input data_err_i,
+
+	// output instr_req_o,
+	// output [ADDR_WIDTH:0] instr_addr_o,
+	// output data_req_o,
+	// output [31:0] data_addr_o,
+	// output data_we_o,
+	// output data_be_o,
+	// output data_wdata_o,
+	// output [6:0] data_wdata_intg_o
+	
 );
 
 // Define paramaters
 
 // IF
 parameter PC_WIDTH = 32;
-parameter ADDR_WIDTH = 32;
+// parameter ADDR_WIDTH = 32;
 parameter INST_WIDTH = 32;
 parameter IMEM_DEPTH = 1 << 10; // 1 << 32
 
@@ -19,6 +43,9 @@ parameter OPCODE_L_TYPE = 7'b0000011;
 parameter OPCODE_B_TYPE = 7'b1100011;
 parameter OPCODE_J_TYPE = 7'b1101111;
 parameter OPCODE_JALR_TYPE = 7'b1100111;
+parameter OPCODE_LUI_TYPE = 7'b0110111;
+parameter OPCODE_AUIPC_TYPE = 7'b0010111;
+
 
 parameter RESULTSRC_WIDTH = 2;
 parameter ALUCONTROL_WIDTH = 4;
@@ -48,6 +75,7 @@ parameter NOT_EQUAL_ALU = 4'b1010;
 parameter SRL_ALU = 4'b1011; // srl
 parameter SLTU_ALU = 4'b1100; //sltu
 parameter SGTeU_ALU = 4'b1101; // bgeu
+parameter JALR_ALU = 4'b1110; // jalr
 parameter DATA_WIDTH = 32;
 
 // MEM 
@@ -60,7 +88,10 @@ parameter DMEM_DEPTH = 1 << 6; // 1 << 32
 
 // Declare signals
 
+// load and store unit
+
 // IF
+
 reg [PC_WIDTH-1:0] PC_F;
 wire [PC_WIDTH-1:0] PCtarget_E;
 wire [PC_WIDTH-1:0] pc_mux_out;
@@ -119,13 +150,13 @@ wire [PC_WIDTH-1:0] PC_E;
 wire PCJalSrc_E;
 wire [1:0] write_type_E;
 
-wire [OPCODE_WIDTH-1:0] opcode_D;
-wire [FUNCT3_WIDTH-1:0] funct3_D;
-wire [FUNCT7_WIDTH-1:0] funct7_D;
+// wire [OPCODE_WIDTH-1:0] opcode_D;
+// wire [FUNCT3_WIDTH-1:0] funct3_D;
+// wire [FUNCT7_WIDTH-1:0] funct7_D;
 
 
 // EX
-wire SrcA_E_pre;
+wire [OP_WIDTH-1:0] SrcA_E_pre;
 wire PCSrc_E;
 wire zero_E;
 wire [OP_WIDTH-1:0] SrcA_E;
@@ -167,6 +198,7 @@ wire RegWrite_W;
 
 //------------------------------Instruction Fetch------------------------------//
 
+
 mux_2 #(
 	.MUX_DATA_WIDTH(PC_WIDTH)
 ) mux_pctarget_or_pc_jalr (
@@ -192,7 +224,7 @@ mux_2 #(
 // PC
 always @ (posedge clk or negedge rst_n) begin
 	if (~rst_n) begin
-		PC_F = 32'b0;
+		PC_F = 32'h0;
 	end
 	else begin
 		if (!Stall_F) begin
@@ -204,6 +236,9 @@ always @ (posedge clk or negedge rst_n) begin
 	end
 end 
 
+// assign instruction = instr_rdata_i;
+// assign instr_addr_o = PC_F;
+// assign instr_req_o = 1;
 
 IMem #(
 	.ADDR_WIDTH(ADDR_WIDTH),
@@ -213,6 +248,8 @@ IMem #(
 	.Address(PC_F),
 	.instruction(instruction)
 );
+
+
 
 reg_IF_ID #(
 	.INST_WIDTH(INST_WIDTH),
@@ -234,7 +271,7 @@ adder #(
 	.ADDER_DATA_WIDTH(PC_WIDTH)
 ) adder (
 	.opA(PC_F),
-	.opB(32'b1),
+	.opB(1),
 	.adder_out(PCplus4_F)
 );
 
@@ -283,6 +320,12 @@ always @ (*) begin
 			rd_D = inst_D[11:7];
 			funct3 = inst_D[14:12];
 		end
+		OPCODE_LUI_TYPE: begin
+			rd_D = inst_D[11:7];
+		end
+		OPCODE_AUIPC_TYPE: begin
+			rd_D = inst_D[11:7];
+		end
 		default: begin
 			funct3 = 0;
 			funct7 = 0;
@@ -324,7 +367,7 @@ reg_file #(
 ) reg_file (
 	.clk(clk),
 	.rst_n(rst_n),
-	.RegWrite(RegWrite_D),
+	.RegWrite(RegWrite_W),
 	.addr_rs1(rs1_D),
 	.addr_rs2(rs2_D),
 	.addr_rd(rd_W),
@@ -414,10 +457,12 @@ assign PC_jalr_E = ALU_result_E;
 assign SrcA_E_pre = (ForwardA_E == 2'b00) ? rd1_E : ((ForwardA_E == 2'b01) ? result_W : ((ForwardA_E == 2'b10) ? ALU_result_M : 0));
 assign WriteData_E = (ForwardB_E == 2'b00) ? rd2_E : ((ForwardB_E == 2'b01) ? result_W : ((ForwardB_E == 2'b10) ? ALU_result_M : 0));
 assign SrcB_E = ALUSrcB_E ? ImmExt_E : WriteData_E;
-assign SrcA_E = (ALUSrcA_E == 2'b00) ? 0 : ((ALUSrcA_E == 2'b01) ? SrcA_E_pre : ((ALUSrcA_E == 2'b10) ? PCtarget_E : 0));
+assign SrcA_E = (ALUSrcA_E == 2'b00) ? 0 : ((ALUSrcA_E == 2'b01) ? SrcA_E_pre : ((ALUSrcA_E == 2'b10) ? PC_E : 0));
 
 alu #(
 	.OP_WIDTH(OP_WIDTH),
+	.OPCODE_WIDTH(OPCODE_WIDTH),
+	.FUNCT3_WIDTH(FUNCT3_WIDTH),
 	.ALUCONTROL_WIDTH(ALUCONTROL_WIDTH),
 	.ALU_RESULT_WIDTH(ALU_RESULT_WIDTH),
 	.ADD_ALU(ADD_ALU),
@@ -433,11 +478,14 @@ alu #(
 	.NOT_EQUAL_ALU(NOT_EQUAL_ALU),
 	.SRL_ALU(SRL_ALU),
 	.SLTU_ALU(SLTU_ALU),
-	.SGTeU_ALU(SGTeU_ALU)
+	.SGTeU_ALU(SGTeU_ALU),
+	.JALR_ALU(JALR_ALU)
 ) alu (
 	.opA(SrcA_E),
 	.opB(SrcB_E),
 	.ALUControl_E(ALUControl_E),
+	.opcode_E(opcode_E),
+	.funct3_E(funct3_E),
 	.zero_E(zero_E),
 	.ALU_result_E(ALU_result_E)
 );
@@ -495,6 +543,13 @@ DMem #(
 	.write_type_M(write_type_M),
 	.read_data(ReadData_M)
 );
+
+// assign data_req_o = 1;
+// assign data_addr_o = ALU_result_M;
+// assign data_we_o = MemWrite_M;
+// assign data_be_o = write_type_M;
+// assign data_wdata_o = WriteData_M;
+// assign data_rdata_i = ReadData_M;
 
 reg_MEM_WB #(
 	.RESULTSRC_WIDTH(RESULTSRC_WIDTH),

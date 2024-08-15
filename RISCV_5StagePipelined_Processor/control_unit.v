@@ -42,6 +42,7 @@ main_decoder main_decoder(
 );
 
 ALU_decoder alu_decoder(
+    .opcode(opcode),
     .ALUOp(ALUOp),
     .funct3(funct3),
     .funct7(funct7),
