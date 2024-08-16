@@ -31,12 +31,12 @@ reg [REG_WIDTH-1:0] registers [0:NUM_REG-1];
 integer i;
 always @ (negedge clk or negedge rst_n) begin
 	if(~rst_n) begin
-		registers[0] = 0;
-		registers[1] = 1;
-		registers[2] = 2;
-		registers[3] = 3;
-		registers[4] = 4;
-		registers[5] = 5;
+		registers[0] <= 0;
+		registers[1] <= 1;
+		registers[2] <= 2;
+		registers[3] <= 3;
+		registers[4] <= 4;
+		registers[5] <= 5;
 		for(i = 6; i < NUM_REG; i = i + 1) begin
 			registers[i] <= {REG_WIDTH{1'b0}};
 		end
@@ -57,7 +57,12 @@ end
   //     data_rs2 <= registers[addr_rs2];
   // end
 
-assign data_rs1 = registers[addr_rs1];
-assign data_rs2 = registers[addr_rs2];
+always @ (addr_rs1 or addr_rs2) begin
+		data_rs1 = registers[addr_rs1];
+		data_rs2 = registers[addr_rs2];
+end
+
+// assign data_rs1 = registers[addr_rs1];
+// assign data_rs2 = registers[addr_rs2];
 
 endmodule
