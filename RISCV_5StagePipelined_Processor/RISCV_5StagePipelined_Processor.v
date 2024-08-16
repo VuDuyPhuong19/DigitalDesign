@@ -224,7 +224,7 @@ mux_2 #(
 // PC
 always @ (posedge clk or negedge rst_n) begin
 	if (~rst_n) begin
-		PC_F = 32'h0;
+		PC_F <= 32'h0;
 	end
 	else begin
 		if (!Stall_F) begin
@@ -271,7 +271,7 @@ adder #(
 	.ADDER_DATA_WIDTH(PC_WIDTH)
 ) adder (
 	.opA(PC_F),
-	.opB(1),
+	.opB(4),
 	.adder_out(PCplus4_F)
 );
 
