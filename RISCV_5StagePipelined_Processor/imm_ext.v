@@ -31,9 +31,11 @@ always @(*) begin
 		// JALR type
 		7'b1100111: ImmExt_D = {{20{Instruction[31]}}, Instruction[31:20]};
         // LUI type
-        7'b0110111: ImmExt_D = {Instruction[31:12], 12'b0}; // LUI
+        7'b0110111: ImmExt_D = {Instruction[31:12], 12'h000}; // LUI
         // AUIPC type
-        7'b0010111: ImmExt_D = {Instruction[31:12], 12'b0}; // AUIPC
+        7'b0010111: ImmExt_D = {Instruction[31:12], 12'h000}; // AUIPC
+        // ECALL, EBREAK, FENCE
+        7'b1110011, 7'b0001111: ImmExt_D = {20'b0, Instruction[31:20]};
 
 		default: ImmExt_D = 32'b0;
 	endcase	
