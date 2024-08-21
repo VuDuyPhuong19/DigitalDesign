@@ -10,8 +10,8 @@ module reg_file #(
 	input [REG_ADDR_WIDTH-1:0] addr_rs2,
 	input [REG_ADDR_WIDTH-1:0] addr_rd,
 	input [REG_WIDTH-1:0] data_rd,
-	output [REG_WIDTH-1:0] data_rs1, 
-	output [REG_WIDTH-1:0] data_rs2
+	output reg [REG_WIDTH-1:0] data_rs1, 
+	output reg [REG_WIDTH-1:0] data_rs2
 );
 
 reg [REG_WIDTH-1:0] registers [0:NUM_REG-1];
