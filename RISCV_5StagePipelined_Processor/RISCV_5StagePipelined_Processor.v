@@ -2,7 +2,8 @@ module RISCV_5StagePipelined_Processor #(
 	parameter ADDR_WIDTH = 32
 )(
 	input clk,
-	input rst_n
+	input rst_n,
+	input irq_timer_i
 
 	// input instr_gnt_i,
 	// input instr_rvaild_i,
@@ -82,6 +83,12 @@ parameter DATA_WIDTH = 32;
 
 parameter DMEM_WIDTH = 32;
 parameter DMEM_DEPTH = 1 << 6; // 1 << 32
+
+parameter PRIORITY_NMI = 5'd31;
+parameter PRIORITY_FAST = 5'd30;
+parameter PRIORITY_EXTERNAL = 5'd11;
+parameter PRIORITY_TIMER = 5'd7;
+parameter PRIORITY_SOFTWARE = 5'd3;
 
 // WB
 
@@ -195,6 +202,19 @@ wire [1:0] ForwardA_E;
 wire [1:0] ForwardB_E;
 wire RegWrite_W;
 
+//Interrupts
+
+wire irq_nm_i;           
+wire [14:0] irq_fast_i;     
+wire irq_external_i;              
+wire irq_software_i;         
+reg irq_done;              
+//wire [31:0] pc_in;          
+wire [PC_WIDTH-1:0] pc_out_irq;        
+wire irq_active;            
+wire control_pc_irq;          
+wire [PC_WIDTH-1:0] pc_mux_out2;    // for funtional interrupt
+
 
 //------------------------------Instruction Fetch------------------------------//
 
@@ -217,6 +237,15 @@ mux_2 #(
 	.mux_out(pc_mux_out)
 );
 
+mux_2 #(
+	.MUX_DATA_WIDTH(PC_WIDTH)
+) mux_pc_interrupt (
+	.A(pc_mux_out),
+	.B(pc_out_irq),
+	.control(control_pc_irq),
+	.mux_out(pc_mux_out2)
+);
+
 // initial begin
 // 	PC_F = 32'b0;
 // end
@@ -228,7 +257,7 @@ always @ (posedge clk or negedge rst_n) begin
 	end
 	else begin
 		if (!Stall_F) begin
-			PC_F <= pc_mux_out;
+			PC_F <= pc_mux_out2;
 		end
 		else begin
 			PC_F <= PC_F;
@@ -249,7 +278,13 @@ IMem #(
 	.instruction(instruction)
 );
 
-
+always @ (instruction) begin
+        if(instruction== 32'h0000000) begin
+            irq_done = 1;
+        end else begin
+            irq_done = 0;
+        end
+end
 
 reg_IF_ID #(
 	.INST_WIDTH(INST_WIDTH),
@@ -604,6 +639,29 @@ hazard_unit #(
 	.Stall_D(Stall_D),
 	.Flush_D(Flush_D),
 	.Flush_E(Flush_E)
+);
+
+//---------------------------------Interrupt--------------------------------------//
+
+Interrupt #(
+	.PRIORITY_NMI(PRIORITY_NMI),
+    .PRIORITY_FAST(PRIORITY_FAST),
+    .PRIORITY_EXTERNAL(PRIORITY_EXTERNAL),
+    .PRIORITY_TIMER(PRIORITY_TIMER),
+    .PRIORITY_SOFTWARE(PRIORITY_SOFTWARE)
+) irq_uut (
+	.clk(clk),
+	.rst_n(rst_n),
+	.irq_nm_i(1'b0),           
+	.irq_fast_i(irq_fast_i),    
+	.irq_external_i(1'b0),       
+	.irq_timer_i(irq_timer_i),         
+	.irq_software_i(1'b0),         
+	.irq_done(irq_done),            
+	.pc_in_irq(PCplus4_F),       
+	.pc_out_irq(pc_out_irq),   
+	.irq_active(irq_active),            
+	.control_pc_irq(control_pc_irq)  
 );
 
 endmodule

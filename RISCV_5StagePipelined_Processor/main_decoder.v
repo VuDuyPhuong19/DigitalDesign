@@ -3,10 +3,12 @@ module main_decoder #(
 	parameter OPCODE_WIDTH = 7,
 	parameter IMM_SRC_WIDTH = 2,
 	parameter ALU_OP_WIDTH = 2,
-	parameter FUNCT3_WIDTH = 3
+	parameter FUNCT3_WIDTH = 3,
+	parameter FUNCT7_WIDTH = 7
 )(
 	input [OPCODE_WIDTH-1:0] opcode,
 	input [FUNCT3_WIDTH-1:0] funct3,
+	input [FUNCT7_WIDTH-1:0] funct7,
 	output reg RegWrite,
 	output reg [IMM_SRC_WIDTH-1:0] ImmSrc,
 	output reg [1:0] ALUSrcA,
@@ -17,22 +19,70 @@ module main_decoder #(
 	output reg Jump,
 	output reg [ALU_OP_WIDTH-1:0] ALUOp,
 	output reg PCJalSrc_D, // jalr
-	output reg [1:0] write_type_D
+	output reg [1:0] write_type_D,
+	output reg start_mult_D,
+	output reg start_div_D,
+	output reg [1:0] mult_func_D,
+	output reg [1:0] div_func_D
 );
 always @ (*) begin
 	case(opcode)
 		7'b0110011: begin // R-Type
-			RegWrite = 1;
-			ImmSrc = 2'b00;
-			ALUSrcB = 0;
-			ALUSrcA = 2'b01;
-			MemWrite = 0;
-			// ResultSrc = 2'b01;
-			ResultSrc = 2'b00;
-			Branch = 0;
-			ALUOp = 2'b10;
-			Jump = 0;
-			PCJalSrc_D = 0;
+			if (funct7 == 7'b0000001) begin 
+				case (funct3) 
+					3'b000: begin // mul
+						start_mult_D = 1;
+						mult_func_D = 2'b00;
+					end
+					3'b001: begin // mulh
+						start_mult_D = 1;
+						mult_func_D = 2'b01;
+					end
+					3'b011: begin // mulhu
+						start_mult_D = 1;
+						mult_func_D = 2'b10;
+					end	
+					3'b010: begin // mulhsu
+						start_mult_D = 1;
+						mult_func_D = 2'b11;
+					end	
+					3'b100: begin // div
+						start_div_D = 1;
+						div_func_D = 2'b00;
+					end	
+					3'b101: begin // divu
+						start_div_D = 1;
+						div_func_D = 2'b01;
+					end	
+					3'b110: begin // rem
+						start_div_D = 1;
+						div_func_D = 2'b10;
+					end	
+					3'b111: begin // remu
+						start_div_D = 1;
+						div_func_D = 2'b11;
+					end	
+					default: begin
+						start_mult_D = 0;
+						start_div_D = 0;
+						mult_func_D = 2'b00;
+						div_func_D = 2'b00;
+					end
+				endcase			
+			end
+			else begin
+				RegWrite = 1;
+				ImmSrc = 2'b00;
+				ALUSrcB = 0;
+				ALUSrcA = 2'b01;
+				MemWrite = 0;
+				// ResultSrc = 2'b01;
+				ResultSrc = 2'b00;
+				Branch = 0;
+				ALUOp = 2'b10;
+				Jump = 0;
+				PCJalSrc_D = 0;
+			end
 		end
 
 		7'b 0010011: begin // I-Type

@@ -28,6 +28,7 @@ wire [1:0] ALUOp;
 main_decoder main_decoder(
     .opcode(opcode),
     .funct3(funct3),
+    .funct7(funct7),
     .ImmSrc(ImmSrc_D),
     .ALUSrcB(ALUSrcB_D),
     .ALUSrcA(ALUSrcA_D),

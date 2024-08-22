@@ -499,7 +499,7 @@ initial begin
     tb_results[1] = result_o;
 
     // Test case 3: MULHU operation
-    #10;
+    #100;
     func_i = 2'b10; // MULHU
     start_i = 1;
     #10;
