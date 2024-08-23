@@ -1,3 +1,68 @@
+// // one_cycle_divider
+
+// module divider (
+//     input           clk_i,
+//     input           rst_ni,
+//     input           start_i,
+//     input  [31:0]   operand_a_i,
+//     input  [31:0]   operand_b_i,
+//     input  [1:0]    func_i,          // Function select (00: DIV, 01: DIVU, 10: REM, 11: REMU)
+//     output reg [31:0] result_o,      // Output result
+//     output reg div_done_o         // Output valid signal
+// );
+
+// reg [31:0] quotient;
+// reg [31:0] remainder;
+// reg [31:0] abs_a, abs_b;
+// reg sign_a, sign_b;
+
+// // Combinational logic for single-cycle division
+// always @(*) begin
+//     div_done_o = 1'b0;
+//     result_o = 32'b0;
+//     quotient = 32'b0;
+//     remainder = 32'b0;
+    
+//     sign_a = (func_i == 2'b00 || func_i == 2'b10) && operand_a_i[31];
+//     sign_b = (func_i == 2'b00 || func_i == 2'b10) && operand_b_i[31];
+
+//     // Absolute values
+//     abs_a = sign_a ? -operand_a_i : operand_a_i;
+//     abs_b = sign_b ? -operand_b_i : operand_b_i;
+
+//     // Perform division and calculate remainder
+//     if (operand_b_i != 0) begin
+//         quotient = abs_a / abs_b;
+//         remainder = abs_a % abs_b;
+//     end else begin
+//         quotient = 32'hFFFFFFFF; // Division by zero, set quotient to -1
+//         remainder = abs_a; // Division by zero, remainder is the dividend
+//     end
+
+//     // Adjust signs based on function
+//     if (func_i == 2'b00 || func_i == 2'b10) begin
+//         if (sign_a ^ sign_b) begin
+//             quotient = -quotient;
+//         end
+//         if (sign_a && func_i == 2'b10) begin
+//             remainder = -remainder;
+//         end
+//     end
+
+//     // Select the appropriate output
+//     case (func_i)
+//         2'b00: result_o = quotient;   // DIV
+//         2'b01: result_o = quotient;   // DIVU
+//         2'b10: result_o = remainder;  // REM
+//         2'b11: result_o = remainder;  // REMU
+//     endcase
+
+//     div_done_o = start_i;
+// end
+
+// endmodule
+
+
 // 32_cycles_divider
 
 // module divider (
@@ -8,7 +73,7 @@
 //     input  [31:0]   operand_b_i,
 //     input  [1:0]    func_i,          // Function select (00: DIV, 01: DIVU, 10: REM, 11: REMU)
 //     output reg [31:0] result_o,      // Output result
-//     output reg       valid_o         // Output valid signal
+//     output reg       div_done_o         // Output valid signal
 // );
 
 // localparam IDLE        = 3'b000;
@@ -48,7 +113,7 @@
 //     dividend_d = dividend_q;
 //     divisor_d = divisor_q;
 //     count_d = count_q;
-//     valid_o = 1'b0;
+//     div_done_o = 1'b0;
 //     result_o = 32'b0;
 
 //     case (state_q)
@@ -107,7 +172,7 @@
 //                 2'b10: result_o = remainder_d;  // REM
 //                 2'b11: result_o = remainder_d;  // REMU
 //             endcase
-//             valid_o = 1'b1;
+//             div_done_o = 1'b1;
 //             state_d = IDLE;
 //         end
 //     endcase
@@ -115,17 +180,20 @@
 
 // endmodule
 
-// one_cycle_divider
+// 3_cycles_divider
 
 module divider (
+    parameter OP_WIDTH = 32,
+    parameter RESULT_WIDTH = 32
+)(
     input           clk_i,
     input           rst_ni,
     input           start_i,
-    input  [31:0]   operand_a_i,
-    input  [31:0]   operand_b_i,
+    input  [OP_WIDTH-1:0]   operand_a_i,
+    input  [OP_WIDTH-1:0]   operand_b_i,
     input  [1:0]    func_i,          // Function select (00: DIV, 01: DIVU, 10: REM, 11: REMU)
-    output reg [31:0] result_o,      // Output result
-    output reg       valid_o         // Output valid signal
+    output reg [RESULT_WIDTH-1:0] result_o,      // Output result
+    output reg       div_done_o         // Output valid signal
 );
 
 // State Definitions
@@ -152,7 +220,7 @@ end
 // Combinational logic for state transitions and division logic
 always @(*) begin
     state_d = state_q;  // Default: stay in the current state
-    valid_o = 1'b0;     // Default: not valid
+    div_done_o = 1'b0;     // Default: not valid
     result_o = 32'b0;   // Default: zero result
 
     case (state_q)
@@ -202,7 +270,7 @@ always @(*) begin
                 2'b11: result_o = remainder;  // REMU
             endcase
 
-            valid_o = 1'b1;    // Indicate the result is valid
+            div_done_o = 1'b1;    // Indicate the result is valid
             state_d = IDLE;    // Return to the IDLE state
         end
     endcase
@@ -227,7 +295,7 @@ module tb_divider;
 
     // Outputs
     wire [31:0] result_o;
-    wire valid_o;
+    wire div_done_o;
 
     // Instantiate the Unit Under Test (UUT)
     divider uut (
@@ -238,7 +306,7 @@ module tb_divider;
         .operand_b_i(operand_b_i),
         .func_i(func_i),
         .result_o(result_o),
-        .valid_o(valid_o)
+        .div_done_o(div_done_o)
     );
 
     // Clock generation
@@ -270,7 +338,7 @@ module tb_divider;
         start_i = 0;
 
         // Wait for the result to be valid
-        wait(valid_o);
+        wait(div_done_o);
         #10;
         $display("Test case 1 failed: expected -3, got %h", result_o);
  //       else $display("Test case 1 passed");
@@ -285,7 +353,7 @@ module tb_divider;
         start_i = 0;
 
         // Wait for the result to be valid
-        wait(valid_o);
+        wait(div_done_o);
         #10;
         if (result_o !== 858993456) $display("Test case 2 failed: expected 858993456, got %h", result_o);
         else $display("Test case 2 passed");
@@ -300,7 +368,7 @@ module tb_divider;
         start_i = 0;
 
         // Wait for the result to be valid
-        wait(valid_o);
+        wait(div_done_o);
         #10;
         if (result_o !== 0) $display("Test case 3 failed: expected -1, got %h", result_o);
         else $display("Test case 3 passed");
@@ -315,7 +383,7 @@ module tb_divider;
         start_i = 0;
 
         // Wait for the result to be valid
-        wait(valid_o);
+        wait(div_done_o);
         #10;
         if (result_o !== 1) $display("Test case 4 failed: expected 1, got %h", result_o);
         else $display("Test case 4 passed");

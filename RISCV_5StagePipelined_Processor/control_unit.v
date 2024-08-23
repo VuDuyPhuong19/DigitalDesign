@@ -20,7 +20,8 @@ module control_unit #(
     output ALUSrcB_D,
     output [IMMSRC_WIDTH-1:0] ImmSrc_D,
     output PCJalSrc_D,
-    output [1:0] write_type_D
+    output [1:0] write_type_D,
+    output ALUResultSrc_D
     // output PCSrc
 );
 wire [1:0] ALUOp;
@@ -39,7 +40,8 @@ main_decoder main_decoder(
     .ALUOp(ALUOp),
     .RegWrite(RegWrite_D),
     .PCJalSrc_D(PCJalSrc_D),
-    .write_type_D(write_type_D)
+    .write_type_D(write_type_D),
+    .ALUResultSrc_D(ALUResultSrc_D)
 );
 
 ALU_decoder alu_decoder(

@@ -1,20 +1,87 @@
-// one_cycle_mutiplier
+// one_cycle_multiplier
 
-module multiplier
-(
+// module multiplier (
+//     input           clk_i,
+//     input           rst_ni,
+//     input           start_i,
+//     input  [31:0]   operand_a_i,
+//     input  [31:0]   operand_b_i,
+//     input  [1:0]    func_i,
+//     output reg [31:0] result_o,
+//     output reg       mult_done_o
+// );
+
+// reg [63:0] product;
+// reg [31:0] a_reg, b_reg;
+// reg sign_a, sign_b;
+
+// // Combinational logic for single-cycle multiplication
+// always @(*) begin
+//     mult_done_o = 1'b0;
+//     result_o = 32'b0;
+//     product = 64'b0;
+
+//     // Assign inputs to registers
+//     a_reg = operand_a_i;
+//     b_reg = operand_b_i;
+
+//     // Check the signs of the operands for signed multiplication
+//     sign_a = (func_i != 2'b10) && operand_a_i[31];
+//     sign_b = (func_i == 2'b00 || func_i == 2'b01) && operand_b_i[31];
+
+//     // Get the absolute values of the operands if needed
+//     if (sign_a) a_reg = -operand_a_i;
+//     if (sign_b) b_reg = -operand_b_i;
+
+//     // Perform the multiplication
+//     case (func_i)
+//         2'b00: product = $signed(a_reg) * $signed(b_reg);   // MUL
+//         2'b01: product = $signed(a_reg) * $signed(b_reg);   // MULH
+//         2'b10: product = $unsigned(a_reg) * $unsigned(b_reg); // MULHU
+//         2'b11: product = $signed(a_reg) * $unsigned(b_reg);  // MULHSU
+//     endcase
+
+//     // Adjust the sign of the result for MUL and MULH
+//     if (sign_a ^ sign_b) begin
+//         product = -product;
+//     end
+
+//     // Select the correct output based on the function
+//     case (func_i)
+//         2'b00: result_o = product[31:0];   // MUL: lower 32 bits of the product
+//         2'b01: result_o = product[63:32];  // MULH: upper 32 bits of the product
+//         2'b10: result_o = product[63:32];  // MULHU: upper 32 bits of the unsigned product
+//         2'b11: result_o = product[63:32];  // MULHSU: upper 32 bits of signed/unsigned product
+//     endcase
+
+//     // Indicate that the result is valid
+//     if (start_i) begin
+//         mult_done_o = 1'b1;
+//     end
+// end
+
+// endmodule
+
+
+// 3_cycles_multiplier
+
+module multiplier (
+    parameter OP_WIDTH = 32,
+    parameter RESULT_WIDTH = 32
+)(
     input           clk_i,
     input           rst_ni,
     input           start_i,
-    input  [31:0]   operand_a_i,
-    input  [31:0]   operand_b_i,
+    input  [OP_WIDTH-1:0]   operand_a_i,
+    input  [OP_WIDTH-1:0]   operand_b_i,
     input  [1:0]    func_i,
-    output reg [31:0] result_o,
-    output reg       valid_o
+    output reg [RESULT_WIDTH-1:0] result_o,
+    output reg       mult_done_o
 );
 
-localparam IDLE        = 3'b000;
-localparam EXECUTE     = 3'b001;
-localparam COMPLETE    = 3'b010;
+localparam IDLE        = 3'b00;
+localparam EXECUTE     = 3'b01;
+localparam COMPLETE    = 3'b10;
 
 reg [2:0] state_q, state_d;
 reg [63:0] product_q, product_d;
@@ -34,7 +101,7 @@ end
 always @(*) begin
     state_d = state_q;
     product_d = product_q;
-    valid_o = 1'b0;
+    mult_done_o = 1'b0;
     result_o = 32'b0;
 
     case (state_q)
@@ -80,7 +147,7 @@ always @(*) begin
                 2'b10: result_o = product_d[63:32];  // MULHU: phần cao của sản phẩm không dấu
                 2'b11: result_o = product_d[63:32];  // MULHSU: phần cao của sản phẩm với a có dấu, b không dấu
             endcase
-            valid_o = 1'b1;
+            mult_done_o = 1'b1;
             state_d = IDLE;
         end
     endcase
@@ -98,7 +165,7 @@ endmodule
 //     input  [31:0]   operand_b_i,     // Toán hạng 2
 //     input  [1:0]    func_i,          // Hàm chọn (00: MUL, 01: MULH, 10: MULHU, 11: MULHSU)
 //     output reg [31:0] result_o,      // Kết quả đầu ra
-//     output reg       valid_o         // Tín hiệu hoàn thành phép nhân
+//     output reg       mult_done_o         // Tín hiệu hoàn thành phép nhân
 // );
 
 // localparam IDLE = 2'b00;
@@ -137,7 +204,7 @@ endmodule
 //     a_d       = a_q;
 //     b_d       = b_q;
 //     count_d   = count_q;
-//     valid_o   = 1'b0;
+//     mult_done_o   = 1'b0;
 //     result_o  = 32'b0;
 
 //     case (state_q)
@@ -212,7 +279,7 @@ endmodule
 //                 2'b10: result_o = product_d[63:32];  // MULHU: phần cao của sản phẩm không dấu
 //                 2'b11: result_o = product_d[63:32];  // MULHSU: phần cao của sản phẩm với a có dấu, b không dấu
 //             endcase
-//             valid_o = 1'b1;
+//             mult_done_o = 1'b1;
 //             state_d = IDLE;
 //         end
 //     endcase
@@ -231,7 +298,7 @@ endmodule
 //     input  [31:0]   operand_b_i,     // Operand B
 //     input  [1:0]    func_i,          // Function select (00: MUL, 01: MULH, 10: MULHU, 11: MULHSU)
 //     output reg [31:0] result_o,      // Output result
-//     output reg       valid_o         // Output valid signal
+//     output reg       mult_done_o         // Output valid signal
 // );
 
 // localparam IDLE        = 2'b00;
@@ -262,7 +329,7 @@ endmodule
 //     state_d       = state_q;
 //     product_d     = product_q;
 //     cycle_count_d = cycle_count_q;
-//     valid_o       = 1'b0;
+//     mult_done_o       = 1'b0;
 //     result_o      = 32'b0;
 
 //     case (state_q)
@@ -317,7 +384,7 @@ endmodule
 //                 2'b11: result_o = product_d[63:32];  // MULHSU: upper 32 bits of signed/unsigned product
 //             endcase
 
-//             valid_o = 1'b1;
+//             mult_done_o = 1'b1;
 //             state_d = IDLE;
 //         end
 //     endcase
@@ -343,7 +410,7 @@ module tb_fast_multi_cycle_multiplier;
 
     // Outputs
     wire [31:0] result_o;
-    wire valid_o;
+    wire mult_done_o;
 
     // Instantiate the Unit Under Test (UUT)
     multiplier uut (
@@ -354,7 +421,7 @@ module tb_fast_multi_cycle_multiplier;
         .operand_b_i(operand_b_i),
         .func_i(func_i),
         .result_o(result_o),
-        .valid_o(valid_o)
+        .mult_done_o(mult_done_o)
     );
 
     // Clock generation
@@ -386,7 +453,7 @@ module tb_fast_multi_cycle_multiplier;
     //     start_i = 0;
 
     //     // Wait for the result to be valid
-    //     wait(valid_o);
+    //     wait(mult_done_o);
     //     #10;
     //     if (result_o != 32'd45) $display("Test case 1 failed: expected 45, got %d", result_o);
     //     else $display("Test case 1 passed");
@@ -401,7 +468,7 @@ module tb_fast_multi_cycle_multiplier;
     //     start_i = 0;
 
     //     // Wait for the result to be valid
-    //     wait(valid_o);
+    //     wait(mult_done_o);
     //     #10;
     //     if (result_o != 32'hFFFFFFD3) $display("Test case 2 failed: expected -45, got %d", result_o);
     //     else $display("Test case 2 passed");
@@ -416,7 +483,7 @@ module tb_fast_multi_cycle_multiplier;
     //     start_i = 0;
 
     //     // Wait for the result to be valid
-    //     wait(valid_o);
+    //     wait(mult_done_o);
     //     #10;
     //     if (result_o != 32'h0000FFFE) $display("Test case 3 failed: expected 0x0000FFFE, got %h", result_o);
     //     else $display("Test case 3 passed");
@@ -431,7 +498,7 @@ module tb_fast_multi_cycle_multiplier;
     //     start_i = 0;
 
     //     // Wait for the result to be valid
-    //     wait(valid_o);
+    //     wait(mult_done_o);
     //     #10;
     //     if (result_o != 32'h00000001) $display("Test case 4 failed: expected 1, got %d", result_o);
     //     else $display("Test case 4 passed");
@@ -446,7 +513,7 @@ module tb_fast_multi_cycle_multiplier;
     //     start_i = 0;
 
     //     // Wait for the result to be valid
-    //     wait(valid_o);
+    //     wait(mult_done_o);
     //     #10;
     //     if (result_o != 32'hFFFFFFFF) $display("Test case 5 failed: expected 0xFFFFFFFF, got %h", result_o);
     //     else $display("Test case 5 passed");
@@ -482,43 +549,43 @@ initial begin
     start_i = 0;
 
     // Wait for the result to be valid
-    wait(valid_o);
+    wait(mult_done_o);
     #10;
     tb_results[0] = result_o;
 
     // Test case 2: MULH operation
-    #10;
+    // #10;
     func_i = 2'b01; // MULH
     start_i = 1;
     #10;
     start_i = 0;
 
     // Wait for the result to be valid
-    wait(valid_o);
+    wait(mult_done_o);
     #10;
     tb_results[1] = result_o;
 
     // Test case 3: MULHU operation
-    #100;
+    // #10;
     func_i = 2'b10; // MULHU
     start_i = 1;
     #10;
     start_i = 0;
 
     // Wait for the result to be valid
-    wait(valid_o);
+    wait(mult_done_o);
     #10;
     tb_results[2] = result_o;
 
     // Test case 4: MULHSU operation
-    #10;
+    // #10;
     func_i = 2'b11; // MULHSU
     start_i = 1;
     #10;
     start_i = 0;
 
     // Wait for the result to be valid
-    wait(valid_o);
+    wait(mult_done_o);
     #10;
     tb_results[3] = result_o;
 

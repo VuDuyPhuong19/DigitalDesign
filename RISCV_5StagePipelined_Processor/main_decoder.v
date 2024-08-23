@@ -23,7 +23,8 @@ module main_decoder #(
 	output reg start_mult_D,
 	output reg start_div_D,
 	output reg [1:0] mult_func_D,
-	output reg [1:0] div_func_D
+	output reg [1:0] div_func_D,
+	output reg ALUResultSrc_D
 );
 always @ (*) begin
 	case(opcode)
@@ -71,18 +72,23 @@ always @ (*) begin
 				endcase			
 			end
 			else begin
-				RegWrite = 1;
+				// RegWrite = 1;
 				ImmSrc = 2'b00;
-				ALUSrcB = 0;
-				ALUSrcA = 2'b01;
+				// ALUSrcB = 0;
+				// ALUSrcA = 2'b01;
 				MemWrite = 0;
 				// ResultSrc = 2'b01;
 				ResultSrc = 2'b00;
-				Branch = 0;
+				// Branch = 0;
 				ALUOp = 2'b10;
-				Jump = 0;
+				// Jump = 0;
 				PCJalSrc_D = 0;
 			end
+			RegWrite = 1;
+			ALUSrcB = 0;
+			ALUSrcA = 2'b01;
+			Branch = 0;
+			Jump = 0;
 		end
 
 		7'b 0010011: begin // I-Type

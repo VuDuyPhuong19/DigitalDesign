@@ -525,6 +525,34 @@ alu #(
 	.ALU_result_E(ALU_result_E)
 );
 
+multiplier #(
+	.OP_WIDTH(OP_WIDTH),
+	.RESULT_WIDTH(RESULT_WIDTH)
+) multiplier_uut (
+	.clk_i(clk),
+	.rst_ni(rst_n),
+	.start_i(),
+	.operand_a_i(),
+	.operand_b_i(),
+	.func_i(),
+	.result_o().
+	.mult_done_o()
+);
+
+divider #(
+	.OP_WIDTH(OP_WIDTH),
+	.RESULT_WIDTH(RESULT_WIDTH)
+) divider_uut (
+	.clk_i(clk),
+	.rst_ni(rst_n),
+	.start_i(),
+	.operand_a_i(),
+	.operand_b_i(),
+	.func_i(),
+	.result_o().
+	.div_done_o()	
+);
+
 reg_EX_MEM #(
 	.RESULTSRC_WIDTH(RESULTSRC_WIDTH),
 	.ALU_RESULT_WIDTH(ALU_RESULT_WIDTH),
