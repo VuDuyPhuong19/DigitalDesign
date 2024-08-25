@@ -1,0 +1,12 @@
+
+State Machine - |RISCV_5StagePipelined_Processor|divider:divider_uut|state_q
+Name state_q.IDLE state_q.COMPLETE state_q.EXECUTE 
+state_q.IDLE 0 0 0 
+state_q.EXECUTE 1 0 1 
+state_q.COMPLETE 1 1 0 
+
+State Machine - |RISCV_5StagePipelined_Processor|multiplier:multiplier_uut|state_q
+Name state_q.IDLE state_q.COMPLETE state_q.EXECUTE 
+state_q.IDLE 0 0 0 
+state_q.EXECUTE 1 0 1 
+state_q.COMPLETE 1 1 0 

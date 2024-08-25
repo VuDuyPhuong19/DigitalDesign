@@ -65,9 +65,9 @@
 
 // 3_cycles_multiplier
 
-module multiplier (
+module multiplier #(
     parameter OP_WIDTH = 32,
-    parameter RESULT_WIDTH = 32
+    parameter MULT_DIV_WIDTH = 32
 )(
     input           clk_i,
     input           rst_ni,
@@ -75,7 +75,7 @@ module multiplier (
     input  [OP_WIDTH-1:0]   operand_a_i,
     input  [OP_WIDTH-1:0]   operand_b_i,
     input  [1:0]    func_i,
-    output reg [RESULT_WIDTH-1:0] result_o,
+    output reg [MULT_DIV_WIDTH-1:0] result_o,
     output reg       mult_done_o
 );
 

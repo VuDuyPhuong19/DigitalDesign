@@ -9,6 +9,12 @@ module hazard_unit #(
 	input [REG_ADDR_WIDTH-1:0] rs2_E,
 	input [REG_ADDR_WIDTH-1:0] rs1_D, 
 	input [REG_ADDR_WIDTH-1:0] rs2_D,
+	input start_mult_E,
+	input start_mult_E_1,
+	input start_mult_E_2,
+	input start_div_E,
+	input start_div_E_1,
+	input start_div_E_2,
 	input RegWrite_M,
 	input RegWrite_W,
 	input [RESULTSRC_WIDTH-1:0] ResultSrc_E,
@@ -22,12 +28,16 @@ module hazard_unit #(
 );
 
 wire lwStall;
+wire is_mult_div;
 
 // Stalling
 assign lwStall = ((rs1_D == rd_E) || (rs2_D == rd_E)) && (ResultSrc_E == 2'b01); // ResultSrc_E = 2'b01 corresponds to lw instruction
+// assign is_mult_div = start_mult_E | start_mult_E_1 | start_mult_E_2 | start_div_E | start_div_E_1 | start_div_E_2;
+assign is_mult_div = start_mult_E | start_mult_E_1 | start_div_E | start_div_E_1;
+// assign is_mult_div = start_mult_E | start_div_E;
 
-assign Stall_F = lwStall;
-assign Stall_D = lwStall;
+assign Stall_F = lwStall | is_mult_div;
+assign Stall_D = lwStall | is_mult_div;
 
 
 // assign Flush_E = lwStall | PCSrc_E;

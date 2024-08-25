@@ -6,10 +6,12 @@ module reg_EX_MEM #(
 	parameter DATA_WIDTH = 32,
 	parameter OPCODE_WIDTH = 7,
 	parameter FUNCT7_WIDTH = 7,
-	parameter FUNCT3_WIDTH = 3
+	parameter FUNCT3_WIDTH = 3,
+	parameter CALC_RESULT_WIDTH = 32
 )(
 	input clk,
 	input rst_n,
+	input mult_or_div_done_E,
 
 	input [OPCODE_WIDTH-1:0] opcode_E, 
 	input [FUNCT7_WIDTH-1:0] funct7_E,
@@ -22,6 +24,7 @@ module reg_EX_MEM #(
 	input [PC_WIDTH-1:0] PCplus4_E,
 	input [DATA_WIDTH-1:0] WriteData_E,
 	input [1:0] write_type_E,
+	input [CALC_RESULT_WIDTH-1:0] calc_result_E,
 
 	output reg [OPCODE_WIDTH-1:0] opcode_M, 
 	output reg [FUNCT7_WIDTH-1:0] funct7_M,
@@ -33,7 +36,8 @@ module reg_EX_MEM #(
 	output reg [REG_ADDR_WIDTH-1:0] rd_M,
 	output reg [PC_WIDTH-1:0] PCplus4_M,
 	output reg [DATA_WIDTH-1:0] WriteData_M,
-	output reg [1:0] write_type_M
+	output reg [1:0] write_type_M,
+	output reg [CALC_RESULT_WIDTH-1:0] calc_result_M
 );
 
 always @ (posedge clk or negedge rst_n) begin
@@ -49,19 +53,37 @@ always @ (posedge clk or negedge rst_n) begin
 		PCplus4_M <= 0;
 		WriteData_M <= 0;
 		write_type_M <= 0;
+		calc_result_M <= 0;
 	end 
 	else begin
-		opcode_M <= opcode_E;
-		funct7_M <= funct7_E;
-		funct3_M <= funct3_E;
-		RegWrite_M <= RegWrite_E;
-		ResultSrc_M <= ResultSrc_E;
-		MemWrite_M <= MemWrite_E;
-		ALU_result_M <= ALU_result_E;
-		rd_M <= rd_E;
-		PCplus4_M <= PCplus4_E;
-		WriteData_M <= WriteData_E;
-		write_type_M <= write_type_E;
+		// if (mult_or_div_done_E) begin
+			opcode_M <= opcode_E;
+			funct7_M <= funct7_E;
+			funct3_M <= funct3_E;
+			RegWrite_M <= RegWrite_E;
+			ResultSrc_M <= ResultSrc_E;
+			MemWrite_M <= MemWrite_E;
+			ALU_result_M <= ALU_result_E;
+			rd_M <= rd_E;
+			PCplus4_M <= PCplus4_E;
+			WriteData_M <= WriteData_E;
+			write_type_M <= write_type_E;
+			calc_result_M <= calc_result_E;			
+		// end
+		// else begin
+			// opcode_M <= 0;
+			// funct7_M <= 0;
+			// funct3_M <= 0; 
+			// RegWrite_M <= 0;
+			// ResultSrc_M <= 0;
+			// MemWrite_M <= 0;
+			// ALU_result_M <= 0;
+			// rd_M <= 0;
+			// PCplus4_M <= 0;
+			// WriteData_M <= 0;
+			// write_type_M <= 0;
+			// calc_result_M <= 0;			
+		// end
 	end
 end
 

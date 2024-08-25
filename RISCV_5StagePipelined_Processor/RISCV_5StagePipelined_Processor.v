@@ -62,6 +62,7 @@ parameter IMM_WIDTH = 32;
 // EX
 parameter OP_WIDTH = 32;
 parameter ALU_RESULT_WIDTH = 32;
+parameter MULT_DIV_WIDTH = 32;
 parameter ADD_ALU = 4'b0000;
 parameter SUB_ALU = 4'b0001;
 parameter AND_ALU = 4'b0010;
@@ -78,6 +79,7 @@ parameter SLTU_ALU = 4'b1100; //sltu
 parameter SGTeU_ALU = 4'b1101; // bgeu
 parameter JALR_ALU = 4'b1110; // jalr
 parameter DATA_WIDTH = 32;
+parameter CALC_RESULT_WIDTH = 32;
 
 // MEM 
 
@@ -157,6 +159,13 @@ wire [PC_WIDTH-1:0] PC_E;
 wire PCJalSrc_E;
 wire [1:0] write_type_E;
 
+wire start_mult_D;
+wire start_div_D;
+wire [1:0] mult_func_D;
+wire [1:0] div_func_D;
+wire ALUResultSrc_D;
+// wire [1:0] calc_result_src_D;
+
 // wire [OPCODE_WIDTH-1:0] opcode_D;
 // wire [FUNCT3_WIDTH-1:0] funct3_D;
 // wire [FUNCT7_WIDTH-1:0] funct7_D;
@@ -183,16 +192,52 @@ wire [FUNCT3_WIDTH-1:0] funct3_E;
 wire [FUNCT7_WIDTH-1:0] funct7_E;
 wire [1:0] write_type_M;
 
+wire start_mult_E;
+reg start_mult_E_1;
+reg start_mult_E_2;
+reg start_mult_E_3;
+wire start_div_E;
+reg start_div_E_1;
+reg start_div_E_2;
+reg start_div_E_3;
+
+wire [1:0] mult_func;
+wire [1:0] mult_func_E;
+reg [1:0] mult_func_E_1;
+reg [1:0] mult_func_E_2;
+wire [1:0] div_func;
+wire [1:0] div_func_E;
+reg [1:0] div_func_E_1;
+reg [1:0] div_func_E_2;
+wire ALUResultSrc_E;
+wire [1:0] calc_result_src_E;
+
+wire mult_done_o_E;
+wire div_done_o_E;
+wire mult_or_div_done_E;
+wire [MULT_DIV_WIDTH-1:0] mult_result_E;
+wire [MULT_DIV_WIDTH-1:0] div_result_E;
+wire [CALC_RESULT_WIDTH-1:0] calc_result_E;
+
+wire is_mult_div;
+reg [REG_ADDR_WIDTH-1:0] rd_E_1;
+reg [REG_ADDR_WIDTH-1:0] rd_E_2;
+wire [REG_ADDR_WIDTH-1:0] reg_EX_MEM_rd_E;
+wire reg_file_RegWrite;
+
+
+
 // MEM
 
 wire [DATA_WIDTH-1:0] ReadData_M;
 wire [RESULTSRC_WIDTH-1:0] ResultSrc_W;
-wire [ALU_RESULT_WIDTH-1:0] ALU_result_W;
+// wire [ALU_RESULT_WIDTH-1:0] ALU_result_W;
 wire [DATA_WIDTH-1:0] ReadData_W;
 wire [PC_WIDTH-1:0] PCplus4_W;
 wire [OPCODE_WIDTH-1:0] opcode_M;
 wire [FUNCT3_WIDTH-1:0] funct3_M;
 wire [FUNCT7_WIDTH-1:0] funct7_M;
+wire [CALC_RESULT_WIDTH-1:0] calc_result_M;
 
 // WB
 
@@ -201,6 +246,7 @@ wire Flush_D;
 wire [1:0] ForwardA_E;
 wire [1:0] ForwardB_E;
 wire RegWrite_W;
+wire [CALC_RESULT_WIDTH-1:0] calc_result_W;
 
 //Interrupts
 
@@ -237,14 +283,14 @@ mux_2 #(
 	.mux_out(pc_mux_out)
 );
 
-mux_2 #(
-	.MUX_DATA_WIDTH(PC_WIDTH)
-) mux_pc_interrupt (
-	.A(pc_mux_out),
-	.B(pc_out_irq),
-	.control(control_pc_irq),
-	.mux_out(pc_mux_out2)
-);
+// mux_2 #(
+// 	.MUX_DATA_WIDTH(PC_WIDTH)
+// ) mux_pc_interrupt (
+// 	.A(pc_mux_out),
+// 	.B(pc_out_irq),
+// 	.control(control_pc_irq),
+// 	.mux_out(pc_mux_out2)
+// );
 
 // initial begin
 // 	PC_F = 32'b0;
@@ -257,7 +303,9 @@ always @ (posedge clk or negedge rst_n) begin
 	end
 	else begin
 		if (!Stall_F) begin
-			PC_F <= pc_mux_out2;
+			PC_F <= pc_mux_out;
+			// Interrupt
+			// PC_F <= pc_mux_out2;
 		end
 		else begin
 			PC_F <= PC_F;
@@ -278,13 +326,13 @@ IMem #(
 	.instruction(instruction)
 );
 
-always @ (instruction) begin
-        if(instruction== 32'h0000000) begin
-            irq_done = 1;
-        end else begin
-            irq_done = 0;
-        end
-end
+// always @ (instruction) begin
+//         if(instruction == 32'h0000000) begin
+//             irq_done = 1;
+//         end else begin
+//             irq_done = 0;
+//         end
+// end
 
 reg_IF_ID #(
 	.INST_WIDTH(INST_WIDTH),
@@ -392,7 +440,13 @@ control_unit #(
 	.ALUSrcA_D(ALUSrcA_D),
 	.ImmSrc_D(ImmSrc_D),
 	.PCJalSrc_D(PCJalSrc_D),
-	.write_type_D(write_type_D)
+	.write_type_D(write_type_D),
+	.start_mult_D(start_mult_D),
+	.start_div_D(start_div_D),
+	.mult_func_D(mult_func_D),
+	.div_func_D(div_func_D),
+	.ALUResultSrc_D(ALUResultSrc_D)
+	// .calc_result_src_D(calc_result_src_D)
 );
 
 reg_file #(
@@ -402,7 +456,8 @@ reg_file #(
 ) reg_file (
 	.clk(clk),
 	.rst_n(rst_n),
-	.RegWrite(RegWrite_W),
+	// .RegWrite(RegWrite_W),
+	.RegWrite(reg_file_RegWrite),
 	.addr_rs1(rs1_D),
 	.addr_rs2(rs2_D),
 	.addr_rd(rd_W),
@@ -456,6 +511,12 @@ reg_ID_EX #(
 	.PC_D(PC_D),
 	.PCJalSrc_D(PCJalSrc_D),
 	.write_type_D(write_type_D),
+	.start_mult_D(start_mult_D),
+	.start_div_D(start_div_D),
+	.mult_func_D(mult_func_D),
+	.div_func_D(div_func_D),
+	.ALUResultSrc_D(ALUResultSrc_D),
+	// .calc_result_src_D(calc_result_src_D),
 
 	.opcode_E(opcode_E),
 	.funct7_E(funct7_E),
@@ -477,7 +538,13 @@ reg_ID_EX #(
 	.PCplus4_E(PCplus4_E),
 	.PC_E(PC_E),
 	.PCJalSrc_E(PCJalSrc_E),
-	.write_type_E(write_type_E)
+	.write_type_E(write_type_E),
+	.start_mult_E(start_mult_E),
+	.start_div_E(start_div_E),
+	.mult_func_E(mult_func_E),
+	.div_func_E(div_func_E),
+	.ALUResultSrc_E(ALUResultSrc_E)
+	// .calc_result_src_E(calc_result_src_E)
 );
 
 
@@ -489,8 +556,8 @@ assign PCtarget_E = ImmExt_E + PC_E;
 
 assign PC_jalr_E = ALU_result_E;
 
-assign SrcA_E_pre = (ForwardA_E == 2'b00) ? rd1_E : ((ForwardA_E == 2'b01) ? result_W : ((ForwardA_E == 2'b10) ? ALU_result_M : 0));
-assign WriteData_E = (ForwardB_E == 2'b00) ? rd2_E : ((ForwardB_E == 2'b01) ? result_W : ((ForwardB_E == 2'b10) ? ALU_result_M : 0));
+assign SrcA_E_pre = (ForwardA_E == 2'b00) ? rd1_E : ((ForwardA_E == 2'b01) ? result_W : ((ForwardA_E == 2'b10) ? calc_result_M : 0));
+assign WriteData_E = (ForwardB_E == 2'b00) ? rd2_E : ((ForwardB_E == 2'b01) ? result_W : ((ForwardB_E == 2'b10) ? calc_result_M : 0));
 assign SrcB_E = ALUSrcB_E ? ImmExt_E : WriteData_E;
 assign SrcA_E = (ALUSrcA_E == 2'b00) ? 0 : ((ALUSrcA_E == 2'b01) ? SrcA_E_pre : ((ALUSrcA_E == 2'b10) ? PC_E : 0));
 
@@ -525,33 +592,88 @@ alu #(
 	.ALU_result_E(ALU_result_E)
 );
 
+always @ (posedge clk or negedge rst_n) begin
+	if (~rst_n) begin
+		rd_E_1 <= 0;
+		rd_E_2 <= 0;
+		mult_func_E_1 <= 0;
+		mult_func_E_2 <= 0;
+		div_func_E_1 <= 0;
+		div_func_E_2 <= 0;
+		start_mult_E_1 <= 0;
+		start_mult_E_2 <= 0;
+		start_mult_E_3 <= 0;
+		start_div_E_1 <= 0;
+		start_div_E_2 <= 0;		
+		start_div_E_3 <= 0;	
+	end
+	else begin
+		rd_E_1 <= rd_E;
+		rd_E_2 <= rd_E_1;	
+		div_func_E_1 <= div_func_E;
+		div_func_E_2 <= div_func_E_1;
+		mult_func_E_1 <= mult_func_E;
+		mult_func_E_2 <= mult_func_E_1;
+		start_mult_E_1 <= start_mult_E;
+		start_mult_E_2 <= start_mult_E_1;
+		start_mult_E_3 <= start_mult_E_2;
+		start_div_E_1 <= start_div_E;
+		start_div_E_2 <= start_div_E_1;	
+		start_div_E_3 <= start_div_E_2;	
+	end
+end
+
+assign is_mult_div = start_mult_E | start_mult_E_1 | start_mult_E_2 | start_div_E | start_div_E_1 | start_div_E_2;
+
+// always @ (posedge clk or negedge rst_n) begin
+// 	if (~rst_n) begin
+// 		rd_E_1 <= 0;
+// 		rd_E_2 <= 0;
+// 	end
+// 	else begin
+// 		rd_E_1 <= rd_E;
+// 		rd_E_2 <= rd_E_1;		
+// 	end
+// end
+
+assign reg_EX_MEM_rd_E = is_mult_div ? rd_E_2 : rd_E;
+assign reg_file_RegWrite = (start_mult_E_2 | start_mult_E_3 | start_div_E_2 | start_div_E_3) ? 0 : RegWrite_W;
+assign div_func = start_div_E ? div_func_E : (start_div_E_1 ? div_func_E_1 : (start_div_E_2 ? div_func_E_2 : 0));
+assign mult_func = start_mult_E ? mult_func_E : (start_mult_E_1 ? mult_func_E_1 : (start_mult_E_2 ? mult_func_E_2 : 0));
+
 multiplier #(
 	.OP_WIDTH(OP_WIDTH),
-	.RESULT_WIDTH(RESULT_WIDTH)
+	.MULT_DIV_WIDTH(MULT_DIV_WIDTH)
 ) multiplier_uut (
 	.clk_i(clk),
 	.rst_ni(rst_n),
-	.start_i(),
-	.operand_a_i(),
-	.operand_b_i(),
-	.func_i(),
-	.result_o().
-	.mult_done_o()
+	.start_i(start_mult_E),
+	.operand_a_i(SrcA_E),
+	.operand_b_i(SrcB_E),
+	// .func_i(mult_func_E),
+	.func_i(mult_func),
+	.result_o(mult_result_E),
+	.mult_done_o(mult_done_o_E)
 );
 
 divider #(
 	.OP_WIDTH(OP_WIDTH),
-	.RESULT_WIDTH(RESULT_WIDTH)
+	.MULT_DIV_WIDTH(MULT_DIV_WIDTH)
 ) divider_uut (
 	.clk_i(clk),
 	.rst_ni(rst_n),
-	.start_i(),
-	.operand_a_i(),
-	.operand_b_i(),
-	.func_i(),
-	.result_o().
-	.div_done_o()	
+	.start_i(start_div_E),
+	.operand_a_i(SrcA_E),
+	.operand_b_i(SrcB_E),
+	// .func_i(div_func_E),
+	.func_i(div_func),
+	.result_o(div_result_E),
+	.div_done_o(div_done_o_E)	
 );
+
+assign calc_result_src_E = mult_done_o_E ? 2'b01 : (div_done_o_E ? 2'b10 : 0);
+assign calc_result_E = (calc_result_src_E == 2'b00) ? ALU_result_E : ((calc_result_src_E == 2'b01) ? mult_result_E : ((calc_result_src_E == 2'b10) ? div_result_E : 0));
+assign mult_or_div_done_E = mult_done_o_E | div_done_o_E;
 
 reg_EX_MEM #(
 	.RESULTSRC_WIDTH(RESULTSRC_WIDTH),
@@ -561,10 +683,12 @@ reg_EX_MEM #(
 	.DATA_WIDTH(DATA_WIDTH),
 	.OPCODE_WIDTH(OPCODE_WIDTH),
 	.FUNCT7_WIDTH(FUNCT7_WIDTH),
-	.FUNCT3_WIDTH(FUNCT3_WIDTH)
+	.FUNCT3_WIDTH(FUNCT3_WIDTH),
+	.CALC_RESULT_WIDTH(CALC_RESULT_WIDTH)
 ) reg_EX_MEM (
 	.clk(clk),
 	.rst_n(rst_n),
+	// .mult_or_div_done_E(mult_or_div_done_E),
 	.opcode_E(opcode_E),
 	.funct7_E(funct7_E),
 	.funct3_E(funct3_E),
@@ -572,10 +696,11 @@ reg_EX_MEM #(
 	.ResultSrc_E(ResultSrc_E),
 	.MemWrite_E(MemWrite_E),
 	.ALU_result_E(ALU_result_E),
-	.rd_E(rd_E),
+	.rd_E(reg_EX_MEM_rd_E),
 	.PCplus4_E(PCplus4_E),
 	.WriteData_E(WriteData_E),
 	.write_type_E(write_type_E),
+	.calc_result_E(calc_result_E),
 
 	.opcode_M(opcode_M),
 	.funct7_M(funct7_M),
@@ -587,7 +712,8 @@ reg_EX_MEM #(
 	.rd_M(rd_M),
 	.PCplus4_M(PCplus4_M),
 	.WriteData_M(WriteData_M),
-	.write_type_M(write_type_M)
+	.write_type_M(write_type_M),
+	.calc_result_M(calc_result_M)
 );
 
 
@@ -617,9 +743,11 @@ DMem #(
 reg_MEM_WB #(
 	.RESULTSRC_WIDTH(RESULTSRC_WIDTH),
 	.REG_ADDR_WIDTH(REG_ADDR_WIDTH),
-	.ALU_RESULT_WIDTH(ALU_RESULT_WIDTH),
+	.CALC_RESULT_WIDTH(CALC_RESULT_WIDTH),
 	.DATA_WIDTH(DATA_WIDTH),
-	.PC_WIDTH(PC_WIDTH)
+	.PC_WIDTH(PC_WIDTH),
+	.OPCODE_WIDTH(OPCODE_WIDTH),
+	.FUNCT3_WIDTH(FUNCT3_WIDTH)
 ) reg_MEM_WB (
 	.clk(clk),
 	.rst_n(rst_n),
@@ -628,20 +756,21 @@ reg_MEM_WB #(
 	.RegWrite_M(RegWrite_M),
 	.ResultSrc_M(ResultSrc_M),
 	.rd_M(rd_M),
-	.ALU_result_M(ALU_result_M),
+	.calc_result_M(calc_result_M),
 	.ReadData_M(ReadData_M),
 	.PCplus4_M(PCplus4_M),
+
 	.RegWrite_W(RegWrite_W),
 	.ResultSrc_W(ResultSrc_W),
 	.rd_W(rd_W),
-	.ALU_result_W(ALU_result_W),
+	.calc_result_W(calc_result_W),
 	.ReadData_W(ReadData_W),
 	.PCplus4_W(PCplus4_W)
 );
 
 //-----------------------------------Write back--------------------------------//
 
-assign result_W = (ResultSrc_W == 2'b00) ? ALU_result_W : ((ResultSrc_W == 2'b01) ? ReadData_W : ((ResultSrc_W == 2'b10) ? PCplus4_W : 0));
+assign result_W = (ResultSrc_W == 2'b00) ? calc_result_W : ((ResultSrc_W == 2'b01) ? ReadData_W : ((ResultSrc_W == 2'b10) ? PCplus4_W : 0));
 
 
 // Hazard Unit
@@ -657,6 +786,12 @@ hazard_unit #(
 	.rs2_E(rs2_E),
 	.rs1_D(rs1_D),
 	.rs2_D(rs2_D),
+	.start_mult_E(start_mult_E),
+	.start_mult_E_1(start_mult_E_1),
+	.start_mult_E_2(start_mult_E_2),
+	.start_div_E(start_div_E),
+	.start_div_E_1(start_div_E_1),
+	.start_div_E_2(start_div_E_2),
 	.RegWrite_M(RegWrite_M),
 	.RegWrite_W(RegWrite_W),
 	.ResultSrc_E(ResultSrc_E),
@@ -671,25 +806,25 @@ hazard_unit #(
 
 //---------------------------------Interrupt--------------------------------------//
 
-Interrupt #(
-	.PRIORITY_NMI(PRIORITY_NMI),
-    .PRIORITY_FAST(PRIORITY_FAST),
-    .PRIORITY_EXTERNAL(PRIORITY_EXTERNAL),
-    .PRIORITY_TIMER(PRIORITY_TIMER),
-    .PRIORITY_SOFTWARE(PRIORITY_SOFTWARE)
-) irq_uut (
-	.clk(clk),
-	.rst_n(rst_n),
-	.irq_nm_i(1'b0),           
-	.irq_fast_i(irq_fast_i),    
-	.irq_external_i(1'b0),       
-	.irq_timer_i(irq_timer_i),         
-	.irq_software_i(1'b0),         
-	.irq_done(irq_done),            
-	.pc_in_irq(PCplus4_F),       
-	.pc_out_irq(pc_out_irq),   
-	.irq_active(irq_active),            
-	.control_pc_irq(control_pc_irq)  
-);
+// Interrupt #(
+// 	.PRIORITY_NMI(PRIORITY_NMI),
+//     .PRIORITY_FAST(PRIORITY_FAST),
+//     .PRIORITY_EXTERNAL(PRIORITY_EXTERNAL),
+//     .PRIORITY_TIMER(PRIORITY_TIMER),
+//     .PRIORITY_SOFTWARE(PRIORITY_SOFTWARE)
+// ) irq_uut (
+// 	.clk(clk),
+// 	.rst_n(rst_n),
+// 	.irq_nm_i(1'b0),           
+// 	.irq_fast_i(irq_fast_i),    
+// 	.irq_external_i(1'b0),       
+// 	.irq_timer_i(irq_timer_i),         
+// 	.irq_software_i(1'b0),         
+// 	.irq_done(irq_done),            
+// 	.pc_in_irq(PCplus4_F),       
+// 	.pc_out_irq(pc_out_irq),   
+// 	.irq_active(irq_active),            
+// 	.control_pc_irq(control_pc_irq)  
+// );
 
 endmodule

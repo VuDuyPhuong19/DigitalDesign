@@ -21,7 +21,12 @@ module control_unit #(
     output [IMMSRC_WIDTH-1:0] ImmSrc_D,
     output PCJalSrc_D,
     output [1:0] write_type_D,
+    output start_mult_D,
+    output start_div_D,
+    output [1:0] mult_func_D,
+    output [1:0] div_func_D,
     output ALUResultSrc_D
+    // output [1:0] calc_result_src_D
     // output PCSrc
 );
 wire [1:0] ALUOp;
@@ -41,7 +46,12 @@ main_decoder main_decoder(
     .RegWrite(RegWrite_D),
     .PCJalSrc_D(PCJalSrc_D),
     .write_type_D(write_type_D),
+    .start_mult_D(start_mult_D),
+    .start_div_D(start_div_D),
+    .mult_func_D(mult_func_D),
+    .div_func_D(div_func_D),
     .ALUResultSrc_D(ALUResultSrc_D)
+    // .calc_result_src_D(calc_result_src_D)
 );
 
 ALU_decoder alu_decoder(

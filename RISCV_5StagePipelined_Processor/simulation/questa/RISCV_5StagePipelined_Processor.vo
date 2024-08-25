@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition"
 
-// DATE "08/12/2024 10:35:12"
+// DATE "08/24/2024 08:35:34"
 
 // 
 // Device: Altera EP4CE115F29C7 Package FBGA780
@@ -31,12 +31,15 @@
 
 module RISCV_5StagePipelined_Processor (
 	clk,
-	rst_n);
+	rst_n,
+	irq_timer_i);
 input 	clk;
 input 	rst_n;
+input 	irq_timer_i;
 
 // Design Ports Information
-// clk	=>  Location: PIN_M26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// irq_timer_i	=>  Location: PIN_K26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clk	=>  Location: PIN_L7,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // rst_n	=>  Location: PIN_A10,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
@@ -51,6 +54,7 @@ assign unknown = 1'bx;
 tri1 devclrn;
 tri1 devpor;
 tri1 devoe;
+wire \irq_timer_i~input_o ;
 wire \clk~input_o ;
 wire \rst_n~input_o ;
 
@@ -60,7 +64,17 @@ hard_block auto_generated_inst(
 	.devclrn(devclrn),
 	.devoe(devoe));
 
-// Location: IOIBUF_X115_Y46_N1
+// Location: IOIBUF_X115_Y55_N22
+cycloneive_io_ibuf \irq_timer_i~input (
+	.i(irq_timer_i),
+	.ibar(gnd),
+	.o(\irq_timer_i~input_o ));
+// synopsys translate_off
+defparam \irq_timer_i~input .bus_hold = "false";
+defparam \irq_timer_i~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y47_N15
 cycloneive_io_ibuf \clk~input (
 	.i(clk),
 	.ibar(gnd),

@@ -24,51 +24,61 @@ module main_decoder #(
 	output reg start_div_D,
 	output reg [1:0] mult_func_D,
 	output reg [1:0] div_func_D,
-	output reg ALUResultSrc_D
+	output reg ALUResultSrc_D // 1: mult/div result, 0: ALU result
+	// output reg [1:0] calc_result_src_D
 );
 always @ (*) begin
+	ALUResultSrc_D = 0;
+	// calc_result_src_D = 2'b00;
+	start_mult_D = 0;
+	start_div_D = 0;
+	mult_func_D = 2'b00;
+	div_func_D = 2'b00;
 	case(opcode)
 		7'b0110011: begin // R-Type
 			if (funct7 == 7'b0000001) begin 
+				ALUResultSrc_D = 1;
 				case (funct3) 
 					3'b000: begin // mul
 						start_mult_D = 1;
 						mult_func_D = 2'b00;
+						// calc_result_src_D = 2'b01;
 					end
 					3'b001: begin // mulh
 						start_mult_D = 1;
 						mult_func_D = 2'b01;
+						// calc_result_src_D = 2'b01;
 					end
 					3'b011: begin // mulhu
 						start_mult_D = 1;
 						mult_func_D = 2'b10;
+						// calc_result_src_D = 2'b01;
 					end	
 					3'b010: begin // mulhsu
 						start_mult_D = 1;
 						mult_func_D = 2'b11;
+						// calc_result_src_D = 2'b01;
 					end	
 					3'b100: begin // div
 						start_div_D = 1;
 						div_func_D = 2'b00;
+						// calc_result_src_D = 2'b10;
 					end	
 					3'b101: begin // divu
 						start_div_D = 1;
 						div_func_D = 2'b01;
+						// calc_result_src_D = 2'b10;
 					end	
 					3'b110: begin // rem
 						start_div_D = 1;
 						div_func_D = 2'b10;
+						// calc_result_src_D = 2'b10;
 					end	
 					3'b111: begin // remu
 						start_div_D = 1;
 						div_func_D = 2'b11;
+						// calc_result_src_D = 2'b10;
 					end	
-					default: begin
-						start_mult_D = 0;
-						start_div_D = 0;
-						mult_func_D = 2'b00;
-						div_func_D = 2'b00;
-					end
 				endcase			
 			end
 			else begin
@@ -76,19 +86,21 @@ always @ (*) begin
 				ImmSrc = 2'b00;
 				// ALUSrcB = 0;
 				// ALUSrcA = 2'b01;
-				MemWrite = 0;
+				// MemWrite = 0;
 				// ResultSrc = 2'b01;
 				ResultSrc = 2'b00;
 				// Branch = 0;
 				ALUOp = 2'b10;
 				// Jump = 0;
-				PCJalSrc_D = 0;
+				// PCJalSrc_D = 0;
 			end
 			RegWrite = 1;
 			ALUSrcB = 0;
 			ALUSrcA = 2'b01;
 			Branch = 0;
 			Jump = 0;
+			PCJalSrc_D = 0;
+			MemWrite = 0;
 		end
 
 		7'b 0010011: begin // I-Type
@@ -133,7 +145,7 @@ always @ (*) begin
 		end
 
 		7'b 1100011: begin // B-Type
-			RegWrite=0;
+			RegWrite = 0;
 			ImmSrc=2'b10;
 			ALUSrcB=0;
 			ALUSrcA = 2'b01;
@@ -201,7 +213,7 @@ always @ (*) begin
 		end
 
 		default: begin
-			RegWrite = 1;
+			RegWrite = 0;
 			ImmSrc = 2'b00;
 			ALUSrcB = 0;
 			ALUSrcA = 0;

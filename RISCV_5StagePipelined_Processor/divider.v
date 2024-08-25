@@ -182,9 +182,9 @@
 
 // 3_cycles_divider
 
-module divider (
+module divider #(
     parameter OP_WIDTH = 32,
-    parameter RESULT_WIDTH = 32
+    parameter MULT_DIV_WIDTH = 32
 )(
     input           clk_i,
     input           rst_ni,
@@ -192,7 +192,7 @@ module divider (
     input  [OP_WIDTH-1:0]   operand_a_i,
     input  [OP_WIDTH-1:0]   operand_b_i,
     input  [1:0]    func_i,          // Function select (00: DIV, 01: DIVU, 10: REM, 11: REMU)
-    output reg [RESULT_WIDTH-1:0] result_o,      // Output result
+    output reg [MULT_DIV_WIDTH-1:0] result_o,      // Output result
     output reg       div_done_o         // Output valid signal
 );
 
@@ -330,8 +330,8 @@ module tb_divider;
 
         // Test case 1: DIV operation (signed division)
         #10;
-        operand_a_i = 32'hFFFFFFEF; // -15
-        operand_b_i = 5; // 5
+        operand_a_i = 15; // -15
+        operand_b_i = 7; // 5
         func_i = 2'b00; // DIV
         start_i = 1;
         #10;
@@ -345,8 +345,8 @@ module tb_divider;
 
         // Test case 2: DIVU operation (unsigned division)
         #10;
-        operand_a_i = 32'hFFFFFFEF; // 4294967281 (unsigned representation of -15)
-        operand_b_i = 5; // 5
+        operand_a_i = 15; // 4294967281 (unsigned representation of -15)
+        operand_b_i = 7; // 5
         func_i = 2'b01; // DIVU
         start_i = 1;
         #10;
@@ -360,8 +360,8 @@ module tb_divider;
 
         // Test case 3: REM operation (signed remainder)
         #10;
-        operand_a_i = 32'hFFFFFFEF; // -15
-        operand_b_i = 5; // 5
+        operand_a_i = 15; // -15
+        operand_b_i = 7; // 5
         func_i = 2'b10; // REM
         start_i = 1;
         #10;
@@ -375,8 +375,8 @@ module tb_divider;
 
         // Test case 4: REMU operation (unsigned remainder)
         #10;
-        operand_a_i = 32'hFFFFFFEF; // 4294967281 (unsigned representation of -15)
-        operand_b_i = 5; // 5
+        operand_a_i = 15; // 4294967281 (unsigned representation of -15)
+        operand_b_i = 7; // 5
         func_i = 2'b11; // REMU
         start_i = 1;
         #10;

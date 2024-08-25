@@ -10,8 +10,8 @@ module reg_file #(
 	input [REG_ADDR_WIDTH-1:0] addr_rs2,
 	input [REG_ADDR_WIDTH-1:0] addr_rd,
 	input [REG_WIDTH-1:0] data_rd,
-	output reg [REG_WIDTH-1:0] data_rs1, 
-	output reg [REG_WIDTH-1:0] data_rs2
+	output [REG_WIDTH-1:0] data_rs1, 
+	output [REG_WIDTH-1:0] data_rs2
 );
 
 reg [REG_WIDTH-1:0] registers [0:NUM_REG-1];
@@ -57,12 +57,12 @@ end
   //     data_rs2 <= registers[addr_rs2];
   // end
 
-always @ (addr_rs1 or addr_rs2) begin
-		data_rs1 = registers[addr_rs1];
-		data_rs2 = registers[addr_rs2];
-end
+// always @ (addr_rs1 or addr_rs2) begin
+// 		data_rs1 = registers[addr_rs1];
+// 		data_rs2 = registers[addr_rs2];
+// end
 
-// assign data_rs1 = registers[addr_rs1];
-// assign data_rs2 = registers[addr_rs2];
+assign data_rs1 = registers[addr_rs1];
+assign data_rs2 = registers[addr_rs2];
 
 endmodule

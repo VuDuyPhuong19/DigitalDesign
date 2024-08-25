@@ -35,6 +35,12 @@ module reg_ID_EX #(
 	input [PC_WIDTH-1:0] PC_D,
 	input PCJalSrc_D,
 	input [1:0] write_type_D,
+	input start_mult_D,
+	input start_div_D,
+	input [1:0] mult_func_D,
+	input [1:0] div_func_D,
+	input ALUResultSrc_D,
+	// input [1:0] calc_result_src_D,
 
 	output reg [OPCODE_WIDTH-1:0] opcode_E, 
 	output reg [FUNCT7_WIDTH-1:0] funct7_E,
@@ -56,7 +62,13 @@ module reg_ID_EX #(
 	output reg [PC_WIDTH-1:0] PCplus4_E,
 	output reg [PC_WIDTH-1:0] PC_E,
 	output reg PCJalSrc_E,
-	output reg [1:0] write_type_E
+	output reg [1:0] write_type_E,
+	output reg start_mult_E,
+	output reg start_div_E,
+	output reg [1:0] mult_func_E,
+	output reg [1:0] div_func_E,
+	output reg ALUResultSrc_E
+	// output reg [1:0] calc_result_src_E
 );
 
 always @ (posedge clk or negedge rst_n) begin
@@ -82,6 +94,12 @@ always @ (posedge clk or negedge rst_n) begin
 		PC_E <= 0;
 		PCJalSrc_E <= 0;
 		write_type_E <= 0;
+		start_mult_E <= 0;
+		start_div_E <= 0; 
+		mult_func_E <= 0;
+		div_func_E <= 0;
+		ALUResultSrc_E <=0;
+		// calc_result_src_E <= 0;
 	end
 	else begin
 		if (!Flush_E) begin
@@ -106,6 +124,12 @@ always @ (posedge clk or negedge rst_n) begin
 			PC_E <= PC_D;
 			PCJalSrc_E <= PCJalSrc_D;
 			write_type_E <= write_type_D;
+			start_mult_E <= start_mult_D;
+			start_div_E <= start_div_D; 
+			mult_func_E <= mult_func_D;
+			div_func_E <= div_func_D;
+			ALUResultSrc_E <= ALUResultSrc_D;
+			// calc_result_src_E <= calc_result_src_D;
 		end
 		else begin
 			opcode_E <= 0;
@@ -129,6 +153,12 @@ always @ (posedge clk or negedge rst_n) begin
 			PC_E <= 0;
 			PCJalSrc_E <= 0;
 			write_type_E <= 0;
+			start_mult_E <= 0;
+			start_div_E <= 0; 
+			mult_func_E <= 0;
+			div_func_E <= 0;
+			ALUResultSrc_E <= 0;
+			// calc_result_src_E <= 0;
 		end
 	end
 end
