@@ -107,6 +107,9 @@ wire [PC_WIDTH-1:0] pc_mux_out;
 wire [PC_WIDTH-1:0] mux_pctarget_or_pc_jalr_out;
 wire [PC_WIDTH-1:0] PC_jalr_E;
 wire [INST_WIDTH-1:0] instruction;
+wire [INST_WIDTH-1:0] instruction_decoded;
+wire [INST_WIDTH-1:0] inst_F;
+wire is_compressed_inst;
 wire Stall_F;
 wire Stall_D;
 wire [PC_WIDTH-1:0] PCplus4_F;
@@ -334,6 +337,14 @@ IMem #(
 //         end
 // end
 
+compressed_decoder compressed_decoder_uut(
+	.instr_i(instruction),
+	.instr_o(instruction_decoded)
+);
+
+assign is_compressed_inst = (instruction[1:0] != 2'b11);
+assign inst_F = is_compressed_inst ? instruction_decoded : instruction;
+
 reg_IF_ID #(
 	.INST_WIDTH(INST_WIDTH),
 	.PC_WIDTH(PC_WIDTH)
@@ -341,7 +352,8 @@ reg_IF_ID #(
 	.clk(clk),
 	.rst_n(rst_n),
 	.Stall_D(Stall_D),
-	.inst_F(instruction),
+	// .inst_F(instruction),
+	.inst_F(inst_F),
 	.PCplus4_F(PCplus4_F),
 	.PC_F(PC_F),
 	.Flush_D(Flush_D),
@@ -375,38 +387,59 @@ always @ (*) begin
 			rd_D = inst_D[11:7];
 		end
 		OPCODE_I_TYPE: begin
-			rs1_D = inst_D[19:15];
-			rd_D = inst_D[11:7];
 			funct3 = inst_D[14:12];
 			funct7 = inst_D[31:25]; // slli, srli, srai
+			rs1_D = inst_D[19:15];
+			rs2_D = 0;
+			rd_D = inst_D[11:7];
 		end
 		OPCODE_L_TYPE: begin
-			rs1_D = inst_D[19:15];
-			rd_D = inst_D[11:7];
 			funct3 = inst_D[14:12];
+			funct7 = 0;
+			rs1_D = inst_D[19:15];
+			rs2_D = 0;
+			rd_D = inst_D[11:7];
 		end
 		OPCODE_S_TYPE: begin
 			funct3 = inst_D[14:12];
+			funct7 = 0;
 			rs1_D = inst_D[19:15];
 			rs2_D = inst_D[24:20];
+			rd_D = 0;
 		end
 		OPCODE_B_TYPE: begin
 			funct3 = inst_D[14:12];
+			funct7 = 0;
 			rs1_D = inst_D[19:15];
 			rs2_D = inst_D[24:20];
+			rd_D = 0;
 		end
 		OPCODE_J_TYPE: begin
+			funct3 = 0;
+			funct7 = 0;
+			rs1_D = 0;
+			rs2_D = 0;
 			rd_D = inst_D[11:7];
 		end
 		OPCODE_JALR_TYPE: begin
-			rs1_D = inst_D[19:15];
-			rd_D = inst_D[11:7];
 			funct3 = inst_D[14:12];
+			funct7 = 0;
+			rs1_D = inst_D[19:15];
+			rs2_D = 0;
+			rd_D = inst_D[11:7];
 		end
 		OPCODE_LUI_TYPE: begin
+			funct3 = 0;
+			funct7 = 0;
+			rs1_D = 0;
+			rs2_D = 0;
 			rd_D = inst_D[11:7];
 		end
 		OPCODE_AUIPC_TYPE: begin
+			funct3 = 0;
+			funct7 = 0;
+			rs1_D = 0;
+			rs2_D = 0;
 			rd_D = inst_D[11:7];
 		end
 		default: begin
@@ -624,18 +657,6 @@ always @ (posedge clk or negedge rst_n) begin
 end
 
 assign is_mult_div = start_mult_E | start_mult_E_1 | start_mult_E_2 | start_div_E | start_div_E_1 | start_div_E_2;
-
-// always @ (posedge clk or negedge rst_n) begin
-// 	if (~rst_n) begin
-// 		rd_E_1 <= 0;
-// 		rd_E_2 <= 0;
-// 	end
-// 	else begin
-// 		rd_E_1 <= rd_E;
-// 		rd_E_2 <= rd_E_1;		
-// 	end
-// end
-
 assign reg_EX_MEM_rd_E = is_mult_div ? rd_E_2 : rd_E;
 assign reg_file_RegWrite = (start_mult_E_2 | start_mult_E_3 | start_div_E_2 | start_div_E_3) ? 0 : RegWrite_W;
 assign div_func = start_div_E ? div_func_E : (start_div_E_1 ? div_func_E_1 : (start_div_E_2 ? div_func_E_2 : 0));

@@ -28,8 +28,18 @@ module main_decoder #(
 	// output reg [1:0] calc_result_src_D
 );
 always @ (*) begin
+	RegWrite = 0;
+	ImmSrc = 0;
+	ALUSrcB = 0;
+	ALUSrcA = 0;
+	MemWrite = 0;
+	ResultSrc = 0;
+	Branch = 0;
+	ALUOp = 2'b01;
+	Jump = 0;
+	PCJalSrc_D = 0;	
+	write_type_D = 0;
 	ALUResultSrc_D = 0;
-	// calc_result_src_D = 2'b00;
 	start_mult_D = 0;
 	start_div_D = 0;
 	mult_func_D = 2'b00;
