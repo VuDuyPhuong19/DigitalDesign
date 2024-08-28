@@ -1,6 +1,6 @@
 module control_unit #(
     parameter RESULTSRC_WIDTH = 2,
-    parameter ALUCONTROL_WIDTH = 4,
+    parameter ALUCONTROL_WIDTH = 6,
     parameter IMMSRC_WIDTH = 2,
     parameter OPCODE_WIDTH = 7,
     parameter FUNCT7_WIDTH = 7,

@@ -16,16 +16,8 @@ module reg_file #(
 
 reg [REG_WIDTH-1:0] registers [0:NUM_REG-1];
 
-// initial begin
-// 	registers[1] = 1;
-// 	registers[2] = 2;
-// 	registers[3] = 3;
-// 	registers[4] = 4;
-// 	registers[5] = 5;
-// end
-
 //============================================
-// 	Write to Register File (posedge of clk)
+// 	Write to Register File (negedge of clk)
 //============================================
 
 integer i;

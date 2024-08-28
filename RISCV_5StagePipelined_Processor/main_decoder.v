@@ -45,7 +45,7 @@ always @ (*) begin
 	mult_func_D = 2'b00;
 	div_func_D = 2'b00;
 	case(opcode)
-		7'b0110011: begin // R-Type
+		7'b0110011, 7'b0111011: begin // R-Type
 			if (funct7 == 7'b0000001) begin 
 				ALUResultSrc_D = 1;
 				case (funct3) 
@@ -98,7 +98,7 @@ always @ (*) begin
 				// ALUSrcA = 2'b01;
 				// MemWrite = 0;
 				// ResultSrc = 2'b01;
-				ResultSrc = 2'b00;
+				// ResultSrc = 2'b00;
 				// Branch = 0;
 				ALUOp = 2'b10;
 				// Jump = 0;
@@ -111,9 +111,10 @@ always @ (*) begin
 			Jump = 0;
 			PCJalSrc_D = 0;
 			MemWrite = 0;
+			ResultSrc = 2'b00;
 		end
 
-		7'b 0010011: begin // I-Type
+		7'b0010011: begin // I-Type
 			RegWrite = 1;
 			ImmSrc = 2'b00;
 			ALUSrcB = 1;
@@ -127,20 +128,20 @@ always @ (*) begin
 			PCJalSrc_D = 0;
 		end
 
-		7'b 0100011: begin // S-Type
+		7'b0100011: begin // S-Type
 			RegWrite = 0;
 			ImmSrc = 2'b01;
 			ALUSrcB = 1;
 			ALUSrcA = 2'b01;
 			MemWrite = 1;
-			Branch=0;
-			ALUOp=2'b00;
+			Branch = 0;
+			ALUOp = 2'b00;
 			Jump = 0;
 			PCJalSrc_D = 0;
 			write_type_D = (funct3 == 3'b000) ? 2'b00 : ((funct3 == 3'b001) ? 2'b01 : ((funct3 == 3'b010) ? 2'b10 : 2'b11));
 		end
 
-		7'b 0000011: begin // L-Type
+		7'b0000011: begin // L-Type
 			RegWrite = 1;
 			ImmSrc = 2'b01;
 			ALUSrcB = 1;
@@ -154,7 +155,7 @@ always @ (*) begin
 			PCJalSrc_D = 0;
 		end
 
-		7'b 1100011: begin // B-Type
+		7'b1100011: begin // B-Type
 			RegWrite = 0;
 			ImmSrc=2'b10;
 			ALUSrcB=0;
@@ -166,7 +167,7 @@ always @ (*) begin
 			PCJalSrc_D = 0;
 		end
 
-		7'b 1101111: begin // J-Type
+		7'b1101111: begin // J-Type
 			RegWrite = 1;
 			ImmSrc = 2'b10;
 			ALUSrcB = 0;

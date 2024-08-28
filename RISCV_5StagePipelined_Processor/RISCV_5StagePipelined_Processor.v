@@ -49,7 +49,7 @@ parameter OPCODE_AUIPC_TYPE = 7'b0010111;
 
 
 parameter RESULTSRC_WIDTH = 2;
-parameter ALUCONTROL_WIDTH = 4;
+parameter ALUCONTROL_WIDTH = 6;
 parameter IMMSRC_WIDTH = 2;
 parameter OPCODE_WIDTH = 7;
 parameter FUNCT7_WIDTH = 7;
@@ -63,23 +63,32 @@ parameter IMM_WIDTH = 32;
 parameter OP_WIDTH = 32;
 parameter ALU_RESULT_WIDTH = 32;
 parameter MULT_DIV_WIDTH = 32;
-parameter ADD_ALU = 4'b0000;
-parameter SUB_ALU = 4'b0001;
-parameter AND_ALU = 4'b0010;
-parameter OR_ALU = 4'b0011;
-parameter XOR_ALU = 4'b0100;
-parameter SLT_ALU = 4'b0101;
-parameter SLL_ALU = 4'b0110;
-parameter SRA_ALU = 4'b0111;
-parameter SGTe_ALU = 4'b1000;
-parameter EQUAL_ALU = 4'b1001;
-parameter NOT_EQUAL_ALU = 4'b1010;
-parameter SRL_ALU = 4'b1011; // srl
-parameter SLTU_ALU = 4'b1100; //sltu
-parameter SGTeU_ALU = 4'b1101; // bgeu
-parameter JALR_ALU = 4'b1110; // jalr
 parameter DATA_WIDTH = 32;
 parameter CALC_RESULT_WIDTH = 32;
+
+parameter ADD_ALU = 5'b00000;
+parameter SUB_ALU = 5'b00001;
+parameter AND_ALU = 5'b00010;
+parameter OR_ALU = 5'b00011;
+parameter XOR_ALU = 5'b00100;
+parameter SLT_ALU = 5'b00101;
+parameter SLL_ALU = 5'b00110;
+parameter SRA_ALU = 5'b00111;
+parameter SGTe_ALU = 5'b01000;
+parameter EQUAL_ALU = 5'b01001;
+parameter NOT_EQUAL_ALU = 5'b01010;
+parameter SRL_ALU = 5'b01011; // srl
+parameter SLTU_ALU = 5'b01100; //sltu
+parameter SGTeU_ALU = 5'b01101; // bgeu
+parameter JALR_ALU = 5'b01110; // jalr
+parameter SHADD_ALU = 5'b01111; // sh1add, sh2add, sh3add
+parameter ANDN_ALU = 5'b10000; // andn
+parameter ORN_ALU = 5'b10001; // orn
+parameter XNOR_ALU = 5'b10010; // xnor
+parameter MAX_ALU = 5'b10011;   	// max, maxu
+parameter MIN_ALU = 5'b10100;   	// min, minu
+parameter SEXT_ALU = 5'b10101;       // sext.b, sext.h
+parameter ZEXT_ALU = 5'b10110;        // zext.h  
 
 // MEM 
 
@@ -122,6 +131,7 @@ wire [PC_WIDTH-1:0] PC_D;
 wire [OPCODE_WIDTH-1:0] opcode;
 reg [FUNCT7_WIDTH-1:0] funct7;
 reg [FUNCT3_WIDTH-1:0] funct3;
+// reg [4:0] ext_D;
 wire RegWrite_D;
 wire [RESULTSRC_WIDTH-1:0] ResultSrc_D;
 wire MemWrite_D;
@@ -193,6 +203,7 @@ wire [DATA_WIDTH-1:0] WriteData_M;
 wire [OPCODE_WIDTH-1:0] opcode_E;
 wire [FUNCT3_WIDTH-1:0] funct3_E;
 wire [FUNCT7_WIDTH-1:0] funct7_E;
+// wire [4:0] ext_E;
 wire [1:0] write_type_M;
 
 wire start_mult_E;
@@ -378,6 +389,7 @@ adder #(
 assign opcode = inst_D[6:0];
 
 always @ (*) begin
+	// ext_D = 0;
 	case(opcode)
 		OPCODE_R_TYPE: begin
 			funct3 = inst_D[14:12];
@@ -388,10 +400,11 @@ always @ (*) begin
 		end
 		OPCODE_I_TYPE: begin
 			funct3 = inst_D[14:12];
-			funct7 = inst_D[31:25]; // slli, srli, srai
+			funct7 = inst_D[31:25]; // srli, srai
 			rs1_D = inst_D[19:15];
 			rs2_D = 0;
 			rd_D = inst_D[11:7];
+			// ext_D = inst_D[24:20]; // sext.b / sext.h / zext.h
 		end
 		OPCODE_L_TYPE: begin
 			funct3 = inst_D[14:12];
@@ -525,6 +538,7 @@ reg_ID_EX #(
 	.opcode_D(opcode),
 	.funct7_D(funct7),
 	.funct3_D(funct3),
+	// .ext_D(ext_D),
 	.Flush_E(Flush_E),
 	.RegWrite_D(RegWrite_D),
 	.ResultSrc_D(ResultSrc_D),
@@ -554,6 +568,7 @@ reg_ID_EX #(
 	.opcode_E(opcode_E),
 	.funct7_E(funct7_E),
 	.funct3_E(funct3_E),
+	// .ext_E(ext_E),
 	.RegWrite_E(RegWrite_E),
 	.ResultSrc_E(ResultSrc_E),
 	.MemWrite_E(MemWrite_E),
@@ -621,6 +636,7 @@ alu #(
 	.ALUControl_E(ALUControl_E),
 	.opcode_E(opcode_E),
 	.funct3_E(funct3_E),
+	// .ext_E(ext_E),
 	.zero_E(zero_E),
 	.ALU_result_E(ALU_result_E)
 );
@@ -759,7 +775,7 @@ DMem #(
 // assign data_we_o = MemWrite_M;
 // assign data_be_o = write_type_M;
 // assign data_wdata_o = WriteData_M;
-// assign data_rdata_i = ReadData_M;
+// assign ReadData_M = data_rdata_i;
 
 reg_MEM_WB #(
 	.RESULTSRC_WIDTH(RESULTSRC_WIDTH),

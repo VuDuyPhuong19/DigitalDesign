@@ -1,6 +1,6 @@
 module reg_ID_EX #(
 	parameter RESULTSRC_WIDTH = 2,
-	parameter ALUCONTROL_WIDTH = 4,
+	parameter ALUCONTROL_WIDTH = 6,
 	parameter IMMSRC_WIDTH = 2,
 	parameter REG_ADDR_WIDTH = 5,
 	parameter REG_WIDTH = 32,
@@ -16,6 +16,7 @@ module reg_ID_EX #(
 	input [OPCODE_WIDTH-1:0] opcode_D, 
 	input [FUNCT7_WIDTH-1:0] funct7_D,
 	input [FUNCT3_WIDTH-1:0] funct3_D,
+	// input [4:0] ext_D,
 	input Flush_E,
 	input RegWrite_D,
 	input [RESULTSRC_WIDTH-1:0] ResultSrc_D,
@@ -45,6 +46,7 @@ module reg_ID_EX #(
 	output reg [OPCODE_WIDTH-1:0] opcode_E, 
 	output reg [FUNCT7_WIDTH-1:0] funct7_E,
 	output reg [FUNCT3_WIDTH-1:0] funct3_E,
+	// output reg [4:0] ext_E,
 	output reg RegWrite_E,
 	output reg [RESULTSRC_WIDTH-1:0] ResultSrc_E,
 	output reg MemWrite_E,
@@ -76,6 +78,7 @@ always @ (posedge clk or negedge rst_n) begin
 		opcode_E <= 0;
 		funct7_E <= 0;
 		funct3_E <= 0; 
+		// ext_E <= 0;
 		RegWrite_E <= 0;
 		ResultSrc_E <= 0;
 		MemWrite_E <= 0;
@@ -106,6 +109,7 @@ always @ (posedge clk or negedge rst_n) begin
 			opcode_E <= opcode_D;
 			funct7_E <= funct7_D;
 			funct3_E <= funct3_D; 
+			// ext_E <= ext_D;
 			RegWrite_E <= RegWrite_D;
 			ResultSrc_E <= ResultSrc_D;
 			MemWrite_E <= MemWrite_D;
@@ -135,6 +139,7 @@ always @ (posedge clk or negedge rst_n) begin
 			opcode_E <= 0;
 			funct7_E <= 0;
 			funct3_E <= 0; 
+			// ext_E <= 0;
 			RegWrite_E <= 0;
 			ResultSrc_E <= 0;
 			MemWrite_E <= 0;
