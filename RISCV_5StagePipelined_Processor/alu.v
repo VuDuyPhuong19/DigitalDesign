@@ -14,7 +14,7 @@ module alu #(
     parameter SRA_ALU = 6'b000111,
     parameter SGTe_ALU = 6'b001000,
     parameter EQUAL_ALU = 6'b001001,
-    parameter NOT_EQUAL_ALU = 6'b001010,
+    parameter NOT_EQUAL_ALU = 6'b00A1010,
     parameter SRL_ALU = 6'b001011, 		// srl
     parameter SLTU_ALU = 6'b001100, 	//sltu
     parameter SGTeU_ALU = 6'b001101, 	// bgeu
